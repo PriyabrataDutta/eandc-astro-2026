@@ -1,0 +1,75 @@
+---
+import Page from '../../layouts/Page.astro';
+import { article, faqPage } from '../../lib/schema.js';
+
+const faq = [
+  {
+    q: 'What is the difference between online and offline UPS?',
+    a: 'An online (double conversion) UPS powers the load from its inverter all the time, so there is no transfer time when mains fails. An offline (standby) UPS passes mains straight to the load and switches to battery only when mains fails, with a short break during the switch.',
+  },
+  {
+    q: 'Is a line interactive UPS the same as an online UPS?',
+    a: 'No. A line interactive UPS adds automatic voltage regulation to a standby design, so it corrects small voltage swings without using the battery, but it still transfers to battery when mains fails. An online UPS never transfers, because the inverter is always supplying the load.',
+  },
+  {
+    q: 'Which UPS is best for servers, hospitals and industrial machines?',
+    a: 'An online double conversion UPS. Servers, medical equipment, CNC machines and PLC-controlled processes are sensitive to even a brief break or a distorted supply, and an online UPS gives a continuous, regulated sine-wave output.',
+  },
+  {
+    q: 'Does an online UPS use more electricity?',
+    a: 'Converting power twice causes some loss, so an online UPS runs slightly less efficiently than a standby unit. Many online UPS designs offer an energy saver or eco mode for loads that can tolerate it.',
+  },
+];
+
+const schema = [article('Online vs Offline UPS: Differences, Line Interactive UPS and Which to Choose', 'guides/online-vs-offline-ups'), faqPage(faq)];
+---
+<Page
+  slug="guides/online-vs-offline-ups"
+  image="/image/blog/guides-online-vs-offline-ups.jpg"
+  type="article"
+  published="2026-11-17"
+  title="Online vs Offline UPS: Difference & Which to Choose | E&C"
+  description="Online vs offline vs line interactive UPS: how each works, transfer time, power quality and cost, and which suits servers, hospitals and industry."
+  h1="Online vs Offline UPS: Which One Do You Need?"
+  schema={schema}
+>
+  <p>The main difference is when the inverter works. In an <strong>online UPS</strong> the inverter supplies the load all the time, so a power cut causes no break at all. In an <strong>offline UPS</strong> the load runs on mains, and the UPS switches to battery only after mains fails. That switch takes a few milliseconds. A <strong>line interactive UPS</strong> sits between the two: it corrects voltage swings without the battery, but it still switches over in a power cut.</p>
+
+  <h2>How an online (double conversion) UPS works</h2>
+  <p>Incoming AC is converted to DC by a rectifier, which also keeps the battery charged. An inverter then converts the DC back to a clean, regulated AC sine wave for the load. Because the load is always fed by the inverter, it is isolated from sags, surges, spikes, frequency variation and noise on the mains. When mains fails, the battery simply keeps feeding the inverter, so the transfer time is zero.</p>
+  <p>This is why it is called double conversion: AC to DC, then DC back to AC.</p>
+
+  <h2>How an offline (standby) UPS works</h2>
+  <p>The load is connected directly to mains through a transfer switch. The inverter stays idle until mains fails or goes out of range, then the switch moves the load to battery power. The load sees whatever mains supplies in normal operation, and a short break during the switch. Offline units are inexpensive and suit simple loads such as a single desktop computer.</p>
+
+  <h2>How a line interactive UPS works</h2>
+  <p>A line interactive UPS adds an automatic voltage regulator (a tapped transformer) to the standby design. It boosts low voltage and trims high voltage without drawing on the battery, which saves battery life where mains voltage fluctuates. In a power cut it still transfers to battery, with a short transfer time. It suits networking, telecom and small server loads. E&amp;C's <a href="/lineups">line interactive UPS</a> range covers 600 VA to 5 kVA.</p>
+
+  <h2>Online vs line interactive vs offline: comparison</h2>
+  <table>
+    <thead><tr><th></th><th>Online (double conversion)</th><th>Line interactive</th><th>Offline (standby)</th></tr></thead>
+    <tbody>
+      <tr><td>Transfer time in a power cut</td><td>Zero</td><td>A few milliseconds</td><td>A few milliseconds</td></tr>
+      <tr><td>Output in normal operation</td><td>Regenerated, regulated sine wave</td><td>Mains, voltage-corrected</td><td>Mains as it comes</td></tr>
+      <tr><td>Protection from sags, surges, noise, frequency drift</td><td>Full</td><td>Partial (voltage only)</td><td>Minimal</td></tr>
+      <tr><td>Typical capacities</td><td>1 kVA to 1000+ kVA</td><td>Up to about 5 kVA</td><td>Up to about 2 kVA</td></tr>
+      <tr><td>Efficiency</td><td>Lower (two conversions); eco mode available</td><td>High</td><td>Highest</td></tr>
+      <tr><td>Price</td><td>Highest</td><td>Medium</td><td>Lowest</td></tr>
+      <tr><td>Best for</td><td>Servers, data centres, hospitals, CNC and process industry</td><td>Networking, telecom, small servers</td><td>Single PCs, home use</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Which UPS should you choose?</h2>
+  <ul>
+    <li><strong>Choose an online UPS</strong> when any break or distortion costs money or safety: servers and data centres, operation theatres and diagnostic equipment, CNC machines, PLCs and process lines, banking and telecom infrastructure.</li>
+    <li><strong>Choose a line interactive UPS</strong> for small networking, telecom and office loads where mains voltage fluctuates but a few milliseconds of transfer is acceptable.</li>
+    <li><strong>An offline UPS</strong> is enough for a single computer that only needs time to save work and shut down.</li>
+  </ul>
+  <p>For industrial and three-phase loads, the choice is almost always online double conversion. Capacity, backup time and whether you need redundancy (N+1) or a modular design then decide the model.</p>
+
+  <h2>E&amp;C online UPS range</h2>
+  <p><a href="/accenta">Accenta</a> (1 to 10 kVA), <a href="/renata">Renata-I</a> (2 to 30 kVA), <a href="/renata300">Renata-300</a> (10 to 800 kVA), <a href="/renatacyclone">Renata-DS</a> (10 to 300 kVA), <a href="/renatamodular">Renata Modular</a> (10 to 1200 kVA), <a href="/rack-mount">Accenta Rack</a> (1 to 60 kVA), <a href="/lithium-ups">Lithium UPS</a> (1 to 5 kVA) and <a href="/mil-grade">MIL grade UPS</a> for rugged and defence applications.</p>
+
+  <h2>Frequently asked questions</h2>
+  {faq.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+</Page>

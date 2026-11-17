@@ -1,0 +1,77 @@
+---
+import Page from '../layouts/Page.astro';
+
+const products = [
+  'Online UPS (1 - 30 kVA)', 'Online UPS (above 30 kVA)', 'Modular UPS', 'Rack Mount UPS', 'Lithium UPS',
+  'MIL Grade / IP55 Industrial UPS', 'Line Interactive UPS', 'Industrial Inverter', 'Domestic Inverter',
+  'Voltage Stabilizer', 'Isolation Transformer', 'Static Transfer Switch', 'Batteries (SMF / Tubular / Lithium / Ni-Cd)',
+  'Industrial Battery Charger (FCBC)', 'Solar Inverter / Solar System', 'EV Charger', 'Remote Monitoring', 'Service / AMC', 'Other',
+];
+const states = [
+  'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh', 'Delhi', 'Goa', 'Gujarat', 'Haryana',
+  'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka', 'Kerala', 'Ladakh', 'Madhya Pradesh', 'Maharashtra',
+  'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu',
+  'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal', 'Andaman and Nicobar', 'Dadra and Nagar Haveli and Daman and Diu', 'Lakshadweep',
+];
+const field = 'width:100%; padding:8px 12px; border:1px solid #ccc; border-radius:4px;';
+const label = 'font-size:13px; color:#333; font-weight:600; margin-bottom:4px; display:block;';
+---
+<Page
+  slug="get-a-quote"
+  title="Get a UPS Quote | Online & Industrial UPS Price | E&C Power"
+  description="Request a quote for online, industrial and modular UPS, inverters, stabilizers, batteries and EV chargers from E&C Power Systems, Bengaluru."
+  h1="Get a Quote"
+  sidebar={false}
+  cta={false}
+>
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+      <p>Tell us what you need to power and where. Our engineering team will size the right system and send a quotation, usually within one working day.</p>
+      <form action="/api/contact" method="POST" data-enquiry style="margin-top:15px;">
+        <div class="row">
+          <div class="col-sm-6 form-group" style="margin-bottom:12px;"><label style={label} for="q-name">Your name *</label><input id="q-name" type="text" name="name" class="form-control" required style={field}></div>
+          <div class="col-sm-6 form-group" style="margin-bottom:12px;"><label style={label} for="q-company">Company</label><input id="q-company" type="text" name="company" class="form-control" style={field}></div>
+          <div class="clearfix"></div>
+          <div class="col-sm-6 form-group" style="margin-bottom:12px;"><label style={label} for="q-email">Email *</label><input id="q-email" type="email" name="email" class="form-control" required style={field}></div>
+          <div class="col-sm-6 form-group" style="margin-bottom:12px;"><label style={label} for="q-phone">Phone *</label><input id="q-phone" type="tel" name="phone" class="form-control" required style={field}></div>
+          <div class="clearfix"></div>
+          <div class="col-sm-6 form-group" style="margin-bottom:12px;"><label style={label} for="q-city">City *</label><input id="q-city" type="text" name="city" class="form-control" required style={field}></div>
+          <div class="col-sm-6 form-group" style="margin-bottom:12px;">
+            <label style={label} for="q-state">State *</label>
+            <select id="q-state" name="state" class="form-control" required style={field}>
+              <option value="">Select state</option>
+              {states.map((s) => <option>{s}</option>)}
+            </select>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-sm-6 form-group" style="margin-bottom:12px;">
+            <label style={label} for="q-product">Product *</label>
+            <select id="q-product" name="service" class="form-control" required style={field}>
+              <option value="">Select product</option>
+              {products.map((p) => <option>{p}</option>)}
+            </select>
+          </div>
+          <div class="col-sm-6 form-group" style="margin-bottom:12px;"><label style={label} for="q-kva">Capacity (kVA) / quantity</label><input id="q-kva" type="text" name="capacity" class="form-control" placeholder="e.g. 20 kVA, 2 units" style={field}></div>
+          <div class="clearfix"></div>
+          <div class="col-sm-12 form-group" style="margin-bottom:15px;"><label style={label} for="q-message">Application and requirement *</label><textarea id="q-message" name="message" class="form-control" rows="4" required placeholder="What will the UPS power? Backup time needed? Single or three phase?" style={field}></textarea></div>
+        </div>
+        <button type="submit" class="btn" style="background:#005c9e; color:#fff; font-weight:600; padding:10px 28px; border:none; border-radius:4px;">Request Quote</button>
+      </form>
+    </div>
+    <div class="col-md-4 col-sm-12 mt-res-30">
+      <div class="sidebar-widget" style="background:#f8f9fa; border-left:4px solid #ff9900; padding:20px; border-radius:4px; margin-bottom:25px;">
+        <h5 style="margin-top:0; color:#333; font-weight:600;">What happens next</h5>
+        <ol style="font-size:13px; color:#555; padding-left:18px; margin-bottom:0;">
+          <li style="font-size:13px; text-align:left;">An engineer reviews your load and application.</li>
+          <li style="font-size:13px; text-align:left;">We call you to confirm capacity and backup time.</li>
+          <li style="font-size:13px; text-align:left;">You receive a quotation with delivery and installation terms.</li>
+        </ol>
+      </div>
+      <div class="sidebar-widget" style="background:#f8f9fa; border-left:4px solid #005c9e; padding:20px; border-radius:4px;">
+        <h5 style="margin-top:0; color:#333; font-weight:600;">Prefer to call?</h5>
+        <p style="font-size:13px; color:#555; margin-bottom:8px; text-align:left;"><strong>Phone:</strong> <a href="tel:+918028371974">080 2837 1974</a> / <a href="tel:+918028397120">2839 7120</a><br><strong>Email:</strong> <a href="mailto:sales@eandcpower.com">sales@eandcpower.com</a></p>
+        <p style="font-size:13px; color:#555; margin-bottom:0; text-align:left;">29/A, 2nd Phase, Peenya Industrial Area, Bengaluru, Karnataka 560058</p>
+      </div>
+    </div>
+  </div>
+</Page>

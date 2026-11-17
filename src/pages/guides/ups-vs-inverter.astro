@@ -1,0 +1,72 @@
+---
+import Page from '../../layouts/Page.astro';
+import { article, faqPage } from '../../lib/schema.js';
+
+const faq = [
+  {
+    q: 'What is the difference between an inverter and a UPS?',
+    a: 'A UPS is built to protect sensitive electronics: an online UPS has zero transfer time and gives clean, regulated power. A home inverter is built for long backup of lights, fans and appliances: it switches to battery after mains fails, with a short changeover, and usually runs from large tubular batteries.',
+  },
+  {
+    q: 'Can I run a computer on an inverter?',
+    a: 'Many computers ride through a short changeover, but a desktop or server can restart if the break is too long or the output is not a clean sine wave. For computers, servers and networking, a UPS is the safer choice.',
+  },
+  {
+    q: 'Which gives longer backup, a UPS or an inverter?',
+    a: 'Home inverters are usually paired with large tubular batteries for several hours of backup. A UPS can give long backup too, but needs a larger external battery bank sized for the load.',
+  },
+  {
+    q: 'What is an industrial inverter?',
+    a: 'An industrial inverter supplies AC from a DC source, such as a substation or plant battery, for control and instrumentation loads. It is built for continuous duty in harsh environments, unlike a home inverter.',
+  },
+];
+const schema = [article('UPS vs Inverter: Differences and Which One You Need', 'guides/ups-vs-inverter'), faqPage(faq)];
+---
+<Page
+  slug="guides/ups-vs-inverter"
+  image="/image/blog/guides-ups-vs-inverter.jpg"
+  type="article"
+  published="2026-11-17"
+  title="UPS vs Inverter: Difference & Which to Buy | E&C Power Systems"
+  description="UPS vs inverter explained: changeover time, power quality, backup time, batteries and cost, and which suits computers, servers, homes and industrial plants."
+  h1="UPS vs Inverter: What Is the Difference?"
+  schema={schema}
+>
+  <p>Both a UPS and an inverter supply AC power from a battery during a power cut. The difference is what they are built for. A <strong>UPS</strong> protects sensitive electronics: an online UPS switches in zero time and gives clean, regulated power. A <strong>home inverter</strong> keeps lights, fans and appliances running for hours: it switches over after mains fails, with a short break.</p>
+
+  <h2>UPS vs inverter: comparison</h2>
+  <table>
+    <thead><tr><th></th><th>Online UPS</th><th>Home inverter</th></tr></thead>
+    <tbody>
+      <tr><td>Changeover when mains fails</td><td>Zero; the inverter is always running</td><td>Short changeover; the inverter starts after mains fails</td></tr>
+      <tr><td>Output quality</td><td>Regulated pure sine wave; filters surges and noise</td><td>Sine wave or modified sine wave, depending on model</td></tr>
+      <tr><td>Built for</td><td>Computers, servers, networks, medical and industrial controls</td><td>Lights, fans, TVs and household appliances</td></tr>
+      <tr><td>Typical backup</td><td>Minutes to hours, depending on battery bank</td><td>Several hours with large tubular batteries</td></tr>
+      <tr><td>Typical batteries</td><td>SMF/VRLA, lithium; tubular for long backup</td><td>Tubular flooded batteries</td></tr>
+      <tr><td>Cost per kVA</td><td>Higher</td><td>Lower</td></tr>
+    </tbody>
+  </table>
+
+  <h2>When to choose a UPS</h2>
+  <ul>
+    <li>Computers, servers and network equipment that restart or lose data on even a short break.</li>
+    <li>Medical, laboratory and diagnostic equipment.</li>
+    <li>CNC machines, PLCs and process controls in factories.</li>
+    <li>Anywhere mains is noisy or the voltage swings, because an online UPS regenerates clean power all the time.</li>
+  </ul>
+  <p>See <a href="/online-ups">E&amp;C online UPS</a>, and the <a href="/guides/online-vs-offline-ups">online vs offline UPS guide</a> to choose the type.</p>
+
+  <h2>When to choose an inverter</h2>
+  <ul>
+    <li>Homes and small shops that need lights, fans and appliances during long power cuts.</li>
+    <li>Loads that tolerate a short changeover.</li>
+    <li>Where long backup at low cost matters more than power quality.</li>
+  </ul>
+  <p>E&amp;C <a href="/domestic-Inverters">domestic inverters</a> cover 600 VA to 5 kVA. For solar, see the <a href="/solar-hybrid-inverter">solar hybrid inverter</a>.</p>
+
+  <h2>Industrial inverters are different again</h2>
+  <p>An industrial inverter converts a plant's DC supply, often a substation or battery bank, into AC for control, instrumentation and emergency loads. It runs continuously and is built for heat, dust and electrical noise. E&amp;C <a href="/industrial-inverter">industrial inverters</a> cover 3 kVA to 100 kVA.</p>
+
+  <h2>Frequently asked questions</h2>
+  {faq.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+</Page>

@@ -1,0 +1,58 @@
+---
+// Where E&C supplies from its Bengaluru plant: cities placed by latitude/longitude. Deliberately no country or
+// state outline (a hand-drawn border would be inaccurate, and Indian rules on map boundaries are strict).
+// With `highlight`, the view zooms to those cities plus Bengaluru; other cities run off the edge.
+import { GEO, cityLink } from '../data/locations.js';
+
+const { highlight = [], labels = highlight, title = 'Cities E&C supplies from its plant in Bengaluru' } = Astro.props;
+const W = 380, H = 400, PAD = 46;
+const focus = ['bangalore', ...(highlight.length ? labels : Object.keys(GEO))];
+const proj = ([lat, lon]) => [lon * 0.94, -lat];
+const fp = focus.map((k) => proj(GEO[k]));
+const [x0, x1, y0, y1] = [Math.min(...fp.map((p) => p[0])), Math.max(...fp.map((p) => p[0])), Math.min(...fp.map((p) => p[1])), Math.max(...fp.map((p) => p[1]))];
+const k = Math.min((W - 2 * PAD) / Math.max(x1 - x0, 0.1), (H - 2 * PAD) / Math.max(y1 - y0, 0.1), 70);
+const [cx, cy] = [(x0 + x1) / 2, (y0 + y1) / 2];
+const pt = (g) => { const [x, y] = proj(g); return [Math.round(W / 2 + (x - cx) * k), Math.round(H / 2 + (y - cy) * k)]; };
+const [hx, hy] = pt(GEO.bangalore);
+
+const dots = Object.keys(GEO).filter((c) => c !== 'bangalore').map((c) => ({ c, ...cityLink(c), xy: pt(GEO[c]), on: highlight.includes(c) }));
+
+// Place labels without overlaps: highlighted first, then try right, left, below, above; drop a label that fits nowhere.
+const boxes = [[hx - 14, hy - 14, hx + 14, hy + 14], ...dots.map((d) => [d.xy[0] - 5, d.xy[1] - 5, d.xy[0] + 5, d.xy[1] + 5])];
+const hit = (b) => b[0] < 0 || b[2] > W || b[1] < 0 || b[3] > H || boxes.some((o) => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
+const place = (x, y, text, size, gap, first = 0) => {
+  const w = text.length * size * 0.64, h = size + 2;
+  const spots = [[x + gap, y + size * 0.35, 'start', 0], [x - gap, y + size * 0.35, 'end', -w], [x, y + gap + size, 'middle', -w / 2], [x, y - gap, 'middle', -w / 2]];
+  for (const [ax, ay, anchor, bx] of [...spots.slice(first), ...spots.slice(0, first)]) {
+    const b = [ax + bx, ay - size, ax + bx + w, ay + 2];
+    if (!hit(b)) { boxes.push(b); return { x: ax, y: ay, anchor }; }
+  }
+  return null;
+};
+const hq = place(hx, hy, 'Bengaluru plant', 12, 16, 2) ?? { x: hx, y: hy - 18, anchor: 'middle' };
+const named = [...dots.filter((d) => d.on), ...dots.filter((d) => !d.on && labels.includes(d.c))];
+const lab = Object.fromEntries(named.map((d) => [d.c, place(d.xy[0], d.xy[1], d.name, d.on ? 12 : 10.5, 8)]));
+---
+<figure class="hb-map">
+	<svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="map-t">
+		<title id="map-t">{title}</title>
+		<defs>
+			<pattern id="map-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.1" fill="#d4e0ec" /></pattern>
+		</defs>
+		<rect width={W} height={H} rx="10" fill="url(#map-dots)" />
+		{dots.filter((d) => d.on || !highlight.length).map((d) => <line x1={hx} y1={hy} x2={d.xy[0]} y2={d.xy[1]} class={d.on ? 'ln on' : 'ln'} />)}
+		{dots.map((d) => (
+			<a href={d.url} aria-label={`UPS manufacturer in ${d.name}`}>
+				<title>{d.name}</title>
+				<circle cx={d.xy[0]} cy={d.xy[1]} r={d.on ? 6 : 4} class={d.on ? 'dt on' : 'dt'} />
+				{lab[d.c] && <text x={lab[d.c].x} y={lab[d.c].y} text-anchor={lab[d.c].anchor} class={d.on ? 'lb on' : 'lb'}>{d.name}</text>}
+			</a>
+		))}
+		<a href="/ups-manufacturer-in-bangalore" aria-label="Bengaluru plant: UPS manufacturer in Bengaluru">
+			<circle cx={hx} cy={hy} r="13" class="hq-ring" />
+			<circle cx={hx} cy={hy} r="7" class="hq" />
+			{hq && <text x={hq.x} y={hq.y} text-anchor={hq.anchor} class="lb hq-lb">Bengaluru plant</text>}
+		</a>
+	</svg>
+	<figcaption>Positions are approximate. Tap a city to open its page.</figcaption>
+</figure>

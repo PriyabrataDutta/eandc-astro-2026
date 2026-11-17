@@ -1,0 +1,176 @@
+---
+// Voltage stabilizer category hub (8 keywords). Replaces the thin legacy /stabilizer. Capacities follow the product
+// pages (air 2–100 kVA, oil 100–1000 kVA); the legacy page had them the other way round (README: data conflicts).
+import Hub from '../layouts/Hub.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+import { families } from '../data/products.js';
+
+const fam = families.stabilizer;
+
+const cooling = [
+  ['E&C range', '2 – 100 kVA', '100 – 1000 kVA'],
+  ['Cooling', 'Natural or forced air', 'Transformer oil in a sealed tank'],
+  ['Best for', 'Machines, CNC, HVAC, offices and smaller buildings', 'Whole factories, hospitals and commercial complexes'],
+  ['Hot, dusty sites', 'Good with clean ventilation', 'Better: oil carries heat away and protects windings'],
+  ['Maintenance', 'Clean filters and check carbon brushes', 'Also check oil level and condition'],
+  ['Footprint', 'Smaller and lighter', 'Larger; usually installed outdoors or in a plant room'],
+];
+
+const types = [
+  ['How it corrects', 'A servo motor turns a variable transformer (variac) that feeds a buck-boost transformer', 'IGBTs or thyristors switch transformer taps or inject voltage electronically'],
+  ['Correction speed', 'Fractions of a second to a few seconds, depending on the swing', 'Within milliseconds'],
+  ['Moving parts', 'Yes: motor and carbon brush', 'None'],
+  ['Overloads and motor starting', 'Very tolerant', 'Needs generous sizing'],
+  ['Cost', 'Lower, especially at high kVA', 'Higher'],
+  ['Best for', 'Industrial machines, HVAC, buildings with slow voltage swings', 'Sensitive electronics with fast fluctuations'],
+];
+
+const apps = [
+  { icon: 'fa-th', h: 'Textile machines', t: 'Looms and spinning machines with electronic drives.' },
+  { icon: 'fa-print', h: 'Printing and packing machines', t: 'Register and speed stay accurate at steady voltage.' },
+  { icon: 'fa-wrench', h: 'CNC machines', t: 'Controllers and spindles stop tripping on low voltage.' },
+  { icon: 'fa-snowflake-o', h: 'Air conditioners and HVAC', t: 'Compressors run cooler and last longer.' },
+  { icon: 'fa-hospital-o', h: 'Hospitals and medical instruments', t: 'Imaging and lab equipment need stable mains.' },
+  { icon: 'fa-building', h: 'Commercial complexes and residences', t: 'Whole-building protection with oil cooled units.' },
+];
+
+const faq = [
+  { q: 'What is an automatic voltage regulator (AVR)?', a: 'An automatic voltage regulator, or automatic voltage stabilizer, senses the incoming mains voltage and corrects it to a steady output, boosting it when the supply is low and bucking it when it is high. A servo stabilizer is the most common type of AVR for industrial and building loads.' },
+  { q: 'Servo stabilizer or static stabilizer: which do I need?', a: 'A servo stabilizer is robust, tolerant of overloads and motor starting, and lower in cost at high kVA, which suits machines, HVAC and buildings. A static stabilizer corrects faster with no moving parts but costs more. E&C manufactures servo stabilizers.' },
+  { q: 'Oil cooled or air cooled stabilizer?', a: 'Air cooled stabilizers (2 to 100 kVA in the E&C range) suit individual machines and smaller buildings. Oil cooled stabilizers (100 to 1000 kVA) suit whole plants and large buildings, and cope better with heat and dust.' },
+  { q: 'Is a stabilizer the same as a UPS?', a: 'No. A stabilizer corrects voltage swings but gives no backup when the power fails. Critical loads need an online UPS, which also regulates voltage; a stabilizer protects the many machines and building loads that do not need backup.' },
+  { q: 'Does E&C install stabilizers?', a: 'Yes. E&C engineers size the stabilizer from your load and voltage records, then install, commission and maintain it, with service across India.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Voltage Stabilizer Manufacturer in India',
+    description: 'Servo controlled voltage stabilizers, air cooled 2–100 kVA and oil cooled 100–1000 kVA, with installation and service, from E&C Power Systems, Bengaluru.',
+    url: urlFor('stabilizer'),
+    serviceType: 'Voltage stabilizer manufacturing, installation and service',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="stabilizer"
+  title="Voltage Stabilizer Manufacturer | Oil & Air Cooled | E&C"
+  description="Servo voltage stabilizer manufacturer in India: air cooled 2–100 kVA and oil cooled 100–1000 kVA automatic voltage stabilizers, with installation and service."
+  name="Voltage Stabilizers"
+  schema={schema}
+  image="/image/Aries_Air_Cooled.jpg"
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">Servo controlled · automatic</span>
+          <h1>Voltage Stabilizer Manufacturer in India</h1>
+          <p class="hb-lead">E&amp;C Power Systems makes servo controlled automatic voltage stabilizers in Bengaluru: air cooled for machines and smaller buildings, oil cooled for whole plants and large buildings. Every stabilizer is sized, installed and serviced by E&amp;C engineers.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-bolt" aria-hidden="true"></em>2 – 1000 kVA</li>
+            <li><em class="fa fa-cog" aria-hidden="true"></em>Servo, AC synchronous motor</li>
+            <li><em class="fa fa-wrench" aria-hidden="true"></em>Installation &amp; AMC</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo prod"><img src="/image/Aries_Air_Cooled.jpg" alt="E&C Aries servo voltage stabilizer" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C Aries servo stabilizer</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <ul class="pd-trust">
+      <li><em class="fa fa-check" aria-hidden="true"></em>Zero waveform distortion</li>
+      <li><em class="fa fa-cogs" aria-hidden="true"></em>No overshoot or hunting</li>
+      <li><em class="fa fa-plug" aria-hidden="true"></em>Generator compatible, balanced or unbalanced loads</li>
+    </ul>
+  </div>
+
+  <section class="pd-sec" aria-labelledby="h-range">
+    <div class="container">
+      <h2 class="pd-h" id="h-range">Stabilizer range</h2>
+      <Range slugs={['air_oil', 'oil-cooled', 'isolation', 'energy-saver']} />
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-avr">
+    <div class="container">
+      <h2 class="pd-h" id="h-avr">What is an automatic voltage regulator?</h2>
+      <p class="hb-p">An automatic voltage regulator (AVR), or automatic voltage stabilizer, holds the voltage to your equipment steady while the mains rises and falls. Low voltage makes motors draw more current and overheat; high voltage stresses insulation and electronics. A servo stabilizer corrects both, continuously.</p>
+      <ol class="hb-flow">
+        <li><strong>Sense</strong>A solid-state control circuit compares the output with the set voltage.</li>
+        <li><strong>Drive</strong>An AC synchronous servo motor turns the variable transformer.</li>
+        <li><strong>Correct</strong>A buck-boost transformer adds or subtracts the difference.</li>
+        <li><strong>Hold</strong>The output stays steady, with zero waveform distortion.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-cool">
+    <div class="container">
+      <h2 class="pd-h" id="h-cool">Oil cooled vs air cooled stabilizer</h2>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col"></th><th scope="col"><a href="/air_oil" style="color:#fff;">Air cooled</a></th><th scope="col"><a href="/oil-cooled" style="color:#fff;">Oil cooled</a></th></tr></thead>
+          <tbody>{cooling.map(([k, a, b]) => <tr><th scope="row">{k}</th><td>{a}</td><td>{b}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <h3 class="pd-h" style="margin-top:24px;font-size:18px;">Servo stabilizer vs static stabilizer</h3>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col"></th><th scope="col">Servo stabilizer</th><th scope="col">Static stabilizer</th></tr></thead>
+          <tbody>{types.map(([k, a, b]) => <tr><th scope="row">{k}</th><td>{a}</td><td>{b}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="hb-p" style="margin-top:12px;">E&amp;C manufactures servo stabilizers. For loads that cannot take any break, use an <a href="/online-ups">online UPS</a>, which also regulates voltage.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-apps">
+    <div class="container">
+      <h2 class="pd-h" id="h-apps">Where stabilizers are used</h2>
+      <div class="hb-cards three">
+        {apps.map((x) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-inst">
+    <div class="container">
+      <h2 class="pd-h" id="h-inst">Stabilizer installation service</h2>
+      <ol class="hb-flow">
+        <li><strong>Site study</strong>Load list and voltage readings, so the range and kVA are right.</li>
+        <li><strong>Sizing</strong>Input range, output tolerance, single or three phase, air or oil.</li>
+        <li><strong>Installation</strong>Cabling, earthing and bypass by E&amp;C engineers.</li>
+        <li><strong>Service</strong>Commissioning, warranty support and <a href="/eandcpower-services">AMC</a>.</li>
+      </ol>
+      <p class="hb-p" style="margin-top:14px;">More: <a href="/voltage-stabilizer-manufacturer-in-india">voltage stabilizer manufacturer in India</a>, <a href="/automatic-voltage-stabilizer-manufacturer-in-india">automatic voltage stabilizers</a>, and our <a href="/contact#sales-offices">sales offices</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get a stabilizer quotation" service="Quote: Voltage stabilizer" pitch={fam.pitch} step1={fam.step1} field={fam.field} ask="What will it protect? Voltage range at site?" />
+</Hub>

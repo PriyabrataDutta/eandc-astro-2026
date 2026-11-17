@@ -1,0 +1,171 @@
+---
+// India hub: links to every state hub and city page. Replaces the legacy page at the same URL.
+import Hub from '../layouts/Hub.astro';
+import IndiaMap from '../components/IndiaMap.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+import { officesHtml } from '../data/offices.js';
+import { states, cities, citiesWithoutHub, cityLink, SECTORS } from '../data/locations.js';
+
+const faq = [
+  {
+    q: 'Is E&C Power Systems a UPS manufacturer in India?',
+    a: 'Yes. Electronics & Controls Power Systems designs and manufactures online UPS, industrial UPS, inverters, stabilizers and battery chargers in Peenya Industrial Area, Bengaluru, and has worked in power electronics since 1978.',
+  },
+  {
+    q: 'Does E&C supply UPS outside Bengaluru?',
+    a: 'Yes. E&C supplies customers across India through its all-India sales and service network, with over 1 lakh installations across the country.',
+  },
+  {
+    q: 'What UPS capacities does E&C make?',
+    a: 'Online UPS from 1 kVA (Accenta) up to 1200 kVA (Renata Modular), line interactive UPS from 600 VA to 5 kVA, and industrial inverters from 3 to 100 kVA.',
+  },
+  {
+    q: 'How do I get a UPS quotation?',
+    a: 'Send the connected load, the backup time you need and the site location through the quote form, or call 080 2837 1974. An engineer sizes the system and sends a quotation.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'UPS Manufacturer in India',
+    description: 'Online and industrial UPS manufacturing, supply, installation and service across India from E&C Power Systems, Bengaluru.',
+    url: urlFor('ups-manufacturer-in-india'),
+    serviceType: 'Online UPS and industrial UPS manufacturing, supply, installation and service',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+// The legacy Bengaluru pages, grouped by need; before this they were linked only from /sitemap.
+const blr = [
+  ['By product', [['Online UPS manufacturer', 'online-ups-manufacturer-in-bangalore'], ['Online UPS supplier', 'online-ups-supplier-in-bangalore'], ['Online UPS systems', 'online-ups-system-in-bangalore'], ['Single phase online UPS', 'single-phase-online-ups-in-bangalore'], ['Three phase online UPS', 'three-phase-online-ups-in-bangalore'], ['Industrial UPS supplier', 'industrial-ups-supplier-in-bangalore'], ['Industrial UPS systems', 'industrial-ups-system-in-bangalore'], ['Industrial battery chargers', 'industrial-battery-charger-manufacturer-in-bangalore'], ['EV charging solutions', 'ev-charging-solutions-in-bangalore']]],
+  ['By industry', [['Data centre UPS solutions', 'data-centre-ups-solutions-in-bangalore'], ['UPS for data centres', 'ups-for-data-centre-in-bangalore'], ['UPS for hospitals', 'ups-for-hospitals-in-bangalore'], ['UPS for industries', 'ups-for-industries-in-bangalore'], ['UPS for manufacturing', 'ups-for-manufacturing-industries-in-bangalore'], ['Industrial power backup', 'industrial-power-backup-solutions-in-bangalore']]],
+  ['Company', [['UPS manufacturer in Bengaluru', 'ups-manufacturer-in-bangalore'], ['UPS supplier in Bengaluru', 'ups-supplier-in-bangalore'], ['UPS company in Bengaluru', 'ups-company-in-bangalore']]],
+];
+const range = ['accenta', 'renata', 'renatacyclone', 'renata300', 'renatamodular', 'rack-mount', 'lithium-ups', 'mil-grade', 'lineups', 'industrial-inverter'];
+const major = ['delhi', 'mumbai', 'kolkata', 'chennai', 'hyderabad', 'ahmedabad', 'pune', 'jaipur', 'kochi', 'guwahati', 'nagpur', 'bhubaneswar', 'visakhapatnam', 'chandigarh', 'indore', 'coimbatore'];
+---
+<Hub
+  slug="ups-manufacturer-in-india"
+  title="UPS Manufacturer in India | Online & Industrial UPS | E&C Power"
+  description="E&C Power Systems is a UPS manufacturer in India since 1978: online UPS 1–1200 kVA, industrial UPS and inverters, with all-India sales and service."
+  name="UPS Manufacturer in India"
+  schema={schema}
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">Made in Bengaluru since 1978</span>
+          <h1>UPS Manufacturer in India</h1>
+          <p class="hb-lead">Electronics &amp; Controls (E&amp;C) Power Systems designs and builds online UPS, industrial UPS and power electronics at its plant in Peenya Industrial Area, Bengaluru, and supplies customers across India through an all-India sales and service network.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-bolt" aria-hidden="true"></em>Online UPS 1 – 1200 kVA</li>
+            <li><em class="fa fa-map-marker" aria-hidden="true"></em>{states.length} states, {cities.length + 1} cities</li>
+            <li><em class="fa fa-wrench" aria-hidden="true"></em>Installation, AMC &amp; service</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo"><img src="/image/about.jpg" alt="E&C Power Systems UPS plant in Peenya Industrial Area, Bengaluru" width="855" height="570" fetchpriority="high" /><figcaption>Our plant in Peenya Industrial Area, Bengaluru</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <ul class="hb-stats">
+      <li><strong>1978</strong><span>in power electronics since</span></li>
+      <li><strong>1 – 1200 kVA</strong><span>online UPS range</span></li>
+      <li><strong>{states.length} states</strong><span>{cities.length + 1} cities supplied</span></li>
+      <li><strong>In-house</strong><span>R&amp;D, design and manufacturing</span></li>
+    </ul>
+  </div>
+
+  <section class="pd-sec" aria-labelledby="h-india">
+    <div class="container">
+      <h2 class="pd-h" id="h-india">UPS supply across India</h2>
+      <p class="hb-sub">Every UPS is built in Bengaluru and supplied, installed and serviced across the country. Find E&amp;C in your state or city.</p>
+      <div class="hb-geo">
+        <IndiaMap labels={major} />
+        <div class="hb-cards">
+          {states.map((s) => (
+            <div class="hb-card">
+              <h3><a href={`/${s.slug}`}>UPS supplier in {s.name}</a></h3>
+              <ul class="hb-tags">{s.cities.map(cityLink).map((c) => <li><a href={c.url}>{c.name}</a></li>)}</ul>
+            </div>
+          ))}
+          <div class="hb-card">
+            <h3>More cities</h3>
+            <ul class="hb-tags">{citiesWithoutHub().map((c) => <li><a href={`/${c.slug}`}>{c.name}</a></li>)}</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Fragment set:html={officesHtml()} />
+
+  <section class="pd-sec" aria-labelledby="h-blr">
+    <div class="container">
+      <h2 class="pd-h" id="h-blr">UPS in Bengaluru, our home city</h2>
+      <p class="hb-sub">E&amp;C designs and builds every UPS at its plant in Peenya Industrial Area, Bengaluru, with direct sales and service across the city.</p>
+      <div class="hb-cards three">
+        {blr.map(([label, links]) => (
+          <div class="hb-card"><h3>{label}</h3><ul class="hb-tags">{links.map(([t, s]) => <li><a href={`/${s}`}>{t}</a></li>)}</ul></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-range">
+    <div class="container">
+      <h2 class="pd-h" id="h-range">UPS range and capacities</h2>
+      <Range slugs={range} />
+      <p class="hb-p" style="margin-top:14px;">See the full <a href="/online-ups">online UPS range</a> and <a href="/industrial-ups-manufacturer-in-india">industrial UPS</a>, or read <a href="/guides/online-vs-offline-ups">online vs offline UPS</a> and <a href="/guides/ups-sizing-kva">how to size a UPS</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-ind">
+    <div class="container">
+      <h2 class="pd-h" id="h-ind">UPS for every industry</h2>
+      <div class="hb-cards three">
+        {Object.values(SECTORS).map((s) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${s.icon}`} aria-hidden="true"></em></span>
+            <h3>{s.label}</h3>
+            <p>{s.need}</p>
+            <p class="hb-rec">{s.links.map((l, i) => (<>{i > 0 && ' · '}<a href={l[1]}>{l[0]}</a></>))}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-why">
+    <div class="container">
+      <h2 class="pd-h" id="h-why">Why choose E&amp;C as your UPS manufacturer</h2>
+      <ul class="hb-why">
+        <li><em class="fa fa-history" aria-hidden="true"></em><span><strong>Over four decades in power electronics</strong>Designing and building UPS since 1978.</span></li>
+        <li><em class="fa fa-industry" aria-hidden="true"></em><span><strong>A true manufacturer</strong>In-house R&amp;D, design and manufacturing in Bengaluru, plus <a href="/custom-solutions">custom power solutions</a>.</span></li>
+        <li><em class="fa fa-wrench" aria-hidden="true"></em><span><strong>All-India sales and service</strong>Installation, AMC and battery replacement through <a href="/eandcpower-services">E&amp;C service</a>.</span></li>
+        <li><em class="fa fa-plug" aria-hidden="true"></em><span><strong>One supplier for the whole power chain</strong>UPS, inverters, stabilizers, isolation transformers, transfer switches, batteries, chargers and <a href="/ups-remote-monitoring">remote monitoring</a>.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get a UPS quotation anywhere in India" service="Quote: UPS (India hub)" />
+</Hub>

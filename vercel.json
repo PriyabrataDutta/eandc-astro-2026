@@ -1,0 +1,251 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/line_ups",
+      "destination": "/lineups",
+      "permanent": true
+    },
+    {
+      "source": "/about-us-2",
+      "destination": "/about-us",
+      "permanent": true
+    },
+    {
+      "source": "/accenta-2",
+      "destination": "/accenta",
+      "permanent": true
+    },
+    {
+      "source": "/agm-gel-2",
+      "destination": "/agm-gel",
+      "permanent": true
+    },
+    {
+      "source": "/air_oil-2",
+      "destination": "/air_oil",
+      "permanent": true
+    },
+    {
+      "source": "/battery-bank-remote-monitoring-2",
+      "destination": "/battery-bank-remote-monitoring",
+      "permanent": true
+    },
+    {
+      "source": "/contact-2",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/custom-solutions-2",
+      "destination": "/custom-solutions",
+      "permanent": true
+    },
+    {
+      "source": "/domestic-Inverters-2",
+      "destination": "/domestic-Inverters",
+      "permanent": true
+    },
+    {
+      "source": "/eandcpower-sales-2",
+      "destination": "/eandcpower-sales",
+      "permanent": true
+    },
+    {
+      "source": "/eandcpower-services-2",
+      "destination": "/eandcpower-services",
+      "permanent": true
+    },
+    {
+      "source": "/energy-saver-2",
+      "destination": "/energy-saver",
+      "permanent": true
+    },
+    {
+      "source": "/ev-chargers-2",
+      "destination": "/ev-chargers",
+      "permanent": true
+    },
+    {
+      "source": "/facility-monitoring-2",
+      "destination": "/facility-monitoring",
+      "permanent": true
+    },
+    {
+      "source": "/industrial-battery-charger-fcbc-2",
+      "destination": "/industrial-battery-charger-fcbc",
+      "permanent": true
+    },
+    {
+      "source": "/industrial-inverter-2",
+      "destination": "/industrial-inverter",
+      "permanent": true
+    },
+    {
+      "source": "/intelligent-transfer-switch-2",
+      "destination": "/intelligent-transfer-switch",
+      "permanent": true
+    },
+    {
+      "source": "/isolation-2",
+      "destination": "/isolation",
+      "permanent": true
+    },
+    {
+      "source": "/lithium-ion-2",
+      "destination": "/lithium-ion",
+      "permanent": true
+    },
+    {
+      "source": "/mil-grade-2",
+      "destination": "/mil-grade",
+      "permanent": true
+    },
+    {
+      "source": "/missionandvision-2",
+      "destination": "/missionandvision",
+      "permanent": true
+    },
+    {
+      "source": "/newtestimonal-2",
+      "destination": "/newtestimonal",
+      "permanent": true
+    },
+    {
+      "source": "/oil-cooled-2",
+      "destination": "/oil-cooled",
+      "permanent": true
+    },
+    {
+      "source": "/rack-mount-2",
+      "destination": "/rack-mount",
+      "permanent": true
+    },
+    {
+      "source": "/renata-2",
+      "destination": "/renata",
+      "permanent": true
+    },
+    {
+      "source": "/renata300-2",
+      "destination": "/renata300",
+      "permanent": true
+    },
+    {
+      "source": "/renatacyclone-2",
+      "destination": "/renatacyclone",
+      "permanent": true
+    },
+    {
+      "source": "/renatamodular-2",
+      "destination": "/renatamodular",
+      "permanent": true
+    },
+    {
+      "source": "/scc-2",
+      "destination": "/scc",
+      "permanent": true
+    },
+    {
+      "source": "/smf-2",
+      "destination": "/smf",
+      "permanent": true
+    },
+    {
+      "source": "/snmp-adapter-2",
+      "destination": "/snmp-adapter",
+      "permanent": true
+    },
+    {
+      "source": "/solar-dc-up-2",
+      "destination": "/solar-dc-up",
+      "permanent": true
+    },
+    {
+      "source": "/solar-grid-2",
+      "destination": "/solar-grid",
+      "permanent": true
+    },
+    {
+      "source": "/solar-hybrid-inverter-2",
+      "destination": "/solar-hybrid-inverter",
+      "permanent": true
+    },
+    {
+      "source": "/solar-off-grid-inverter-2",
+      "destination": "/solar-off-grid-inverter",
+      "permanent": true
+    },
+    {
+      "source": "/solar-street-lighting-2",
+      "destination": "/solar-street-lighting",
+      "permanent": true
+    },
+    {
+      "source": "/tubular-batteries-manufacturing-2",
+      "destination": "/tubular-batteries-manufacturing",
+      "permanent": true
+    },
+    {
+      "source": "/ups-remote-monitoring-2",
+      "destination": "/ups-remote-monitoring",
+      "permanent": true
+    },
+    {
+      "source": "/index-2",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index-3",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/GET",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/dg-monitorings",
+      "destination": "/dg-monitoring",
+      "permanent": true
+    },
+    {
+      "source": "/eandc-solar-solutions",
+      "destination": "/solar-solutions",
+      "permanent": true
+    },
+    {
+      "source": "/eandcpower-batteries",
+      "destination": "/tubular-batteries-manufacturing",
+      "permanent": true
+    },
+    {
+      "source": "/industrial-inverters",
+      "destination": "/industrial-inverter",
+      "permanent": true
+    },
+    {
+      "source": "/remote_monitoring",
+      "destination": "/ups-remote-monitoring",
+      "permanent": true
+    },
+    {
+      "source": "/stabilizer-2",
+      "destination": "/stabilizer",
+      "permanent": true
+    },
+    {
+      "source": "/frequently-asked-questions-2",
+      "destination": "/frequently-asked-questions",
+      "permanent": true
+    },
+    {
+      "source": "/line_ups-2",
+      "destination": "/lineups",
+      "permanent": true
+    }
+  ]
+}

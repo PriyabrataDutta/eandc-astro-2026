@@ -1,0 +1,100 @@
+---
+import Page from '../../layouts/Page.astro';
+import { article, faqPage } from '../../lib/schema.js';
+
+const faq = [
+  {
+    q: 'What is the kVA rating of a UPS?',
+    a: 'kVA is the apparent power the UPS can deliver. The real power it can supply, in kW, is kVA multiplied by its output power factor. A 10 kVA UPS with a 0.9 power factor supplies up to 9 kW.',
+  },
+  {
+    q: 'What is power factor in a UPS?',
+    a: 'Power factor is the ratio of real power (kW) to apparent power (kVA). Modern online UPS systems have output power factors of about 0.8 to 1.0. Check the datasheet, because two UPS units with the same kVA can supply different kW.',
+  },
+  {
+    q: 'How much margin should I add when sizing a UPS?',
+    a: 'Size the UPS so your present load is about 70 to 80% of its kW rating. This covers load growth, start-up current and ageing, and keeps the UPS running efficiently.',
+  },
+  {
+    q: 'How do I size a UPS for a data centre?',
+    a: 'Start from the IT load in kW, add cooling-critical and network loads that need backup, plan for growth over the next few years, and choose a redundant design such as N+1 so one module can fail or be serviced without dropping the load. Modular UPS systems let you add capacity as racks are added.',
+  },
+];
+const schema = [article('How to Size a UPS: kVA, kW, Power Factor and Choosing an Industrial or Data Centre UPS', 'guides/ups-sizing-kva'), faqPage(faq)];
+---
+<Page
+  slug="guides/ups-sizing-kva"
+  image="/image/blog/guides-ups-sizing-kva.jpg"
+  type="article"
+  published="2026-11-17"
+  title="UPS Sizing Guide: kVA vs kW & Power Factor | E&C Power"
+  description="How to size a UPS: convert your load to kW and kVA, allow for power factor and growth, pick single or three phase, and size UPS for industry and data centres."
+  h1="How to Size a UPS: kVA, kW and Power Factor"
+  schema={schema}
+>
+  <p>To size a UPS, add up the real power your equipment draws in kW, divide by the UPS power factor to get kVA, and choose a UPS where that load is about 70 to 80% of its rating. Then pick the battery bank for the backup time you need.</p>
+
+  <h2>kVA vs kW: what the UPS rating means</h2>
+  <p>A UPS is rated in <strong>kVA</strong> (apparent power), while equipment draws <strong>kW</strong> (real power). The link between them is the power factor:</p>
+  <p><strong>kW = kVA × power factor</strong>, so <strong>kVA needed = kW ÷ power factor</strong>.</p>
+  <p>Modern online UPS systems have an output power factor of about 0.8 to 1.0. A 10 kVA UPS at 0.8 supplies 8 kW; at 0.9 it supplies 9 kW. Always size on kW, and read the power factor from the UPS datasheet.</p>
+
+  <h2>Step-by-step UPS sizing</h2>
+  <ol>
+    <li><strong>List every load</strong> that must stay on: servers, PCs, network switches, machines, medical equipment, lighting.</li>
+    <li><strong>Find the real power of each</strong> in watts, from the nameplate or datasheet. If only volts and amps are given, W ≈ V × A × power factor of that equipment.</li>
+    <li><strong>Add them up</strong> to get the total load in kW.</li>
+    <li><strong>Allow for start-up current.</strong> Motors, pumps, compressors and transformers can draw several times their running current when they start. Laser printers and some lighting also have high inrush. Tell the UPS supplier about these loads.</li>
+    <li><strong>Add margin</strong> so the load is about 70 to 80% of the UPS kW rating. This covers growth and ageing.</li>
+    <li><strong>Convert to kVA</strong> using the UPS power factor, and round up to the next standard model.</li>
+    <li><strong>Choose single or three phase.</strong> Small loads up to about 10 kVA are usually single phase. Larger loads and most industrial supplies are three phase, which also balances the load across phases.</li>
+    <li><strong>Choose the backup time</strong> and size the battery bank (see the <a href="/guides/ups-battery-backup-time">battery backup time guide</a>).</li>
+  </ol>
+
+  <h3>Worked example: office with a server room</h3>
+  <table>
+    <thead><tr><th>Load</th><th>Quantity</th><th>Watts each</th><th>Total W</th></tr></thead>
+    <tbody>
+      <tr><td>Desktop PCs with monitors</td><td>20</td><td>150</td><td>3,000</td></tr>
+      <tr><td>Servers</td><td>2</td><td>400</td><td>800</td></tr>
+      <tr><td>Network switches and router</td><td>1 set</td><td>200</td><td>200</td></tr>
+      <tr><td><strong>Total</strong></td><td></td><td></td><td><strong>4,000 W (4 kW)</strong></td></tr>
+    </tbody>
+  </table>
+  <p>First add margin, so the load is about 75% of the UPS rating: 4 kW ÷ 0.75 ≈ 5.3 kW. Then convert to kVA for a 0.9 power factor UPS: 5.3 kW ÷ 0.9 ≈ 5.9 kVA. A 6 kVA online UPS fits; choose 10 kVA if more desks are planned.</p>
+
+  <h2>Sizing a UPS for industry</h2>
+  <ul>
+    <li><strong>Separate sensitive and heavy loads.</strong> Put CNC controls, PLCs, SCADA and instrumentation on the UPS. Large motors usually run from the mains or a generator rather than the UPS.</li>
+    <li><strong>Check the environment.</strong> Dust, heat and moisture call for <a href="/ip-41-55-online-ups">IP41 or IP55 rated UPS</a>; vibration and shock call for <a href="/mil-grade">MIL grade UPS</a>.</li>
+    <li><strong>Consider isolation.</strong> An <a href="/isolation">isolation transformer</a> separates the load from mains disturbances and earthing problems.</li>
+    <li><strong>Match the generator.</strong> If a DG set backs up the site, make sure the UPS input is generator-compatible and the generator is sized for the UPS input.</li>
+  </ul>
+
+  <h2>Sizing a UPS for a data centre</h2>
+  <ul>
+    <li>Size on the IT load in kW, plus network and any cooling controls that must stay up.</li>
+    <li>Plan for growth: data centre load usually rises as racks fill.</li>
+    <li>Use redundancy. In an <strong>N+1</strong> design, one extra module or unit carries the load if another fails or is serviced.</li>
+    <li>A <a href="/renatamodular">modular UPS</a> (E&amp;C Renata Modular, 10 to 1200 kVA) lets you add power modules as the load grows and replace a module without shutting down.</li>
+    <li>Add <a href="/intelligent-transfer-switch">static transfer switches</a> for dual-source supply to critical racks.</li>
+  </ul>
+
+  <h2>Which E&amp;C UPS fits which size?</h2>
+  <table>
+    <thead><tr><th>Capacity</th><th>Model</th></tr></thead>
+    <tbody>
+      <tr><td>600 VA to 5 kVA</td><td><a href="/lineups">Line interactive UPS</a> (networking, small servers)</td></tr>
+      <tr><td>1 to 5 kVA</td><td><a href="/lithium-ups">Lithium UPS</a></td></tr>
+      <tr><td>1 to 10 kVA</td><td><a href="/accenta">Accenta online UPS</a>; <a href="/mil-grade">MIL grade UPS</a></td></tr>
+      <tr><td>1 to 60 kVA</td><td><a href="/rack-mount">Accenta Rack</a></td></tr>
+      <tr><td>2 to 30 kVA</td><td><a href="/renata">Renata-I</a></td></tr>
+      <tr><td>10 to 300 kVA</td><td><a href="/renatacyclone">Renata-DS</a></td></tr>
+      <tr><td>10 to 800 kVA</td><td><a href="/renata300">Renata-300</a></td></tr>
+      <tr><td>10 to 1200 kVA</td><td><a href="/renatamodular">Renata Modular</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Frequently asked questions</h2>
+  {faq.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+</Page>

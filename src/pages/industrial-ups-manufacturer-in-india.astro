@@ -1,0 +1,190 @@
+---
+// Industrial UPS category hub (keyword map: all "/industrial-ups" keywords). Replaces the legacy page at this URL,
+// which already ranked for "industrial UPS manufacturer in India", rather than starting a competing /industrial-ups.
+import Hub from '../layouts/Hub.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+
+const L = {
+  r300: ['Renata-300 online UPS', '/renata300'],
+  ip: ['IP41/IP55 industrial UPS', '/ip-41-55-online-ups'],
+  ds: ['Renata-DS online UPS', '/renatacyclone'],
+  mod: ['Renata Modular UPS', '/renatamodular'],
+  inv: ['Industrial inverter', '/industrial-inverter'],
+  fcbc: ['Battery chargers (FCBC)', '/industrial-battery-charger-fcbc'],
+  nicd: ['Ni-Cd batteries', '/nickel'],
+  iso: ['Isolation transformers', '/isolation'],
+  stab: ['Servo stabilizers', '/oil-cooled'],
+  sts: ['Static transfer switch', '/intelligent-transfer-switch'],
+  mon: ['UPS remote monitoring', '/ups-remote-monitoring'],
+  mil: ['MIL grade UPS', '/mil-grade'],
+};
+
+// One card per industry in the keyword map. Needs are generic engineering facts, not claims about E&C installations.
+const industries = [
+  { icon: 'fa-cogs', h: 'UPS for manufacturing industries and factories', t: 'PLCs, robots, HMIs and line controllers lose position and scrap work on a break of a few milliseconds. A double conversion online UPS on the control panels keeps production lines in step through power cuts and voltage dips.', r: ['r300', 'ip', 'stab'] },
+  { icon: 'fa-wrench', h: 'Uninterruptible power supply for CNC machines', t: 'A CNC controller that resets mid-cycle can crash the tool or scrap the part. An online UPS sized for the controller and drives, with a transformer for a clean neutral–earth reference, lets the machine finish or park safely.', r: ['r300', 'iso', 'stab'] },
+  { icon: 'fa-fire', h: 'UPS for the oil and gas industry', t: 'Wellhead, pipeline and terminal control systems, ESD and fire and gas panels need power through every outage, often in heat, dust and remote sites. Rugged transformer-based UPS and DC systems with long-life Ni-Cd batteries suit these duties.', r: ['r300', 'fcbc', 'nicd'] },
+  { icon: 'fa-flask', h: 'UPS for petrochemical plants and refineries', t: 'DCS, SIS and analyser houses run continuous processes where a power break means a plant trip and a slow, costly restart. Redundant online UPS with static transfer switches keep the control layer alive.', r: ['r300', 'sts', 'fcbc'] },
+  { icon: 'fa-tint', h: 'UPS for the chemical industry', t: 'Batch controllers, dosing systems and safety interlocks must not lose power part-way through a reaction. Online UPS with isolation, plus monitored batteries, protect control rooms in corrosive and hot areas.', r: ['ip', 'iso', 'mon'] },
+  { icon: 'fa-sliders', h: 'Online UPS for process industries', t: 'Pharma, fertiliser, paper and glass plants run continuous processes on PLC and DCS control. A double conversion online UPS gives a zero-break, regulated supply and filters the disturbances that large drives put on the plant network.', r: ['r300', 'ds', 'mod'] },
+  { icon: 'fa-industry', h: 'Industrial UPS for steel plants', t: 'Furnace, rolling mill and crane controls sit among heavy dust, heat and severe electrical noise from arc furnaces and drives. Transformer-based UPS, sealed enclosures and isolation transformers suit these sites.', r: ['r300', 'ip', 'iso'] },
+  { icon: 'fa-cubes', h: 'Power backup for cement industries', t: 'Kiln, mill and packing plant controls run in fine dust and high ambient temperature. IP-rated industrial UPS and DC battery chargers keep the central control room and field instruments running.', r: ['ip', 'r300', 'fcbc'] },
+  { icon: 'fa-th', h: 'UPS for textile mills', t: 'Spinning and weaving machines with electronic controls stop, break yarn and lose settings on power cuts and voltage swings. Stabilizers protect the motors, and an online UPS protects the controllers and the mill server.', r: ['stab', 'r300', 'inv'] },
+  { icon: 'fa-cutlery', h: 'Power backup for food processing', t: 'Filling, packing and pasteuriser controls must hold their recipe and batch records through an outage. An online UPS on controls and SCADA, with a stabilizer for the process machines, prevents spoilt batches.', r: ['r300', 'stab', 'mon'] },
+  { icon: 'fa-snowflake-o', h: 'Power backup for cold storage and cold chain logistics', t: 'Compressors are usually backed by the DG set, but temperature controllers, data loggers and alarm systems need a UPS so records stay complete and alarms keep working while the generator starts.', r: ['inv', 'r300', 'mon'] },
+  { icon: 'fa-filter', h: 'UPS for water and wastewater treatment plants', t: 'PLCs, flow meters, analysers and telemetry keep a water plant or pumping station under control. The pumps themselves run on mains or DG; a UPS keeps the controls and SCADA link alive across the changeover.', r: ['ip', 'r300', 'mon'] },
+  { icon: 'fa-desktop', h: 'UPS for SCADA systems and control rooms', t: 'SCADA servers, RTUs and communication links must stay online to see and control the plant during a disturbance. Redundant UPS with static transfer switches and SNMP monitoring are standard for control rooms.', r: ['mod', 'sts', 'mon'] },
+  { icon: 'fa-microchip', h: 'UPS for semiconductor and electronics factories', t: 'Fab tools, SMT lines and test equipment are very sensitive to sags and short breaks, and a single event can scrap a whole batch. Large online UPS with high efficiency and redundancy protect the critical tools.', r: ['mod', 'ds', 'iso'] },
+  { icon: 'fa-bolt', h: 'DC power backup for power plants and substations', t: 'Protection relays, breaker tripping and SCADA in power plants and substations run on 110 V or 220 V DC from a battery and charger, and on industrial inverters for AC loads.', r: ['fcbc', 'nicd', 'inv'] },
+];
+
+const compare = [
+  ['Built for', 'Process control, machines and plant control rooms', 'Offices, IT rooms and shops'],
+  ['Design', 'Usually transformer-based, heavy-duty components', 'Usually transformerless and compact'],
+  ['Environment', 'Heat, dust, humidity, vibration; IP41 to IP55 enclosures', 'Air-conditioned rooms; IP20'],
+  ['Loads', 'Non-linear and inductive: drives, solenoids, PLCs, instruments', 'Computers and IT equipment'],
+  ['Output isolation', 'Galvanic isolation by a built-in transformer', 'Often none'],
+  ['Batteries and DC', 'Long-life tubular or Ni-Cd banks; 110 V and 220 V DC systems', 'Sealed (SMF) batteries'],
+  ['Design life', 'Typically 15 years or more, repairable on site', 'Typically 5 to 10 years'],
+];
+
+const range = ['renata300', 'ip-41-55-online-ups', 'renatacyclone', 'renatamodular', 'mil-grade', 'industrial-inverter', 'industrial-battery-charger-fcbc', 'isolation', 'oil-cooled', 'tubular-batteries-manufacturing'];
+
+const faq = [
+  { q: 'What is an industrial UPS?', a: 'An industrial UPS is an uninterruptible power supply built for plants and harsh sites rather than offices. It is usually a transformer-based double conversion online UPS with heavy-duty components, a sealed or IP-rated enclosure, wide input tolerance and long-life batteries, designed to protect process controls, machines and instruments.' },
+  { q: 'How is an industrial UPS different from a commercial UPS?', a: 'An industrial UPS is built for heat, dust and electrical noise, handles inductive and non-linear loads, gives galvanic isolation through a built-in transformer and has a longer design life. A commercial UPS is designed for air-conditioned IT rooms and office loads.' },
+  { q: 'Which UPS is best for CNC machines?', a: 'A double conversion online UPS, ideally transformer-based or with an isolation transformer, sized for the controller and servo drives including their inrush. E&C engineers size it from the machine nameplate and the backup time needed to finish or park the cycle safely.' },
+  { q: 'Can a UPS run pumps and compressors in a water plant or cold storage?', a: 'It can, but large motors are usually better backed by the DG set. The common design is a UPS for PLCs, controllers, instruments and SCADA, so the plant stays under control and data is not lost while the generator starts.' },
+  { q: 'Who is the best industrial UPS manufacturer in India?', a: 'The best choice is a manufacturer whose UPS fits your site: transformer-based and IP-rated designs, the right battery for your temperature, and service near your plant. E&C Power Systems has designed and built industrial UPS in Bengaluru since 1978, with products tested by ETDC, SAMEER and ERTL and supplied across India.' },
+  { q: 'Does E&C supply industrial UPS across India?', a: 'Yes. E&C manufactures in Peenya, Bengaluru, and supplies, installs and services industrial UPS across India through its all-India sales and service network.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Industrial UPS Manufacturer in India',
+    description: 'Industrial UPS and industrial power backup for manufacturing, oil and gas, process, steel, cement, textile, food, water and SCADA applications, from E&C Power Systems, Bengaluru.',
+    url: urlFor('industrial-ups-manufacturer-in-india'),
+    serviceType: 'Industrial UPS manufacturing, supply, installation and service',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="industrial-ups-manufacturer-in-india"
+  title="Industrial UPS Manufacturer in India | 10–800 kVA | E&C"
+  description="Industrial UPS manufacturer and supplier in India: rugged online UPS, IP55 UPS, DC chargers and power backup for factories, oil & gas, steel, cement and process plants."
+  name="Industrial UPS Manufacturer in India"
+  crumbs={[{ name: 'UPS Manufacturer in India', url: '/ups-manufacturer-in-india' }]}
+  schema={schema}
+  image="/image/Manufactures.jpg"
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">Industrial power backup since 1978</span>
+          <h1>Industrial UPS Manufacturer in India</h1>
+          <p class="hb-lead">E&amp;C Power Systems designs and builds industrial UPS and power backup in Bengaluru: rugged transformer-based online UPS, sealed IP41–IP55 UPS for dusty plants, industrial inverters, DC battery chargers and stabilizers, supplied and serviced across India.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-bolt" aria-hidden="true"></em>Online UPS 10 – 800 kVA</li>
+            <li><em class="fa fa-shield" aria-hidden="true"></em>IP41 – IP55 enclosures</li>
+            <li><em class="fa fa-battery-full" aria-hidden="true"></em>48 – 220 V DC systems</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo"><img src="/image/Manufactures.jpg" alt="Automated engine assembly line in a factory" width="855" height="570" fetchpriority="high" /><figcaption>Production lines need zero-break power for their controls</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <ul class="pd-trust">
+      <li><em class="fa fa-check" aria-hidden="true"></em>Products tested by ETDC, SAMEER and ERTL</li>
+      <li><em class="fa fa-industry" aria-hidden="true"></em>Designed and built in Peenya, Bengaluru</li>
+      <li><em class="fa fa-truck" aria-hidden="true"></em>Supply, installation and AMC across India</li>
+    </ul>
+  </div>
+
+  <section class="pd-sec" aria-labelledby="h-ind">
+    <div class="container">
+      <h2 class="pd-h" id="h-ind">Industrial UPS for every industry</h2>
+      <p class="hb-sub">What each industry needs from its power backup, and the E&amp;C products that fit.</p>
+      <div class="hb-cards three">
+        {industries.map((x) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+            <p class="hb-rec">{x.r.map((k, i) => (<>{i > 0 && ' · '}<a href={L[k][1]}>{L[k][0]}</a></>))}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-cmp">
+    <div class="container">
+      <h2 class="pd-h" id="h-cmp">Industrial UPS vs commercial UPS</h2>
+      <p class="hb-sub">Why an industrial UPS is different from the commercial UPS in an office.</p>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col"></th><th scope="col">Industrial UPS</th><th scope="col">Commercial UPS</th></tr></thead>
+          <tbody>{compare.map(([k, a, b]) => <tr><th scope="row">{k}</th><td>{a}</td><td>{b}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-range">
+    <div class="container">
+      <h2 class="pd-h" id="h-range">Industrial UPS and power backup range</h2>
+      <Range slugs={range} />
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-choose">
+    <div class="container">
+      <h2 class="pd-h" id="h-choose">How to choose an industrial UPS</h2>
+      <ul class="hb-why">
+        <li><em class="fa fa-calculator" aria-hidden="true"></em><span><strong>Size the load, including inrush</strong>Add the kVA of every control and machine on the UPS, allow for motor and transformer inrush, and keep 20 to 25% headroom. See <a href="/guides/ups-sizing-kva">how to size a UPS</a>.</span></li>
+        <li><em class="fa fa-clock-o" aria-hidden="true"></em><span><strong>Set the backup time</strong>Long enough for the DG to start and take over, or to shut the process down safely. See <a href="/guides/ups-battery-backup-time">battery backup time</a>.</span></li>
+        <li><em class="fa fa-thermometer-three-quarters" aria-hidden="true"></em><span><strong>Match the environment</strong>Choose an IP-rated enclosure for dust and moisture, and Ni-Cd or tubular batteries where the battery room runs hot.</span></li>
+        <li><em class="fa fa-random" aria-hidden="true"></em><span><strong>Plan isolation and earthing</strong>A transformer-based UPS or an <a href="/isolation">isolation transformer</a> gives sensitive controls a clean neutral–earth reference.</span></li>
+        <li><em class="fa fa-clone" aria-hidden="true"></em><span><strong>Decide on redundancy</strong>N+1 modules, parallel UPS or a <a href="/intelligent-transfer-switch">static transfer switch</a> for loads that cannot stop. See <a href="/blogs/modular-ups-n-plus-1-redundancy">N+1 redundancy explained</a>.</span></li>
+        <li><em class="fa fa-wifi" aria-hidden="true"></em><span><strong>Monitor and maintain</strong><a href="/ups-remote-monitoring">Remote monitoring</a> and an <a href="/eandcpower-services">AMC</a> catch weak batteries before an outage does.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-why">
+    <div class="container">
+      <h2 class="pd-h" id="h-why">Why choose E&amp;C as your industrial UPS manufacturer</h2>
+      <ul class="hb-why">
+        <li><em class="fa fa-history" aria-hidden="true"></em><span><strong>Power electronics since 1978</strong>More than four decades designing UPS, inverters and chargers.</span></li>
+        <li><em class="fa fa-industry" aria-hidden="true"></em><span><strong>Designed and built in-house</strong>R&amp;D and manufacturing in Peenya, Bengaluru, with <a href="/custom-solutions">custom builds</a> for special duties.</span></li>
+        <li><em class="fa fa-certificate" aria-hidden="true"></em><span><strong>Independently tested</strong>Products tested by ETDC, SAMEER and ERTL, with BIS and CE marking on applicable products.</span></li>
+        <li><em class="fa fa-plug" aria-hidden="true"></em><span><strong>The whole power chain from one supplier</strong>UPS, inverters, DC chargers, batteries, stabilizers, isolation transformers and monitoring.</span></li>
+      </ul>
+      <p class="hb-p" style="margin-top:14px;">In Bengaluru, see <a href="/ups-for-industries-in-bangalore">UPS for industries</a>, <a href="/ups-for-manufacturing-industries-in-bangalore">UPS for manufacturing</a> and <a href="/industrial-power-backup-solutions-in-bangalore">industrial power backup</a>. For ships and naval vessels, see <a href="/marine-ups">marine UPS</a>; for lithium storage, see <a href="/battery-energy-storage-system">battery energy storage systems</a>. Elsewhere, find your <a href="/ups-manufacturer-in-india">state or city</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get an industrial UPS quotation" service="Quote: Industrial UPS" ask="What will it power? Site conditions and backup time?" />
+</Hub>

@@ -1,0 +1,122 @@
+---
+// Marine UPS page (keyword map: "Marine UPS Manufacturer"). Based on what the site already states: MIL grade UPS for
+// naval use, UPS supplied to the Navy and able to be mounted on board ships. No ship-class approval claims
+// (IRS, DNV, ABS...) until the client confirms any.
+import Hub from '../layouts/Hub.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+
+const needs = [
+  { icon: 'fa-arrows', h: 'Shock and vibration', t: 'Engines, waves and slamming shake equipment constantly. E&C MIL grade UPS are built to withstand 20g shock and vibration, in an aluminium chassis with MIL grade connectors.' },
+  { icon: 'fa-thermometer-three-quarters', h: 'Heat, cold and humidity', t: 'Engine rooms run hot and decks see salt-laden air. MIL grade UPS run at full power from -10°C to +55°C, in enclosures from IP21 to IP54.' },
+  { icon: 'fa-signal', h: 'EMI / EMC', t: 'Radar, radio and navigation equipment must not be disturbed by the UPS. E&C MIL grade UPS are compliant to MIL-STD-461 E/F/G.' },
+  { icon: 'fa-plug', h: 'Ship\'s power supply', t: 'On-board generators give a supply that swings in voltage and frequency. A double conversion online UPS gives the load a clean, regulated sine wave at 50 Hz, or 115 VAC 60 Hz where specified.' },
+  { icon: 'fa-compress', h: 'Limited space', t: '19-inch rack mount (3U/4U) or floor mount, with inbuilt or external lithium batteries to save weight and space.' },
+  { icon: 'fa-clone', h: 'Redundancy', t: 'Parallel redundant operation and long backup of up to 60 or 120 minutes for systems that must stay up.' },
+];
+
+const loads = ['Navigation and bridge systems', 'Radar and communication equipment', 'Engine and propulsion control', 'Alarm, monitoring and fire detection', 'Naval combat and sensor systems', 'Offshore platform and port control rooms'];
+
+const faq = [
+  { q: 'What is a marine UPS?', a: 'A marine UPS is an uninterruptible power supply built for ships, naval vessels and offshore sites. It must handle shock, vibration, humidity, heat and an unstable on-board supply, and must not interfere with navigation and communication equipment.' },
+  { q: 'Can E&C UPS be installed on ships?', a: 'Yes. E&C supplies UPS to the Navy, and its MIL grade online UPS are built for shock and vibration (20g), EMI/EMC to MIL-STD-461 E/F/G and full-power operation from -10°C to +55°C, for mounting on board ships and vehicles.' },
+  { q: 'What capacities are available?', a: 'The MIL grade online UPS covers 1 kVA to 10 kVA, with backup of up to 60 or 120 minutes and parallel redundant operation. Larger or special requirements can be met through E&C custom power solutions.' },
+  { q: 'Do your marine UPS have class society approval?', a: 'Share the vessel\'s classification and specification with your enquiry. E&C engineers will confirm compliance and testing for your project.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Marine UPS Manufacturer in India',
+    description: 'Marine and naval UPS for ships and offshore sites: MIL grade online UPS with 20g shock and vibration resistance and MIL-STD-461 EMI/EMC, from E&C Power Systems, Bengaluru.',
+    url: urlFor('marine-ups'),
+    serviceType: 'Marine and naval UPS manufacturing and supply',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="marine-ups"
+  title="Marine UPS Manufacturer in India | Naval & Ship UPS | E&C"
+  description="Marine UPS manufacturer in India: rugged MIL grade online UPS for ships, naval vessels and offshore sites, with 20g shock resistance and MIL-STD-461 EMI/EMC."
+  name="Marine UPS Manufacturer in India"
+  crumbs={[{ name: 'Industrial UPS', url: '/industrial-ups-manufacturer-in-india' }]}
+  schema={schema}
+  image="/image/MIL-Grade.jpeg"
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">Naval and shipboard power</span>
+          <h1>Marine UPS Manufacturer in India</h1>
+          <p class="hb-lead">E&amp;C Power Systems builds rugged online UPS for ships, naval vessels and offshore sites. Its MIL grade UPS are supplied to the Navy and built to take shock, vibration, heat and electrical noise on board, keeping navigation, communication and control systems powered.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-arrows" aria-hidden="true"></em>20g shock / vibration</li>
+            <li><em class="fa fa-signal" aria-hidden="true"></em>MIL-STD-461 E/F/G</li>
+            <li><em class="fa fa-thermometer-three-quarters" aria-hidden="true"></em>-10°C to +55°C</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo prod"><img src="/image/MIL-Grade-removebg-preview%20(1).png" alt="E&C MIL grade online UPS for marine and naval use" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C MIL grade online UPS, 1 – 10 kVA</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <ul class="pd-trust">
+      <li><em class="fa fa-check" aria-hidden="true"></em>Supplied to the Army, Air Force, Navy and BSF</li>
+      <li><em class="fa fa-industry" aria-hidden="true"></em>Designed and built in Peenya, Bengaluru</li>
+      <li><em class="fa fa-cogs" aria-hidden="true"></em>Custom builds for special duties</li>
+    </ul>
+  </div>
+
+  <section class="pd-sec" aria-labelledby="h-needs">
+    <div class="container">
+      <h2 class="pd-h" id="h-needs">Built for life at sea</h2>
+      <p class="hb-sub">What a UPS faces on board, and how E&amp;C MIL grade UPS handle it.</p>
+      <div class="hb-cards three">
+        {needs.map((x) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-loads">
+    <div class="container">
+      <h2 class="pd-h" id="h-loads">What marine UPS protect</h2>
+      <ul class="hb-tags">{loads.map((l) => <li><span>{l}</span></li>)}</ul>
+      <p class="hb-p" style="margin-top:14px;">For DC systems on board and in ports, E&amp;C also supplies <a href="/industrial-battery-charger-fcbc">float cum boost chargers</a> and <a href="/nickel">Ni-Cd batteries</a>, and <a href="/isolation">isolation transformers</a> for sensitive equipment.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-range">
+    <div class="container">
+      <h2 class="pd-h" id="h-range">Marine and rugged UPS range</h2>
+      <Range slugs={['mil-grade', 'ip-41-55-online-ups', 'renata300', 'industrial-battery-charger-fcbc', 'isolation']} />
+      <p class="hb-p" style="margin-top:14px;">Need something outside the standard range? See <a href="/custom-solutions">custom power solutions</a> and <a href="/industrial-ups-manufacturer-in-india">industrial UPS</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get a marine UPS quotation" service="Quote: Marine UPS" ask="Vessel type, loads, backup time and classification?" />
+</Hub>

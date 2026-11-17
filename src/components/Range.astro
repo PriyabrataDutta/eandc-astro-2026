@@ -1,0 +1,11 @@
+---
+// Product cards (photo, name, capacity) from src/data/products.js.
+import { products } from '../data/products.js';
+const { slugs } = Astro.props;
+---
+<div class="hb-range">
+	{slugs.map((s) => {
+		const p = products[s];
+		return <a href={`/${s}`}>{p.image && <img src={p.image} alt="" loading="lazy" width="150" height="110" />}<strong>{p.name}</strong>{p.capacity && <span>{p.capacity}</span>}</a>;
+	})}
+</div>

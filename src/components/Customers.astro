@@ -1,0 +1,14 @@
+---
+// The homepage's "Some Prestigious Customers" logos, reused as a trust strip.
+const logos = [
+  ['sbi.png', 'State Bank of India'], ['boi.png', 'Bank of India'], ['canara.jpg', 'Canara Bank'], ['union.png', 'Union Bank of India'],
+  ['indian-bank-logo.jpg', 'Indian Bank'], ['hdfc.jpg', 'HDFC Bank'], ['IDBI-Bank.jpg', 'IDBI Bank'], ['karur.png', 'Karur Vysya Bank'],
+  ['lic.png', 'LIC'], ['isro.png', 'ISRO'], ['hal.png', 'HAL'], ['bel.png', 'BEL'], ['bsf.png', 'BSF'], ['indian-railways.png', 'Indian Railways'],
+];
+---
+<section class="pd-sec" aria-labelledby="h-cust">
+	<div class="container">
+		<h2 class="pd-h" id="h-cust">Some of our customers</h2>
+		<ul class="hb-logos">{logos.map(([f, n]) => <li><img src={`/image/${f}`} alt={n} width="95" height="65" loading="lazy" /></li>)}</ul>
+	</div>
+</section>

@@ -1,0 +1,186 @@
+---
+// HTML sitemap: every indexable page, grouped. Built from the same list as /sitemap.xml (src/lib/pages.js), and any
+// page not placed in a named group lands in "Other pages", so a new page can never be missing here.
+import Hub from '../layouts/Hub.astro';
+import { render, slugs } from '../lib/legacy.js';
+import { sitePages } from '../lib/pages.js';
+import { products, families, guideTitles } from '../data/products.js';
+import { states, cities, indexable, cityLink } from '../data/locations.js';
+import { posts } from '../lib/blog.js';
+
+const all = new Set(sitePages());
+all.delete('sitemap');
+const used = new Set();
+const legacy = new Set(slugs());
+const NAMES = {
+  index: 'Home', blogs: 'Blog', 'about-us': 'About us', management: 'Management', missionandvision: 'Mission and vision',
+  'research-and-development': 'Research & development', 'eandcpower-infrastructure': 'Infrastructure', machinery: 'Machinery & utilities',
+  newtestimonal: 'Testimonials', careers: 'Careers', catalog: 'Product catalogs', 'frequently-asked-questions': 'FAQs',
+  annualreturn: 'Annual return (MGT-7)', contact: 'Contact us', 'eandcpower-sales': 'Sales offices', 'eandcpower-services': 'Service, AMC & repair',
+  feedback: 'Feedback', 'custom-solutions': 'Custom UPS solutions', 'ups-manufacturer-in-bangalore': 'Bengaluru', 'get-a-quote': 'Get a quote', 'online-ups': 'Online UPS', stabilizer: 'Voltage stabilizers',
+  'industrial-ups-manufacturer-in-india': 'Industrial UPS', 'battery-energy-storage-system': 'Battery energy storage (BESS)',
+  'marine-ups': 'Marine UPS', 'ups-manufacturer-in-india': 'UPS manufacturer in India', 'solar-solutions': 'Solar solutions',
+  ...Object.fromEntries(states.map((x) => [x.slug, `UPS supplier in ${x.name}`])),
+  ...Object.fromEntries(cities.map((x) => [x.slug, x.name])),
+};
+// Legacy pages: their own title up to the first "|".
+const name = (s) => NAMES[s] ?? products[s]?.name ?? guideTitles[s.replace('guides/', '')] ?? (legacy.has(s) ? render(s).match(/<title>([^<|]*)/)?.[1] ?? s : s).replace(/&amp;/g, '&').trim();
+const take = (list) => list.filter((s) => all.has(s) && !used.has(s)).map((s) => (used.add(s), { url: s === 'index' ? '/' : `/${s}`, name: name(s) }));
+
+const company = take(['index', 'about-us', 'management', 'missionandvision', 'research-and-development', 'eandcpower-infrastructure', 'machinery', 'newtestimonal', 'careers', 'catalog', 'frequently-asked-questions', 'annualreturn']);
+const contact = take(['contact', 'get-a-quote', 'eandcpower-sales', 'eandcpower-services', 'feedback']);
+const categories = take(['online-ups', 'industrial-ups-manufacturer-in-india', 'stabilizer', 'solar-solutions', 'battery-energy-storage-system', 'marine-ups', 'custom-solutions']);
+const productGroups = Object.entries(families)
+  .map(([k, f]) => ({ title: f.name, links: take(Object.keys(products).filter((p) => products[p].family === k)) }))
+  .filter((g) => g.links.length);
+
+const liveStates = states.filter(indexable);
+const stateGroups = liveStates.map((s) => ({
+  state: take([s.slug])[0],
+  cities: take(s.cities.map((k) => cityLink(k).url.slice(1))).map((c) => ({ ...c, name: c.name.replace(/^UPS Manufacturer in /i, '') })),
+}));
+const otherCities = take(cities.filter((c) => indexable(c) && !c.parent).map((c) => c.slug)).map((c) => ({ ...c, name: c.name.replace(/^UPS Manufacturer in /i, '') }));
+const india = take([...all].filter((s) => s.endsWith('-in-india') || s === 'ups-supplier-in-india'));
+const blr = take([...all].filter((s) => s.endsWith('-in-bangalore')));
+const guides = take([...all].filter((s) => s.startsWith('guides/')));
+const blog = take(['blogs']);
+const other = take([...all]);
+
+const groups = [
+  { id: 'company', icon: 'fa-building', title: 'Company', links: company },
+  { id: 'contact', icon: 'fa-phone', title: 'Sales, service and contact', links: contact },
+  { id: 'solutions', icon: 'fa-th-large', title: 'Solutions', links: categories },
+];
+const total = all.size + posts.length;
+---
+<Hub
+  slug="sitemap"
+  title="Sitemap | E&C Power Systems"
+  description="All pages on the E&C Power Systems website: online UPS, industrial UPS, inverters, stabilizers, batteries, solar, EV chargers, services and locations."
+  name="Sitemap"
+  quote={false}
+>
+  <section class="hb-hero sm-hero">
+    <div class="container">
+      <span class="pd-eyebrow">{total} pages</span>
+      <h1>Sitemap</h1>
+      <p class="hb-lead">Every page on the E&amp;C Power Systems website, grouped by topic.</p>
+      <nav class="sm-jump" aria-label="Sitemap sections">
+        <a href="#company">Company</a><a href="#products">Products</a><a href="#india">UPS across India</a><a href="#bengaluru">Bengaluru</a><a href="#learn">Blog &amp; guides</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="pd-sec">
+    <div class="container">
+      <div class="sm-grid">
+        {groups.map((g) => (
+          <div class="sm-card" id={g.id}>
+            <h2><em class={`fa ${g.icon}`} aria-hidden="true"></em>{g.title}</h2>
+            <ul>{g.links.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" id="products" aria-labelledby="h-products">
+    <div class="container">
+      <h2 class="pd-h" id="h-products">Products</h2>
+      <div class="sm-grid">
+        {productGroups.map((g) => (
+          <div class="sm-card">
+            <h3>{g.title}</h3>
+            <ul>{g.links.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" id="india" aria-labelledby="h-india">
+    <div class="container">
+      <h2 class="pd-h" id="h-india">UPS across India</h2>
+      <div class="sm-grid">
+        <div class="sm-card">
+          <h3>India</h3>
+          <ul>{india.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
+        </div>
+        {stateGroups.map((g) => (
+          <div class="sm-card">
+            <h3><a href={g.state.url}>{g.state.name}</a></h3>
+            <ul class="sm-chips">{g.cities.map((c) => <li><a href={c.url}>{c.name}</a></li>)}</ul>
+          </div>
+        ))}
+        {otherCities.length > 0 && (
+          <div class="sm-card">
+            <h3>More cities</h3>
+            <ul class="sm-chips">{otherCities.map((c) => <li><a href={c.url}>{c.name}</a></li>)}</ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" id="bengaluru" aria-labelledby="h-blr">
+    <div class="container">
+      <h2 class="pd-h" id="h-blr">UPS in Bengaluru</h2>
+      <div class="sm-card sm-wide"><ul>{blr.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul></div>
+    </div>
+  </section>
+
+  <section class="pd-sec" id="learn" aria-labelledby="h-learn">
+    <div class="container">
+      <h2 class="pd-h" id="h-learn">Blog and buying guides</h2>
+      <div class="sm-grid">
+        <div class="sm-card">
+          <h3><a href="/blogs">{blog[0]?.name ?? 'Blog'}</a></h3>
+          <ul>{posts.map((p) => <li><a href={`/blogs/${p.slug}`}>{p.title}</a></li>)}</ul>
+        </div>
+        <div class="sm-card">
+          <h3>Buying guides</h3>
+          <ul>{guides.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
+        </div>
+        {other.length > 0 && (
+          <div class="sm-card">
+            <h3>Other pages</h3>
+            <ul>{other.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+</Hub>
+
+<style is:global>
+	.sm-hero { padding:22px 0 24px; }
+	.sm-hero h1 { margin-bottom:6px; }
+	.sm-hero .hb-lead { margin-bottom:14px; }
+	.sm-jump { display:flex; flex-wrap:wrap; gap:6px; }
+	.sm-jump a { display:inline-flex; align-items:center; min-height:36px; padding:6px 12px; border-radius:18px; border:1px solid rgba(255,255,255,.3); color:#fff !important; font-size:13.5px; }
+	.sm-jump a:hover { background:rgba(255,255,255,.12); border-color:#ff9900; }
+	.sm-grid { display:grid; grid-template-columns:1fr; gap:12px; align-items:start; }
+	.sm-card { background:#fff; border:1px solid var(--line); border-radius:8px; padding:14px 16px; scroll-margin-top:16px; }
+	.sm-card h2 { display:flex; align-items:center; gap:8px; font-size:17px; font-weight:600; color:var(--navy); margin:0 0 10px; }
+	.pd .sm-card h2 em.fa { color:var(--blue); font-size:15px !important; }
+	.sm-card h3 { font-size:15px; font-weight:600; color:var(--navy); margin:0 0 8px; }
+	.sm-card h3 a { color:var(--navy); }
+	.sm-card ul { list-style:none; margin:0; padding:0; }
+	.sm-card li { margin:0; border-top:1px solid #eef2f6; }
+	.sm-card li:first-child { border-top:0; }
+	.sm-card li a { display:block; padding:7px 0; font-size:14px; color:var(--blue); line-height:1.4; }
+	.sm-card li a:hover { color:var(--navy); }
+	.sm-card .sm-chips { display:flex; flex-wrap:wrap; gap:5px; }
+	.sm-card .sm-chips li { border:0; }
+	.sm-card .sm-chips a { padding:4px 10px; border-radius:14px; background:var(--tint); font-size:13px; }
+	.sm-card .sm-chips a:hover { background:var(--blue); color:#fff; }
+	@media (min-width: 768px) {
+		.sm-grid { grid-template-columns:repeat(2, 1fr); }
+		.sm-wide ul { columns:2; column-gap:24px; }
+		.sm-wide li { break-inside:avoid; }
+	}
+	@media (min-width: 992px) {
+		.sm-grid { grid-template-columns:repeat(3, 1fr); }
+		.sm-wide ul { columns:3; }
+	}
+</style>

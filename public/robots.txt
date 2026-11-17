@@ -1,0 +1,63 @@
+
+# E&C Power Systems
+# https://www.eandcpower.com/
+
+# General search engines and compliant crawlers (one group: duplicate * groups are merged inconsistently)
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /administrator/
+Disallow: /private/
+Disallow: /cgi-bin/
+
+# OpenAI - ChatGPT Search
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI - user-triggered page retrieval
+User-agent: ChatGPT-User
+Allow: /
+
+# OpenAI - AI model training crawler
+User-agent: GPTBot
+Allow: /
+
+# Google Search
+User-agent: Googlebot
+Allow: /
+
+# Google Gemini / AI training and grounding controls
+User-agent: Google-Extended
+Allow: /
+
+# Anthropic - Claude search
+User-agent: Claude-SearchBot
+Allow: /
+
+# Anthropic - Claude user-triggered retrieval
+User-agent: Claude-User
+Allow: /
+
+# Anthropic - AI training crawler
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity AI search crawler
+User-agent: PerplexityBot
+Allow: /
+
+# Perplexity user-triggered retrieval
+User-agent: Perplexity-User
+Allow: /
+
+# Microsoft Bing Search
+User-agent: Bingbot
+Allow: /
+
+# Apple search crawler
+User-agent: Applebot
+Allow: /
+
+# XML Sitemap
+Sitemap: https://www.eandcpower.com/sitemap.xml
+

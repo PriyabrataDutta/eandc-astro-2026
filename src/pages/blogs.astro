@@ -1,0 +1,60 @@
+---
+// Blog index. Replaces the legacy /blogs page (which only linked to product pages); keeps its #videos anchor.
+import Page from '../layouts/Page.astro';
+import { posts, longDate } from '../lib/blog.js';
+import { guideTitles } from '../data/products.js';
+import { urlFor } from '../lib/legacy.js';
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'E&C Power Systems Blog',
+    url: urlFor('blogs'),
+    blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: urlFor(`blogs/${p.slug}`), datePublished: p.date })),
+  },
+];
+---
+<Page
+  slug="blogs"
+  title="UPS, Battery & Power Backup Blog | E&C Power Systems"
+  description="Practical articles from E&C Power Systems on online UPS, batteries, isolation transformers, solar inverters, EV chargers and UPS maintenance."
+  h1="Blogs"
+  schema={schema}
+  image={posts[0].cover}
+>
+  <style>
+    .bl-grid { display:grid; grid-template-columns:1fr; gap:18px; margin:0 0 28px; }
+    @media (min-width:768px) { .bl-grid { grid-template-columns:1fr 1fr; } }
+    .bl-card { border:1px solid #e2e8f0; border-radius:8px; overflow:hidden; background:#fff; display:flex; flex-direction:column; }
+    .bl-card img { width:100%; height:auto; aspect-ratio:1200/630; object-fit:cover; display:block; }
+    .bl-body { padding:14px 16px 16px; }
+    .bl-tag { font-size:11.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#005c9e; }
+    .bl-card h2 { font-size:17px !important; line-height:1.35; margin:6px 0 8px !important; }
+    .bl-card h2 a { color:#0b2546; }
+    .bl-card h2 a:hover { color:#005c9e; }
+    .bl-card p { font-size:14px !important; margin:0 0 8px !important; text-align:left !important; }
+    .bl-meta { font-size:12.5px; color:#667; }
+  </style>
+  <p>Practical guides from E&amp;C's engineers on choosing, sizing and looking after UPS systems, batteries and power equipment.</p>
+
+  <div class="bl-grid">
+    {posts.map((p, i) => (
+      <article class="bl-card">
+        <a href={`/blogs/${p.slug}`} tabindex="-1" aria-hidden="true"><img src={p.cover} alt="" width="1200" height="630" loading={i < 2 ? undefined : 'lazy'} /></a>
+        <div class="bl-body">
+          <span class="bl-tag">{p.tag}</span>
+          <h2><a href={`/blogs/${p.slug}`}>{p.title}</a></h2>
+          <p>{p.description}</p>
+          <span class="bl-meta"><time datetime={p.date}>{longDate(p.date)}</time> · {p.minutes} min read</span>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <h2>Buying guides</h2>
+  <ul>{Object.entries(guideTitles).map(([g, t]) => <li><a href={`/guides/${g}`}>{t}</a></li>)}</ul>
+
+  <h2 id="videos">Videos</h2>
+  <p>Company updates, product demos and application videos are posted on <a href="https://www.linkedin.com/company/electronics-controls-power-systems-pvt-ltd/" rel="noopener" target="_blank">E&amp;C's LinkedIn page</a>.</p>
+</Page>

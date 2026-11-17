@@ -1,0 +1,59 @@
+---
+// Redesigned India hub, state, city and industrial pages: the site's header and footer with the product-page look.
+import { shell, urlFor, ogTags } from '../lib/legacy.js';
+import '../styles/pd.css';
+import '../styles/hub.css';
+
+const { slug, title, description, name, crumbs = [], schema = [], noindex = false, image = '/image/about.jpg', quote = true } = Astro.props;
+const s = shell();
+const header = s.header.replace(/alt="[^"]*"/, `alt="${name.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}"`);
+const trail = [{ name: 'Home', url: '/' }, ...crumbs];
+const ld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [...trail, { name, url: `/${slug}` }].map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: urlFor('index').slice(0, -1) + c.url })),
+  },
+  ...schema,
+];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" href="/image/favicon.png" type="image/png" sizes="16x16">
+	<link rel="stylesheet" type="text/css" href="/css/vendor.bundle.css">
+	<link id="style-css" rel="stylesheet" type="text/css" href="/css/style62ea62ea.css?ver=1.2">
+	{ld.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+	<Fragment set:html={s.analytics} />
+	<link rel="canonical" href={urlFor(slug)} />
+	<Fragment set:html={ogTags({ title, description, url: urlFor(slug), image: urlFor('index').slice(0, -1) + image })} />
+	{noindex && <meta name="robots" content="noindex, follow" />}
+</head>
+<body class="site-body style-v1 has-pd-bar">
+	<Fragment set:html={header} />
+
+	<!-- Breadcrumb -->
+	<div class="section section-breadcrumb" style="background:#f4f6f8; padding:12px 0; border-bottom:1px solid #e2e8f0;">
+		<div class="container">
+			<ul class="breadcrumb" style="margin:0; background:transparent; padding:0; font-size:13px;">
+				{trail.map((c) => <li><a href={c.url}>{c.name}</a></li>)}
+				<li class="active" style="color:#506070;">{name}</li>
+			</ul>
+		</div>
+	</div>
+
+	<main class="pd">
+		<slot />
+		<div class="pd-bar">
+			<a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>Call</a>
+			<a class="pd-btn pd-btn-main" href={quote ? '#quote' : '/get-a-quote'}>Get a price</a>
+		</div>
+	</main>
+
+	<Fragment set:html={s.footer} />
+</body>
+</html>

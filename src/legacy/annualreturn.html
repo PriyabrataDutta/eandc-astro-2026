@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="zxx">
+  <head>
+    <title>Electronics & controls power systems private limited</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="image/favicon.png" type="image/png" sizes="16x16" />
+    <link rel="stylesheet" type="text/css" href="css/vendor.bundle.css" />
+    <link
+      id="style-css"
+      rel="stylesheet"
+      type="text/css"
+      href="css/style62ea62ea.css?ver=1.2"
+    />
+
+    <style>
+      .all {
+        width: 500px;
+      }
+      .dff {
+        width: 100px;
+      }
+
+      @media (max-width: 580px) {
+        .all {
+          width: 100%;
+        }
+        .dff {
+          width: 80px;
+        }
+      }
+    </style>
+  	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6MP2261FR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H6MP2261FR');
+</script>
+</head>
+
+  <body class="site-body style-v1">
+    <!-- CONTACT MODAL -->
+    <div
+      id="noner"
+      style="
+        background-color: #1864ab52;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 999;
+        display: none;
+        align-items: center;
+      "
+      class="section section-contents section-contact"
+    >
+      <div
+        class="container"
+        style="display: flex; justify-content: center; align-items: center"
+      >
+        <!-- FORM VIEW -->
+        <div
+          id="four"
+          style="
+            background-color: white;
+            padding: 0px 20px;
+            position: relative;
+            display: block;
+          "
+          class="content row all"
+        >
+          <br />
+          <img
+            onclick="cancels()"
+            src="./image/cancel.png"
+            style="
+              width: 35px;
+              height: 35px;
+              position: absolute;
+              right: 20px;
+              cursor: pointer;
+            "
+            alt="Close"
+          />
+
+          <h1>Contact Us</h1>
+
+          <div class="contact-content row">
+            <div class="drop-message col-md-12 res-m-bttm">
+              <div name="contactform">
+                <div class="col-md-12" style="margin-top: 20px">
+                  <div class="input-text form-group">
+                    <input
+                      id="namenew"
+                      type="text"
+                      name="name"
+                      class="input-name form-control"
+                      placeholder="Full Name"
+                    />
+                  </div>
+
+                  <div class="input-email form-group">
+                    <input
+                      id="emailnew"
+                      type="email"
+                      name="email"
+                      class="input-email form-control"
+                      placeholder="Email"
+                    />
+                  </div>
+
+                  <div class="input-email form-group">
+                    <input
+                      id="phonenew"
+                      type="text"
+                      name="phone"
+                      class="input-phone form-control"
+                      placeholder="Phone"
+                    />
+                  </div>
+
+                  <button
+                    onclick="submitForm()"
+                    class="btn btn-default btn-block"
+                    style="margin-bottom: 25px"
+                  >
+                    Send Now <i class="icon-paper-plane"></i>
+                  </button>
+                </div>
+              </div>
+              <br />
+            </div>
+          </div>
+        </div>
+
+        <!-- DOWNLOAD VIEW -->
+        <div
+          id="five"
+          style="
+            background-color: white;
+            padding: 0px 20px;
+            position: relative;
+            display: none;
+          "
+          class="content row all"
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-bottom: 30px;
+              margin-top: 30px;
+            "
+            class="col-md-12 col-sm-12 pb-5"
+          >
+            <button
+              style="width: 200px"
+              type="button"
+              onclick="downloadPDF()"
+              class="btn solid-btn sb-h"
+            >
+              Download
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER (same as your original) -->
+    <header class="site-header header-s1 is-transparent is-sticky">
+      <div class="topbar">
+        <div class="container">
+          <div class="row">
+            <div class="top-aside top-left">
+              <ul class="top-nav">
+                <li><a href="careers.html">Career</a></li>
+							<li>
+                  <a
+                    href="https://webmail.rediffmailpro.com/action/login/eandcpower.com"
+                    >Employee Login</a
+                  >
+                </li>
+							<li><a href="frequently-asked-questions-2.html">FAQs</a></li>
+						</ul>
+            </div>
+            <div class="top-aside top-right clearfix">
+              <ul class="top-contact clearfix">
+                <li class="t-email t-email1">
+                  <em class="fa fa-envelope-o" aria-hidden="true"></em>
+                  <span
+                    ><a href="mailto:sales@eandcpower.com"
+                      >sales@eandcpower.com</a
+                    ></span
+                  >
+                </li>
+                <li class="t-phone t-phone1">
+                  <em class="fa fa-phone" aria-hidden="true"></em>
+                  <span> (+91) 80-2839 7120</span>
+                </li>
+						</ul>
+
+            	<ul class="social header-social">
+							<li><a class="social-facebook" href="https://www.facebook.com/eandcpower" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><em class="fa fa-facebook" aria-hidden="true"></em></a></li>
+							<li><a class="social-twitter" href="https://twitter.com/eandcpower" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><em class="fa fa-twitter" aria-hidden="true"></em></a></li>
+							<li><a class="social-linkedin" href="https://www.linkedin.com/company/electronics-controls-power-systems-pvt-ltd/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><em class="fa fa-linkedin" aria-hidden="true"></em></a></li>
+						</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar navbar-primary">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <img class="logo logo-dark" alt="" src="image/logo2.png" />
+            <img
+              class="logo logo-light"
+              alt=""
+              src="image/logo4.png"
+              style="max-height: 100%"
+            />
+          </a>
+
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#mainnav"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Menu</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="quote-btn">
+              <a class="btn" href="get-a-quote.html">Enquire Today</a>
+            </div>
+          </div>
+
+          <nav class="navbar-collapse collapse" id="mainnav">
+            <ul class="nav navbar-nav">
+              <li><a href="/">Home</a></li>
+              <li class="dropdown">
+                <a href="#">about us</a>
+                <ul class="dropdown-menu">
+                  <li><a href="about-us.html">Company Profile</a></li>
+							<li><a href="management.html">Management</a></li>
+							<li>
+                    <a href="missionandvision.html">Mission And Vision</a>
+                  </li>
+						</ul>
+              </li>
+
+              <!-- keep your full menu as-is (trimmed here only for readability) -->
+              <li class="dropdown">
+                <a href="#">Products</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown">
+                    <a href="#">Online UPS</a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="accenta.html"> Accenta ( 1 kVA - 10 kVA) </a>
+                      </li>
+							<li>
+                        <a href="renata.html"> Renata - I (2 kVA - 30 kVA) </a>
+                      </li>
+							<li>
+                        <a href="renata300.html">
+                          Renata - 300 ( 10 kVA - 800 kVA)
+                        </a>
+                      </li>
+							<li>
+                        <a href="renatacyclone.html">
+                          Renata - DS (10 kVA - 300 KVA)
+                        </a>
+                      </li>
+							<li>
+                        <a href="renatamodular.html"
+                          >Renata Modular (10 kVA - 1200 kVA)
+                        </a>
+                      </li>
+							<li>
+                        <a href="rack-mount.html"
+                          >Accenta Rack (1 kVA - 60 kVA)</a
+                        >
+                      </li>
+							<li>
+                        <a href="lithium-ups.html"
+                          >Lithium UPS ( 1 kVA - 5 kVA)</a
+                        >
+                      </li>
+						</ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#">Industrial Online UPS</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="mil-grade.html">MIL Grade UPS</a></li>
+							<li>
+                        <a href="ip-41-55-online-ups.html"
+                          >IP 41 - 55 Online UPS
+                        </a>
+                      </li>
+						</ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#">Line Interactive UPS</a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="line_ups-2.html">Cheerups (600 VA - 5 kVA) </a>
+                      </li>
+						</ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#">Inverters</a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="domestic-Inverters.html"
+                          >Domestic Inverters (600 VA - 5 kVA)
+                        </a>
+                      </li>
+							<li>
+                        <a href="industrial-inverter.html"
+                          >Industrial Inverters (3 kVA - 100 kVA)</a
+                        >
+                      </li>
+						</ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="solar-solutions.html">Solar Solutions</a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="solar-off-grid-inverter.html">Off Grid </a>
+                      </li>
+							<li><a href="solar-grid.html">Grid Tie </a></li>
+							<li><a href="solar-hybrid-inverter.html">Hybrid </a></li>
+							<li><a href="scc.html"> SCC - MPPT</a></li>
+							<li><a href="solar-dc-up.html">Solar DC UPS </a></li>
+							<li>
+                        <a href="solar-street-lighting.html"
+                          >Solar Street Light
+                        </a>
+                      </li>
+						</ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#">E V</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="ev-chargers.html">EV Chargers </a></li>
+							<li>
+                        <a href="comming-soon.html"
+                          >Lead Acid Battery to Lithium Converter
+                        </a>
+                      </li>
+						</ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#">Stabilizers</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="air_oil.html">Air Cooled </a></li>
+							<li><a href="oil-cooled.html">Oil Cooled </a></li>
+							<li><a href="energy-saver.html">Energy Savers </a></li>
+						</ul>
+                  </li>
+							<li>
+                    <a href="industrial-battery-charger-fcbc.html"
+                      >Industrial Battery Charger</a
+                    >
+                  </li>
+                  <li class="dropdown">
+                    <a href="#">Remote Monitoring</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="ups-remote-monitoring.html">UPS </a></li>
+							<li>
+                        <a href="battery-bank-remote-monitoring.html"
+                          >Battery Bank
+                        </a>
+                      </li>
+							<li><a href="dg-monitoring.html">DG </a></li>
+							<li><a href="facility-monitoring.html">Facility </a></li>
+						</ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#">Batteries</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="smf.html">SMF </a></li>
+							<li>
+                        <a href="tubular-batteries-manufacturing.html"
+                          >Tubular</a
+                        >
+                      </li>
+							<li><a href="nickel.html">Ni-Cd </a></li>
+							<li><a href="agm-gel.html">GEL </a></li>
+							<li><a href="lithium-ion.html">Lithium ion</a></li>
+						</ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#">Accessories</a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="isolation.html">Isolation Transformers </a>
+                      </li>
+							<li><a href="snmp-adapter.html">SNMP Adapter </a></li>
+							<li>
+                        <a href="intelligent-transfer-switch.html"
+                          >Static Transfer Switches</a
+                        >
+                      </li>
+						</ul>
+                  </li>
+							<li><a href="custom-solutions.html">Custom Solutions</a></li>
+						</ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#">Sales & Services</a>
+                <ul class="dropdown-menu">
+                  <li><a href="eandcpower-sales.html">Sales</a></li>
+							<li><a href="eandcpower-services.html">Services</a></li>
+						</ul>
+              </li>
+							<li><a href="newtestimonal.html">Testimonials</a></li>
+							<li><a href="feedback.html" target="_blank">Feedback</a></li>
+							<li><a href="contact.html">Contact us</a></li>
+              <li class="quote-btn">
+                <a class="btn" href="contact.html">Enquire Today</a>
+              </li>
+						</ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="banner banner-static">
+        <div class="container">
+          <div class="content row">
+            <div class="imagebg">
+              <img src="image/banner-blog.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div style="padding: 70px 0px" class="section section-content">
+      <div class="container">
+        <div class="row">
+          <div class="row">
+            <div style="position: relative" class="col-md-12 col-sm-12 pad-r">
+              <!-- TABLE HEADER -->
+              <table style="width: 100%; margin-bottom: 0px">
+                <thead
+                  style="background-color: rgb(215, 215, 215); height: 50px"
+                >
+                  <tr style="height: 20px">
+                    <th style="padding-left: 2px">S.N</th>
+                    <th>Name</th>
+                    <th>PDF View</th>
+                    <th>Download</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="height: 20px"></tr>
+
+                  <!-- ROW 1 -->
+                  <tr
+                    style="background-color: rgb(245, 245, 245); height: 50px"
+                  >
+                    <td style="width: 40px; padding-left: 5px">1</td>
+                    <td>
+                      <button
+                        style="
+                          border: 0px;
+                          background-color: rgb(245, 245, 245);
+                        "
+                      >
+                        MGT-7 : 2021
+                      </button>
+                    </td>
+                    <td class="dff">
+                      <button
+                        style="
+                          background-color: #1863ab;
+                          color: white;
+                          border: 0px;
+                        "
+                        onclick="openPDF('./pdf/Form MGT-7 2021.pdf')"
+                      >
+                        PDF View
+                      </button>
+                    </td>
+                    <td style="width: 70px; padding-right: 5px">
+                      <button
+                        class="btn-download"
+                        data-pdf="./pdf/Form MGT-7 2021.pdf"
+                        style="
+                          background-color: #1863ab;
+                          color: white;
+                          border: 0px;
+                        "
+                      >
+                        Download
+                      </button>
+                    </td>
+                  </tr>
+
+                  <!-- ROW 2 -->
+                  <tr style="height: 10px"></tr>
+                  <tr
+                    style="background-color: rgb(245, 245, 245); height: 50px"
+                  >
+                    <td style="width: 40px; padding-left: 5px">2</td>
+                    <td>
+                      <button
+                        style="
+                          border: 0px;
+                          background-color: rgb(245, 245, 245);
+                        "
+                      >
+                        MGT-7: 2022
+                      </button>
+                    </td>
+                    <td class="dff">
+                      <button
+                        style="
+                          background-color: #1863ab;
+                          color: white;
+                          border: 0px;
+                        "
+                        onclick="openPDF('./pdf/Form MGT-7 2022.pdf')"
+                      >
+                        PDF View
+                      </button>
+                    </td>
+                    <td style="width: 70px; padding-right: 5px">
+                      <button
+                        class="btn-download"
+                        data-pdf="./pdf/Form MGT-7 2022.pdf"
+                        style="
+                          background-color: #1863ab;
+                          color: white;
+                          border: 0px;
+                        "
+                      >
+                        Download
+                      </button>
+                    </td>
+                  </tr>
+
+                  <!-- ROW 3 -->
+                  <tr style="height: 10px"></tr>
+                  <tr
+                    style="background-color: rgb(245, 245, 245); height: 50px"
+                  >
+                    <td style="width: 40px; padding-left: 5px">3</td>
+                    <td>
+                      <button
+                        style="
+                          border: 0px;
+                          background-color: rgb(245, 245, 245);
+                        "
+                      >
+                        MGT-7: 2023
+                      </button>
+                    </td>
+                    <td class="dff">
+                      <button
+                        style="
+                          background-color: #1863ab;
+                          color: white;
+                          border: 0px;
+                        "
+                        onclick="openPDF('./pdf/MGT_7_Website[1].pdf')"
+                      >
+                        PDF View
+                      </button>
+                    </td>
+                    <td style="width: 70px; padding-right: 5px">
+                      <button
+                        class="btn-download"
+                        data-pdf="./pdf/MGT_7_Website[1].pdf"
+                        style="
+                          background-color: #1863ab;
+                          color: white;
+                          border: 0px;
+                        "
+                      >
+                        Download
+                      </button>
+                    </td>
+                  </tr>
+
+                  <!-- ROW 4 -->
+                  <tr style="height: 10px"></tr>
+                  <tr
+                    style="background-color: rgb(245, 245, 245); height: 50px"
+                  >
+                    <td style="width: 40px; padding-left: 5px">4</td>
+                    <td>
+                      <button
+                        style="
+                          border: 0px;
+                          background-color: rgb(245, 245, 245);
+                        "
+                      >
+                        MGT-7: 2024
+                      </button>
+                    </td>
+                    <td class="dff">
+                      <button
+                        style="
+                          background-color: #1863ab;
+                          color: white;
+                          border: 0px;
+                        "
+                        onclick="openPDF('./pdf/MGT72023.pdf')"
+                      >
+                        PDF View
+                      </button>
+                    </td>
+                    <td style="width: 70px; padding-right: 5px">
+                      <button
+                        class="btn-download"
+                        data-pdf="./pdf/MGT72023.pdf"
+                        style="
+                          background-color: #1863ab;
+                          color: white;
+                          border: 0px;
+                        "
+                      >
+                        Download
+                      </button>
+                    </td>
+                  </tr>
+
+                  <!-- ROW 5 -->
+                  <tr style="height: 10px"></tr>
+                  <tr
+                    style="background-color: rgb(245, 245, 245); height: 50px"
+                  >
+                    <td style="width: 40px; padding-left: 5px">5</td>
+                    <td>
+                      <button
+                        style="
+                          border: 0px;
+                          background-color: rgb(245, 245, 245);
+                        "
+                      >
+                        MGT-7: 2025
+                      </button>
+                    </td>
+                    <td class="dff">
+                      <button
+                        style="
+                          background-color: #1863ab;
+                          color: white;
+                          border: 0px;
+                        "
+                        onclick="openPDF('./pdf/MGT-7A For Website.pdf')"
+                      >
+                        PDF View
+                      </button>
+                    </td>
+                    <td style="width: 70px; padding-right: 5px">
+                      <button
+                        class="btn-download"
+                        data-pdf="./pdf/MGT-7A For Website.pdf"
+                        style="
+                          background-color: #1863ab;
+                          color: white;
+                          border: 0px;
+                        "
+                      >
+                        Download
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER (same as your original footer) -->
+    <div class="footer-widget section-pad">
+      <div class="container">
+        <div class="row">
+          <div class="widget-row row">
+            <div class="footer-col col-md-5 col-sm-6 res-m-bttm">
+              <div class="wgs wgs-footer wgs-menu">
+                <h5 class="wgs-title">Useful links</h5>
+                <div class="wgs-content">
+                  <ul class="menu col-md-6 npl">
+                    <li><a href="/">Home</a></li>
+							<li><a href="about-us.html">About Us</a></li>
+							<li><a href="about-us.html">Sales and Services</a></li>
+							<li><a href="newtestimonal.html">Testimonials</a></li>
+							<li>
+                      <a href="frequently-asked-questions-2.html">FAQs</a>
+                    </li>
+						</ul>
+                  <ul class="menu col-md-6">
+                    <li>
+                      <a href="eandcpower-infrastructure.html" target="_blank"
+                        >Infrastructure</a
+                      >
+                    </li>
+							<li>
+                      <a href="research-and-development.html" target="_blank"
+                        >Research &amp; Development</a
+                      >
+                    </li>
+							<li>
+                      <a href="machinery.html">Machinery &amp; Utilities</a>
+                    </li>
+							<li>
+                      <a href="eandcpower-services.html"
+                        >Maintenance Services</a
+                      >
+                    </li>
+							<li><a href="sitemap.html">Sitemap</a></li>
+							<li><a href="annualreturn.html">Important Link</a></li>
+						</ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-col col-md-2 col-sm-6 res-m-bttm">
+              <div class="wgs wgs-footer wgs-menu">
+                <h5 class="wgs-title">Products</h5>
+                <div class="wgs-content">
+                  <ul class="menu">
+                    <li><a href="accenta.html">Online UPS</a></li>
+							<li><a href="line_ups-2.html">Line Interactive UPS</a></li>
+							<li><a href="stabilizer-2.html">Stabilizers</a></li>
+							<li>
+                      <a href="industrial-inverter.html"
+                        >Industrial Inverters</a
+                      >
+                    </li>
+						</ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-col col-md-2 col-sm-6 res-m-bttm">
+              <div class="wgs wgs-footer wgs-text">
+                <h5 class="wgs-title">Products</h5>
+                <div class="wgs-content">
+                  <ul class="menu">
+                    <li><a href="solar-solutions.html">Solar Solutions</a></li>
+							<li><a href="ev-chargers.html">EV Chargers</a></li>
+							<li>
+                      <a href="ups-remote-monitoring.html">Remote Monitoring</a>
+                    </li>
+							<li>
+                      <a href="intelligent-transfer-switch.html"
+                        >Transfer Switches</a
+                      >
+                    </li>
+						</ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-col col-md-3 col-sm-6">
+              <div class="wgs wgs-footer">
+                <h5 class="wgs-title">Contact us</h5>
+                <div class="wgs-content">
+                  <p>
+                    <strong
+                      >Electronics & Controls <br />
+                      Power Systems Private Limited</strong
+                    ><br />
+                    29/A, 2nd Phase, Peenya Industrial Area, <br />Bengaluru,
+                    Karnataka 560058.<br /><b>CIN: U31200KA1997PTC022448</b>
+                  </p>
+
+                  <p>
+                    <span>Phone</span>: 080 2837 1974 / 2837 9401<br />
+                    <span>Email</span>:
+                    <a href="mailto:sales@eandcpower.com"
+                      >sales@eandcpower.com</a
+                    >
+                  </p>
+
+                  <ul class="social">
+                    <li>
+                      <a
+                        href="https://www.facebook.com/eandcpower"
+                        style="color: #3b5998"
+                        target="_blank"
+                        ><em class="fa fa-facebook" aria-hidden="true"></em
+                      ></a>
+                    </li>
+							<li>
+                      <a
+                        href="https://twitter.com/eandcpower"
+                        style="color: #00acee"
+                        target="_blank"
+                        ><em class="fa fa-twitter" aria-hidden="true"></em
+                      ></a>
+                    </li>
+							<li>
+                      <a
+                        href="https://www.linkedin.com/company/electronics-controls-power-systems-pvt-ltd/"
+                        style="color: #0e76a8"
+                        target="_blank"
+                        ><em class="fa fa-linkedin" aria-hidden="true"></em
+                      ></a>
+                    </li>
+						</ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+         <div class="site-copy col-sm-7">
+					<p>&copy; 2022 eandcpower All Rights Reserved. Powered by <a href="https://www.appaddindia.net/" target="_blank" rel="noopener noreferrer">Appadd India Pvt Ltd</a>
+
+						<span class="sep"><span class="sep"></p>
+				</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS BUNDLES -->
+    <script src="js/jquery.bundle.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- FIXED JS -->
+    <script>
+      const noner = document.getElementById("noner");
+      const four = document.getElementById("four");
+      const five = document.getElementById("five");
+
+      let currentPdfPath = "";
+
+      function cancels() {
+        noner.style.display = "none";
+        five.style.display = "none";
+        four.style.display = "block";
+      }
+
+      function openPDF(pdfFileName) {
+        window.open(pdfFileName, "_self");
+      }
+
+      function getFileNameFromPath(path) {
+        return (path || "document.pdf").split("/").pop();
+      }
+
+      // attach download button events (no duplicate IDs)
+      document.querySelectorAll(".btn-download").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          currentPdfPath = btn.getAttribute("data-pdf") || "";
+          noner.style.display = "flex";
+          four.style.display = "block";
+          five.style.display = "none";
+        });
+      });
+
+      function downloadPDF() {
+        if (!currentPdfPath) return;
+
+        const link = document.createElement("a");
+        link.href = currentPdfPath;
+        link.download = getFileNameFromPath(currentPdfPath);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // close modal
+        five.style.display = "none";
+        four.style.display = "block";
+        noner.style.display = "none";
+      }
+
+      // ---------------- FORM VALIDATION + SUBMIT ----------------
+
+      function validateName(name) {
+        return /^.{2,}$/.test((name || "").trim());
+      }
+
+      function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((email || "").trim());
+      }
+
+      function validatePhoneNumber(phoneNumber) {
+        const cleaned = (phoneNumber || "").replace(/\D/g, "");
+        return /^\d{10}$/.test(cleaned);
+      }
+
+      function submitForm() {
+        const namenew = document.getElementById("namenew");
+        const emailnew = document.getElementById("emailnew");
+        const phonenew = document.getElementById("phonenew");
+
+        const url = "https://emailer-phi.vercel.app/home";
+
+        const data = {
+          toke: "1dytfchtgfghvyhvvhvh",
+          name: namenew.value,
+          email: emailnew.value,
+          phone: phonenew.value,
+          toemail: [
+            "rajaram.r@eandcpower.com",
+            "vinayak@appaddindia.com",
+            "vidya@eandcpower.com",
+          ],
+        };
+
+        if (!validateName(data.name)) {
+          alert("Name is not valid");
+          return;
+        }
+        if (!validateEmail(data.email)) {
+          alert("Email is not valid");
+          return;
+        }
+        if (!validatePhoneNumber(data.phone)) {
+          alert("Phone number is not valid");
+          return;
+        }
+
+        fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then((res) => {
+            if (!res.ok) throw new Error("HTTP error: " + res.status);
+
+            // show download view
+            four.style.display = "none";
+            five.style.display = "block";
+
+            // clear form
+            namenew.value = "";
+            emailnew.value = "";
+            phonenew.value = "";
+
+            return res.json();
+          })
+          .catch((err) => {
+            console.error(err);
+            alert("Something went wrong. Please try again.");
+          });
+      }
+
+      // expose functions for inline onclick
+      window.cancels = cancels;
+      window.openPDF = openPDF;
+      window.downloadPDF = downloadPDF;
+      window.submitForm = submitForm;
+    </script>
+
+    <!-- Keep your plugin tag loader (unchanged) -->
+    <script>
+      window.jQuery ||
+        document.write(
+          "<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'><\/script>",
+        );
+    </script>
+    </body>
+</html>
+
+
+

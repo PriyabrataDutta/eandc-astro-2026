@@ -1,0 +1,192 @@
+---
+// Online UPS category hub (44 keywords in the keyword map). Replaces the thin legacy /online-ups (a list of 5 links).
+import Hub from '../layouts/Hub.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import Customers from '../components/Customers.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+
+const models = [
+  ['Accenta', '/accenta', '1 – 10 kVA', '1 phase (10 kVA: 3/1 phase)', 'IT, ATMs, CCTV, small offices'],
+  ['Renata-I', '/renata', '2 – 30 kVA', 'Transformer-based', 'Hospitals, labs, rugged loads'],
+  ['Renata-300', '/renata300', '10 – 800 kVA', '3 phase, built-in isolation transformer', 'Hospitals, plants, large buildings'],
+  ['Renata-DS', '/renatacyclone', '10 – 300 kVA', '3 phase, transformerless, up to 94% efficient', 'Commercial buildings, data rooms'],
+  ['Renata Modular', '/renatamodular', '10 – 1200 kVA', 'Hot-swappable modules, N+X redundancy', 'Data centres, banks, stock exchanges'],
+  ['Accenta Rack', '/rack-mount', '1 – 60 kVA', '19-inch rack mount', 'Server racks, network rooms'],
+  ['Lithium UPS', '/lithium-ups', '1 – 5 kVA', 'Built-in LiFePO4 battery', 'Branches, retail, telecom'],
+  ['IP41 – IP55 UPS', '/ip-41-55-online-ups', '10 – 40 kVA', 'Sealed for dust and moisture', 'Plants, outdoor and dusty sites'],
+  ['MIL Grade UPS', '/mil-grade', '1 – 10 kVA', '20g shock, MIL-STD-461', 'Defence, naval, airborne'],
+];
+
+const L = {
+  acc: ['Accenta', '/accenta'], ren: ['Renata-I', '/renata'], r300: ['Renata-300', '/renata300'], ds: ['Renata-DS', '/renatacyclone'],
+  mod: ['Renata Modular', '/renatamodular'], rack: ['Accenta Rack', '/rack-mount'], li: ['Lithium UPS', '/lithium-ups'],
+  iso: ['Isolation transformers', '/isolation'], mon: ['Remote monitoring', '/ups-remote-monitoring'], snmp: ['SNMP adapter', '/snmp-adapter'],
+  sts: ['Static transfer switch', '/intelligent-transfer-switch'], cust: ['Custom UPS', '/custom-solutions'],
+};
+
+// One card per sector in the keyword map. Needs are general engineering facts, not claims about E&C installations.
+const sectors = [
+  { icon: 'fa-hospital-o', h: 'Online UPS for hospitals, ICUs and operation theatres', t: 'Healthcare power backup cannot break: operation theatres, ICUs, ventilators, imaging and diagnostic centers cannot take even a short break. A transformer-based online UPS with an isolation transformer gives medical equipment clean, isolated power.', r: ['r300', 'ren', 'iso'] },
+  { icon: 'fa-university', h: 'UPS for banking, ATMs and the BFSI sector', t: 'Branches, ATM machines and networks, insurance offices and stock exchange trading systems need continuous, monitored power. Small online UPS protect ATMs and branches; modular UPS protect core data rooms.', r: ['acc', 'mod', 'mon'] },
+  { icon: 'fa-building-o', h: 'UPS for government offices and PSU companies', t: 'Offices, e-governance centres and PSU control rooms need dependable backup for servers, networks and citizen services, with service across the country.', r: ['ren', 'r300', 'mon'] },
+  { icon: 'fa-graduation-cap', h: 'UPS for universities, educational institutions and research laboratories', t: 'Schools, colleges and other educational institutes run computer labs, server rooms and sensitive research instruments need clean power; long experiments are lost to a single power cut.', r: ['acc', 'ren', 'iso'] },
+  { icon: 'fa-shopping-bag', h: 'Online UPS for retail chains, hotels and commercial buildings', t: 'Billing counters, hotel and hospitality front offices, building management and lifts\' controls need backup that is quiet and maintenance-light. Real estate projects plan UPS rooms from the start.', r: ['li', 'ds', 'acc'] },
+  { icon: 'fa-plane', h: 'UPS for airports and transport infrastructure', t: 'Check-in, baggage handling, communication and airfield systems must stay up through grid disturbances, with redundancy for critical loads.', r: ['mod', 'r300', 'sts'] },
+  { icon: 'fa-video-camera', h: 'UPS for broadcast and media', t: 'Studios, playout servers, OB vans and VSAT uplinks go off-air on a power break. Online UPS give a clean, zero-break supply to transmission chains.', r: ['acc', 'rack', 'mod'] },
+  { icon: 'fa-bell', h: 'UPS for CCTV and fire alarm systems', t: 'CCTV recorders, access control and fire alarm panels must keep recording and alerting during a power cut. Compact online UPS with long-backup battery banks suit these loads.', r: ['acc', 'li', 'mon'] },
+  { icon: 'fa-flask', h: 'Power backup for pharmaceutical companies and plants', t: 'Process controls, cleanroom HVAC controls, lab instruments and batch records need clean, regulated, uninterrupted power to protect batches and compliance data.', r: ['r300', 'iso', 'mon'] },
+  { icon: 'fa-server', h: 'UPS for data centres and IT', t: 'Servers and networks need zero-break power, N+1 redundancy and remote monitoring, with capacity that grows with the load.', r: ['mod', 'rack', 'snmp'] },
+  { icon: 'fa-handshake-o', h: 'UPS for system integrators and OEMs', t: 'Integrators and equipment makers need UPS that fit their panels and specifications. E&C builds custom UPS for special voltages, enclosures and interfaces.', r: ['cust', 'rack', 'acc'] },
+  { icon: 'fa-industry', h: 'Industrial UPS', t: 'For factories, process plants, oil and gas, steel and cement, see the rugged transformer-based and IP-rated range.', r: [], link: ['Industrial UPS', '/industrial-ups-manufacturer-in-india'] },
+];
+
+const types = [
+  ['How it works', 'Load always runs from the inverter; battery is always connected', 'Mains feeds the load; a transformer corrects voltage; switches to battery on failure', 'Mains feeds the load; switches to battery on failure'],
+  ['Break on power failure', 'None (zero transfer time)', 'A few milliseconds', 'A few milliseconds or more'],
+  ['Output', 'Regenerated pure sine wave, regulated voltage and frequency', 'Regulated voltage, mains frequency', 'Mains as it comes'],
+  ['Best for', 'Critical, sensitive and three phase loads', 'PCs and small office equipment', 'Home PCs'],
+];
+
+const faq = [
+  { q: 'What is an online UPS?', a: 'An online UPS, also called a double conversion or true online UPS, converts incoming AC to DC and back to clean AC all the time. The load always runs from the inverter, so a power failure causes no break at all, and the output is regulated whatever the mains does.' },
+  { q: 'What is the difference between online and line interactive UPS?', a: 'An online UPS runs the load from its inverter all the time, with zero transfer time. A line interactive UPS feeds the load from the mains and switches to battery when the mains fails, which takes a few milliseconds. See online vs offline UPS for the full comparison.' },
+  { q: 'What capacities of online UPS does E&C make?', a: 'From 1 kVA (Accenta) up to 1200 kVA (Renata Modular), in single phase and three phase, transformer-based and transformerless designs.' },
+  { q: 'What is an IP20 UPS, and when do I need IP41 or IP55?', a: 'IP20 is the normal enclosure rating for a UPS in a clean, air-conditioned room. Dusty, humid or outdoor sites need a sealed enclosure: E&C\'s industrial UPS is available from IP41 to IP55.' },
+  { q: 'Which online UPS is best for a hospital?', a: 'Hospitals usually choose a transformer-based online UPS such as Renata-I or Renata-300, often with an isolation transformer for medical equipment, sized for the department\'s load and backup time.' },
+  { q: 'Does E&C supply online UPS across India?', a: 'Yes. E&C is an online UPS manufacturer and supplier: it manufactures in Peenya, Bengaluru, and sells and services online UPS across India through 8 regional sales offices and service locations in 34 cities.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Online UPS Manufacturer in India',
+    description: 'Double conversion online UPS from 1 kVA to 1200 kVA for hospitals, banks, data centres, offices and industry, from E&C Power Systems, Bengaluru.',
+    url: urlFor('online-ups'),
+    serviceType: 'Online UPS manufacturing, supply, installation and service',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="online-ups"
+  title="Online UPS Manufacturer in India | 1 to 1200 kVA | E&C Power"
+  description="Double conversion online UPS manufacturer in India: Accenta, Renata and Renata Modular UPS from 1 to 1200 kVA for hospitals, banks, data centres and offices."
+  name="Online UPS"
+  schema={schema}
+  image="/image/product/Renata%20300%20Series.jpg"
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">Double conversion · true online</span>
+          <h1>Online UPS Manufacturer in India</h1>
+          <p class="hb-lead">E&amp;C Power Systems designs and builds double conversion online UPS (uninterruptible power supply) systems in Bengaluru, from 1 kVA for a single ATM to 1200 kVA modular systems for data centres, and supplies and services them across India.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-bolt" aria-hidden="true"></em>1 – 1200 kVA</li>
+            <li><em class="fa fa-random" aria-hidden="true"></em>Single &amp; three phase</li>
+            <li><em class="fa fa-shield" aria-hidden="true"></em>IP20 to IP55</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo prod"><img src="/image/product/Renata%20300%20Series.jpg" alt="E&C Renata-300 three phase online UPS" width="420" height="360" fetchpriority="high" /><figcaption>Renata-300 three phase online UPS, 10 – 800 kVA</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <ul class="pd-trust">
+      <li><em class="fa fa-check" aria-hidden="true"></em>UPS manufacturer since 1978</li>
+      <li><em class="fa fa-industry" aria-hidden="true"></em>Designed and built in Peenya, Bengaluru</li>
+      <li><em class="fa fa-map-marker" aria-hidden="true"></em>8 sales offices, service in 34 cities</li>
+    </ul>
+  </div>
+
+  <section class="pd-sec" aria-labelledby="h-range">
+    <div class="container">
+      <h2 class="pd-h" id="h-range">Online UPS range</h2>
+      <Range slugs={['accenta', 'renata', 'renata300', 'renatacyclone', 'renatamodular', 'rack-mount', 'lithium-ups', 'ip-41-55-online-ups', 'mil-grade', 'lineups']} />
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-pick">
+    <div class="container">
+      <h2 class="pd-h" id="h-pick">Which online UPS fits your load</h2>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col">Model</th><th scope="col">Capacity</th><th scope="col">Design</th><th scope="col">Typical use</th></tr></thead>
+          <tbody>{models.map(([n, u, c, d, b]) => <tr><th scope="row"><a href={u}>{n}</a></th><td>{c}</td><td>{d}</td><td>{b}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="hb-p" style="margin-top:12px;">Not sure of the size? Read <a href="/guides/ups-sizing-kva">how to size a UPS in kVA</a> and <a href="/guides/ups-battery-backup-time">how to calculate backup time</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-how">
+    <div class="container">
+      <h2 class="pd-h" id="h-how">How a double conversion online UPS works</h2>
+      <p class="hb-sub">Power is converted twice, all the time, so the load never sees the mains directly.</p>
+      <ol class="hb-flow">
+        <li><strong>Rectifier</strong>Converts incoming AC to DC and corrects the input power factor.</li>
+        <li><strong>Battery</strong>Stays connected to the DC link, ready to take over with no switching.</li>
+        <li><strong>Inverter</strong>Rebuilds a clean, regulated sine wave that powers the load.</li>
+        <li><strong>Static bypass</strong>Moves the load to mains automatically on overload or a fault.</li>
+      </ol>
+      <h3 class="pd-h" style="margin-top:24px;font-size:18px;">Online vs line interactive vs offline UPS</h3>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col"></th><th scope="col">Online (double conversion)</th><th scope="col">Line interactive</th><th scope="col">Offline</th></tr></thead>
+          <tbody>{types.map(([k, a, b, c]) => <tr><th scope="row">{k}</th><td>{a}</td><td>{b}</td><td>{c}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="hb-p" style="margin-top:12px;">More in <a href="/guides/online-vs-offline-ups">online vs offline UPS</a> and <a href="/guides/ups-vs-inverter">UPS vs inverter</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-ind">
+    <div class="container">
+      <h2 class="pd-h" id="h-ind">Online UPS for every sector</h2>
+      <div class="hb-cards three">
+        {sectors.map((x) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+            <p class="hb-rec">{x.link ? <a href={x.link[1]}>{x.link[0]} →</a> : x.r.map((k, i) => (<>{i > 0 && ' · '}<a href={L[k][1]}>{L[k][0]}</a></>))}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Customers />
+
+  <section class="pd-sec alt" aria-labelledby="h-why">
+    <div class="container">
+      <h2 class="pd-h" id="h-why">Why choose E&amp;C as your online UPS manufacturer</h2>
+      <ul class="hb-why">
+        <li><em class="fa fa-history" aria-hidden="true"></em><span><strong>Since 1978</strong>More than four decades designing and building UPS in India.</span></li>
+        <li><em class="fa fa-industry" aria-hidden="true"></em><span><strong>Made in Bengaluru</strong>In-house R&amp;D and manufacturing in Peenya, with <a href="/custom-solutions">custom builds</a> for special requirements.</span></li>
+        <li><em class="fa fa-map-marker" aria-hidden="true"></em><span><strong>Sales and service near you</strong>8 regional <a href="/contact#sales-offices">sales offices</a> and service in 34 cities. See <a href="/ups-manufacturer-in-india">UPS across India</a>.</span></li>
+        <li><em class="fa fa-wrench" aria-hidden="true"></em><span><strong>Looked after for life</strong>Installation, warranty support, AMC, battery replacement and rental UPS through <a href="/eandcpower-services">E&amp;C service</a>.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get an online UPS quotation" service="Quote: Online UPS" />
+</Hub>

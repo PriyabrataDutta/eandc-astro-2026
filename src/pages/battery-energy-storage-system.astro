@@ -1,0 +1,153 @@
+---
+// BESS page (keyword map: "Battery Energy Storage System", "BESS"). Built from what E&C makes: LiFePO4 packs with
+// BMS, hybrid inverters, chargers and battery monitoring. No utility-scale (MWh) or certification claims:
+// the client has not confirmed a packaged BESS product line (see README).
+import Hub from '../layouts/Hub.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+
+const parts = [
+  { icon: 'fa-battery-full', h: 'LiFePO4 battery packs', t: 'Lithium iron phosphate cells, the most thermally stable lithium chemistry, in 19-inch rack or floor-mount packs at 36, 48 or 96 V or the voltage you need.', l: ['Lithium ion batteries', '/lithium-ion'] },
+  { icon: 'fa-microchip', h: 'Battery management system (BMS)', t: 'Balances the cells and protects against overcharge, deep discharge and overheating, and reports state of charge and health.', l: ['How lithium compares with lead-acid', '/blogs/lithium-vs-lead-acid-ups-battery'] },
+  { icon: 'fa-exchange', h: 'Hybrid inverter / power conversion', t: 'Charges the battery from solar or the grid and powers the loads from it, with programmable priority between PV, battery and grid and galvanic isolation.', l: ['Solar hybrid inverter', '/solar-hybrid-inverter'] },
+  { icon: 'fa-sun-o', h: 'Solar charging', t: 'MPPT charge controllers or the hybrid inverter\'s built-in charger store daytime solar energy for evening and outage use.', l: ['MPPT solar charge controller', '/scc'] },
+  { icon: 'fa-line-chart', h: 'Monitoring', t: 'Cell and bank voltage, temperature, internal resistance and charge cycles in the cloud, with SMS and email alerts.', l: ['Battery bank monitoring', '/battery-bank-remote-monitoring'] },
+  { icon: 'fa-wrench', h: 'Design, installation and service', t: 'E&C engineers size the battery and inverter to your loads and tariff, then install, commission and maintain the system.', l: ['Service and AMC', '/eandcpower-services'] },
+];
+
+const uses = [
+  { icon: 'fa-sun-o', h: 'Solar self-consumption', t: 'Store surplus solar generation during the day and use it in the evening instead of exporting it cheaply or buying grid power.' },
+  { icon: 'fa-bolt', h: 'Backup power', t: 'Keep lights, IT and essential loads running through power cuts, silently and without fuel.' },
+  { icon: 'fa-line-chart', h: 'Peak shaving', t: 'Discharge the battery at peak demand to cut maximum demand charges and time-of-day tariffs on commercial connections.' },
+  { icon: 'fa-leaf', h: 'Less diesel', t: 'Cover short outages from the battery and start the DG set only for long ones, saving fuel and running hours.' },
+  { icon: 'fa-signal', h: 'Telecom and remote sites', t: 'Power towers, pumping stations and off-grid sites from solar and battery, with remote monitoring.' },
+  { icon: 'fa-building', h: 'Commercial buildings and campuses', t: 'Combine rooftop solar, a hybrid inverter and lithium storage for offices, schools, hospitals and small factories.' },
+];
+
+const compare = [
+  ['Response to an outage', 'Milliseconds (hybrid inverter) or zero-break with a UPS', '10 to 30 seconds to start'],
+  ['Fuel and emissions', 'None; can be charged from solar', 'Diesel; exhaust and noise'],
+  ['Running cost', 'Very low; mainly battery wear', 'Fuel, oil and servicing'],
+  ['Saves money daily', 'Yes: solar shifting and peak shaving', 'No, only runs in outages'],
+  ['Long outages', 'Limited by battery size', 'Runs as long as there is fuel'],
+];
+
+const faq = [
+  { q: 'What is a battery energy storage system (BESS)?', a: 'A BESS stores electrical energy in batteries and releases it when needed. It combines a battery bank, a battery management system, a power conversion system such as a hybrid inverter, and controls and monitoring. It is used for backup, storing solar energy, and cutting peak electricity demand.' },
+  { q: 'Which battery is used in a BESS?', a: 'Most new systems use lithium iron phosphate (LiFePO4) cells for their long cycle life and thermal stability. E&C supplies LiFePO4 packs with built-in BMS, and also lead-acid and Ni-Cd batteries where they suit the duty better.' },
+  { q: 'Is a BESS the same as a UPS?', a: 'Not quite. A UPS gives a zero-break supply to critical loads for minutes to hours. A BESS is sized to store and shift energy, often from solar, and can also provide backup. Many sites use both: a UPS for servers and controls, and a BESS for the wider building.' },
+  { q: 'What size of BESS do I need?', a: 'It depends on the loads to back up, how long, and whether the system will also store solar or shave peaks. Share a recent electricity bill, your load list and your solar capacity, and an E&C engineer will size the battery and inverter.' },
+  { q: 'Does E&C supply BESS across India?', a: 'Yes. E&C designs and builds in Peenya, Bengaluru, and supplies, installs and services systems across India through its sales and service network.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Battery Energy Storage System (BESS)',
+    description: 'Battery energy storage systems with LiFePO4 batteries, BMS, hybrid inverters and monitoring, designed, supplied and installed by E&C Power Systems, Bengaluru.',
+    url: urlFor('battery-energy-storage-system'),
+    serviceType: 'Battery energy storage system design, supply, installation and service',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="battery-energy-storage-system"
+  title="Battery Energy Storage System (BESS) in India | E&C Power"
+  description="Battery energy storage systems (BESS) from E&C Power: LiFePO4 batteries with BMS, hybrid inverters and monitoring for backup, solar storage and peak shaving."
+  name="Battery Energy Storage System (BESS)"
+  crumbs={[{ name: 'Solar Solutions', url: '/solar-solutions' }]}
+  schema={schema}
+  image="/image/product/Lithium%20ion.jpg"
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">Lithium energy storage</span>
+          <h1>Battery Energy Storage System (BESS)</h1>
+          <p class="hb-lead">E&amp;C Power Systems designs and supplies battery energy storage systems for homes, offices, commercial buildings and industrial sites: LiFePO4 batteries with a battery management system, hybrid inverters, solar charging and remote monitoring, sized to your loads and installed by E&amp;C engineers.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-battery-full" aria-hidden="true"></em>LiFePO4 with BMS</li>
+            <li><em class="fa fa-sun-o" aria-hidden="true"></em>Solar-ready hybrid inverters</li>
+            <li><em class="fa fa-line-chart" aria-hidden="true"></em>Cloud monitoring</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Size my BESS</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo prod"><img src="/image/product/Lithium%20ion.jpg" alt="E&C LiFePO4 lithium battery pack with BMS for energy storage" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C LiFePO4 battery pack with built-in BMS</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <ul class="pd-trust">
+      <li><em class="fa fa-check" aria-hidden="true"></em>Power electronics since 1978</li>
+      <li><em class="fa fa-industry" aria-hidden="true"></em>Designed in Peenya, Bengaluru</li>
+      <li><em class="fa fa-truck" aria-hidden="true"></em>Supply, installation and AMC across India</li>
+    </ul>
+  </div>
+
+  <section class="pd-sec" aria-labelledby="h-parts">
+    <div class="container">
+      <h2 class="pd-h" id="h-parts">What is in an E&amp;C BESS</h2>
+      <p class="hb-sub">A battery energy storage system is more than batteries. Each part below is designed or supplied by E&amp;C.</p>
+      <div class="hb-cards three">
+        {parts.map((x) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+            <p class="hb-rec"><a href={x.l[1]}>{x.l[0]}</a></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-uses">
+    <div class="container">
+      <h2 class="pd-h" id="h-uses">What a BESS is used for</h2>
+      <ul class="hb-why">
+        {uses.map((u) => <li><em class={`fa ${u.icon}`} aria-hidden="true"></em><span><strong>{u.h}</strong>{u.t}</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-cmp">
+    <div class="container">
+      <h2 class="pd-h" id="h-cmp">BESS vs diesel generator</h2>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col"></th><th scope="col">Battery energy storage</th><th scope="col">Diesel generator</th></tr></thead>
+          <tbody>{compare.map(([k, a, b]) => <tr><th scope="row">{k}</th><td>{a}</td><td>{b}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="hb-p" style="margin-top:12px;">Many sites keep both: the battery covers everyday outages and solar shifting, and the generator covers rare long outages. For servers and process controls that need a zero-break supply, add an <a href="/online-ups">online UPS</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-range">
+    <div class="container">
+      <h2 class="pd-h" id="h-range">Storage products</h2>
+      <Range slugs={['lithium-ion', 'solar-hybrid-inverter', 'lithium-ups', 'scc', 'battery-bank-remote-monitoring']} />
+      <p class="hb-p" style="margin-top:14px;">Read <a href="/blogs/on-grid-vs-off-grid-vs-hybrid-solar-inverter">on-grid vs off-grid vs hybrid solar inverters</a> and <a href="/guides/ups-battery-backup-time">how to calculate battery backup time</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get a BESS sized for your site" service="Quote: Battery energy storage system" pitch="Tell us the loads, the backup time and any solar on site. An engineer sizes the battery and inverter and sends a quotation." step1="Share your loads, backup time and solar capacity" field="Loads to back up (kW)" ask="Backup time, solar on site, and your goal (backup, solar storage, peak shaving)?" />
+</Hub>

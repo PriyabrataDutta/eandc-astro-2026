@@ -1,0 +1,93 @@
+---
+import Page from '../../layouts/Page.astro';
+import { article, faqPage } from '../../lib/schema.js';
+
+const faq = [
+  {
+    q: 'How do I calculate UPS battery backup time?',
+    a: 'Backup time in hours is roughly: battery bank voltage x battery Ah x inverter efficiency, divided by the load in watts. Because batteries deliver less than their rated Ah when discharged quickly, check the result against the battery maker\'s discharge table for your load.',
+  },
+  {
+    q: 'How long does a UPS battery last?',
+    a: 'Typical life at 25°C: sealed maintenance-free (SMF/VRLA) batteries 3 to 5 years, tubular batteries around 5 to 8 years with regular topping up, lithium iron phosphate 8 to 10 years, and nickel-cadmium 15 years or more. Heat, deep discharges and poor charging shorten life.',
+  },
+  {
+    q: 'What is the difference between SMF and tubular batteries?',
+    a: 'SMF (VRLA) batteries are sealed, need no water topping and can sit in racks in offices and server rooms. Tubular batteries are flooded lead-acid with tubular positive plates, last longer in deep and frequent discharges, but need periodic distilled-water topping and a ventilated space.',
+  },
+  {
+    q: 'How can I extend UPS battery life?',
+    a: 'Keep the battery room near 25°C, avoid running batteries flat, let the UPS charge fully after each outage, keep terminals clean and tight, and replace a weak string together rather than mixing old and new batteries.',
+  },
+];
+const schema = [article('UPS Battery Backup Time: How to Calculate It, Battery Life and Choosing a Battery Bank', 'guides/ups-battery-backup-time'), faqPage(faq)];
+---
+<Page
+  slug="guides/ups-battery-backup-time"
+  image="/image/blog/guides-ups-battery-backup-time.jpg"
+  type="article"
+  published="2026-11-17"
+  title="UPS Battery Backup Time Calculation & Battery Life | E&C"
+  description="How to calculate UPS battery backup time, size a battery bank, compare SMF, tubular, lithium and Ni-Cd batteries, and make UPS batteries last longer."
+  h1="UPS Battery Backup Time: How to Calculate It"
+  schema={schema}
+>
+  <p>UPS backup time depends on three things: how much energy the battery bank stores, how much power the load draws, and how efficiently the UPS converts battery power to AC. A bigger battery bank or a smaller load gives longer backup. The formula below gets you close; the battery maker's discharge table gives the exact figure.</p>
+
+  <h2>The backup time formula</h2>
+  <p><strong>Backup time (hours) ≈ (battery bank voltage × battery Ah × number of parallel strings × inverter efficiency) ÷ load in watts</strong></p>
+  <ul>
+    <li><strong>Battery bank voltage:</strong> number of batteries in series × 12 V (for 12 V blocks). A UPS with sixteen 12 V batteries has a 192 V bank.</li>
+    <li><strong>Battery Ah:</strong> the rated capacity printed on the battery, such as 100 Ah.</li>
+    <li><strong>Inverter efficiency:</strong> use about 0.9 for a modern online UPS unless the datasheet says otherwise.</li>
+    <li><strong>Load in watts:</strong> the real power your equipment draws, not the UPS rating.</li>
+  </ul>
+
+  <h3>Worked example</h3>
+  <p>A 10 kVA online UPS runs a 6,000 W load from sixteen 12 V, 100 Ah batteries (192 V, one string).</p>
+  <p>192 V × 100 Ah × 1 × 0.9 = 17,280 Wh. 17,280 Wh ÷ 6,000 W ≈ 2.9 hours.</p>
+  <p>That is the ideal figure. Batteries give less than their rated Ah when discharged in a few hours instead of the 10 or 20 hours the rating assumes, and you should not run them completely flat. In practice, plan on roughly 2 to 2.5 hours here, and confirm it with the discharge table for that battery model.</p>
+
+  <h2>How to size a battery bank for a UPS</h2>
+  <ol>
+    <li>Add up the real load in watts. If you only know VA, multiply by the power factor (about 0.8 to 0.9 for most IT loads).</li>
+    <li>Decide the backup time you need: just enough to start a generator (10 to 15 minutes), enough to shut down safely, or hours of runtime.</li>
+    <li>Note the UPS DC bus voltage from its datasheet. This fixes how many batteries go in series.</li>
+    <li>Rearrange the formula to find the Ah: Ah = (load W × backup hours) ÷ (bank voltage × efficiency). Then round up to the next standard size, or add parallel strings.</li>
+    <li>Add margin for ageing. Batteries lose capacity over their life, so size for about 80% of rated capacity at end of life.</li>
+    <li>Check the result against the battery maker's discharge table at your load and temperature.</li>
+  </ol>
+
+  <h2>Which battery type: SMF, tubular, lithium or Ni-Cd?</h2>
+  <table>
+    <thead><tr><th>Battery</th><th>Typical life at 25°C</th><th>Maintenance</th><th>Best for</th></tr></thead>
+    <tbody>
+      <tr><td><a href="/smf">SMF / VRLA</a></td><td>3 to 5 years</td><td>None (sealed)</td><td>Offices, server rooms, rack UPS, short to medium backup</td></tr>
+      <tr><td><a href="/agm-gel">AGM / GEL</a></td><td>Varies by design; GEL tolerates deep discharge better</td><td>None (sealed)</td><td>Frequent outages, solar, telecom</td></tr>
+      <tr><td><a href="/tubular-batteries-manufacturing">Tubular</a></td><td>Around 5 to 8 years</td><td>Distilled-water topping, ventilation</td><td>Long backup, frequent deep discharges</td></tr>
+      <tr><td><a href="/lithium-ion">Lithium (LiFePO4)</a></td><td>8 to 10 years</td><td>None; built-in battery management</td><td>Compact installs, many cycles, high temperatures</td></tr>
+      <tr><td><a href="/nickel">Nickel-cadmium</a></td><td>15 years or more</td><td>Low; tolerant of heat and abuse</td><td>Railways, defence, oil and gas, harsh sites</td></tr>
+    </tbody>
+  </table>
+  <p>These are typical figures; the battery datasheet and your operating conditions decide the real life.</p>
+
+  <h2>How long does a UPS battery last, and what shortens it?</h2>
+  <ul>
+    <li><strong>Heat:</strong> the biggest factor for lead-acid batteries. As a rule of thumb, every 10°C above 25°C roughly halves the life of a VRLA battery. Keep the battery room cool and ventilated.</li>
+    <li><strong>Deep discharges:</strong> running batteries flat often wears them out faster. Size the bank so normal outages use only part of its capacity.</li>
+    <li><strong>Charging:</strong> a correct float voltage and full recharge after every outage matter. An undercharged battery sulphates and loses capacity.</li>
+    <li><strong>Mixing batteries:</strong> a weak battery drags down the whole string. Replace a string together.</li>
+  </ul>
+
+  <h2>How to extend UPS battery life</h2>
+  <ul>
+    <li>Keep batteries near 25°C and away from direct sun or heat sources.</li>
+    <li>Let the UPS fully recharge after each power cut before relying on it again.</li>
+    <li>Check terminal tightness and clean corrosion every few months.</li>
+    <li>For tubular batteries, top up with distilled water to the marked level.</li>
+    <li>Get a yearly battery health test. E&amp;C's <a href="/battery-bank-remote-monitoring">battery bank monitoring</a> tracks each battery so weak ones are found early.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+  {faq.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+</Page>
