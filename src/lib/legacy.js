@@ -4,7 +4,7 @@ import { replaceFooter } from './footer.js';
 import { officesHtml, OFFICES } from '../data/offices.js';
 import path from 'node:path';
 import vercel from '../../vercel.json';
-import { meta as seo, alts as seoAlts, headingFixes, productPages, people } from '../data/seo.js';
+import { meta as seo, alts as seoAlts, headingFixes, productPages } from '../data/seo.js';
 import { products, families } from '../data/products.js';
 import headingLevels from '../data/heading-levels.json' with { type: 'json' };
 
@@ -261,10 +261,6 @@ export function cleanup(html, slug) {
     if (Array.isArray(data['@graph'])) data['@graph'] = data['@graph'].filter((x) => !isHiddenFaq(x));
     return open + JSON.stringify(data) + close;
   });
-  if (people[slug]) {
-    const nodes = people[slug].map(([name, jobTitle]) => ({ '@context': 'https://schema.org', '@type': 'Person', name, jobTitle, worksFor: ORG_REF }));
-    html = html.replace(/<\/head>/i, `${nodes.map((n) => `<script type="application/ld+json">${JSON.stringify(n)}</script>`).join('\n')}\n</head>`);
-  }
 
   if (productPages[slug]) {
     const name = productPages[slug].name;

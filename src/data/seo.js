@@ -188,13 +188,3 @@ export const productPages = {
   'facility-monitoring': P('Facility Monitoring System', 'Remote Monitoring'),
   'snmp-adapter': P('SNMP Adapter for UPS', 'Remote Monitoring'),
 };
-
-// People named on /management, added as Person schema (E-E-A-T): names and roles exactly as the page shows them.
-export const people = {
-  management: [
-    ['Sundari Ramachandran', 'Chairperson'],
-    ['Vidya Iyer', 'Managing Director'],
-    ['Rajaram Ramamoorthy', 'Chief Executive Officer'],
-    ['M. S. Sivasankaran', 'Director'],
-  ],
-};
