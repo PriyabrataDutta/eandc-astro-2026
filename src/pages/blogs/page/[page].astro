@@ -1,0 +1,12 @@
+---
+// Blog index pages 2..N, 10 posts each.
+import BlogList from '../../../components/BlogList.astro';
+import { posts, paged } from '../../../lib/blog.js';
+
+export function getStaticPaths() {
+  const pages = paged(posts);
+  return pages.slice(1).map((items, i) => ({ params: { page: String(i + 2) }, props: { items, page: i + 2, pages: pages.length } }));
+}
+const { items, page, pages } = Astro.props;
+---
+<BlogList items={items} page={page} pages={pages} base="/blogs" />

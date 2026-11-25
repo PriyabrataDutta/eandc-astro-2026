@@ -1,0 +1,92 @@
+---
+// One page of the blog listing: 10 posts, topic links and page links. Used by /blogs, /blogs/page/N and the
+// topic pages, so the whole listing is never loaded at once.
+import Page from '../layouts/Page.astro';
+import { posts, longDate, PER_PAGE, topics, topicSlug } from '../lib/blog.js';
+import { guideTitles } from '../data/products.js';
+import { urlFor } from '../lib/legacy.js';
+
+const { items, page, pages, base, topic } = Astro.props;
+const href = (n) => (n === 1 ? base : `${base}/page/${n}`);
+const slug = href(page).slice(1);
+const of = pages > 1 ? ` (page ${page} of ${pages})` : '';
+const name = topic ? `${topic} articles` : 'Blogs';
+const title = topic ? `${topic} Articles${pages > 1 ? `, Page ${page}` : ''} | E&C Power Systems Blog` : page === 1 ? 'UPS, Battery & Power Backup Blog | E&C Power Systems' : `UPS & Power Backup Blog, Page ${page} | E&C Power Systems`;
+const description = topic
+  ? `${topic} articles from E&C Power Systems: practical guides on choosing, sizing and looking after power equipment${of}.`
+  : page === 1
+    ? 'Practical articles from E&C Power Systems on online and industrial UPS by sector, data centre power, batteries, power quality, solar, EV charging and UPS service.'
+    : `More practical articles from E&C Power Systems on UPS, batteries, power quality, solar and EV charging${of}.`;
+const crumbs = topic || page > 1 ? [{ name: 'Blogs', url: '/blogs' }, ...(topic && page > 1 ? [{ name, url: base }] : [])] : [];
+const h1 = page > 1 ? `${name}: page ${page}` : name;
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': topic ? 'CollectionPage' : 'Blog',
+    name: topic ? `${topic} articles` : 'E&C Power Systems Blog',
+    url: urlFor(slug),
+    ...(topic ? { isPartOf: { '@type': 'Blog', url: urlFor('blogs') } } : {}),
+    [topic ? 'hasPart' : 'blogPost']: items.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: urlFor(`blogs/${p.slug}`), datePublished: p.date })),
+  },
+];
+---
+<Page slug={slug} title={title} description={description} h1={h1} crumbs={crumbs} schema={schema} image={items[0].cover} noindex={!!topic}>
+  <style>
+    .bl-grid { display:grid; grid-template-columns:1fr; gap:18px; margin:0 0 28px; }
+    @media (min-width:768px) { .bl-grid { grid-template-columns:1fr 1fr; } }
+    .bl-card { border:1px solid #e2e8f0; border-radius:8px; overflow:hidden; background:#fff; display:flex; flex-direction:column; }
+    .bl-card img { width:100%; height:auto; aspect-ratio:1200/630; object-fit:cover; display:block; }
+    .bl-body { padding:14px 16px 16px; }
+    .bl-tag { font-size:11.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#005c9e; }
+    .bl-card p { font-size:14px !important; margin:0 0 8px !important; text-align:left !important; }
+    .bl-meta { font-size:12.5px; color:#667; }
+    .bl-jump, .bl-pages { display:flex; flex-wrap:wrap; gap:6px; list-style:none; padding:0; margin:0 0 20px; }
+    .bl-jump li, .bl-pages li { list-style:none; margin:0; padding:0; }
+    .bl-jump li::before, .bl-pages li::before { display:none !important; content:none !important; }
+    .bl-jump a, .bl-pages a, .bl-pages span { text-decoration:none !important; display:inline-flex; align-items:center; justify-content:center; min-height:36px; min-width:36px; padding:6px 12px; border-radius:18px; background:#eaf2fa; color:#005c9e; font-size:13.5px; }
+    .bl-jump a:hover, .bl-pages a:hover { background:#005c9e; color:#fff; }
+    .bl-jump a[aria-current], .bl-pages [aria-current] { background:#005c9e; color:#fff; }
+    .bl-pages { justify-content:center; margin:4px 0 32px; }
+    .bl-pages .off { background:#f1f4f7; color:#9aa6b2; }
+  </style>
+  {page === 1 && !topic && <p>Practical guides from E&amp;C's engineers on choosing, sizing and looking after UPS systems, batteries and power equipment.</p>}
+
+  <ul class="bl-jump" aria-label="Topics">
+    <li><a href="/blogs" aria-current={topic ? undefined : 'page'}>All ({posts.length})</a></li>
+    {topics.map(([tag, list]) => <li><a href={`/blogs/topic/${topicSlug(tag)}`} aria-current={tag === topic ? 'page' : undefined}>{tag} ({list.length})</a></li>)}
+  </ul>
+
+  <div class="bl-grid">
+    {items.map((p, i) => (
+      <article class="bl-card">
+        <a href={`/blogs/${p.slug}`} tabindex="-1" aria-hidden="true"><img src={p.cover} alt="" width="360" height="189" loading={i < 2 ? undefined : 'lazy'} decoding="async" /></a>
+        <div class="bl-body">
+          <span class="bl-tag">{p.tag}</span>
+          <h2 style="font-size:17px; line-height:1.35; margin:6px 0 8px;"><a href={`/blogs/${p.slug}`} style="color:#0b2546;">{p.title}</a></h2>
+          <p>{p.description}</p>
+          <span class="bl-meta"><time datetime={p.date}>{longDate(p.date)}</time> · {p.minutes} min read</span>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  {pages > 1 && (
+    <nav aria-label="Blog pages">
+      <ul class="bl-pages">
+        <li>{page > 1 ? <a href={href(page - 1)} rel="prev">‹ Previous</a> : <span class="off">‹ Previous</span>}</li>
+        {Array.from({ length: pages }, (_, i) => i + 1).map((n) => <li>{n === page ? <span aria-current="page">{n}</span> : <a href={href(n)}>{n}</a>}</li>)}
+        <li>{page < pages ? <a href={href(page + 1)} rel="next">Next ›</a> : <span class="off">Next ›</span>}</li>
+      </ul>
+    </nav>
+  )}
+
+  <h2>Buying guides</h2>
+  <ul>{Object.entries(guideTitles).map(([g, t]) => <li><a href={`/guides/${g}`}>{t}</a></li>)}</ul>
+
+  {page === 1 && !topic && (
+    <>
+      <h2 id="videos">Videos</h2>
+      <p>Company updates, product demos and application videos are posted on <a href="https://www.linkedin.com/company/electronics-controls-power-systems-pvt-ltd/" rel="noopener" target="_blank">E&amp;C's LinkedIn page</a>.</p>
+    </>
+  )}
+</Page>

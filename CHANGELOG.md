@@ -35,6 +35,9 @@ All notable changes to this project. Format based on [Keep a Changelog](https://
 
 ### Changed
 
+- Blog listing paginated: 10 posts per page at `/blogs`, `/blogs/page/2`–`6`, with numbered and previous/next links (plain crawlable links). Topic chips open topic pages (`/blogs/topic/{topic}`, also 10 per page; `noindex, follow` because some topics have only 1–2 posts). Each listing page has its own title, canonical, breadcrumb and Blog/CollectionPage schema; posts stay in the sitemap.
+- Performance: `scripts/optimize-images.mjs` now serves right-sized WebP copies (2× the authored width, capped at 720px for home cards, 960px for product photos, 1600px otherwise) while keeping full-size WebP for CSS backgrounds; 833 image tags resized. Blog cards use 720px covers. New `scripts/minify-css.mjs` minifies the theme stylesheets after the build (437 KB to 328 KB) using lightningcss from Vite, and skips itself if it cannot load. Local Lighthouse mobile: home 80 to 86, `/online-ups` 85 to 91, `/blogs` 87 to 91; home page weight 1376 KB to 1112 KB. Before/after screenshots on 9 pages, desktop and mobile, differ by under 1%.
+
 - `vercel.json`: `X-Robots-Tag: noindex, nofollow` on `*.vercel.app` hosts only, so the pre-production URL is not indexed; the production domain is unaffected.
 
 - 34 product pages retitled for India: titles and descriptions now set in `products.js` (no "in Bangalore", no phone number in descriptions; "Made in India" only on products E&C builds, "Supplier in India" on batteries). An optional `heading` field puts the keyword in the H1 on the 8 pages mapped to priority keywords. `/ev-chargers` gets a spec title so it stops competing with `/ev-charger-manufacturer-in-india`. `/stabilizer` title now targets India.

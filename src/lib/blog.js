@@ -12,3 +12,10 @@ export const posts = Object.entries(files)
   .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
 
 export const longDate = (d) => new Date(`${d}T00:00:00Z`).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+
+// Listing pages show PER_PAGE posts each: /blogs, /blogs/page/N, /blogs/topic/{topic}[/page/N].
+export const PER_PAGE = 10;
+export const topicSlug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+// Topics, biggest first: one per content silo.
+export const topics = [...Map.groupBy(posts, (p) => p.tag)].sort((a, b) => b[1].length - a[1].length);
+export const paged = (list) => Array.from({ length: Math.ceil(list.length / PER_PAGE) }, (_, i) => list.slice(i * PER_PAGE, (i + 1) * PER_PAGE));
