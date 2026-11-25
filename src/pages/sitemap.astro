@@ -47,10 +47,12 @@ const blog = take(['blogs']);
 const other = take([...all]);
 
 const groups = [
-  { id: 'company', icon: 'fa-building', title: 'Company', links: company },
-  { id: 'contact', icon: 'fa-phone', title: 'Sales, service and contact', links: contact },
-  { id: 'solutions', icon: 'fa-th-large', title: 'Solutions', links: categories },
+  { title: 'Company', links: company },
+  { title: 'Sales, service and contact', links: contact },
+  { title: 'Solutions', links: categories },
 ];
+// Groups longer than this may continue in the next column, so columns end level instead of leaving gaps.
+const LONG = 8;
 const total = all.size + posts.length;
 ---
 <Hub
@@ -62,143 +64,126 @@ const total = all.size + posts.length;
 >
   <section class="hb-hero sm-hero">
     <div class="container">
-      <span class="pd-eyebrow">{total} pages</span>
-      <h1>Sitemap</h1>
-      <p class="hb-lead">Every page on the E&amp;C Power Systems website, grouped by topic.</p>
+      <h1>Sitemap <span>{total} pages</span></h1>
       <nav class="sm-jump" aria-label="Sitemap sections">
         <a href="#company">Company</a><a href="#products">Products</a><a href="#india">UPS across India</a><a href="#bengaluru">Bengaluru</a><a href="#learn">Blog &amp; guides</a>
       </nav>
     </div>
   </section>
 
-  <section class="pd-sec sm-sec">
-    <div class="container">
-      <div class="sm-row">
-        {groups.map((g) => (
-          <div class="sm-card" id={g.id}>
-            <h2><em class={`fa ${g.icon}`} aria-hidden="true"></em>{g.title}</h2>
-            <ul>{g.links.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="pd-sec alt sm-sec" id="products" aria-labelledby="h-products">
-    <div class="container">
-      <h2 class="pd-h" id="h-products">Products</h2>
-      <div class="sm-grid">
-        {productGroups.map((g) => (
-          <div class="sm-card">
+  <div class="container sm-wrap">
+    <section class="sm-sec" id="company" aria-labelledby="h-company">
+      <h2 id="h-company">Company, sales and solutions</h2>
+      <div class="sm-cols top">
+        {groups.map((g, i) => (
+          <div class={`sm-g${i === 0 ? ' split' : ''}`}>
             <h3>{g.title}</h3>
             <ul>{g.links.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="pd-sec sm-sec" id="india" aria-labelledby="h-india">
-    <div class="container">
-      <h2 class="pd-h" id="h-india">UPS across India</h2>
-      <div class="sm-grid">
-        <div class="sm-card">
+    <section class="sm-sec" id="products" aria-labelledby="h-products">
+      <h2 id="h-products">Products</h2>
+      <div class="sm-cols">
+        {productGroups.map((g) => (
+          <div class={`sm-g${g.links.length > LONG ? ' long' : ''}`}>
+            <h3>{g.title}</h3>
+            <ul>{g.links.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="sm-sec" id="india" aria-labelledby="h-india">
+      <h2 id="h-india">UPS across India</h2>
+      <div class="sm-cols wide">
+        <div class="sm-g long">
           <h3>India</h3>
           <ul>{india.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
         </div>
-        {stateGroups.map((g) => (
-          <div class="sm-card">
-            <h3><a href={g.state.url}>{g.state.name}</a></h3>
-            <ul class="sm-chips">{g.cities.map((c) => <li><a href={c.url}>{c.name}</a></li>)}</ul>
-          </div>
-        ))}
-        {otherCities.length > 0 && (
-          <div class="sm-card">
-            <h3>More cities</h3>
-            <ul class="sm-chips">{otherCities.map((c) => <li><a href={c.url}>{c.name}</a></li>)}</ul>
-          </div>
-        )}
+        <div class="sm-g long">
+          <h3>States and cities</h3>
+          <ul class="sm-states">
+            {stateGroups.map((g) => (
+              <li>
+                <a class="sm-state" href={g.state.url}>{g.state.name.replace(/^UPS supplier in /i, '')}</a>
+                <span class="sm-chips">{g.cities.map((c) => <a href={c.url}>{c.name}</a>)}</span>
+              </li>
+            ))}
+            {otherCities.length > 0 && (
+              <li><span class="sm-state">More cities</span><span class="sm-chips">{otherCities.map((c) => <a href={c.url}>{c.name}</a>)}</span></li>
+            )}
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="pd-sec alt sm-sec" id="bengaluru" aria-labelledby="h-blr">
-    <div class="container">
-      <h2 class="pd-h" id="h-blr">UPS in Bengaluru</h2>
-      <div class="sm-card sm-wide"><ul>{blr.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul></div>
-    </div>
-  </section>
+    <section class="sm-sec" id="bengaluru" aria-labelledby="h-blr">
+      <h2 id="h-blr">UPS in Bengaluru</h2>
+      <div class="sm-cols wide">
+        <div class="sm-g long"><ul>{blr.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul></div>
+      </div>
+    </section>
 
-  <section class="pd-sec sm-sec" id="learn" aria-labelledby="h-learn">
-    <div class="container">
-      <h2 class="pd-h" id="h-learn"><a href="/blogs">{blog[0]?.name ?? 'Blog'}</a> and buying guides</h2>
-      <div class="sm-grid">
+    <section class="sm-sec" id="learn" aria-labelledby="h-learn">
+      <h2 id="h-learn"><a href="/blogs">{blog[0]?.name ?? 'Blog'}</a> and buying guides</h2>
+      <div class="sm-cols wide">
         {topics.map(([tag, slug, list]) => (
-          <div class="sm-card">
+          <div class={`sm-g${list.length > LONG ? ' long' : ''}`}>
             <h3><a href={`/blogs/${slug}`}>{tag}</a></h3>
             <ul>{list.map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
           </div>
         ))}
-        <div class="sm-card">
+        <div class="sm-g">
           <h3>Buying guides</h3>
           <ul>{guides.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
         </div>
         {other.length > 0 && (
-          <div class="sm-card">
+          <div class="sm-g">
             <h3>Other pages</h3>
             <ul>{other.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
           </div>
         )}
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </Hub>
 
 <style is:global>
-	/* Compact: cards flow in packed columns (no grid gaps), tight link rows, less section padding. */
-	.sm-hero { padding:16px 0 18px; }
-	.sm-hero h1 { margin-bottom:4px; }
-	.sm-hero .hb-lead { margin-bottom:10px; }
+	/* Directory layout: one panel per section; groups flow through balanced columns. Long groups may continue in
+	   the next column (their items never split), so columns end level and there are no gaps. */
+	.sm-hero { padding:14px 0 16px; }
+	.sm-hero h1 { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:0 0 10px; }
+	.sm-hero h1 span { font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#ffcc80; background:rgba(255,255,255,.12); padding:3px 9px; border-radius:4px; }
 	.sm-jump { display:flex; flex-wrap:wrap; gap:6px; }
 	.sm-jump a { display:inline-flex; align-items:center; min-height:32px; padding:4px 12px; border-radius:16px; border:1px solid rgba(255,255,255,.3); color:#fff !important; font-size:13px; }
 	.sm-jump a:hover { background:rgba(255,255,255,.12); border-color:#ff9900; }
-	.pd .sm-sec { padding:18px 0; }
-	.pd .sm-sec .pd-h { margin-bottom:10px; }
-	.pd .sm-sec .pd-h a { color:inherit; }
-	.sm-grid { columns:1; column-gap:12px; }
-	.sm-row { display:grid; grid-template-columns:1fr; gap:12px; align-items:start; }
-	.sm-row .sm-card { margin:0; }
-	.sm-card { break-inside:avoid; display:inline-block; width:100%; margin:0 0 12px; background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px 14px; scroll-margin-top:16px; }
-	.sm-card h2 { display:flex; align-items:center; gap:8px; font-size:15.5px; font-weight:600; color:var(--navy); margin:0 0 6px; }
-	.pd .sm-card h2 em.fa { color:var(--blue); font-size:14px !important; }
-	.sm-card h3 { font-size:14.5px; font-weight:600; color:var(--navy); margin:0 0 4px; }
-	.sm-card h3 a { color:var(--navy); }
-	.sm-card ul { list-style:none; margin:0; padding:0; }
-	.sm-card li { margin:0; }
-	.sm-card li a { display:block; padding:3px 0; font-size:13.5px; color:var(--blue); line-height:1.35; }
-	.sm-card li a:hover { color:var(--navy); text-decoration:underline; }
-	.sm-card .sm-chips { display:flex; flex-wrap:wrap; gap:4px; }
-	.sm-card .sm-chips a { padding:2px 9px; border-radius:12px; background:var(--tint); font-size:12.5px; }
-	.sm-card .sm-chips a:hover { background:var(--blue); color:#fff; text-decoration:none; }
-	.sm-wide ul { columns:2; column-gap:20px; }
-	.sm-wide li { break-inside:avoid; }
-	/* Phones: two columns of links where they are short, so the page is not one very long list. */
-	@media (max-width: 767px) {
-		.sm-grid { columns:auto; }
-		.sm-card { display:block; }
-		.sm-card ul:not(.sm-chips) a { overflow-wrap:anywhere; }
-		.sm-card ul:not(.sm-chips) { columns:2; column-gap:14px; }
-		.sm-card li { break-inside:avoid; }
-		.sm-card li a { padding:5px 0; }
-		#learn .sm-card ul { columns:1; } /* blog titles are too long for two columns */
-	}
-	@media (min-width: 768px) {
-		.sm-grid { columns:2; }
-		.sm-row { grid-template-columns:repeat(3, 1fr); }
-		.sm-wide ul { columns:3; }
-	}
-	@media (min-width: 992px) {
-		.sm-grid { columns:3; }
-		.sm-wide ul { columns:4; }
-	}
+	.sm-wrap { padding-top:18px; padding-bottom:24px; }
+	.sm-sec { scroll-margin-top:12px; margin:0 0 16px; }
+	.sm-sec h2 { font-size:18px; font-weight:600; color:var(--navy); margin:0 0 8px; }
+	.sm-sec h2 a { color:inherit; }
+	.sm-cols { background:#fff; border:1px solid var(--line); border-radius:8px; padding:14px 18px 4px; columns:2; column-gap:28px; }
+	.sm-cols.wide { columns:1; }
+	/* Top: three short groups, each kept whole; Company's 12 links run in two columns. */
+	.sm-cols.top { display:grid; grid-template-columns:1fr; gap:0 28px; columns:auto; }
+	.sm-g.split ul { columns:2; column-gap:20px; }
+	.sm-g { margin:0 0 12px; break-inside:avoid; }
+	.sm-g.long { break-inside:auto; }
+	.sm-g h3 { font-size:14px; font-weight:600; color:var(--navy); margin:0 0 3px; break-after:avoid; }
+	.sm-g h3 a { color:var(--navy); }
+	.sm-g ul { list-style:none; margin:0; padding:0; }
+	.sm-g li { margin:0; break-inside:avoid; }
+	.sm-g li a { display:block; padding:3px 0; font-size:13.5px; line-height:1.35; color:var(--blue); }
+	.sm-g li a:hover { color:var(--navy); text-decoration:underline; }
+	.sm-states li { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 8px; padding:4px 0; border-top:1px solid #eef2f6; }
+	.sm-states li:first-child { border-top:0; }
+	.sm-g .sm-states a.sm-state, .sm-states span.sm-state { display:inline; padding:0; font-size:13.5px; font-weight:600; color:var(--navy); }
+	.sm-chips { display:inline-flex; flex-wrap:wrap; gap:4px; }
+	.sm-g .sm-chips a { display:inline-block; padding:1px 8px; border-radius:10px; background:var(--tint); font-size:12.5px; }
+	.sm-g .sm-chips a:hover { background:var(--blue); color:#fff; text-decoration:none; }
+	@media (min-width: 600px) { .sm-cols.wide { columns:2; } .sm-cols.top { grid-template-columns:2fr 1fr 1fr; } }
+	@media (min-width: 992px) { .sm-cols { columns:3; } .sm-cols.wide { columns:3; } }
+	@media (min-width: 1200px) { .sm-cols { columns:4; } }
 </style>

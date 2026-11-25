@@ -1,6 +1,12 @@
 // Title and meta description overrides for legacy pages whose own were duplicated, missing or too long.
 // Primary keywords follow the Keyword map tab of the plan doc. Titles <= 60 characters, descriptions ~140-160.
 export const meta = {
+  // Home keeps its Bangalore target (it ranks for it on the live site); Peenya is said once, naturally, and the national
+  // terms are left to /online-ups and /ups-manufacturer-in-india.
+  index: {
+    title: 'Online UPS Manufacturer in Bangalore | E&C Power Systems',
+    description: 'E&C Power Systems manufactures online and industrial UPS, inverters and stabilizers at its Peenya, Bengaluru plant, with sales and service across India.',
+  },
   'power-inverter-manufacturer-in-india': {
     description: 'Power inverter manufacturer in India: E&C builds industrial inverters from 3 to 100 kVA and Voltstar home inverters from 600 VA to 5 kVA in Bengaluru.',
   },
@@ -91,6 +97,13 @@ export const alts = {
 // Pages whose main heading isn't an <h1> (or which have two). The theme's size classes and the original
 // margins keep the look identical: h1 gets margin 0 from the theme, h2 gets 0 0 18px.
 export const headingFixes = {
+  // Home: no "Bangalore Peenya" keyword string, no H2 competing with /online-ups, no repeated title, descriptive alt.
+  index: [
+    ['>Online UPS Manufacturer in Bangalore Peenya</h1>', '>Online UPS Manufacturer in Bangalore</h1>'],
+    ['margin-top: 10px;">Online UPS Manufacturer in India</h2>', 'margin-top: 10px;">Made in Peenya, Bengaluru. Supplied and serviced across India</h2>'],
+    ['alt="Online UPS Manufacturer in Peenya Industrial Area"', 'alt="E&amp;C online UPS range"'],
+    ['letter-spacing: 0.2px;">Online UPS Manufacturer in Bangalore</h2>', 'letter-spacing: 0.2px;">Talk to our UPS engineers</h2>'],
+  ],
   // Not a heading: the Bengaluru city page's breadcrumb now links up to the India and Karnataka hubs.
   'ups-manufacturer-in-bangalore': [['<li><a href="/sitemap">Solutions</a></li>', '<li><a href="/ups-manufacturer-in-india">UPS Manufacturer in India</a></li>\n\t\t\t\t<li><a href="/ups-supplier-in-karnataka">UPS Supplier in Karnataka</a></li>']],
   'agm-gel': [['<h2 class="font-w-300">AGM / GEL Batteries </h2>', '<h1 class="font-w-300 h2" style="margin:0 0 18px; font-family:&quot;Poppins&quot;, sans-serif; line-height:1.25;">AGM / GEL Batteries </h1>']],
