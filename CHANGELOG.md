@@ -6,6 +6,7 @@ All notable changes to this project. Format based on [Keep a Changelog](https://
 
 ### Added
 
+- `/remote-monitoring-system`: category hub for UPS, battery bank, DG and facility monitoring and the SNMP adapter, with a comparison table, uses, guides and FAQs. The "Remote Monitoring" menu item and the monitoring product breadcrumbs now open it instead of the UPS monitoring product.
 - `/ups-price-in-india`: price page for 29 "price / cost / buy" keywords that were on the quote form. It lists 18 products with their range and what sets the price, and covers price drivers, cost of ownership, how to buy and FAQs. Prices show "Get price" until the client confirms ranges (`PRICE` in the page). Linked from `/get-a-quote`, `/sitemap` and `llms.txt`.
 - `/custom-solutions` rebuilt as a hub (8 keywords): custom UPS design, OEM, indigenisation, power conditioning, the design process, and sections for ports and shipping, smart cities, defence and machine builders.
 - 12 blog posts (18 in total) answering the "what is / how" keywords: SMF vs VRLA, tubular vs GEL vs AGM, Ni-Cd batteries, FCBC chargers, static transfer switch, rack mount UPS, MIL grade vs IP55 UPS, THD / surge / bypass, MPPT controllers, solar DC UPS, SNMP and remote monitoring, UPS for hospitals and fire alarm systems. Each links to and from its product pages and is in `llms.txt`.

@@ -1,0 +1,142 @@
+---
+// Remote monitoring hub: UPS, battery bank, DG and facility monitoring had no category page, so the "Remote
+// Monitoring" menu item opened a single product. Product facts from src/data/products.js; guides are the matching
+// blog posts.
+import Hub from '../layouts/Hub.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+import { families } from '../data/products.js';
+import { postUrl } from '../lib/blog.js';
+
+const fam = families.monitoring;
+const range = ['ups-remote-monitoring', 'battery-bank-remote-monitoring', 'dg-monitoring', 'facility-monitoring', 'snmp-adapter'];
+
+const types = [
+  ['What it watches', 'UPS load, battery voltage, mains or battery mode, on / off status', 'Cell and bank voltage, temperature, charge and discharge, internal resistance', 'Fuel level, running hours, load, on / off status', 'CCTV, temperature, door, smoke and movement sensors'],
+  ['Alerts', 'SMS and email', 'SMS and email', 'SMS and email', 'SMS and email; arm / disarm'],
+  ['Best for', 'UPS fleets across branches and sites', 'Battery banks at data centres, telecom sites and substations', 'DG sets at factories, telecom sites and buildings', 'Unmanned sites, warehouses and branch offices'],
+];
+const links = ['/ups-remote-monitoring', '/battery-bank-remote-monitoring', '/dg-monitoring', '/facility-monitoring'];
+const heads = ['UPS monitoring', 'Battery bank monitoring', 'DG monitoring', 'Facility monitoring'];
+
+const uses = [
+  { icon: 'fa-university', h: 'Banks and ATMs', t: 'Watch the UPS and batteries at every branch from one screen, and get an alert before a site loses backup.' },
+  { icon: 'fa-signal', h: 'Telecom towers', t: 'Track battery banks and DG fuel at unmanned sites, so a visit is planned before power runs out.' },
+  { icon: 'fa-server', h: 'Data centres and server rooms', t: 'Battery bank monitoring finds a weak cell before it fails, when the whole string would otherwise be at risk.' },
+  { icon: 'fa-industry', h: 'Factories', t: 'Generator running hours, load and fuel level in one place, with alarms when something is wrong.' },
+  { icon: 'fa-shopping-cart', h: 'Retail chains', t: 'UPS status across stores, so the maintenance team knows which site needs attention first.' },
+  { icon: 'fa-building', h: 'Warehouses and remote sites', t: 'Facility sensors for temperature, doors and smoke, with CCTV recorded centrally.' },
+];
+
+const guides = [
+  ['snmp-and-remote-ups-monitoring', 'What is SNMP UPS monitoring?'],
+  ['how-to-extend-ups-battery-life', 'How to extend UPS battery life'],
+  ['ups-battery-replacement-guide', 'When and how to replace a UPS battery bank'],
+  ['ups-preventive-maintenance-and-load-testing', 'UPS preventive maintenance and load testing'],
+];
+
+const faq = [
+  { q: 'How does E&C remote monitoring work?', a: 'A monitoring unit at the site reads the key parameters of the UPS, battery bank, generator or facility and sends them over GPRS to the cloud, or optionally to a local server. Users see the readings as charts and graphs and get SMS and email alerts of any abnormality.' },
+  { q: 'What is the difference between remote monitoring and an SNMP adapter?', a: 'An SNMP adapter puts one UPS on your own network, for monitoring in a browser or network management system and safe server shutdown. E&C remote monitoring sends readings over GPRS to the cloud, so many UPS, battery banks and generators at different sites can be watched together without a local network.' },
+  { q: 'Why monitor a battery bank?', a: 'One weak cell can stop a whole battery string from carrying the load. Monitoring cell voltage, temperature and internal resistance shows which battery is failing, so it can be replaced before an outage instead of after.' },
+  { q: 'What does diesel generator monitoring show?', a: 'Fuel level, on / off status, running hours and load, with SMS and email alerts. It helps plan refuelling and service visits at sites without staff.' },
+  { q: 'Can E&C monitor sites across India?', a: 'Yes. Readings travel over GPRS, so the sites can be anywhere with mobile coverage. E&C supplies the systems from Bengaluru through its regional sales offices across India.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Remote monitoring systems for UPS, battery banks, generators and facilities',
+    description: 'Remote monitoring of UPS, battery banks, diesel generators and facilities over GPRS and the cloud, with SMS and email alerts, from E&C Power Systems, Bengaluru, across India.',
+    url: urlFor('remote-monitoring-system'),
+    serviceType: 'Remote power equipment monitoring',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="remote-monitoring-system"
+  title="Remote Monitoring System for UPS, Battery & DG | E&C India"
+  description="Remote monitoring of UPS, battery banks, diesel generators and facilities over GPRS and the cloud, with SMS and email alerts. From E&C Power, Bengaluru."
+  name="Remote Monitoring"
+  schema={schema}
+  image="/image/home/Remote%20Monitoring.jpg"
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">UPS · battery · DG · facility</span>
+          <h1>Remote Monitoring Systems for UPS, Batteries and Generators</h1>
+          <p class="hb-lead">E&amp;C Power Systems' remote monitoring sends UPS, battery bank, generator and facility readings over GPRS to the cloud, with charts and SMS and email alerts, so sites across India can be watched from one place.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-cloud" aria-hidden="true"></em>Cloud or local server</li>
+            <li><em class="fa fa-bell" aria-hidden="true"></em>SMS and email alerts</li>
+            <li><em class="fa fa-line-chart" aria-hidden="true"></em>Charts and logs</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a quote</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo prod"><img src="/image/home/Remote%20Monitoring.jpg" alt="E&C remote monitoring dashboard" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C remote monitoring</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-range">
+    <div class="container">
+      <h2 class="pd-h" id="h-range">Monitoring range</h2>
+      <Range slugs={range} />
+      <p class="hb-p" style="margin-top:12px;">The equipment being monitored: <a href="/online-ups">online UPS</a>, <a href="/industrial-ups-manufacturer-in-india">industrial UPS</a>, <a href="/ups-batteries">UPS batteries</a> and <a href="/ups-accessories">UPS accessories</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-types">
+    <div class="container">
+      <h2 class="pd-h" id="h-types">Which system do you need?</h2>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col"></th>{heads.map((h, i) => <th scope="col"><a href={links[i]} style="color:#fff;">{h}</a></th>)}</tr></thead>
+          <tbody>{types.map(([k, ...v]) => <tr><th scope="row">{k}</th>{v.map((x) => <td>{x}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-uses">
+    <div class="container">
+      <h2 class="pd-h" id="h-uses">Where it is used</h2>
+      <div class="hb-cards three">
+        {uses.map((x) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-guides">
+    <div class="container">
+      <h2 class="pd-h" id="h-guides">Guides</h2>
+      <ul class="hb-tags">{guides.map(([s, t]) => <li><a href={postUrl(s)}>{t}</a></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get a monitoring quotation" service="Quote: Remote monitoring" pitch={fam.pitch} step1={fam.step1} field={fam.field} ask={fam.ask} />
+</Hub>

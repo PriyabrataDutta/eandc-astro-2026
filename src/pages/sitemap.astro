@@ -19,7 +19,7 @@ const NAMES = {
   annualreturn: 'Annual return (MGT-7)', contact: 'Contact us', 'eandcpower-sales': 'Sales offices', 'eandcpower-services': 'Service, AMC & repair',
   feedback: 'Feedback', 'custom-solutions': 'Custom UPS solutions', 'ups-manufacturer-in-bangalore': 'Bengaluru', 'get-a-quote': 'Get a quote', 'ups-price-in-india': 'UPS price in India', 'online-ups': 'Online UPS', stabilizer: 'Voltage stabilizers',
   'industrial-ups-manufacturer-in-india': 'Industrial UPS', 'battery-energy-storage-system': 'Battery energy storage (BESS)',
-  'marine-ups': 'Marine UPS', 'ups-batteries': 'UPS batteries', 'ups-accessories': 'UPS accessories', 'ups-manufacturer-in-india': 'UPS manufacturer in India', 'solar-solutions': 'Solar solutions',
+  'marine-ups': 'Marine UPS', 'ups-batteries': 'UPS batteries', 'ups-accessories': 'UPS accessories', 'remote-monitoring-system': 'Remote monitoring', 'ups-manufacturer-in-india': 'UPS manufacturer in India', 'solar-solutions': 'Solar solutions',
   ...Object.fromEntries(states.map((x) => [x.slug, `UPS supplier in ${x.name}`])),
   ...Object.fromEntries(cities.map((x) => [x.slug, x.name])),
 };
@@ -29,7 +29,7 @@ const take = (list) => list.filter((s) => all.has(s) && !used.has(s)).map((s) =>
 
 const company = take(['index', 'about-us', 'management', 'missionandvision', 'research-and-development', 'eandcpower-infrastructure', 'machinery', 'newtestimonal', 'careers', 'catalog', 'frequently-asked-questions', 'annualreturn']);
 const contact = take(['contact', 'get-a-quote', 'ups-price-in-india', 'eandcpower-sales', 'eandcpower-services', 'feedback']);
-const categories = take(['online-ups', 'industrial-ups-manufacturer-in-india', 'stabilizer', 'ups-batteries', 'ups-accessories', 'solar-solutions', 'battery-energy-storage-system', 'marine-ups', 'custom-solutions']);
+const categories = take(['online-ups', 'industrial-ups-manufacturer-in-india', 'stabilizer', 'ups-batteries', 'ups-accessories', 'remote-monitoring-system', 'solar-solutions', 'battery-energy-storage-system', 'marine-ups', 'custom-solutions']);
 const productGroups = Object.entries(families)
   .map(([k, f]) => ({ title: f.name, links: take(Object.keys(products).filter((p) => products[p].family === k)) }))
   .filter((g) => g.links.length);

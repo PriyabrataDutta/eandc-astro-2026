@@ -21,7 +21,7 @@ export const families = {
   charger: { name: 'Battery Chargers', url: '/battery-charger-manufacturer-in-india', guides: [], ...OTHER, field: 'DC voltage / current' },
   solar: { name: 'Solar Solutions', url: '/solar-inverter-manufacturer-in-india', guides: [], ...OTHER },
   ev: { name: 'EV Chargers', url: '/ev-charger-manufacturer-in-india', guides: [], ...OTHER, field: 'Charger rating (kW)' },
-  monitoring: { name: 'Remote Monitoring', url: null, guides: [], ...OTHER, field: 'Number of sites or units' },
+  monitoring: { name: 'Remote Monitoring', url: '/remote-monitoring-system', guides: [], ...OTHER, field: 'Number of sites or units' },
 };
 
 export const products = {

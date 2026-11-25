@@ -195,7 +195,7 @@ const MENU_CATEGORIES = {
   Inverters: '/power-inverter-manufacturer-in-india',
   'EV Chargers': '/ev-charger-manufacturer-in-india',
   Stabilizers: '/stabilizer',
-  'Remote Monitoring': '/ups-remote-monitoring',
+  'Remote Monitoring': '/remote-monitoring-system',
   Batteries: '/ups-batteries',
   Accessories: '/ups-accessories',
 };
