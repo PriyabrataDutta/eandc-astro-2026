@@ -1,6 +1,24 @@
 // Title and meta description overrides for legacy pages whose own were duplicated, missing or too long.
 // Primary keywords follow the Keyword map tab of the plan doc. Titles <= 60 characters, descriptions ~140-160.
 export const meta = {
+  // Company and contact pages: titles say what the page is; quotation/sales keywords live on /get-a-quote and the
+  // national pages, and Peenya/Bangalore on the home and Bangalore pages.
+  newtestimonal: {
+    title: 'Customer Testimonials | E&C Power Systems',
+    description: 'What customers such as Union Bank of India, LIC, Exide, Hindalco and Zee Entertainment say about E&C Power Systems UPS, service and support.',
+  },
+  contact: {
+    title: 'Contact E&C Power Systems | Peenya, Bengaluru',
+    description: 'Contact E&C Power Systems: head office and plant at 29/A, Peenya Industrial Area, Bengaluru, regional sales offices across India, phone, email and enquiry form.',
+  },
+  'eandcpower-sales': {
+    title: 'Sales Offices Across India | E&C Power Systems',
+    description: 'E&C Power Systems sales offices in Bengaluru, Chennai, Kochi, Mumbai, Kolkata, New Delhi, Indore and Jammu, covering UPS and power solutions across India.',
+  },
+  feedback: {
+    title: 'Customer Feedback | E&C Power Systems',
+    description: 'Share your feedback on E&C Power Systems UPS, inverters, stabilizers, installation, service and support, or scan the code to leave a Google review.',
+  },
   // About pages describe the company; the sales keywords forced onto them belong to /get-a-quote and /ups-supplier-in-india.
   'about-us': {
     title: 'About E&C Power Systems | UPS Manufacturer Since 1978',
@@ -110,6 +128,47 @@ export const alts = {
 // Pages whose main heading isn't an <h1> (or which have two). The theme's size classes and the original
 // margins keep the look identical: h1 gets margin 0 from the theme, h2 gets 0 0 18px.
 export const headingFixes = {
+  // Company and contact pages: plain headings instead of repeated keywords; descriptive alts (banner first, then photo).
+  newtestimonal: [
+    ['<h1>UPS System Quotation in Peenya</h1>', '<h1>Customer Testimonials</h1>'],
+    ['font-weight: 600;">UPS System Quotation in Bangalore</h2>', 'font-weight: 600;">What our customers say</h2>'],
+    ['letter-spacing: 0.2px;">UPS System Quotation in Peenya</h2>', 'letter-spacing: 0.2px;">Talk to our team</h2>'],
+    ['>Request a UPS System Quotation Across India</h4>', '>Request a quotation from E&amp;C Power</h4>'],
+    ['alt="UPS System Quotation in Peenya"', 'alt="E&amp;C Power Systems"'],
+  ],
+  contact: [
+    ['<h1>UPS Manufacturer Contact in Bangalore</h1>', '<h1>Contact Us</h1>'],
+    ['font-weight: 600;">UPS Manufacturer Contact in Peenya Bangalore</h2>', 'font-weight: 600;">Head office and plant in Peenya, Bengaluru</h2>'],
+    ['letter-spacing: 0.2px;">UPS Manufacturer Contact in Bangalore</h2>', 'letter-spacing: 0.2px;">Talk to our team</h2>'],
+    ['alt="UPS Manufacturer Contact in Peenya Bangalore"', 'alt="E&amp;C Power Systems"'],
+  ],
+  'eandcpower-sales': [
+    ['<h1>Industrial UPS Sales in Peenya</h1>', '<h1>Sales Offices</h1>'],
+    ['font-weight: 600;">Industrial UPS Sales in Bangalore</h2>', 'font-weight: 600;">Sales and support across India</h2>'],
+    ['letter-spacing: 0.2px;">Industrial UPS Sales in Peenya</h2>', 'letter-spacing: 0.2px;">Talk to our sales team</h2>'],
+    ['>Contact E&amp;C Power for Industrial UPS Sales Across India</h4>', '>Contact your nearest E&amp;C office</h4>'],
+    ['alt="Industrial UPS Sales in Bangalore"', 'alt="E&amp;C Power Systems"'],
+    ['alt="Industrial UPS Sales in Bangalore"', 'alt="E&amp;C Power Systems sales team"'],
+  ],
+  'eandcpower-services': [
+    ['alt="UPS Service and Maintenance in Peenya"', 'alt="E&amp;C Power Systems"'],
+    ['alt="UPS Service and Maintenance in Peenya" class="alignright col-md-4">UPS Services in Peenya</h1>', 'alt="E&amp;C UPS service" class="alignright col-md-4">UPS Service, AMC &amp; Repair</h1>'],
+    ['font-weight: 600;">UPS Service and Maintenance in Bangalore</h2>', 'font-weight: 600;">Installation, maintenance and repair across India</h2>'],
+    ['letter-spacing: 0.2px;">UPS Service in Peenya</h2>', 'letter-spacing: 0.2px;">Talk to our service team</h2>'],
+  ],
+  feedback: [
+    ['<h1>UPS Systems Feedback Bangalore</h1>', '<h1>Customer Feedback</h1>'],
+    ['font-weight: 600;">UPS Systems Feedback Bangalore Peenya</h2>', 'font-weight: 600;">Tell us how we did</h2>'],
+    ['letter-spacing: 0.2px;">UPS Systems Feedback Bangalore</h2>', 'letter-spacing: 0.2px;">Talk to our team</h2>'],
+    ['alt="UPS Systems Feedback Bangalore"', 'alt="E&amp;C Power Systems"'],
+  ],
+  annualreturn: [['<h1>Contact Us</h1>', '<h1>Annual Return (Form MGT-7)</h1>']],
+  'research-and-development': [['src="image/rd.jpg" alt="services"', 'src="image/rd.jpg" alt="E&amp;C research and development lab"']],
+  machinery: [['src="image/Machinery.jpg" alt="services"', 'src="image/Machinery.jpg" alt="Production machinery at the E&amp;C plant"']],
+  'eandcpower-infrastructure': [
+    ['alt="services" class="alignright col-md-4">Infrastructure</h1>', 'alt="E&amp;C Power Systems office and factory" class="alignright col-md-4">Infrastructure</h1>'],
+    ['letter-spacing: 0.2px;">UPS Manufacturing Infrastructure in Peenya Bangalore</h2>', 'letter-spacing: 0.2px;">Visit our plant in Peenya, Bengaluru</h2>'],
+  ],
   // About pages: company headings instead of repeated sales keywords; descriptive image alts.
   'about-us': [
     ['<h1 class="heading-section">Power Electronics Manufacturer in Bangalore Peenya</h1>', '<h1 class="heading-section">About E&amp;C Power Systems</h1>'],
