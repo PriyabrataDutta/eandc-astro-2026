@@ -1,10 +1,10 @@
 // Title and meta description overrides for legacy pages whose own were duplicated, missing or too long.
 // Primary keywords follow the Keyword map tab of the plan doc. Titles <= 60 characters, descriptions ~140-160.
 export const meta = {
-  // Home keeps its Bangalore target (it ranks for it on the live site); Peenya is said once, naturally, and the national
-  // terms are left to /online-ups and /ups-manufacturer-in-india.
+  // Home keeps its Bangalore target (it ranks for it on the live site) with India alongside, as the live H1 had it; the
+  // exact "…in India" term stays with /online-ups and /ups-manufacturer-in-india. Peenya is said once, naturally.
   index: {
-    title: 'Online UPS Manufacturer in Bangalore | E&C Power Systems',
+    title: 'Online UPS Manufacturer in Bangalore, India | E&C Power',
     description: 'E&C Power Systems manufactures online and industrial UPS, inverters and stabilizers at its Peenya, Bengaluru plant, with sales and service across India.',
   },
   'power-inverter-manufacturer-in-india': {
@@ -99,7 +99,7 @@ export const alts = {
 export const headingFixes = {
   // Home: no "Bangalore Peenya" keyword string, no H2 competing with /online-ups, no repeated title, descriptive alt.
   index: [
-    ['>Online UPS Manufacturer in Bangalore Peenya</h1>', '>Online UPS Manufacturer in Bangalore</h1>'],
+    ['>Online UPS Manufacturer in Bangalore Peenya</h1>', '>Online UPS Manufacturer in Bangalore, India</h1>'],
     ['margin-top: 10px;">Online UPS Manufacturer in India</h2>', 'margin-top: 10px;">Made in Peenya, Bengaluru. Supplied and serviced across India</h2>'],
     ['alt="Online UPS Manufacturer in Peenya Industrial Area"', 'alt="E&amp;C online UPS range"'],
     ['letter-spacing: 0.2px;">Online UPS Manufacturer in Bangalore</h2>', 'letter-spacing: 0.2px;">Talk to our UPS engineers</h2>'],
