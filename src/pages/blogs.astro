@@ -5,6 +5,9 @@ import { posts, longDate } from '../lib/blog.js';
 import { guideTitles } from '../data/products.js';
 import { urlFor } from '../lib/legacy.js';
 
+// Posts grouped by topic (tag), biggest topic first, with jump links: one section per content silo.
+const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+const topics = [...Map.groupBy(posts, (p) => p.tag)].sort((a, b) => b[1].length - a[1].length);
 const schema = [
   {
     '@context': 'https://schema.org',
@@ -18,7 +21,7 @@ const schema = [
 <Page
   slug="blogs"
   title="UPS, Battery & Power Backup Blog | E&C Power Systems"
-  description="Practical articles from E&C Power Systems on online UPS, batteries, isolation transformers, solar inverters, EV chargers and UPS maintenance."
+  description="Practical articles from E&C Power Systems on online and industrial UPS by sector, data centre power, batteries, power quality, solar, EV charging and UPS service."
   h1="Blogs"
   schema={schema}
   image={posts[0].cover}
@@ -35,22 +38,37 @@ const schema = [
     .bl-card h2 a:hover { color:#005c9e; }
     .bl-card p { font-size:14px !important; margin:0 0 8px !important; text-align:left !important; }
     .bl-meta { font-size:12.5px; color:#667; }
+    .bl-jump { display:flex; flex-wrap:wrap; gap:6px; list-style:none; padding:0; margin:0 0 20px; }
+    .bl-jump li { list-style:none; margin:0; padding:0; }
+    .bl-jump li::before { display:none !important; content:none !important; }
+    .bl-jump a { text-decoration:none !important; display:inline-flex; align-items:center; min-height:36px; padding:6px 12px; border-radius:18px; background:#eaf2fa; color:#005c9e; font-size:13.5px; }
+    .bl-jump a:hover { background:#005c9e; color:#fff; }
+    .bl-topic { scroll-margin-top:16px; }
   </style>
   <p>Practical guides from E&amp;C's engineers on choosing, sizing and looking after UPS systems, batteries and power equipment.</p>
 
-  <div class="bl-grid">
-    {posts.map((p, i) => (
-      <article class="bl-card">
-        <a href={`/blogs/${p.slug}`} tabindex="-1" aria-hidden="true"><img src={p.cover} alt="" width="1200" height="630" loading={i < 2 ? undefined : 'lazy'} /></a>
-        <div class="bl-body">
-          <span class="bl-tag">{p.tag}</span>
-          <h2><a href={`/blogs/${p.slug}`}>{p.title}</a></h2>
-          <p>{p.description}</p>
-          <span class="bl-meta"><time datetime={p.date}>{longDate(p.date)}</time> · {p.minutes} min read</span>
-        </div>
-      </article>
-    ))}
-  </div>
+  <ul class="bl-jump" aria-label="Topics">
+    {topics.map(([tag, list]) => <li><a href={`#${slugify(tag)}`}>{tag} ({list.length})</a></li>)}
+  </ul>
+
+  {topics.map(([tag, list], ti) => (
+    <section class="bl-topic" id={slugify(tag)}>
+      <h2>{tag}</h2>
+      <div class="bl-grid">
+        {list.map((p, i) => (
+          <article class="bl-card">
+            <a href={`/blogs/${p.slug}`} tabindex="-1" aria-hidden="true"><img src={p.cover} alt="" width="1200" height="630" loading={ti === 0 && i < 2 ? undefined : 'lazy'} /></a>
+            <div class="bl-body">
+              <span class="bl-tag">{p.tag}</span>
+              <h3 style="font-size:17px; line-height:1.35; margin:6px 0 8px;"><a href={`/blogs/${p.slug}`} style="color:#0b2546;">{p.title}</a></h3>
+              <p>{p.description}</p>
+              <span class="bl-meta"><time datetime={p.date}>{longDate(p.date)}</time> · {p.minutes} min read</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
 
   <h2>Buying guides</h2>
   <ul>{Object.entries(guideTitles).map(([g, t]) => <li><a href={`/guides/${g}`}>{t}</a></li>)}</ul>

@@ -1,0 +1,191 @@
+---
+// UPS price page (keyword map: the "price / cost / buy" keywords, moved here from /get-a-quote, which is only a form).
+// E&C has not published prices, so each row links to the quote form. When the client confirms a range, put it in
+// PRICE (e.g. renata: '₹x – ₹y, ex-GST') and the row shows it instead of the link.
+import Hub from '../layouts/Hub.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+import { products } from '../data/products.js';
+
+const PRICE = {};
+
+const rows = [
+  ['renata', 'Online (double conversion) UPS for offices, labs and machines', 'kVA, single or three phase, backup time'],
+  ['renata300', 'Large online UPS for plants and buildings', 'kVA, isolation transformer, size of battery bank'],
+  ['renatamodular', 'Modular UPS for data centres and server rooms', 'Number of power modules, N+1 redundancy, frame size'],
+  ['rack-mount', 'Rack mount UPS, 1U / 2U and taller', 'Rack height, kVA, external battery packs'],
+  ['lithium-ups', 'UPS with built-in lithium battery', 'Battery capacity (kWh) and backup time'],
+  ['mil-grade', 'For defence and harsh sites', 'Environmental specification and enclosure'],
+  ['ip-41-55-online-ups', 'IP41 – IP55 industrial UPS for dusty, wet plants', 'IP rating, enclosure and cooling'],
+  ['lineups', 'Line interactive UPS for office PCs and small loads', 'VA rating and backup time'],
+  ['industrial-inverter', 'Industrial inverter for DC-backed loads', 'kVA, DC bus voltage, battery'],
+  ['smf', 'Sealed maintenance-free battery for UPS and inverters', 'Ah rating and number of batteries'],
+  ['lithium-ion', 'For UPS, solar and energy storage', 'Ah rating, voltage, BMS'],
+  ['industrial-battery-charger-fcbc', 'Float cum boost battery charger', 'DC voltage and output current'],
+  ['air_oil', 'For machines, CNC, HVAC and smaller buildings', 'kVA and input voltage range'],
+  ['oil-cooled', 'For whole factories, hospitals and large buildings', 'kVA and input voltage range'],
+  ['isolation', 'Clean, isolated supply and a stable neutral for UPS and sensitive loads', 'kVA, single or three phase'],
+  ['intelligent-transfer-switch', 'Switches the load between two sources without a break', 'Current rating, single or three phase'],
+  ['solar-hybrid-inverter', 'Solar hybrid inverter / system', 'Inverter kVA, panels and battery storage'],
+  ['ev-chargers', 'For fleets, offices, malls and highways', 'AC or DC, kW rating, number of guns'],
+];
+
+const drivers = [
+  { icon: 'fa-bolt', h: 'Capacity (kVA)', t: 'The biggest factor. Size from the real load plus growth margin, not the nameplate total. See how to size a UPS.', l: ['UPS sizing guide', '/guides/ups-sizing-kva'] },
+  { icon: 'fa-battery-three-quarters', h: 'Backup time and battery', t: 'Doubling the backup roughly doubles the battery bank, which can cost as much as the UPS itself on long backups.', l: ['Battery backup time', '/guides/ups-battery-backup-time'] },
+  { icon: 'fa-flask', h: 'Battery chemistry', t: 'Lithium costs more up front than SMF or tubular lead-acid but usually lasts longer, so it may be bought once where lead-acid is replaced two or three times.', l: ['Lithium vs lead-acid', '/blogs/lithium-vs-lead-acid-ups-battery'] },
+  { icon: 'fa-random', h: 'Topology and phase', t: 'Online double conversion costs more than line interactive; three phase input and output cost more than single phase.', l: ['Online vs offline UPS', '/guides/online-vs-offline-ups'] },
+  { icon: 'fa-th', h: 'Redundancy', t: 'A modular UPS with an extra (N+1) module costs more than a single unit of the same rating, but a module can fail or be serviced without shutting the load.', l: ['Modular UPS and N+1', '/blogs/modular-ups-n-plus-1-redundancy'] },
+  { icon: 'fa-shield', h: 'Enclosure and environment', t: 'IP55, MIL grade and marine builds add sealed cabinets, filtered cooling and tested components.', l: ['Industrial UPS', '/industrial-ups-manufacturer-in-india'] },
+  { icon: 'fa-plug', h: 'Accessories', t: 'Isolation transformer, static transfer switch, bypass panel, SNMP card and remote monitoring are quoted as needed.', l: ['Isolation transformer for UPS', '/blogs/isolation-transformer-for-ups'] },
+  { icon: 'fa-truck', h: 'Installation and site', t: 'Battery racks, cabling, earthing, transport and commissioning depend on the site and distance.', l: ['Our sales offices', '/contact#sales-offices'] },
+];
+
+const faq = [
+  { q: 'How much does an online UPS cost in India?', a: 'It depends mostly on the kVA rating, single or three phase, and how long the backup must last, because the battery bank can cost as much as the UPS. Send E&C your load, backup time and city and you get a sized quotation, usually within one working day.' },
+  { q: 'Why do two quotations for the same kVA differ so much?', a: 'Compare backup time and battery type, whether an isolation transformer, bypass and installation are included, single or three phase, and the warranty and service terms. Quotes for the same kVA often differ on these, not on the UPS itself.' },
+  { q: 'How do I buy a UPS from E&C?', a: 'Send an enquiry or call sales. An engineer confirms the sizing, you receive a quotation, and after your purchase order E&C supplies, installs and commissions the system, with service from its regional offices.' },
+  { q: 'Is a lithium UPS worth the higher price?', a: 'Often, where lead-acid batteries would be replaced two or more times: warm battery rooms, frequent power cuts and daily cycling. Compare the cost over ten years, not just the purchase price.' },
+  { q: 'What else should I budget for besides the UPS?', a: 'Batteries and their replacement, installation and cabling, an annual maintenance contract (AMC), and the electricity the UPS itself uses. A more efficient UPS costs less to run every year.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'UPS and power backup systems: prices and quotations',
+    url: urlFor('ups-price-in-india'),
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'E&C power backup products',
+      itemListElement: rows.map(([s]) => ({ '@type': 'Offer', itemOffered: { '@type': 'Product', name: products[s].name, url: urlFor(s) } })),
+    },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="ups-price-in-india"
+  title="UPS Price in India | Online, Modular & Industrial UPS | E&C"
+  description="What sets the price of an online, modular or industrial UPS in India: kVA, backup, battery, redundancy. Get a sized quotation from E&C, usually in one working day."
+  name="UPS Price in India"
+  schema={schema}
+  image={products.renatamodular.image}
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">Prices · quotations · buying</span>
+          <h1>UPS Price in India</h1>
+          <p class="hb-lead">The price of a UPS or power backup system depends on what it has to carry and for how long. Here is what decides the price of each E&amp;C product, and how to get an exact quotation: tell us the load, backup time and city, and an engineer sends a sized price, usually within one working day.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-industry" aria-hidden="true"></em>Direct from the manufacturer</li>
+            <li><em class="fa fa-calculator" aria-hidden="true"></em>Free sizing</li>
+            <li><em class="fa fa-wrench" aria-hidden="true"></em>Installation &amp; AMC</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo prod"><img src={products.renatamodular.image} alt="E&C Renata modular UPS" width="420" height="360" fetchpriority="high" /><figcaption>Renata modular UPS, 10 – 1200 kVA</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-list">
+    <div class="container">
+      <h2 class="pd-h" id="h-list">Price list by product</h2>
+      <p class="hb-p">Every system is quoted for your load, so the price depends on the factors listed. Pick a product to get its price.</p>
+      <div class="hb-scroll">
+        <table class="hb-cmp pr-list">
+          <thead><tr><th scope="col">Product</th><th scope="col">Range</th><th scope="col">What sets the price</th><th scope="col">Price</th></tr></thead>
+          <tbody>
+            {rows.map(([s, what, by]) => (
+              <tr>
+                <th scope="row"><a href={`/${s}`}>{products[s].name}</a><br /><small>{what}</small></th>
+                <td>{products[s].capacity ?? '–'}</td>
+                <td>{by}</td>
+                <td>{PRICE[s] ?? <a href="#quote">Get price</a>}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="hb-p" style="margin-top:12px;">Other products, such as <a href="/snmp-adapter">SNMP adapters</a>, <a href="/tubular-batteries-manufacturing">tubular batteries</a> and <a href="/ups-remote-monitoring">remote monitoring</a>, are also quoted on request. Not sure what you need? See <a href="/online-ups">online UPS</a> or <a href="/industrial-ups-manufacturer-in-india">industrial UPS</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-drivers">
+    <div class="container">
+      <h2 class="pd-h" id="h-drivers">What decides the price of a UPS</h2>
+      <div class="hb-cards three">
+        {drivers.map((x) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+            <p class="hb-rec"><a href={x.l[1]}>{x.l[0]}</a></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-tco">
+    <div class="container">
+      <h2 class="pd-h" id="h-tco">Purchase price vs cost of ownership</h2>
+      <p class="hb-p">The cheapest quotation is not always the cheapest power backup system. Over ten years, add:</p>
+      <ul class="hb-p pr-tco">
+        <li><strong>Battery replacement.</strong> A lead-acid bank in a warm room often needs replacing every 3 to 4 years; lithium typically lasts 8 to 10.</li>
+        <li><strong>Electricity.</strong> An online UPS runs all the time, so a few percent of efficiency is paid for every year.</li>
+        <li><strong>Service.</strong> An <a href="/eandcpower-services">AMC</a> with preventive visits and fast breakdown response keeps the UPS and batteries healthy.</li>
+        <li><strong>Downtime.</strong> For data centres and hospitals, N+1 redundancy often costs less than one outage.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-buy">
+    <div class="container">
+      <h2 class="pd-h" id="h-buy">How to buy a UPS from E&amp;C</h2>
+      <ol class="hb-flow">
+        <li><strong>Enquire</strong>Use the form, call 080 2837 1974 or email sales@eandcpower.com.</li>
+        <li><strong>Size</strong>An engineer confirms the load, backup time and site, and visits if needed.</li>
+        <li><strong>Quote</strong>A written quotation, usually within one working day.</li>
+        <li><strong>Supply &amp; install</strong>After your purchase order: delivery, installation, commissioning and service.</li>
+      </ol>
+      <p class="hb-p" style="margin-top:14px;">E&amp;C sells direct from its Bengaluru plant and <a href="/contact#sales-offices">regional sales offices</a>, across India.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get a UPS price" service="Quote: Price enquiry" pitch="Tell us the load, backup time and city. An engineer sizes the system and sends the price." />
+</Hub>
+
+<style is:global>
+	.pr-tco { padding-left:20px; }
+	.pr-tco li { margin-bottom:6px; }
+	.pr-list th small { font-weight:400; color:var(--muted); }
+	@media (max-width: 599px) {
+		.pr-list thead { display:none; }
+		.pr-list, .pr-list tbody { display:block; }
+		.pr-list tr { display:grid; grid-template-columns:1fr auto; gap:2px 12px; padding:10px 12px; border-bottom:1px solid var(--line); }
+		.pr-list th, .pr-list td { display:block; padding:0 !important; border:0 !important; background:none !important; }
+		.pr-list th { grid-column:1; }
+		.pr-list td:nth-of-type(1) { grid-column:2; grid-row:1; text-align:right; font-weight:600; white-space:nowrap; }
+		.pr-list td:nth-of-type(2) { grid-column:1 / -1; font-size:13.5px; }
+		.pr-list td:nth-of-type(2)::before { content:'Price depends on: '; color:var(--muted); }
+		.pr-list td:nth-of-type(3) { grid-column:1 / -1; }
+		.pr-list td:nth-of-type(3) a { display:inline-block; margin-top:4px; padding:6px 12px; border-radius:16px; background:var(--tint); }
+	}
+</style>

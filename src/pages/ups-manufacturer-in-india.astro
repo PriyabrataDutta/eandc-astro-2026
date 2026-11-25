@@ -101,10 +101,12 @@ const major = ['delhi', 'mumbai', 'kolkata', 'chennai', 'hyderabad', 'ahmedabad'
               <ul class="hb-tags">{s.cities.map(cityLink).map((c) => <li><a href={c.url}>{c.name}</a></li>)}</ul>
             </div>
           ))}
-          <div class="hb-card">
-            <h3>More cities</h3>
-            <ul class="hb-tags">{citiesWithoutHub().map((c) => <li><a href={`/${c.slug}`}>{c.name}</a></li>)}</ul>
-          </div>
+          {citiesWithoutHub().length > 0 && (
+            <div class="hb-card">
+              <h3>More cities</h3>
+              <ul class="hb-tags">{citiesWithoutHub().map((c) => <li><a href={`/${c.slug}`}>{c.name}</a></li>)}</ul>
+            </div>
+          )}
         </div>
       </div>
     </div>

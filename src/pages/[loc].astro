@@ -9,12 +9,16 @@ import Quote from '../components/Quote.astro';
 import { states, cities, indexable, cityLink, stateOf, SECTORS, kmFromPlant } from '../data/locations.js';
 import { ORG_REF, urlFor } from '../lib/legacy.js';
 import { officesHtml } from '../data/offices.js';
+import { products } from '../data/products.js';
+import LOCAL from '../data/local.json';
 
 export function getStaticPaths() {
   return [...states, ...cities].map((p) => ({ params: { loc: p.slug }, props: { p } }));
 }
 
 const { p } = Astro.props;
+// Local operating conditions, needs and FAQs written for this place (src/data/local.json), so pages differ in substance.
+const local = LOCAL[p.key] ?? { needs: [], faq: [] };
 const isCity = p.type === 'city';
 const parent = isCity && p.parent ? stateOf(p.parent) : null;
 const h1 = isCity ? `UPS Manufacturer in ${p.name}` : `UPS Supplier in ${p.name}`;
@@ -47,6 +51,7 @@ const faq = [
     q: `How do I get a UPS price for a site in ${p.name}?`,
     a: 'Send the connected load in kW or kVA, the backup time you need and the site address through the quote form. An E&C engineer sizes the system and sends a quotation.',
   },
+  ...local.faq,
   ...(p.faq ?? []),
 ];
 
@@ -72,12 +77,53 @@ const others = isCity ? [] : states.filter((x) => x.key !== p.key);
 const offices = isCity
   ? p.office && officesHtml({ only: [p.office.key], here: p.office.key, heading: p.office.key === p.key ? `Our sales office in ${p.name}` : 'Your nearest E&amp;C sales office', intro: p.office.key === p.key ? `Visit or write to the E&amp;C regional office in ${p.name}.` : `Sales and service for ${p.name} are handled by the E&amp;C ${p.office.city} office.` })
   : p.offices.length && officesHtml({ only: p.offices.map((o) => o.key), heading: `E&amp;C sales offices for ${p.name}`, intro: `Sales and service across ${p.name} are handled by these E&amp;C offices.` });
-const range = ['accenta', 'renata', 'renatacyclone', 'renata300', 'renatamodular', 'rack-mount', 'ip-41-55-online-ups', 'industrial-inverter', 'isolation', 'air_oil'];
+// Range: the products this place's industries call for first, then the core online UPS line.
+const range = [...new Set([...sectors.flatMap((s) => s.links.map((l) => l[1].slice(1))), 'renata', 'renata300', 'renatamodular'])].filter((s) => products[s]?.image).slice(0, 8);
+
+// Local-intent keywords ("online UPS in Pune"): one card each, linking to the national page that ranks for the
+// keyword itself. Text is built from this place's sectors, areas and office so pages differ; cards whose sectors
+// match the place come first.
+// Area names can contain "and" themselves, so list them with commas.
+const where = isCity ? `around ${p.areas.slice(0, 2).join(', ')}` : `in ${stateCities.filter((c) => c.c).slice(0, 3).map((c) => c.name).join(', ')}`;
+// A state matches on all its cities' sectors, not just the four shown in the industries section.
+const fitKeys = isCity ? sectorKeys : [...new Set(p.cities.flatMap((k) => cities.find((c) => c.key === k)?.sectors ?? []))];
+const lower = (s) => (/^[A-Z][a-z]/.test(s) ? s[0].toLowerCase() + s.slice(1) : s); // keeps "IT"
+const labelsFor = (keys, fallback) => fitKeys.filter((k) => keys.includes(k)).map((k) => lower(SECTORS[k].label)).join('; ') || fallback;
+const svcOffice = isCity ? p.office : p.offices[0];
+const serviceLine = isCity && p.service
+  ? `${p.service} `
+  : svcOffice ? `Service ${isCity ? 'in' : 'across'} ${p.name} is run from the E&C ${isCity ? svcOffice.city : p.offices.map((o) => o.city).join(' and ')} office. ` : '';
+const keywords = [
+  { key: 'online', fit: ['it', 'bfsi', 'health', 'pharma'], h: `Online UPS in ${p.name}`, url: '/online-ups', link: 'Online UPS range',
+    t: `Double-conversion online UPS from 1 to 1200 kVA, single and three phase, for ${labelsFor(['it', 'bfsi', 'health', 'pharma'], 'offices, server rooms and hospitals')} ${where}. Models run from Accenta (1–10 kVA) and Renata-I to Renata-300 and Renata Modular for N+1 redundancy.` },
+  { key: 'industrial', fit: ['heavy', 'auto', 'textile', 'defence'], h: `Industrial UPS in ${p.name}`, url: '/industrial-ups-manufacturer-in-india', link: 'Industrial UPS range',
+    t: `Industrial UPS from 10 to 800 kVA with built-in isolation transformers and IP41–IP55 enclosures, for ${labelsFor(['heavy', 'auto', 'textile', 'defence'], 'factories and process plants')} ${where}.` },
+  { key: 'backup', fit: ['auto', 'textile', 'heavy'], h: `Power backup solutions in ${p.name}`, url: '/power-backup-solutions-manufacturer-in-india', link: 'Power backup solutions',
+    t: `UPS, industrial inverters, servo voltage stabilizers and batteries (SMF, tubular, lithium and Ni-Cd) engineered as one backup system, sized to the connected load and backup time of each site in ${p.name}.` },
+  { key: 'service', fit: [], h: `UPS service, AMC and per-call support in ${p.name}`, url: '/eandcpower-services', link: 'UPS service and AMC',
+    t: `${serviceLine}Comprehensive and non-comprehensive AMC, per-call breakdown service, battery replacement and rental UPS, for E&C and other makes of UPS.` },
+  { key: 'stabilizer', fit: ['auto', 'textile', 'heavy'], h: `Voltage stabilizers in ${p.name}`, url: '/stabilizer', link: 'Voltage stabilizers',
+    t: `Servo voltage stabilizers, air cooled from 2 to 100 kVA and oil cooled from 100 to 1000 kVA, that hold machine and building supplies steady through voltage swings, for ${labelsFor(['auto', 'textile', 'heavy'], 'factories, hospitals and commercial buildings')} ${where}.` },
+  { key: 'battery', fit: ['heavy'], h: `UPS batteries in ${p.name}`, url: '/ups-batteries', link: 'UPS and industrial batteries',
+    t: `SMF, tubular, AGM / GEL, lithium ion and nickel cadmium batteries for UPS, inverters, solar and plant DC systems, supplied, installed and replaced in ${p.name} with the manufacturer's warranty and onsite support.` },
+  { key: 'charger', fit: ['heavy'], h: `Industrial battery chargers in ${p.name}`, url: '/industrial-battery-charger-fcbc', link: 'Float cum boost chargers',
+    t: `Float cum boost chargers at 48, 110 and 220 V DC for Ni-Cd and lead acid battery banks in substations, power plants, telecom and railways${fitKeys.includes('heavy') ? `, including ${labelsFor(['heavy'], '')} in ${p.name}` : ` in ${p.name}`}.` },
+  { key: 'ev', fit: [], h: `EV chargers in ${p.name}`, url: '/ev-charger-manufacturer-in-india', link: 'EV chargers',
+    t: `AC (3–22 kW) and DC (10–240 kW) EV chargers with CCS2, CHAdeMO and GB/T connectors, for office and commercial parking, fleets and charging operators in ${p.name}.` },
+].map((k, i) => ({ ...k, score: k.fit.filter((s) => fitKeys.includes(s)).length, i }))
+  .sort((a, b) => b.score - a.score || a.i - b.i);
+// Title names the two biggest local keywords; shorter forms keep long city names within ~62 characters.
+const title = [`${h1} | Online & Industrial UPS | E&C`, `${h1} | Online & Industrial UPS`, `${h1} | E&C Power`].find((t) => t.length <= 62) ?? h1;
+schema[0].hasOfferCatalog = {
+  '@type': 'OfferCatalog',
+  name: `UPS products and services in ${p.name}`,
+  itemListElement: keywords.map((k) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: k.h, url: urlFor(k.url.slice(1)) } })),
+};
 ---
 <Hub
   slug={p.slug}
-  title={`${h1} | E&C Power`}
-  description={`${h1}: online and industrial UPS, inverters and stabilizers for ${p.name}'s industries, from E&C Power Systems, a UPS manufacturer since 1978.`}
+  title={title}
+  description={[`${h1}: online and industrial UPS, inverters and stabilizers for ${p.name}'s industries, from E&C Power Systems, a UPS manufacturer since 1978.`, `${h1}: online and industrial UPS, inverters and stabilizers from E&C Power Systems, Bengaluru, since 1978.`].find((d) => d.length <= 160)}
   name={h1}
   crumbs={crumbs}
   schema={schema}
@@ -136,7 +182,24 @@ const range = ['accenta', 'renata', 'renatacyclone', 'renata300', 'renatamodular
     </section>
   )}
 
-  <section class="pd-sec alt" aria-labelledby="h-ind">
+  {local.power && (
+    <section class="pd-sec alt" aria-labelledby="h-local">
+      <div class="container">
+        <h2 class="pd-h" id="h-local">Power conditions in {p.name}</h2>
+        <p class="hb-p">{local.power}</p>
+        <div class="hb-cards three">
+          {local.needs.map((x) => (
+            <div class="hb-card">
+              <h3>{x.h}</h3>
+              <p>{x.t}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="pd-sec" aria-labelledby="h-ind">
     <div class="container">
       <h2 class="pd-h" id="h-ind">UPS for {p.name}'s key industries</h2>
       <div class="hb-cards">
@@ -152,7 +215,22 @@ const range = ['accenta', 'renata', 'renatacyclone', 'renata300', 'renatamodular
     </div>
   </section>
 
-  <section class="pd-sec" aria-labelledby="h-range">
+  <section class="pd-sec" aria-labelledby="h-kw">
+    <div class="container">
+      <h2 class="pd-h" id="h-kw">UPS products and services in {p.name}</h2>
+      <div class="hb-cards three">
+        {keywords.map((k) => (
+          <div class="hb-card">
+            <h3>{k.h}</h3>
+            <p>{k.t}</p>
+            <p class="hb-rec"><a href={k.url}>{k.link}</a></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-range">
     <div class="container">
       <h2 class="pd-h" id="h-range">UPS and power backup range</h2>
       <Range slugs={range} />
@@ -160,7 +238,7 @@ const range = ['accenta', 'renata', 'renatacyclone', 'renata300', 'renatamodular
     </div>
   </section>
 
-  <section class="pd-sec alt" aria-labelledby="h-svc">
+  <section class="pd-sec" aria-labelledby="h-svc">
     <div class="container">
       <h2 class="pd-h" id="h-svc">Supply, installation and service in {p.name}</h2>
       <ul class="hb-why">

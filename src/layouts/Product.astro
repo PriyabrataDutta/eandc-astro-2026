@@ -5,7 +5,10 @@ import { shell, urlFor, ogTags, render, ORG_REF } from '../lib/legacy.js';
 import { products, families, guideTitles } from '../data/products.js';
 import { posts } from '../lib/blog.js';
 import '../styles/pd.css';
+import '../styles/hub.css';
 import Quote from '../components/Quote.astro';
+import Faq from '../components/Faq.astro';
+import { productFaq } from '../data/product-faq.js';
 
 const { slug } = Astro.props;
 const raw = products[slug];
@@ -28,6 +31,7 @@ const p = {
   related: raw.related ?? Object.keys(products).filter((k) => k !== slug && products[k].family === raw.family).slice(0, 4),
 };
 const ups = !fam.field;
+const faq = raw.faq ?? productFaq[slug] ?? [];
 const reads = posts.filter((x) => x.products?.includes(slug));
 const s = shell();
 const header = s.header.replace(/alt="[^"]*"/, `alt="${p.name}"`);
@@ -52,6 +56,7 @@ const ld = [
       { '@type': 'ListItem', name: p.name, item: urlFor(slug) },
     ].map((c, i) => ({ ...c, position: i + 1 })),
   },
+  ...(faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
 ];
 ---
 <!DOCTYPE html>
@@ -89,7 +94,7 @@ const ld = [
 				<div class={`pd-wrap${p.image ? '' : ' pd-noimg'}`}>
 					<div>
 						<span class="pd-eyebrow">{p.family.name}</span>
-						<h1>{p.name}</h1>
+						<h1>{p.heading ?? p.name}</h1>
 						<p class="pd-tagline">{p.tagline}</p>
 						{p.capacity && <div class="pd-cap"><small>{ups ? 'Capacity' : 'Range'}</small><strong>{p.capacity}</strong></div>}
 						{p.highlights.length > 0 && <ul class="pd-chips">{p.highlights.map((h) => <li><em class={`fa ${h.icon}`} aria-hidden="true"></em>{h.text}</li>)}</ul>}
@@ -144,6 +149,13 @@ const ld = [
 				</div>
 			</div>
 		</section>
+
+		{faq.length > 0 && <section class="pd-sec alt" aria-labelledby="h-faq">
+			<div class="container">
+				<h2 class="pd-h" id="h-faq">{p.name}: frequently asked questions</h2>
+				<Faq faq={faq} />
+			</div>
+		</section>}
 
 		<Quote title={`Get a price for ${p.name}`} service={`Quote: ${p.name}`} pitch={fam.pitch} step1={fam.step1} field={fam.field} ask={fam.ask} />
 

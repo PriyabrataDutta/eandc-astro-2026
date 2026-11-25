@@ -1,0 +1,88 @@
+{
+  "summary": {
+    "health_score": 69,
+    "business_type": "B2B manufacturer + service-area business (UPS / power electronics), HQ Peenya Bangalore, 8 regional offices",
+    "top_findings": [
+      "Conflicting company facts: founding 1978 vs CIN 1997, four phone numbers, ~31 legacy Organization schema blobs",
+      "~20 legacy Bangalore/India keyword-variant pages cannibalise each other (doorway risk)",
+      "No named author (AUTHOR = null); no case studies or first-hand evidence",
+      "194 pages link to noindex /comming-soon placeholder",
+      "No security or cache headers in vercel.json"
+    ],
+    "quick_wins": [
+      "Add headers block (security + immutable cache) to vercel.json",
+      "Standardise primary phone and brand name in footer.js and schema.js",
+      "Remove /comming-soon nav link; lowercase-redirect /domestic-Inverters",
+      "Set a real AUTHOR in src/data/author.js",
+      "Real per-post dates and sitemap lastmod on all 192 URLs"
+    ]
+  },
+  "categories": [
+    {"name": "Technical SEO", "score": 78,
+     "what_works": ["All 197 pages 200", "Canonicals absolute www, match cleanUrls", "Sitemap 192 URLs clean", "50 redirects, no chains or loops", "No broken or .html internal links"],
+     "findings": [
+       {"title": "No security headers", "severity": "High", "description": "vercel.json has no headers block", "recommendation": "Add HSTS, nosniff, Referrer-Policy, frame-ancestors, Permissions-Policy, CSP report-only"},
+       {"title": "Nav link to noindex /comming-soon", "severity": "High", "description": "194 pages link to it via legacy nav", "recommendation": "Remove link or build the page under a correct slug"},
+       {"title": "Thin legacy redirect coverage", "severity": "High", "description": "Only 50 rules", "recommendation": "Diff old indexed URLs vs dist and add 301s"},
+       {"title": "Partial sitemap lastmod", "severity": "Medium", "description": "58 of 192 entries", "recommendation": "Add real dates to all"},
+       {"title": "Mixed-case URL /domestic-Inverters", "severity": "Medium", "description": "Vercel paths case-sensitive", "recommendation": "301 to lowercase"}
+     ]},
+    {"name": "Content Quality", "score": 64,
+     "what_works": ["Accurate blog posts with worked examples, tables, FAQs", "Blog-product two-way linking", "Strong new product pages"],
+     "findings": [
+       {"title": "No named author or reviewer", "severity": "High", "description": "AUTHOR=null; posts by Organization; 2/58 posts with first-hand phrasing", "recommendation": "Named engineer author, reviewer line, case studies"},
+       {"title": "Legacy keyword-variant cannibalisation", "severity": "High", "description": "~20 pages, 32-36% 6-gram overlap, generic copy", "recommendation": "Consolidate to one hub per intent with 301s"},
+       {"title": "Inconsistent or unsourced trust claims", "severity": "High", "description": "Since 1978 vs 1997 CIN; '1 lakh installations'; 'best'", "recommendation": "Confirm, cite or drop; show certificates and clients"},
+       {"title": "Templated city pages", "severity": "Medium", "description": "36-46% overlap; distant cities claim local AMC", "recommendation": "Keep only cities with real local proof"},
+       {"title": "Technical wording errors", "severity": "Medium", "description": "'EC Directive EN62040', 'zero waveform distortion'", "recommendation": "IEC 62040; realistic THD"}
+     ]},
+    {"name": "On-Page SEO", "score": 66,
+     "what_works": ["No duplicate titles or descriptions", "One H1 on every indexable page"],
+     "findings": [
+       {"title": "Weak legacy titles and descriptions", "severity": "Medium", "description": "Home title 'Online UPS Manufacturer in Bangalore'; descriptions lead with phone", "recommendation": "Rewrite around product and differentiator"},
+       {"title": "Home and /online-ups-manufacturer-in-bangalore target same query", "severity": "High", "description": "Intent overlap", "recommendation": "Differentiate or consolidate"},
+       {"title": "FCBC page title missing 'float cum boost'", "severity": "High", "description": "Product page title omits primary term; Bangalore twin lacks Product schema", "recommendation": "Retitle; merge or redirect the twin"},
+       {"title": "Mega-menu inside main content on legacy pages", "severity": "Medium", "description": "Dilutes main content", "recommendation": "Move to nav"}
+     ]},
+    {"name": "Schema / Structured Data", "score": 68,
+     "what_works": ["BreadcrumbList on 192 pages", "Valid JSON on every page", "HQ node with geo and hours"],
+     "findings": [
+       {"title": "Organization @id defined many times with conflicting facts", "severity": "High", "description": "Two nodes on contact.html; ~31 legacy blobs with old phone", "recommendation": "Define once; reference by @id"},
+       {"title": "LocalBusiness duplicated and partly unverified", "severity": "High", "description": "#organization + #localbusiness; offices lack phone, @id; addresses pending", "recommendation": "Merge; confirm offices"},
+       {"title": "foundingDate vs CIN", "severity": "High", "description": "1978 vs 1997", "recommendation": "Confirm with client"},
+       {"title": "Thin Product markup", "severity": "Medium", "description": "No offers or ratings; phone in description", "recommendation": "Add url and @id; never invent ratings"},
+       {"title": "FAQPage on 149 pages", "severity": "Info", "description": "No Google rich results", "recommendation": "Keep for AI; low priority"}
+     ]},
+    {"name": "Performance (CWV)", "score": 84,
+     "what_works": ["Lighthouse mobile 86-97", "CLS 0.001-0.004", "Low TBT"],
+     "findings": [
+       {"title": "Render-blocking CSS", "severity": "High", "description": "vendor.bundle.css 275KB + style.css 172KB raw; /online-ups LCP 3.7s", "recommendation": "Inline critical CSS, purge or defer vendor CSS"},
+       {"title": "247KB jQuery bundle + document.write fallback", "severity": "Medium", "description": "~44KB unused on home", "recommendation": "Defer, remove fallback"},
+       {"title": "No cache headers", "severity": "Medium", "description": "No Cache-Control on static assets", "recommendation": "Immutable cache in vercel.json"}
+     ]},
+    {"name": "AI Search Readiness", "score": 58,
+     "what_works": ["All AI crawlers allowed", "Static HTML", "Rich llms.txt and ai.txt", "Question headings, tables, FAQs"],
+     "findings": [
+       {"title": "No named expert", "severity": "High", "description": "AUTHOR null", "recommendation": "Named author with sameAs"},
+       {"title": "Minimal third-party footprint", "severity": "High", "description": "No Wikipedia, Wikidata, YouTube, Reddit", "recommendation": "YouTube, Wikidata, LinkedIn, trade-press mentions"},
+       {"title": "Flat freshness", "severity": "High", "description": "All posts dated 2026-11-17/18", "recommendation": "Real dates"},
+       {"title": "Inconsistent brand naming", "severity": "Medium", "description": "Six variants", "recommendation": "One canonical name + alternateName"}
+     ]},
+    {"name": "Images", "score": 62,
+     "what_works": ["All images have width and height", "1,185 converted to WebP at build"],
+     "findings": [
+       {"title": "Oversized images", "severity": "High", "description": "12 files >300KB (815KB MIL-Grade PNG); 1280px cards shown small; ~357KiB savings on home", "recommendation": "srcset + recompress"},
+       {"title": "448 of 1,205 img with empty alt", "severity": "Medium", "description": "Mostly repeated product sidebar thumbnails", "recommendation": "Descriptive alt on linked product images"},
+       {"title": "Hero as CSS background + hidden duplicate preload div", "severity": "Medium", "description": "Delays LCP", "recommendation": "<img fetchpriority=high>"}
+     ]}
+  ],
+  "action_plan": {
+    "phases": [
+      {"name": "Phase 1: Critical Fixes", "timeframe": "Before launch", "items": ["Legacy URL redirect diff + 301s", "Security and cache headers", "Single source of company facts (client confirm)", "Remove /comming-soon nav link"]},
+      {"name": "Phase 2: High-Impact Improvements", "timeframe": "Weeks 1-2", "items": ["Consolidate legacy keyword-variant pages", "Named author", "Real post dates + sitemap lastmod", "FCBC retitle and merge", "Sticky call/WhatsApp/quote + PDF datasheets", "Critical CSS + image srcset"]},
+      {"name": "Phase 3: Content & Authority", "timeframe": "Month 1-2", "items": ["City pages: real local proof or noindex", "Schema cleanup", "Legacy titles/descriptions rewrite", "Spec tables above fold", "GBP per branch + review engine", "Citations (IndiaMART, TradeIndia, JustDial, Sulekha)", "YouTube, Wikidata, case studies"]},
+      {"name": "Phase 4: Monitoring & Iteration", "timeframe": "Ongoing", "items": ["Connect GSC, Bing, GA4", "IndexNow", "Drift baseline", "Re-audit with field data"]}
+    ]
+  },
+  "artifacts": {"findings_dir": "findings/", "screenshots_dir": "screenshots/"}
+}

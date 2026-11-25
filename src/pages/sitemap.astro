@@ -17,7 +17,7 @@ const NAMES = {
   'research-and-development': 'Research & development', 'eandcpower-infrastructure': 'Infrastructure', machinery: 'Machinery & utilities',
   newtestimonal: 'Testimonials', careers: 'Careers', catalog: 'Product catalogs', 'frequently-asked-questions': 'FAQs',
   annualreturn: 'Annual return (MGT-7)', contact: 'Contact us', 'eandcpower-sales': 'Sales offices', 'eandcpower-services': 'Service, AMC & repair',
-  feedback: 'Feedback', 'custom-solutions': 'Custom UPS solutions', 'ups-manufacturer-in-bangalore': 'Bengaluru', 'get-a-quote': 'Get a quote', 'online-ups': 'Online UPS', stabilizer: 'Voltage stabilizers',
+  feedback: 'Feedback', 'custom-solutions': 'Custom UPS solutions', 'ups-manufacturer-in-bangalore': 'Bengaluru', 'get-a-quote': 'Get a quote', 'ups-price-in-india': 'UPS price in India', 'online-ups': 'Online UPS', stabilizer: 'Voltage stabilizers',
   'industrial-ups-manufacturer-in-india': 'Industrial UPS', 'battery-energy-storage-system': 'Battery energy storage (BESS)',
   'marine-ups': 'Marine UPS', 'ups-manufacturer-in-india': 'UPS manufacturer in India', 'solar-solutions': 'Solar solutions',
   ...Object.fromEntries(states.map((x) => [x.slug, `UPS supplier in ${x.name}`])),
@@ -28,7 +28,7 @@ const name = (s) => NAMES[s] ?? products[s]?.name ?? guideTitles[s.replace('guid
 const take = (list) => list.filter((s) => all.has(s) && !used.has(s)).map((s) => (used.add(s), { url: s === 'index' ? '/' : `/${s}`, name: name(s) }));
 
 const company = take(['index', 'about-us', 'management', 'missionandvision', 'research-and-development', 'eandcpower-infrastructure', 'machinery', 'newtestimonal', 'careers', 'catalog', 'frequently-asked-questions', 'annualreturn']);
-const contact = take(['contact', 'get-a-quote', 'eandcpower-sales', 'eandcpower-services', 'feedback']);
+const contact = take(['contact', 'get-a-quote', 'ups-price-in-india', 'eandcpower-sales', 'eandcpower-services', 'feedback']);
 const categories = take(['online-ups', 'industrial-ups-manufacturer-in-india', 'stabilizer', 'solar-solutions', 'battery-energy-storage-system', 'marine-ups', 'custom-solutions']);
 const productGroups = Object.entries(families)
   .map(([k, f]) => ({ title: f.name, links: take(Object.keys(products).filter((p) => products[p].family === k)) }))

@@ -1,0 +1,148 @@
+---
+// Batteries hub (keywords: UPS battery supplier in India, lithium batteries, nickel cadmium batteries). The battery
+// product pages had no category page. E&C supplies these batteries (it does not make the cells), so the copy says
+// supplier. Ratings and brands from src/data/products.js; life figures match the battery blog posts.
+import Hub from '../layouts/Hub.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+import { families, products } from '../data/products.js';
+
+const fam = families.battery;
+const range = ['smf', 'tubular-batteries-manufacturing', 'agm-gel', 'lithium-ion', 'nickel'];
+
+const types = [
+  ['Type', 'Sealed lead acid (VRLA)', 'Flooded lead acid', 'Sealed lead acid (VRLA)', 'Lithium iron phosphate', 'Nickel cadmium (vented)'],
+  ['E&C ratings', products.smf.capacity, products['tubular-batteries-manufacturing'].capacity, products['agm-gel'].capacity, products['lithium-ion'].capacity, 'Sized to the UPS and backup time'],
+  ['Maintenance', 'None', 'Distilled water top-up', 'None', 'None (BMS managed)', 'Periodic electrolyte checks'],
+  ['Typical life', '3 to 5 years at 25°C', '5 to 8 years at 25°C', 'GEL copes better with deep cycling and heat', '8 to 10 years at 25°C', '20 years or more design life'],
+  ['Best for', 'UPS and inverters in offices and shops', 'Inverters and solar with long backup', 'UPS, telecom and solar', 'Long life, daily cycling, small space', 'Substations, plants and railways in heat'],
+  ['Brands', 'Amara Raja, Exide, HBL, U-Plus, Leoch', 'Amara Raja, Exide, HBL', 'Exide, HBL', 'LiFePO4 packs to your voltage', 'Saft, HBL'],
+];
+const links = ['/smf', '/tubular-batteries-manufacturing', '/agm-gel', '/lithium-ion', '/nickel'];
+const heads = ['SMF', 'Tubular', 'AGM / GEL', 'Lithium ion', 'Ni-Cd'];
+
+const uses = [
+  { icon: 'fa-server', h: 'UPS for offices and data rooms', t: 'SMF (VRLA) battery banks for online UPS, or lithium ion where long life and a small footprint matter.' },
+  { icon: 'fa-industry', h: 'Plant DC systems and substations', t: 'Nickel cadmium batteries with float cum boost chargers for switchgear, protection relays and control rooms.' },
+  { icon: 'fa-sun-o', h: 'Solar storage', t: 'Tubular, GEL or lithium batteries for daily cycling in off-grid and hybrid solar systems.' },
+  { icon: 'fa-signal', h: 'Telecom and remote sites', t: 'AGM and GEL batteries for telecom shelters and equipment that must run sealed and unattended.' },
+  { icon: 'fa-home', h: 'Homes and shops', t: 'Tubular and SMF batteries for home inverters and small UPS, with onsite installation.' },
+  { icon: 'fa-refresh', h: 'Battery replacement', t: 'Testing, replacement of a whole string and safe disposal of old batteries for E&C and other makes of UPS.' },
+];
+
+const guides = [
+  ['smf-vs-vrla-battery', 'SMF vs VRLA battery'],
+  ['tubular-vs-gel-vs-agm-battery', 'Tubular vs GEL vs AGM battery'],
+  ['lithium-vs-lead-acid-ups-battery', 'Lithium vs lead acid UPS batteries'],
+  ['nickel-cadmium-battery-explained', 'Nickel cadmium batteries explained'],
+  ['nicd-vs-lithium-ion-battery', 'Ni-Cd vs lithium ion for DC systems'],
+  ['how-to-extend-ups-battery-life', 'How to extend UPS battery life'],
+  ['ups-battery-replacement-guide', 'UPS battery replacement guide'],
+];
+
+const faq = [
+  { q: 'Which battery is best for a UPS?', a: 'For most office and data room UPS, sealed maintenance free (SMF / VRLA) batteries are the standard choice. Lithium ion (LiFePO4) costs more up front but typically lasts 8 to 10 years against 3 to 5 for SMF, so it can cost less over the life of the UPS.' },
+  { q: 'Are SMF and VRLA batteries the same?', a: 'Yes, they are the same family. SMF (sealed maintenance free) describes how the battery is used, and VRLA (valve regulated lead acid) describes how it is built. AGM and GEL are the two types of VRLA battery.' },
+  { q: 'When should I choose nickel cadmium batteries?', a: 'Ni-Cd batteries suit plant DC systems, substations and railways, especially in hot rooms, because they lose far less life in heat than lead acid and often have a design life of 20 years or more. They are used with float cum boost chargers.' },
+  { q: 'How long do UPS batteries last in Indian conditions?', a: 'Battery life falls sharply above 25°C. An SMF battery with a 5-year design life may last only 2 to 3 years in a 35°C room, so a cool battery room, or lithium or Ni-Cd batteries, pays off where rooms run hot.' },
+  { q: 'Does E&C supply batteries across India?', a: 'Yes. E&C supplies and installs batteries from leading brands with the manufacturer\'s original warranty and onsite support, through its regional sales offices across India.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'UPS and industrial battery supply and installation',
+    description: 'SMF, tubular, AGM / GEL, lithium ion and nickel cadmium batteries for UPS, inverters, solar and DC systems, supplied and installed by E&C Power Systems across India.',
+    url: urlFor('ups-batteries'),
+    serviceType: 'Battery supply, installation and replacement',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="ups-batteries"
+  title="UPS & Industrial Batteries Supplier in India | E&C Power"
+  description="SMF, tubular, AGM and GEL, lithium ion and nickel cadmium batteries for UPS, inverters, solar and DC systems, supplied and installed across India by E&C Power."
+  name="UPS Batteries"
+  schema={schema}
+  image="/image/product/smf.jpg"
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">SMF · tubular · AGM / GEL · lithium · Ni-Cd</span>
+          <h1>UPS and Industrial Batteries Supplier in India</h1>
+          <p class="hb-lead">E&amp;C Power Systems supplies, installs and replaces batteries for UPS, inverters, solar systems and plant DC systems across India, from sealed SMF batteries for office UPS to lithium ion packs and nickel cadmium banks for substations.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-battery-full" aria-hidden="true"></em>7 – 200 Ah lead acid</li>
+            <li><em class="fa fa-check" aria-hidden="true"></em>Manufacturer's warranty</li>
+            <li><em class="fa fa-wrench" aria-hidden="true"></em>Onsite installation</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a battery quote</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo prod"><img src="/image/product/smf.jpg" alt="SMF batteries for UPS" width="420" height="360" fetchpriority="high" /><figcaption>SMF batteries for UPS</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-range">
+    <div class="container">
+      <h2 class="pd-h" id="h-range">Battery range</h2>
+      <Range slugs={range} />
+      <p class="hb-p" style="margin-top:12px;">Chargers for battery banks: <a href="/industrial-battery-charger-fcbc">float cum boost chargers</a>. Watch battery health remotely with <a href="/battery-bank-remote-monitoring">battery bank monitoring</a>. For large storage, see <a href="/battery-energy-storage-system">battery energy storage systems</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-types">
+    <div class="container">
+      <h2 class="pd-h" id="h-types">SMF vs tubular vs AGM / GEL vs lithium vs Ni-Cd</h2>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col"></th>{heads.map((h, i) => <th scope="col"><a href={links[i]} style="color:#fff;">{h}</a></th>)}</tr></thead>
+          <tbody>{types.map(([k, ...v]) => <tr><th scope="row">{k}</th>{v.map((x) => <td>{x}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="hb-p" style="margin-top:12px;">Life figures are typical at 25°C; as a rule of thumb, lead acid battery life roughly halves for every 8 to 10°C above that. More in <a href="/blogs/lithium-vs-lead-acid-ups-battery">lithium vs lead acid UPS batteries</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-uses">
+    <div class="container">
+      <h2 class="pd-h" id="h-uses">Which battery for which job</h2>
+      <div class="hb-cards three">
+        {uses.map((x) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-guides">
+    <div class="container">
+      <h2 class="pd-h" id="h-guides">Battery guides</h2>
+      <ul class="hb-tags">{guides.map(([s, t]) => <li><a href={`/blogs/${s}`}>{t}</a></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get a battery quotation" service="Quote: Batteries" pitch={fam.pitch} step1={fam.step1} field={fam.field} ask={fam.ask} />
+</Hub>

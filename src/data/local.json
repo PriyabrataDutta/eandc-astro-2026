@@ -1,0 +1,1163 @@
+{
+ "mumbai": {
+  "power": "Mumbai's sites sit in salty, humid air for most of the year, and the monsoon can waterlog basements and low-lying roads for days. Battery banks and UPS panels placed in basements are often the first casualties, so electrical rooms are better on raised floors or upper levels. Commercial towers in BKC and Lower Parel work with tight floor plates, which favours compact modular or rack-mount UPS over large standalone frames. Moisture also corrodes terminals and boards over time, so coated electronics, sealed battery cabinets and air-conditioned UPS rooms with dehumidification extend service life.",
+  "needs": [
+   {
+    "h": "Bank branches and trading floors",
+    "t": "Dealing rooms and branch servers in BKC and Fort need a monitored online UPS with SNMP alerts, sized so a failed module never drops the floor."
+   },
+   {
+    "h": "Colocation and edge data halls",
+    "t": "Data halls in Mahape and Airoli suit modular UPS that can be expanded module by module as racks fill, with static transfer switches for dual-corded loads."
+   },
+   {
+    "h": "Thane-Belapur chemical and pharma units",
+    "t": "Reactor controls and lab instruments near corrosive process areas suit an IP-rated industrial UPS with an isolation transformer."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Which UPS works in Mumbai's coastal humidity?",
+    "a": "Choose a UPS with conformal-coated boards and sealed batteries, and install it in an air-conditioned room that is kept dry. For sites close to the sea or in process areas, an IP-rated industrial UPS gives extra protection against salt and moisture."
+   },
+   {
+    "q": "Where should a UPS go in a Mumbai building that floods?",
+    "a": "Keep the UPS and battery bank above the highest water level the building has seen, ideally on an upper floor or a raised plinth. If the DG and incomer are in the basement, ask for the UPS input and bypass to be routed so they can be isolated quickly when water rises."
+   }
+  ]
+ },
+ "pune": {
+  "power": "Pune sits on the Deccan plateau, away from the coast, so salt corrosion is rarely the issue; dry pre-monsoon heat and dust from construction and open land are. In Chakan, Talegaon and Bhosari, plants often run welding robots, induction heaters and large presses on the same supply as their controls, which brings harmonics and voltage dips that can upset PLCs. Many estates here keep DG sets for longer interruptions, so a UPS should have a generator-friendly rectifier, low input harmonics and enough backup to ride through the changeover. Filtered air intakes help on dusty shop floors.",
+  "needs": [
+   {
+    "h": "Robotic body and weld shops",
+    "t": "Robot controllers and weld timers in Chakan's vehicle and component plants need an online UPS with low output distortion so a dip does not stop a cell mid-cycle."
+   },
+   {
+    "h": "Engine and vehicle test rigs",
+    "t": "Dynamometer and emission test benches log data for hours and suit an online UPS with an isolation transformer to keep measurement circuits clean."
+   },
+   {
+    "h": "Hinjewadi office and server floors",
+    "t": "IT floors in Hinjewadi suit modular or rack-mount UPS in N+1 configuration, with remote monitoring tied into the building management system."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Can a UPS run on the DG sets used in Chakan and Talegaon plants?",
+    "a": "Yes, provided the UPS rectifier tolerates generator frequency and voltage swings and has a walk-in (soft) start so it does not overload the DG at changeover. Share the DG rating with the UPS size so the two can be matched."
+   },
+   {
+    "q": "Do robot lines in Pune need a separate UPS from the office?",
+    "a": "Usually yes. Robot and press lines create harmonics and sudden load steps, so a dedicated industrial UPS for line controls keeps them from disturbing office IT, and the reverse."
+   }
+  ]
+ },
+ "nagpur": {
+  "power": "Nagpur has some of the hottest summers among India's large cities, with May afternoons well above the temperature a sealed lead-acid battery is rated for. Sustained heat shortens battery life sharply, so battery rooms in Butibori and Hingna need air conditioning, or a chemistry suited to heat, such as nickel cadmium for DC systems. Dry-season dust is heavy across Vidarbha, which favours IP-rated or filtered enclosures on shop floors. Supply at the end of long feeders on the city's outskirts can sag, so a servo stabilizer or a UPS with a wide input range is worth considering.",
+  "needs": [
+   {
+    "h": "Power, steel and coal handling controls",
+    "t": "Control rooms at the region's thermal, steel and coal-handling sites suit float-cum-boost battery chargers with nickel cadmium batteries for DC control and trip circuits."
+   },
+   {
+    "h": "MIHAN cargo and IT facilities",
+    "t": "Warehouses, cold rooms and IT offices in the MIHAN SEZ need online UPS for scanners, servers and access control, with batteries kept in a cooled room."
+   },
+   {
+    "h": "Butibori textile and yarn units",
+    "t": "Spinning and weaving machines in Butibori suit a servo stabilizer for motors, with a small online UPS for the PLC and drive electronics."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How do I protect UPS batteries in Nagpur's summer heat?",
+    "a": "Keep the battery room air-conditioned and ventilated, and avoid placing battery racks against sun-facing walls or tin roofs. For DC control supplies in very hot locations, nickel cadmium batteries cope with heat better than sealed lead-acid."
+   },
+   {
+    "q": "Is a stabilizer needed with a UPS in Nagpur's outer industrial areas?",
+    "a": "An online UPS already regulates its output, but motor and machine loads that are not on the UPS still see low or swinging voltage. Where supply sags often, a servo stabilizer for those loads, and a UPS with a wide input window for the controls, is a common combination."
+   }
+  ]
+ },
+ "nashik": {
+  "power": "Nashik has a milder climate than much of Maharashtra, but its industry is spread from Satpur and Ambad to Sinnar and the farm belt beyond, where power quality varies from feeder to feeder. Auto component and electrical equipment units in the MIDC estates run CNC machining, heat treatment and assembly lines whose controls need clean power. Further out, grape pack-houses, cold stores and food processors often sit on rural lines where low voltage at peak hours can be a problem. That mix makes servo stabilizers, online UPS for controls and DG-friendly rectifiers the usual building blocks.",
+  "needs": [
+   {
+    "h": "Grape pack-houses and cold stores",
+    "t": "Pre-cooling and cold storage for grapes and onions need a servo stabilizer for compressors and a small online UPS for the controllers and temperature loggers."
+   },
+   {
+    "h": "Aerospace and defence suppliers",
+    "t": "Units supplying the aircraft and defence works around Ojhar often need MIL-grade or ruggedised UPS for test benches and inspection equipment."
+   },
+   {
+    "h": "Heat treatment and induction hardening",
+    "t": "Furnace temperature controllers and quench timers in Satpur and Ambad shops suit an industrial online UPS so a dip does not spoil a batch."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Which power backup suits a grape cold store near Nashik?",
+    "a": "Compressors are best protected by a servo stabilizer and a DG for long interruptions, while controllers, data loggers and alarms should be on a small online UPS. That keeps temperature records intact even when the main plant restarts."
+   },
+   {
+    "q": "Do Nashik MIDC units need an isolation transformer with the UPS?",
+    "a": "It helps where CNC machines, drives and welding sets share the supply, or where the neutral is unreliable. An isolation transformer gives the protected load a clean, separately derived neutral and reduces noise reaching the controls."
+   }
+  ]
+ },
+ "mysore": {
+  "power": "Mysuru's climate is moderate, but the monsoon brings lightning and damp spells, and plants in Hebbal, Metagalli and Nanjangud are spread along feeders shared with surrounding villages. Surges and sags on those lines can reach sensitive equipment, so surge protection on the UPS input and a stabilizer ahead of motor loads are sensible. The city's industrial mix covers tyres and rubber, electronics, pharma and food processing, plus traditional silk weaving and incense making. In smaller units one UPS often protects both office IT and a production line, so an online UPS with an isolation transformer is a practical start.",
+  "needs": [
+   {
+    "h": "Silk weaving and reeling units",
+    "t": "Power looms and reeling machines suit a servo stabilizer, with an industrial inverter or small online UPS for jacquard controllers."
+   },
+   {
+    "h": "Incense and food packaging lines",
+    "t": "Form-fill-seal and packing machines in the city's agarbatti and food units need an online UPS for their PLCs and weighers so a break does not waste film and product."
+   },
+   {
+    "h": "Electronics and PCB plants in Nanjangud",
+    "t": "Assembly and process lines for electronics suit modular or parallel online UPS with isolation transformers to keep sensitive tools on clean, stable power."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Do I need surge protection for a UPS in Mysuru's monsoon?",
+    "a": "Yes, it is worth having. Thunderstorms on rural and semi-urban feeders can send surges into the site, so specify a UPS with input surge protection and make sure the earthing is tested and bonded properly."
+   },
+   {
+    "q": "Can one UPS cover the office and the machines in a Mysuru SME?",
+    "a": "It can for small loads, but machine motors and office IT behave very differently. A common approach is a stabilizer for the motors and a single online UPS for computers, PLCs and controls."
+   }
+  ]
+ },
+ "mangalore": {
+  "power": "Mangaluru gets some of the heaviest monsoon rain on India's west coast, and the sea air stays salty and humid for most of the year. Equipment near New Mangalore Port, the refinery and the SEZ can also face hydrocarbon vapours and fine dust from bulk cargo handling. These conditions corrode terminals and boards quickly, so an IP-rated industrial UPS, coated electronics and sealed battery cabinets are worth the extra cost. Frequent thunderstorms make surge protection and good earthing important. Where a UPS feeds controls in hazardous process areas, it is normally placed in a safe-area or pressurised room.",
+  "needs": [
+   {
+    "h": "Refinery and petrochemical control rooms",
+    "t": "DCS, fire and gas and emergency shutdown systems suit redundant industrial UPS and float-cum-boost chargers with long-life batteries."
+   },
+   {
+    "h": "Cashew and seafood processing",
+    "t": "Cashew factories and fish processing units around Baikampady need a stabilizer for motors and freezers and an online UPS for graders, sorters and weighing systems."
+   },
+   {
+    "h": "Teaching hospitals and medical colleges",
+    "t": "Mangaluru's many hospitals need online UPS with isolation transformers for operation theatres, ICUs and imaging, in rooms protected from monsoon damp."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Which UPS lasts in Mangaluru's salt air and monsoon?",
+    "a": "An IP-rated industrial UPS with coated boards, installed in a dry, air-conditioned room, holds up best. Sealed battery cabinets and regular cleaning of terminals reduce corrosion during the long wet season."
+   },
+   {
+    "q": "Can a UPS be installed close to the port or refinery?",
+    "a": "The UPS itself should sit in a safe, clean area such as a control room or substation building, with cables running to the field equipment. For locations exposed to dust and salt, an IP55 enclosure gives better protection."
+   }
+  ]
+ },
+ "hubli": {
+  "power": "Hubballi-Dharwad sits on the dry Deccan plateau of north Karnataka, with hot summers, dusty winds and a lighter monsoon than the coast. Industry on Gokul Road, at Tarihal and around Dharwad is largely foundries, machine shops, engineering units and agro-processing, often on supply shared with surrounding farm load. Voltage can swing widely as irrigation pumps switch on and off, so a servo stabilizer or a UPS with a wide input window protects CNC controls and drives. Dust and heat call for filtered, well-ventilated UPS rooms, and foundries should keep the UPS away from furnace areas and sand plants.",
+  "needs": [
+   {
+    "h": "Foundries and casting units",
+    "t": "Induction furnace controls, spectrometers and moulding machine PLCs suit an industrial online UPS placed in a separate, dust-sealed room."
+   },
+   {
+    "h": "Cotton and chilli processing",
+    "t": "Ginning, grading and cold storage units in the region suit a servo stabilizer for motors and an industrial inverter for lighting and controls."
+   },
+   {
+    "h": "Railway and public offices",
+    "t": "Offices, ticketing and signalling-related rooms in the twin cities need a monitored online UPS with long backup for computers and communication equipment."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Do Hubballi foundries need a special UPS?",
+    "a": "Foundries are hot and dusty, so choose an industrial UPS with filtered or IP-rated enclosures and keep it in a closed room away from the furnace. Induction furnaces also distort the supply, so the UPS should tolerate harmonics on its input."
+   },
+   {
+    "q": "Is a stabilizer enough for machines on Hubballi's farm-shared feeders?",
+    "a": "A servo stabilizer handles slow voltage swings for motors and machines, but it does not cover power cuts. CNC controls, PLCs and computers still need an online UPS to keep running through interruptions."
+   }
+  ]
+ },
+ "ahmedabad": {
+  "power": "Ahmedabad has a hot, semi-arid climate, with fierce summer heat and dust before the monsoon. Battery rooms here need cooling to keep lead-acid batteries near their rated temperature, and UPS rooms need filtered ventilation. The chemical, dye and pharmaceutical units of Vatva and Naroda add corrosive fumes, which favour IP-rated, coated industrial UPS on the process side. Further out, Sanand and Changodar host automotive and engineering plants with robot and press lines. Many GIDC units run DG sets during interruptions, so DG-compatible rectifiers and a walk-in start are worth specifying.",
+  "needs": [
+   {
+    "h": "Dye and chemical plants in Vatva",
+    "t": "Batch reactor controls and DCS panels in Vatva and Naroda need an IP-rated industrial UPS that can stand corrosive fumes and dust."
+   },
+   {
+    "h": "Pharma formulation in Changodar",
+    "t": "Tablet presses, coating machines and HVAC controls in regulated plants suit an online UPS with isolation transformer and validated documentation."
+   },
+   {
+    "h": "GIFT City offices and data rooms",
+    "t": "Finance and IT floors in GIFT City suit modular UPS with N+1 redundancy and remote monitoring."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How do I protect a UPS from corrosive fumes in Vatva GIDC?",
+    "a": "Install the UPS in a separate, pressurised or air-conditioned room away from the process area, and choose coated boards and an IP-rated enclosure. Regular cleaning and inspection of terminals helps in chemical estates."
+   },
+   {
+    "q": "What backup time should a Sanand plant plan for?",
+    "a": "Most plants size the UPS to carry controls until the DG takes over, plus a margin for a failed DG start. Longer backup on battery is usually kept for servers and safety systems rather than the whole line."
+   }
+  ]
+ },
+ "surat": {
+  "power": "Surat's industry is unlike any other city's: thousands of diamond cutting and polishing workshops, synthetic textile weaving units, embroidery machines and dyeing and printing houses, with steel, petrochemical and port operations at Hazira. Laser and CNC diamond machines are very sensitive to dips and spikes, while looms and embroidery heads lose work and thread on every break. Humid coastal air, steam and chemicals from processing houses in Sachin and Pandesara corrode electronics, and low-lying parts of the city along the Tapi have flooded in past monsoons. UPS and batteries belong on raised plinths, away from wet processes.",
+  "needs": [
+   {
+    "h": "Diamond laser and planning machines",
+    "t": "Laser cutting, bruting and planning machines need a clean, zero-break online UPS, often with an isolation transformer, so a spike does not ruin a stone."
+   },
+   {
+    "h": "Embroidery and weaving units",
+    "t": "Computerised embroidery machines and water-jet or rapier looms suit a servo stabilizer for motors and an online UPS for the controller and memory."
+   },
+   {
+    "h": "Dyeing and printing houses",
+    "t": "Digital printers and process controls in Sachin and Pandesara suit an IP-rated industrial UPS that resists steam and chemical vapours."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Which UPS suits diamond cutting machines in Surat?",
+    "a": "An online double-conversion UPS gives laser and CNC diamond machines clean, uninterrupted power, and an isolation transformer adds protection against noise and neutral problems. Size it for the machine's peak draw, not just its running load."
+   },
+   {
+    "q": "Can a UPS run with the DG sets used in Sachin GIDC?",
+    "a": "Yes, if the UPS rectifier accepts the DG's frequency variation and starts gradually on transfer. Give the DG kVA with your enquiry so the UPS and generator can be matched without nuisance trips."
+   }
+  ]
+ },
+ "vadodara": {
+  "power": "Vadodara is ringed by refining, petrochemical and fertiliser plants, with the chemical estate at Nandesari and the refinery at Koyali to the north. Control rooms there run DCS, PLC and fire and gas systems that expect a clean, redundant supply, often from parallel-redundant industrial UPS and float-cum-boost chargers with long-life batteries. Corrosive air from process units calls for coated boards and IP-rated enclosures. Electrical equipment makers in Makarpura and Por need stable supply for their test bays. Summers are hot and the Vishwamitri has flooded parts of the city, so battery rooms should be cool and above flood level.",
+  "needs": [
+   {
+    "h": "DCS and safety systems in Nandesari",
+    "t": "Distributed control, fire and gas and shutdown systems suit dual redundant industrial UPS with static bypass and long-life batteries."
+   },
+   {
+    "h": "Switchgear and transformer test bays",
+    "t": "Test and inspection areas at electrical equipment makers in Makarpura need an online UPS with isolation transformer to keep instruments and data loggers stable."
+   },
+   {
+    "h": "DC control supplies for substations",
+    "t": "Plant substations and switchyards need float-cum-boost chargers with nickel cadmium or VRLA batteries for breaker tripping and protection relays."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Which UPS do Vadodara chemical plants use for control systems?",
+    "a": "Process control usually runs on a redundant industrial UPS, either parallel or dual-bus, with a static bypass and batteries sized for the plant's safety needs. In corrosive areas the UPS is kept in a clean control room with an IP-rated enclosure."
+   },
+   {
+    "q": "Do I need an FCBC charger as well as a UPS in a Vadodara plant?",
+    "a": "Often yes. Switchgear tripping and protection relays run on DC, which comes from a float-cum-boost charger and battery bank, while computers and DCS panels run on AC from the UPS."
+   }
+  ]
+ },
+ "chennai": {
+  "power": "Chennai is hot and humid all year, sits on the Bay of Bengal, and takes most of its rain from the north-east monsoon late in the year, when cyclones and flooding can cut supply to whole localities, sometimes for days. Plants in Sriperumbudur and Oragadam and data halls along OMR therefore plan for long DG runs, with enough diesel stored and a UPS that handles generator frequency drift without dropping to battery. Ground-floor electrical rooms are at risk in floods. Salt air near the coast and humidity inside factories corrode contacts, so air-conditioned UPS rooms and coated electronics pay off.",
+  "needs": [
+   {
+    "h": "Electronics and phone assembly lines",
+    "t": "SMT lines, reflow ovens and test stations in the Sriperumbudur electronics cluster need online UPS with isolation transformers, as a short break can scrap boards in process."
+   },
+   {
+    "h": "Vehicle and tyre plants in Oragadam",
+    "t": "Paint shop controls, conveyors and curing press PLCs suit an industrial online UPS that works smoothly with the plant DG."
+   },
+   {
+    "h": "OMR data halls and IT offices",
+    "t": "IT floors and data halls along OMR suit modular UPS with N+1 redundancy, static transfer switches and remote monitoring."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How should a Chennai site prepare its UPS for cyclones and floods?",
+    "a": "Keep UPS and batteries above ground-floor flood level, check that the DG and UPS are matched for long runs, and test the system before the north-east monsoon. Remote monitoring helps when staff cannot reach the site."
+   },
+   {
+    "q": "Which UPS works well with DGs in Sriperumbudur plants?",
+    "a": "Choose an online UPS with a wide input frequency window and walk-in start so it accepts generator power without switching to battery. Matching the DG rating to the UPS input, with margin for battery charging, avoids trips."
+   }
+  ]
+ },
+ "coimbatore": {
+  "power": "Coimbatore is milder than most of Tamil Nadu, cooled by winds through the Palakkad Gap, but its industry creates its own power problems. The city is a centre for pumps, motors, wet grinders, foundries and textile spinning, so feeders carry heavy motor starting loads that can dip voltage for neighbouring units. Spinning mills keep the air humid inside their halls for yarn quality, which is hard on electronics. Foundries around SIDCO Kurichi add sand and metal dust. A servo stabilizer for motor and machine loads, plus an online UPS with an isolation transformer for controls, suits most units.",
+  "needs": [
+   {
+    "h": "Pump and motor test benches",
+    "t": "Performance test rigs at pump and motor makers need an online UPS for meters and data acquisition, and a stabilizer for the test supply."
+   },
+   {
+    "h": "Spinning and ring frame mills",
+    "t": "Ring frames, autoconers and humidification plant controls suit a servo stabilizer, with an online UPS for PLCs and yarn monitoring systems."
+   },
+   {
+    "h": "Wet grinder and appliance assembly",
+    "t": "Small assembly and testing units suit an industrial inverter or compact online UPS so final testing is not interrupted."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Which UPS suits a Coimbatore spinning mill?",
+    "a": "Mills usually protect motors with servo stabilizers and run controls, PLCs and yarn monitoring on an online UPS. Because the halls are humid, keep the UPS in a separate dry room or choose an enclosure suited to damp air."
+   },
+   {
+    "q": "Do Coimbatore foundries need an IP55 UPS?",
+    "a": "Where the UPS has to sit near the shop floor, an IP-rated enclosure keeps sand and metal dust out. If a clean room is available, a standard industrial UPS with filtered ventilation can do the job."
+   }
+  ]
+ },
+ "kochi": {
+  "power": "Kochi is built around backwaters, islands and a busy port, so high humidity, salt air and heavy south-west monsoon rain are constant, and the 2018 floods showed how quickly low-lying electrical rooms can go under water. The Eloor-Edayar belt along the Periyar hosts chemical and fertiliser plants with corrosive air, while the shipyard and port add marine conditions. That favours IP-rated industrial UPS, sealed battery cabinets and DC chargers built for damp air, installed on raised plinths. Seafood processing and cold storage units near the harbour also need protection for compressors and freezers when voltage sags.",
+  "needs": [
+   {
+    "h": "Seafood processing and freezing",
+    "t": "Plate freezers, IQF lines and cold rooms suit a servo stabilizer for compressors and an online UPS for controllers, sensors and export records."
+   },
+   {
+    "h": "Shipbuilding and port equipment",
+    "t": "Workshops, cranes and control rooms at the shipyard and container terminal need rugged IP55 UPS and battery chargers that stand salt and moisture."
+   },
+   {
+    "h": "Infopark offices",
+    "t": "IT and BPO floors at Kakkanad Infopark suit modular or rack-mount UPS with remote monitoring and generous battery backup."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Which UPS survives Kochi's humidity and floods?",
+    "a": "Pick an IP-rated industrial UPS with coated boards and sealed batteries, and install it on a raised plinth or upper floor in a dehumidified room. After any flooding, have the UPS inspected and dried before it is switched on."
+   },
+   {
+    "q": "What do Eloor-Edayar chemical plants need for control power?",
+    "a": "Control systems in corrosive areas usually need a redundant industrial UPS in a clean control room, plus float-cum-boost chargers with nickel cadmium batteries for DC tripping and protection."
+   }
+  ]
+ },
+ "trivandrum": {
+  "power": "Thiruvananthapuram lies near the southern tip of India and gets rain from both the south-west and north-east monsoons, so humidity stays high for much of the year and thunderstorms are common. Lightning surges are a real risk to IT floors in Technopark and to laboratories, so a UPS should have good input surge protection and a properly bonded earth. Coastal sites like Thumba get salt air. The city's space research and defence-linked units use precision test equipment that needs low-noise, well-regulated power, and its large hospitals rely on clean supply for imaging and critical care.",
+  "needs": [
+   {
+    "h": "Technopark software and BPO floors",
+    "t": "Office floors at Technopark suit modular UPS with N+1 redundancy, SNMP monitoring and surge protection on the input."
+   },
+   {
+    "h": "Space and defence test laboratories",
+    "t": "Suppliers and labs working with the space centre at Thumba often need MIL-grade or custom UPS for test benches and precision instruments."
+   },
+   {
+    "h": "Imaging and cancer care centres",
+    "t": "MRI, CT and radiotherapy equipment in the city's tertiary hospitals need an online UPS with isolation transformer for the consoles and controls."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How do I protect a UPS from lightning in Thiruvananthapuram?",
+    "a": "Specify surge protection on the UPS input, test and bond the site earthing, and keep data and power cables separated. With two monsoons a year, an annual check of earth resistance before the rains is a good habit."
+   },
+   {
+    "q": "What UPS suits precision labs near Thumba?",
+    "a": "Test and calibration labs need an online UPS with low output distortion and an isolation transformer to keep noise away from instruments. For field or vehicle-mounted equipment, a MIL-grade or custom-built UPS may be needed."
+   }
+  ]
+ },
+ "hyderabad": {
+  "power": "Hyderabad sits on the Deccan plateau, so the hard months are the dry, hot weeks before the monsoon rather than humidity. Server rooms in HITEC City and the Financial District carry heavy cooling loads, and a UPS room that loses its air conditioning heats up quickly. In the bulk-drug estates at Patancheru and Jeedimetla, plants often run alongside large motors and reactors that disturb the supply. That points to online double-conversion UPS with input isolation, battery rooms sized for heat, and rectifiers that stay stable on DG power.",
+  "needs": [
+   {
+    "h": "Bulk-drug reactor and DCS panels",
+    "t": "Reactor controls, flame-proof area instrumentation and DCS panels in the Patancheru and Jeedimetla estates suit an online UPS fed through an isolation transformer, so a trip does not spoil a batch."
+   },
+   {
+    "h": "Genome Valley lab instruments",
+    "t": "Chromatography systems, stability chambers and freezers in research labs need clean sine-wave power; a single-phase online UPS per instrument cluster keeps the data and the samples safe."
+   },
+   {
+    "h": "Colocation and enterprise server rooms",
+    "t": "Growing rack rooms in HITEC City and Gachibowli are easier to scale with a modular UPS, adding power modules as racks are filled instead of oversizing on day one."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Can one UPS cover both a pharma production block and its QC lab in Hyderabad?",
+    "a": "It can, but most plants keep them separate. Production loads with motors and heaters are better on a three-phase industrial UPS, while QC instruments sit on a smaller online UPS with an isolation transformer so they are not disturbed by the plant side."
+   },
+   {
+    "q": "Our Hyderabad office runs on a DG set during power cuts. Will the UPS accept DG power?",
+    "a": "Online UPS units are designed to run from a DG set, but the generator must be sized with margin for the UPS input and its battery charging current. Share the DG rating with your load details so the UPS input stage and soft-start settings can be matched to it."
+   }
+  ]
+ },
+ "visakhapatnam": {
+  "power": "Visakhapatnam is a coastal city on the Bay of Bengal, and its industry lives close to the sea: the steel plant, the refinery, the port and the shipbuilding and naval yards. Salt-laden, humid air corrodes exposed copper and circuit boards, and the coast is exposed to cyclones that can bring long supply outages. For control rooms near the harbour and in the steel zone, buyers usually look at sealed or IP-rated industrial UPS, conformal-coated electronics, DC battery chargers for switchgear, and battery banks sized for extended runtime rather than a few minutes of ride-through.",
+  "needs": [
+   {
+    "h": "Steel plant control and switchgear DC",
+    "t": "Protection relays, breaker tripping and PLCs in dusty, hot steel-zone substations are commonly fed by a float-cum-boost (FCBC) charger with a nickel cadmium battery bank, which tolerates heat better than lead-acid."
+   },
+   {
+    "h": "Port cranes and harbour terminals",
+    "t": "Terminal operating systems, gate automation and crane control cabins near the waterline need an IP55 industrial UPS that keeps salt spray and moisture out of the electronics."
+   },
+   {
+    "h": "Parawada pharma cleanrooms",
+    "t": "HVAC controls, environmental monitoring and filling lines in the Pharma City at Parawada suit a three-phase online UPS with an isolation transformer for clean, regulated power."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How should a UPS be prepared for cyclone season in Visakhapatnam?",
+    "a": "Check battery health before the season, since a weak bank fails exactly when a long outage comes. Keep the UPS and batteries above any flood level, and plan backup time and DG fuel stock on the assumption that grid repairs after a cyclone can take a while."
+   },
+   {
+    "q": "Is a standard indoor UPS enough for a site near the Visakhapatnam harbour?",
+    "a": "Inside an air-conditioned room it usually is. In a substation, crane cabin or open shed near the sea, a sealed IP-rated industrial UPS with coated boards lasts much longer because salt and moisture are kept out."
+   }
+  ]
+ },
+ "kolkata": {
+  "power": "Kolkata is humid for most of the year, takes heavy monsoon rain with waterlogging in low-lying areas, and gets sudden pre-monsoon thunderstorms (kalbaishakhi) and occasional cyclones from the Bay. Many offices and workshops are in older buildings where the UPS and batteries end up in a basement or a ground-floor room that can flood. Engineering units in the Howrah belt often share feeders with furnaces and heavy machinery. Raised plinths, dehumidified battery rooms, surge protection and online UPS with good input filtering suit these conditions better than offline units.",
+  "needs": [
+   {
+    "h": "Salt Lake and New Town offices",
+    "t": "Office floors in Sector V and New Town with dense desk loads and small server rooms fit an online UPS with SNMP monitoring, so facility teams can see battery status before a storm-related outage."
+   },
+   {
+    "h": "Howrah foundry and machine shops",
+    "t": "CNC lathes, induction heating controls and testing benches in the Howrah engineering belt benefit from a servo stabilizer ahead of the sensitive load, with an industrial UPS for the controls themselves."
+   },
+   {
+    "h": "Heritage-building bank branches",
+    "t": "Branches in older central Kolkata buildings, where space is tight and the electrical wiring is old, suit a compact online UPS with an isolation transformer to provide a clean neutral."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Where should the UPS and batteries go in an old Kolkata building that floods in the monsoon?",
+    "a": "Never at floor level in a basement. Place the UPS and battery rack on a raised platform or on an upper floor, keep the room ventilated and dry, and run the cables accordingly; water damage to a battery bank is costly and dangerous."
+   },
+   {
+    "q": "Do kalbaishakhi storms damage UPS systems in Kolkata?",
+    "a": "Lightning and switching surges during these storms can damage electronics that are not protected. A properly earthed online UPS with surge protection at the incoming panel reduces the risk, and the earth pit should be checked before the storm season."
+   }
+  ]
+ },
+ "jaipur": {
+  "power": "Jaipur has long, very hot and dry summers with dust that settles on everything, plus large swings between day and night temperatures. Dust clogs UPS air filters and fans, and heat shortens battery life faster than almost anything else. Gem cutting and jewellery units in Sitapura, block printing and garment units in and around Sanganer, and engineering workshops in VKI area each bring different loads. Filtered or IP-rated enclosures, cooled battery rooms, and a regular filter-cleaning routine are practical choices here, along with stabilizers where single-phase supply sags in summer peaks.",
+  "needs": [
+   {
+    "h": "Gem cutting and polishing machines",
+    "t": "Laser cutters, polishing wheels and imaging stations in Sitapura gem units are sensitive to voltage dips; a single-phase online UPS keeps a cut from being ruined mid-process."
+   },
+   {
+    "h": "Textile printing and finishing lines",
+    "t": "Rotary and digital printers in the Sanganer and Bagru belt need steady voltage for colour registration; a servo stabilizer on the line and a UPS on the controller suits the load."
+   },
+   {
+    "h": "Mahindra World City IT and BPO",
+    "t": "Office floors and server rooms in the SEZ need online UPS with remote monitoring; in Jaipur's dust, a sealed UPS room with filtered air keeps fans and boards clean."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How often should UPS filters be cleaned in Jaipur's dusty months?",
+    "a": "During the dry, dusty season, check air filters and fan grilles every few weeks rather than at the annual service. A clogged filter makes the UPS run hot and can trigger overtemperature alarms or shorten component life."
+   },
+   {
+    "q": "Why do UPS batteries in Jaipur need replacing sooner than the rated life?",
+    "a": "Battery life drops sharply as room temperature rises, and Jaipur's summers keep many UPS rooms warm. Placing batteries in an air-conditioned room and keeping them away from windows and roofs exposed to the sun helps them last closer to their rated life."
+   }
+  ]
+ },
+ "delhi": {
+  "power": "Delhi swings between extremes: scorching summers with dust storms and high air-conditioning demand, and cold winters with fog and heavy pollution. Summer evening peaks stress local distribution, and many buildings rely on DG sets and inverters as a matter of routine. Hospitals and diagnostic centres, government offices, and small manufacturing in Okhla, Narela, Bawana and Mayapuri all compete for space in crowded premises. That favours compact online UPS with good DG compatibility, batteries placed in cooled rooms, and enclosures and filters chosen with Delhi's dust and smog in mind.",
+  "needs": [
+   {
+    "h": "Diagnostic and imaging centres",
+    "t": "CT, MRI consoles and lab analysers in Delhi's many diagnostic centres need clean power; an online UPS with an isolation transformer protects them from the neutral and earth problems common in older commercial buildings."
+   },
+   {
+    "h": "Okhla printing and garment units",
+    "t": "Printing presses, embroidery machines and cutting tables in Okhla run better with a servo stabilizer on the main supply and a small UPS for the PLCs and computers."
+   },
+   {
+    "h": "Government and court record rooms",
+    "t": "Departmental servers and e-filing systems in government buildings suit an online UPS with SNMP monitoring, so outages and battery faults are logged and flagged."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Does winter smog in Delhi affect UPS equipment?",
+    "a": "Fine particles and moisture during the smog and fog months can settle on circuit boards and in fans, which over time can cause tracking and overheating. Keeping the UPS in a closed, clean room and having it cleaned at each service visit helps."
+   },
+   {
+    "q": "Can a UPS in Delhi handle the summer heat if the room has no air conditioning?",
+    "a": "A UPS can run in a warm room, but the batteries suffer most and can lose much of their life in a hot summer. If the UPS room cannot be cooled, consider placing at least the battery bank in an air-conditioned space or choosing a battery chemistry rated for higher temperatures."
+   }
+  ]
+ },
+ "gurgaon": {
+  "power": "Gurugram grew fast, and much of its commercial and residential stock relies on DG sets as an everyday backup rather than an emergency one. Cyber City and Udyog Vihar hold IT, BPO and corporate offices with large server and network loads; IMT Manesar and the surrounding belt are part of the automotive supply chain, with press shops, welding lines and machining. Hot, dusty summers add to the load on cooling. UPS choice here hinges on clean transfer between grid and DG, sizing for generator compatibility, and redundancy for offices that cannot afford downtime.",
+  "needs": [
+   {
+    "h": "Manesar press shops and weld lines",
+    "t": "PLC panels, robot controllers and weld timers on auto-component lines in IMT Manesar suit an industrial UPS, with a servo stabilizer on machining centres sensitive to voltage swings."
+   },
+   {
+    "h": "Cyber City floors with N+1 redundancy",
+    "t": "Corporate and BPO floors with continuous operations commonly use a modular UPS in N+1 configuration, so one failed module can be swapped without shutting down the floor."
+   },
+   {
+    "h": "Grid-to-DG changeover in office towers",
+    "t": "Where the building switches between grid and DG, a static transfer switch between two UPS sources keeps critical IT loads running through the changeover."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Our Gurugram building runs on DG for long periods. What size of DG suits our UPS?",
+    "a": "Generators generally need to be sized with a margin above the UPS rating, because the rectifier and battery charging draw extra current. Share the UPS kVA, the battery bank and the DG rating so the UPS input settings and the generator can be matched."
+   },
+   {
+    "q": "Is a modular UPS worth it for a Gurugram office that keeps growing?",
+    "a": "If you expect to add seats or racks, a modular UPS lets you start with fewer power modules and add more as the load grows. It also gives redundancy, since a spare module covers a failed one."
+   }
+  ]
+ },
+ "noida": {
+  "power": "Noida and Greater Noida combine IT offices in Sectors 62 and 63, electronics and mobile phone assembly, a growing cluster of data centres, and large hospitals. Like the rest of the NCR, summers are very hot and dusty and winters bring fog. Many plants and offices depend on DG sets during outages, and industrial sectors often see voltage swings when heavy loads come on. That points to online UPS with input power-factor correction, modular designs for data halls, and isolation transformers where sensitive electronics share a supply with machinery.",
+  "needs": [
+   {
+    "h": "Electronics assembly and SMT lines",
+    "t": "Pick-and-place machines, reflow ovens and test stations on phone and component assembly lines need an online UPS with tight output regulation to avoid stoppages and rework."
+   },
+   {
+    "h": "Greater Noida data halls",
+    "t": "New data centre buildings in the region suit a modular UPS with remote monitoring, scaled in step with the rack fit-out rather than all at once."
+   },
+   {
+    "h": "Hospital OT and ICU wards",
+    "t": "Operation theatres, ICU monitors and ventilators in Noida's large hospitals suit an online UPS with an isolation transformer for a clean, earthed supply."
+   }
+  ],
+  "faq": [
+   {
+    "q": "What UPS suits an SMT line in a Noida electronics unit?",
+    "a": "A three-phase online UPS with low output distortion and fast transient response is the usual choice, since reflow ovens and placement machines are sensitive to dips. Size it for the full line, including conveyors and inspection stations, not only the main machines."
+   },
+   {
+    "q": "How do I plan UPS capacity for a new data hall in Greater Noida?",
+    "a": "Start with the IT load expected at go-live and the final planned load. A modular UPS lets you install capacity for the first phase and add modules later, while the frame, cabling and battery room are designed for the final size."
+   }
+  ]
+ },
+ "indore": {
+  "power": "Indore sits on the Malwa plateau, with hot, dry summers and a monsoon that brings thunderstorms. The main industrial load is at Pithampur, a large estate with automobile, auto-component and pharma plants, along with food processing and the IT offices along the Super Corridor. Estates of this kind often see voltage dips when heavy machinery starts, and many units keep DG sets for outages. For buyers, that means three-phase industrial UPS for process controls, servo stabilizers for machine shops, and batteries kept in shaded, ventilated rooms.",
+  "needs": [
+   {
+    "h": "Pithampur commercial vehicle lines",
+    "t": "Assembly line PLCs, torque tools and paint shop controls in Pithampur suit an industrial online UPS, with a servo stabilizer for machining cells sensitive to voltage swings."
+   },
+   {
+    "h": "Pharma formulation and packing",
+    "t": "Tablet presses, blister packing and QC labs in the Pithampur pharma cluster need clean power; an online UPS with an isolation transformer avoids batch loss and data gaps."
+   },
+   {
+    "h": "Food processing and cold rooms",
+    "t": "Snack and namkeen lines and cold storage controls around Indore benefit from a UPS on the controllers and a stabilizer on compressors, keeping temperature records and packing lines running."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Do pharma units in Pithampur need a separate UPS for the QC lab?",
+    "a": "Usually yes. QC instruments such as HPLCs and balances are sensitive to disturbances from the production floor, so a dedicated online UPS with an isolation transformer for the lab is a common and sensible choice."
+   },
+   {
+    "q": "Can a UPS protect machines in an Indore factory from voltage dips when large motors start?",
+    "a": "A UPS protects the controls and electronics it feeds, but it is rarely sized for big motors. For machines that are disturbed by dips, a servo stabilizer on the machine supply plus a UPS on the PLC and drive controls is a more economical approach."
+   }
+  ]
+ },
+ "bhopal": {
+  "power": "Bhopal has hot summers, a strong monsoon and mild winters. Its industrial base includes heavy electrical equipment manufacturing and its suppliers in the Govindpura area, while Mandideep on the city's edge hosts pharma, food, auto-parts and engineering plants. Government departments and banks are large users of IT. Industrial estates often see voltage swings and shared feeders, so typical choices are industrial UPS for process and test controls, DC chargers for switchgear and test bays, and online UPS with monitoring for offices that run on continuous digital services.",
+  "needs": [
+   {
+    "h": "Heavy-electrical test bays",
+    "t": "Test benches, data loggers and protection panels used by heavy-electrical manufacturers and their suppliers in Govindpura suit an industrial UPS with an isolation transformer, plus FCBC chargers for DC control."
+   },
+   {
+    "h": "Mandideep process plants",
+    "t": "Pharma, food and paper process controls in Mandideep need a three-phase online UPS sized for the DCS and instrumentation, with backup long enough for a controlled shutdown."
+   },
+   {
+    "h": "State government and bank data rooms",
+    "t": "Departmental server rooms and bank branches in Bhopal suit an online UPS with SNMP monitoring so faults and battery health can be tracked remotely."
+   }
+  ],
+  "faq": [
+   {
+    "q": "What backup time should a process plant in Mandideep plan for?",
+    "a": "Most process plants size the UPS for a safe, controlled shutdown or for the time it takes the DG to start and stabilise, not for hours of running. The right figure depends on the process; share the shutdown sequence and DG start time so the battery can be sized for it."
+   },
+   {
+    "q": "Do switchgear panels in a Bhopal factory need a UPS or a battery charger?",
+    "a": "Switchgear tripping and closing circuits normally run on DC, so they need a float-cum-boost charger with a battery bank, not an AC UPS. The charger and battery are sized for the trip and close currents and the standby load."
+   }
+  ]
+ },
+ "ludhiana": {
+  "power": "Ludhiana is Punjab's industrial centre, known for hosiery and knitwear, bicycles and cycle parts, auto components, forging and hand tools. Many units are small and medium workshops in Focal Point and the industrial areas, often sharing feeders with induction furnaces and heavy machines, so supply quality can vary. Summers are hot and winters bring cold mornings and dense fog. In practice, buyers pair servo stabilizers with UPS for controls, look for UPS with input filtering and harmonic tolerance, and keep battery rooms protected from both summer heat and winter damp.",
+  "needs": [
+   {
+    "h": "Computerised knitting machines",
+    "t": "Flat and circular knitting machines in Ludhiana hosiery units lose patterns and yarn on a power break; a single-phase online UPS per machine group avoids rework."
+   },
+   {
+    "h": "Cycle and cycle-parts welding lines",
+    "t": "Frame welding robots and painting line controls in cycle and parts units suit an industrial UPS for the controllers, with a servo stabilizer for the welding supply."
+   },
+   {
+    "h": "Units near induction furnaces",
+    "t": "Where workshops share a feeder with induction furnaces, an isolation transformer ahead of the UPS helps keep harmonics and spikes away from sensitive electronics."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Will a UPS in Ludhiana cope with supply disturbed by nearby induction furnaces?",
+    "a": "An online UPS with a robust rectifier and input filtering handles distorted supply better than an offline unit. For heavily affected feeders, adding an isolation transformer at the UPS input gives extra protection."
+   },
+   {
+    "q": "Should we use a stabilizer or a UPS for hosiery machines in Ludhiana?",
+    "a": "Use both for different jobs. A servo stabilizer handles slow voltage swings on the main machine supply, while a UPS covers power cuts for the machine controllers so knitting patterns and production data are not lost."
+   }
+  ]
+ },
+ "chandigarh": {
+  "power": "The Chandigarh tricity, with Mohali and Panchkula, has a mix of IT offices in Mohali, light industry in the Chandigarh industrial areas, large teaching hospitals, and pharma plants in the wider region. Winters are cold with fog that can disturb overhead lines, and summers are hot. Sites can still face outages during storms and peak demand. UPS selection here tends to focus on clean, regulated power for hospitals and labs, monitoring for offices, and correct earthing.",
+  "needs": [
+   {
+    "h": "Teaching hospital critical care",
+    "t": "ICUs, operation theatres and imaging departments in the tricity's large hospitals suit online UPS units with isolation transformers, sized ward by ward rather than as one large central unit."
+   },
+   {
+    "h": "Mohali IT and startup offices",
+    "t": "Office floors and rack rooms in Mohali's IT City fit rack-mount or modular online UPS with SNMP cards, which can be expanded as headcount grows."
+   },
+   {
+    "h": "Regional pharma QC labs",
+    "t": "Analytical labs supporting pharma plants in the region need a single-phase online UPS with an isolation transformer to keep instrument readings stable."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Does winter fog around Chandigarh affect power backup planning?",
+    "a": "Fog and moisture can cause flashovers and line trips on overhead lines in winter, so short outages can be more frequent. Make sure the UPS batteries are healthy before winter and that the UPS room stays dry."
+   },
+   {
+    "q": "What UPS arrangement suits a hospital in Chandigarh or Mohali?",
+    "a": "Hospitals usually separate critical areas such as OTs, ICUs and imaging, each with its own online UPS and isolation transformer. This keeps a fault in one area from affecting others and makes maintenance easier."
+   }
+  ]
+ },
+ "bhubaneswar": {
+  "power": "Bhubaneswar is close to the Odisha coast, humid for much of the year and in the path of Bay of Bengal cyclones that can cut grid supply for long periods. Lightning is common in the pre-monsoon and monsoon months. The city has IT offices in Infocity and Chandaka, engineering units in Mancheswar, and serves as the business base for the state's mining, steel and aluminium belt further inland. That favours UPS and batteries kept above flood level, strong surge protection and earthing, longer backup times, and rugged industrial units for plant sites.",
+  "needs": [
+   {
+    "h": "Infocity offices during cyclone season",
+    "t": "IT and BPO floors in Infocity suit an online UPS with remote monitoring and enough battery time to cover the DG start, with spare battery capacity planned for long outages."
+   },
+   {
+    "h": "Mancheswar engineering workshops",
+    "t": "Fabrication and machining units in Mancheswar need a servo stabilizer for machines and a compact industrial UPS for CNC controls and weighing systems."
+   },
+   {
+    "h": "Mining and metals control rooms",
+    "t": "Control rooms at mines and smelters supplied from Bhubaneswar suit an IP55 industrial UPS and FCBC chargers with nickel cadmium batteries for dust and heat."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How do we protect a UPS in Bhubaneswar from lightning?",
+    "a": "Good earthing is the first step; have the earth pits tested before the monsoon. Add surge protection at the main incoming panel and use an online UPS, which isolates the load from many surges coming in on the supply."
+   },
+   {
+    "q": "What should we check on our UPS after a cyclone in Odisha?",
+    "a": "Before restarting, check the UPS room for water ingress and the battery bank for damage or swelling. Have the earthing and incoming supply checked, as surges and damaged lines are common after a storm."
+   }
+  ]
+ },
+ "guwahati": {
+  "power": "Guwahati sits on the Brahmaputra, with a long, heavy monsoon, high humidity and flood risk in low-lying areas. The whole North East is in a high seismic zone, and lightning is common. As the commercial gateway to the region, the city hosts hospitals, banks, government offices, a refinery and tea and food processing, and supplies many sites in hilly, remote areas. Those conditions call for UPS cabinets and battery racks anchored against tremors, dehumidified battery rooms, solid earthing, and spares kept on hand because transport across the region can be slow.",
+  "needs": [
+   {
+    "h": "Refinery and pipeline instrumentation",
+    "t": "Control and instrumentation panels at refinery and oil installations in the Noonmati area suit an IP55 industrial UPS and FCBC chargers with nickel cadmium batteries, which tolerate humidity and long service."
+   },
+   {
+    "h": "Tea and food processing units",
+    "t": "Tea processing, packaging and cold storage controls supplied from Guwahati need a stabilizer on the machines and a UPS for the controllers, since many sites are on long rural feeders."
+   },
+   {
+    "h": "Remote telecom and bank sites",
+    "t": "Bank branches and network sites in hilly areas served from Guwahati can combine an online UPS with a solar hybrid system to cut DG running hours."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Should UPS cabinets and batteries in Guwahati be anchored for earthquakes?",
+    "a": "Yes. Since the North East is in a high seismic zone, UPS cabinets and battery racks should be bolted to the floor or wall and the batteries secured in their racks, so they do not topple or short during tremors."
+   },
+   {
+    "q": "How do we keep UPS batteries healthy in Guwahati's humid monsoon?",
+    "a": "Keep the battery room ventilated and, where possible, air-conditioned or dehumidified, and check terminals for corrosion at each service. Moisture on terminals and cabinets is one of the commonest causes of early battery and UPS faults in humid places."
+   }
+  ]
+ },
+ "karnataka": {
+  "power": "Karnataka spans three quite different climates. Bengaluru and Mysuru have a mild plateau climate, so cooling is easier, but the density of data centres, labs and electronics firms makes power quality the main concern. The coast around Mangaluru is humid and salt-laden, which is hard on exposed electronics. North Karnataka, including Hubballi-Dharwad and the Ballari steel and mining belt, has hot, dry summers and dust. A good UPS plan here varies by region: modular and monitored UPS in Bengaluru, sealed units on the coast, and heat-tolerant batteries in the north.",
+  "needs": [
+   {
+    "h": "Aerospace and defence electronics suppliers",
+    "t": "Precision machining and test labs serving aerospace and defence programmes in Bengaluru suit an online UPS with an isolation transformer, and MIL grade UPS for equipment going into the field."
+   },
+   {
+    "h": "Coastal refinery and port controls",
+    "t": "Instrumentation and switchgear around the Mangaluru refinery and New Mangalore Port suit an IP55 industrial UPS and FCBC chargers built for salt air and humidity."
+   },
+   {
+    "h": "North Karnataka steel and mining",
+    "t": "Control rooms in the steel and mining belt of north Karnataka need rugged industrial UPS and nickel cadmium battery banks that tolerate heat and dust."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Does a UPS for a coastal Karnataka site differ from one for Bengaluru?",
+    "a": "Often, yes. Near the coast, humid, salty air calls for sealed enclosures, coated boards and corrosion-resistant battery racks, while in Bengaluru a standard indoor online UPS in a clean room usually suffices."
+   },
+   {
+    "q": "Is battery life different in north Karnataka than in Bengaluru?",
+    "a": "Often, yes. Lead-acid batteries age faster in heat, so a battery room in Hubballi or Ballari that runs hot in summer will usually need replacement sooner than one in Bengaluru. Ventilate or cool the battery room, or consider lithium where rooms run warm."
+   }
+  ]
+ },
+ "maharashtra": {
+  "power": "Maharashtra's conditions change sharply across the state. Mumbai and the Konkan coast have humid, salty air and an intense monsoon with flooding in low areas, so UPS rooms on ground or basement floors are at risk. Pune and Nashik have a milder climate but dense automotive, engineering and electronics manufacturing, where industrial estates often see dips when heavy loads switch. Vidarbha, around Nagpur, has some of India's hottest summers. Power planning therefore runs from flood-safe, monitored UPS in Mumbai to stabilizers and industrial UPS in Pune and Nashik, and heat-tolerant batteries in Nagpur.",
+  "needs": [
+   {
+    "h": "Mumbai trading floors and exchanges",
+    "t": "Trading desks, dealing rooms and market-data servers in Mumbai's financial district need redundant modular UPS with static transfer switches, so a single fault does not stop trading."
+   },
+   {
+    "h": "Chakan and Nashik engineering lines",
+    "t": "Robot cells, CNC machines and test rigs in Chakan and Nashik suit an industrial UPS for controls, with a servo stabilizer for machine supplies in estates where voltage swings."
+   },
+   {
+    "h": "Vidarbha cold chain and coal-belt plants",
+    "t": "Cold storage controls and plant instrumentation around Nagpur and the coal and power belt of Vidarbha need batteries in cooled rooms and FCBC chargers for DC control."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How do we keep a UPS safe from monsoon flooding in Mumbai?",
+    "a": "Install the UPS and batteries above the known flood level, ideally not in a basement, and route cables so water cannot follow them into the cabinet. Check batteries and the room before every monsoon."
+   },
+   {
+    "q": "Which E&C office handles sales in Maharashtra?",
+    "a": "Sales and service for Maharashtra are handled by the E&C office in Mumbai. Share the site address in the quote form and the enquiry is routed to it."
+   }
+  ]
+ },
+ "gujarat": {
+  "power": "Gujarat's industry is heavily chemical and process-based, with large GIDC estates around Ahmedabad, Vadodara, Ankleshwar, Vapi, Dahej and Surat, plus textiles, diamonds, ceramics and engineering. Chemical estates can carry corrosive gases that attack copper and circuit boards, and many process plants need long, reliable DC supplies for safety systems. Summers are hot across the state, and the long coastline brings humidity and cyclone risk. Typical choices are sealed or IP-rated UPS with coated electronics, isolation transformers, FCBC chargers with nickel cadmium batteries, and cooled battery rooms.",
+  "needs": [
+   {
+    "h": "Chemical plant DCS and ESD systems",
+    "t": "Distributed control and emergency shutdown systems in chemical estates such as Ankleshwar, Dahej and Vapi need a redundant industrial UPS and FCBC chargers built for corrosive atmospheres."
+   },
+   {
+    "h": "Surat diamond and textile units",
+    "t": "Diamond planning and laser machines and computerised weaving and embroidery machines in Surat suit compact online UPS units per machine group, with stabilizers on looms."
+   },
+   {
+    "h": "Morbi ceramics and kiln controls",
+    "t": "Kiln burners, presses and glazing lines in the Morbi ceramic cluster need an industrial UPS for the burner and PLC controls so a power cut does not damage a firing."
+   }
+  ],
+  "faq": [
+   {
+    "q": "What protects a UPS from corrosive gases in a Gujarat chemical estate?",
+    "a": "Keep the UPS in a pressurised or sealed room with filtered air, and specify conformal-coated circuit boards. IP-rated industrial UPS enclosures add another layer of protection where a clean room is not possible."
+   },
+   {
+    "q": "Do kilns and furnaces in Gujarat need a UPS for the whole load?",
+    "a": "No. The heating load itself is far too large and is usually backed by DG, but the burner management, PLCs and instruments need a UPS so the process can be controlled and shut down safely during a power cut."
+   }
+  ]
+ },
+ "tamil-nadu": {
+  "power": "Tamil Nadu has two very different power environments. The Chennai coast is hot and humid most of the year, takes its heaviest rain from the northeast monsoon and is exposed to cyclones, so flood-safe UPS rooms and long backup matter. The western belt around Coimbatore, Tiruppur and Hosur has a drier, milder climate and dense small and medium manufacturing, where industrial estates often see voltage swings. Buyers mix online UPS and modular UPS for IT and auto plants with servo stabilizers and industrial UPS for workshops.",
+  "needs": [
+   {
+    "h": "Sriperumbudur electronics and auto plants",
+    "t": "Assembly lines, paint shops and test stations in the Sriperumbudur and Oragadam belt suit three-phase industrial UPS sized for the line controls, with redundancy where lines run around the clock."
+   },
+   {
+    "h": "Coimbatore pump and motor testing",
+    "t": "Test benches, winding machines and foundry controls in Coimbatore's pump and motor industry need a servo stabilizer and an online UPS for the test instrumentation."
+   },
+   {
+    "h": "Tiruppur knitwear and dyeing units",
+    "t": "Knitting machines and dyeing controls in Tiruppur's garment cluster suit compact online UPS units per machine group, so dye batches and patterns are not lost."
+   }
+  ],
+  "faq": [
+   {
+    "q": "When should Chennai sites service their UPS?",
+    "a": "The northeast monsoon and cyclone season usually comes late in the year, so a battery and UPS check before then makes sense. Make sure batteries are healthy and the UPS room is protected from water ingress."
+   },
+   {
+    "q": "Which E&C office handles Tamil Nadu?",
+    "a": "The E&C office in Chennai handles sales across Tamil Nadu and Pondicherry. Share your site address in the quote form and the enquiry is routed there."
+   }
+  ]
+ },
+ "kerala": {
+  "power": "Kerala is humid all year and gets two monsoons, so moisture rather than heat is the main threat to UPS and batteries. Much of the state is coastal, with salt in the air, and the hill districts face landslides and long feeder lines. Industry centres on the refinery, shipyard, port and chemical belt around Kochi, the IT parks in Kochi and Thiruvananthapuram, and a dense network of hospitals. Dehumidified, air-conditioned battery rooms, sealed enclosures, solid earthing against lightning, and online UPS with isolation for medical loads all suit these conditions.",
+  "needs": [
+   {
+    "h": "Shipyard and port electrical systems",
+    "t": "Control panels and DC systems at the shipyard and port around Kochi suit an IP55 industrial UPS and FCBC chargers with nickel cadmium batteries for salt and humidity."
+   },
+   {
+    "h": "Hospital networks across the state",
+    "t": "Hospitals in Kochi, Thiruvananthapuram and other towns need online UPS units with isolation transformers for OTs, ICUs and imaging, with monitoring for multi-site groups."
+   },
+   {
+    "h": "Space research and IT campuses",
+    "t": "Research and IT campuses in Thiruvananthapuram fit modular UPS for server rooms and MIL grade or custom UPS for test and field equipment."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How do we stop UPS batteries in Kerala failing early from humidity?",
+    "a": "Keep batteries in an air-conditioned or dehumidified room, check terminals for corrosion at each service, and keep the room ventilated. Moisture on terminals and cabinets is a frequent cause of early failure in a humid state."
+   },
+   {
+    "q": "Which E&C office covers Kerala?",
+    "a": "The E&C office in Kochi covers Kerala. Share your site address in the quote form and the enquiry is routed there."
+   }
+  ]
+ },
+ "telangana": {
+  "power": "Telangana's power backup demand is concentrated around Hyderabad, but the state also has coal mining, thermal power stations and cement plants in its interior districts. The interior is hot and dry before the monsoon, with dust at plant sites. Hyderabad's IT, data centre and pharma clusters need clean, uninterrupted power, while mines, power stations and cement plants need rugged DC systems and industrial UPS. A state-level plan therefore splits into two: monitored, redundant UPS for city campuses, and IP-rated UPS, chargers and long-life batteries for plants outside the city.",
+  "needs": [
+   {
+    "h": "Coal mine and power station controls",
+    "t": "Control rooms and switchgear at mines and power stations in the state's coal belt suit FCBC chargers with nickel cadmium batteries and an IP55 industrial UPS for dust and heat."
+   },
+   {
+    "h": "Cement plant kiln and packing controls",
+    "t": "Kiln controls, packers and analysers in Telangana cement plants need an industrial UPS for controls and instruments so a trip does not cause an uncontrolled kiln stop."
+   },
+   {
+    "h": "Pharma clusters around Hyderabad",
+    "t": "Formulation and API plants in the industrial parks around Hyderabad suit three-phase online UPS with isolation transformers for production and QC loads."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Can E&C supply industrial UPS for plants outside Hyderabad in Telangana?",
+    "a": "Yes. E&C supplies across Telangana; share the site location, load and site conditions in the quote form so the UPS, enclosure and battery are specified for the plant."
+   },
+   {
+    "q": "What UPS suits a dusty cement or mining site in Telangana?",
+    "a": "An IP-rated industrial UPS with sealed or filtered cooling keeps dust out, and nickel cadmium batteries tolerate heat and long service. For DC switchgear, an FCBC charger with a battery bank is used."
+   }
+  ]
+ },
+ "andhra-pradesh": {
+  "power": "Andhra Pradesh has one of India's longest coastlines, and much of its industry sits near the sea: Visakhapatnam's steel, refinery and port, pharma clusters, aquaculture and seafood processing along the coast, and manufacturing zones such as Sri City in the south. The coast brings humidity, salt and cyclone risk, while the interior Rayalaseema region is hot and dry. UPS selection here leans on sealed enclosures and coated electronics near the coast, longer backup for cyclone outages, and heat-tolerant batteries inland.",
+  "needs": [
+   {
+    "h": "Seafood processing and cold storage",
+    "t": "Freezers, IQF tunnels and plate freezers along the coast need a stabilizer on compressors and a UPS on the controllers and temperature loggers to protect stock and records."
+   },
+   {
+    "h": "Sri City manufacturing plants",
+    "t": "Electronics, food and engineering plants in Sri City suit three-phase online UPS for production lines and modular UPS for plant IT."
+   },
+   {
+    "h": "Coastal pharma and chemical plants",
+    "t": "API and chemical plants along the coast need an industrial UPS with isolation transformers and FCBC chargers, built for humid and corrosive conditions."
+   }
+  ],
+  "faq": [
+   {
+    "q": "What UPS suits a seafood processing plant on the Andhra coast?",
+    "a": "Protect the controls, PLCs and temperature recording with an online UPS, and use a stabilizer for compressors and freezers. Keep the UPS in a dry room away from wash-down areas, since salt and moisture damage electronics."
+   },
+   {
+    "q": "Which E&C office handles Andhra Pradesh?",
+    "a": "Sales in Andhra Pradesh are handled by E&C's Bengaluru office, which is also the head office and plant. Share your site address in the quote form and the enquiry is routed there."
+   }
+  ]
+ },
+ "west-bengal": {
+  "power": "West Bengal stretches from the Himalayan foothills to the Bay of Bengal. Kolkata and the south are humid, with heavy monsoon rain, pre-monsoon storms and cyclone risk. The Durgapur-Asansol belt has steel, coal and heavy engineering with dust and heat, Haldia has a port and petrochemicals, and north Bengal has tea gardens and cooler, wetter hills. UPS planning varies accordingly: flood-safe, surge-protected UPS in the south, rugged industrial UPS and DC chargers in the mining and steel belt, and simple, robust systems for remote tea estates.",
+  "needs": [
+   {
+    "h": "Durgapur-Asansol steel and coal belt",
+    "t": "Control rooms in steel plants, collieries and power stations in this belt suit an IP55 industrial UPS and FCBC chargers with nickel cadmium batteries for dust and heat."
+   },
+   {
+    "h": "Haldia port and petrochemicals",
+    "t": "Instrumentation and emergency shutdown systems at Haldia's petrochemical units and port need a redundant industrial UPS built for humid, corrosive air."
+   },
+   {
+    "h": "North Bengal tea factories",
+    "t": "Tea processing machines and dryer controls in the Darjeeling and Dooars gardens suit a stabilizer on the machines and a UPS for controls, sometimes with solar hybrid for remote estates."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Can E&C supply UPS for industrial sites outside Kolkata in West Bengal?",
+    "a": "Yes. The E&C Kolkata office handles sales across West Bengal; share the site location, load and conditions in the quote form so the UPS and batteries are specified for that plant."
+   },
+   {
+    "q": "What UPS suits a dusty plant in the Durgapur-Asansol belt?",
+    "a": "An IP-rated industrial UPS keeps dust out of the electronics, and nickel cadmium batteries cope with heat and long service. DC switchgear is fed from an FCBC charger with its own battery bank."
+   }
+  ]
+ },
+ "rajasthan": {
+  "power": "Rajasthan is India's largest state by area, with desert in the west, extreme summer heat across most of it, and dust storms before the monsoon. Industry is spread out: Jaipur's gems, textiles and engineering, the NCR-adjoining estates at Bhiwadi and Neemrana with auto and electronics plants, marble and stone processing around Kishangarh and Udaipur, cement plants, mining, and large solar parks in the west. UPS choices here are driven by heat and dust: sealed or filtered enclosures, batteries in cooled rooms, and solar hybrid systems for remote sites.",
+  "needs": [
+   {
+    "h": "Bhiwadi and Neemrana factories",
+    "t": "Auto-component and electronics plants in Bhiwadi and Neemrana suit three-phase industrial UPS for line controls and servo stabilizers for machining cells."
+   },
+   {
+    "h": "Marble and stone processing",
+    "t": "Gang saws, cutters and polishing lines around Kishangarh and Udaipur need a stabilizer on the machines and a UPS for PLCs, with enclosures sealed against stone dust."
+   },
+   {
+    "h": "Solar park and remote site controls",
+    "t": "Control rooms and monitoring systems at solar parks and remote mining sites in western Rajasthan suit a solar hybrid system or industrial UPS with batteries in cooled shelters."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How do we protect UPS batteries in Rajasthan's summer heat?",
+    "a": "Keep batteries in an air-conditioned room or shelter, away from sun-facing walls and roofs. Where cooling is not possible, ask about battery types rated for higher temperatures and expect to replace batteries more often."
+   },
+   {
+    "q": "Which E&C office handles Rajasthan?",
+    "a": "Sales and service for Rajasthan are coordinated by E&C's New Delhi office, and Jaipur is on its list of service locations. Share your site address in the quote form and the enquiry is routed there."
+   }
+  ]
+ },
+ "delhi-ncr": {
+  "power": "Delhi NCR has very hot summers, a dusty pre-monsoon season and cold, foggy winters, and its load is split three ways. Delhi itself is offices, hospitals, government buildings and data centres; Gurugram and Manesar carry the automotive and component plants; Noida and Greater Noida add electronics manufacturing, IT parks and data centres. Summer peak demand is among the highest of any Indian city region, and many sites run DG sets alongside the grid. That calls for redundant online UPS for IT and healthcare, industrial UPS for production controls, and battery rooms that are kept cool through the summer.",
+  "needs": [
+   {
+    "h": "Data centres in Noida and Greater Noida",
+    "t": "Colocation and enterprise data centres in Noida and Greater Noida need modular online UPS with N+1 redundancy, static transfer switches for dual-corded loads and remote monitoring."
+   },
+   {
+    "h": "Automotive plants in Gurugram and Manesar",
+    "t": "Robot cells, paint shops and PLC-controlled lines in the Manesar belt suit an industrial online UPS on controls, with servo stabilizers on machines sensitive to voltage swings."
+   },
+   {
+    "h": "Hospitals and government buildings in Delhi",
+    "t": "Operation theatres, ICUs, scanners and record rooms in Delhi's hospitals and offices need online UPS with isolation transformers and enough battery backup to bridge to the DG set."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How much battery backup does a UPS need in Delhi NCR if the site has a DG set?",
+    "a": "Where a DG set starts automatically, the UPS usually only has to bridge the gap until the DG takes the load and stabilises, so 10 to 15 minutes is common. Sites without a reliable DG, or with loads that must shut down gracefully, need longer backup."
+   },
+   {
+    "q": "Does summer heat in Delhi NCR affect UPS batteries?",
+    "a": "Yes. Lead acid battery life falls sharply above about 25°C, so a battery room that reaches 40°C in May and June will need replacements much sooner. Air-conditioned battery rooms or lithium ion batteries are worth considering for long life."
+   }
+  ]
+ },
+ "madhya-pradesh": {
+  "power": "Madhya Pradesh sits on the central plateau, with hot, dry summers and a strong monsoon. Industry is concentrated around Indore, where the Pithampur estate has automotive, auto-component and pharma plants, and Bhopal, with heavy electrical and engineering units at Govindpura and the Mandideep estate. Cement plants and power stations in the interior add dusty, heavy-duty sites. A state plan therefore covers clean online UPS for pharma and offices, industrial UPS and stabilizers for factories, and rugged chargers and batteries for plant control rooms.",
+  "needs": [
+   {
+    "h": "Pithampur automotive and pharma estate",
+    "t": "Assembly line controls and pharma packing and QC labs at Pithampur need three-phase online UPS, with isolation transformers for sensitive instruments."
+   },
+   {
+    "h": "Heavy engineering around Bhopal",
+    "t": "Test bays, CNC machines and controls at Govindpura and Mandideep suit an industrial UPS on controls and servo stabilizers on machine supplies."
+   },
+   {
+    "h": "Cement and power plants in the interior",
+    "t": "Control rooms and switchgear at cement and power plants need float cum boost chargers with long-life batteries and IP-rated industrial UPS for dust and heat."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Which UPS suits a cement plant control room in Madhya Pradesh?",
+    "a": "An IP-rated industrial UPS with a built-in isolation transformer is the usual choice for kiln, packer and analyser controls, with filtered ventilation for dust. DC switchgear is normally fed by a float cum boost charger and a battery bank."
+   },
+   {
+    "q": "Can one supplier cover sites in both Indore and Bhopal?",
+    "a": "Yes. Share each site's location, connected load and backup time in the quote form and the sizing, supply and service are planned for all sites together."
+   }
+  ]
+ },
+ "punjab": {
+  "power": "Punjab has hot summers, a humid monsoon and cold, foggy winters. Ludhiana is the industrial centre, with thousands of small and medium units making cycles, auto components, hosiery, machine tools and fasteners, while the Chandigarh tricity with Mohali adds IT, pharma, hospitals and offices. Small factories on shared feeders often see voltage swings and short breaks. That makes servo stabilizers and online UPS for machine controls common in Ludhiana, and redundant online UPS for the IT, healthcare and pharma sites around Chandigarh.",
+  "needs": [
+   {
+    "h": "Ludhiana machine shops and forging units",
+    "t": "CNC lathes, induction heaters and controls in Ludhiana's units suit a servo stabilizer on the machine supply and an online UPS on the CNC and PLC controls."
+   },
+   {
+    "h": "Hosiery and textile units",
+    "t": "Knitting machines and computerised embroidery in Ludhiana's hosiery cluster need protection from voltage swings so patterns and production are not lost in a dip."
+   },
+   {
+    "h": "IT, pharma and hospitals in the Chandigarh tricity",
+    "t": "Server rooms in Mohali, pharma units and hospitals around Chandigarh need online UPS with isolation transformers and remote monitoring."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Is a stabilizer or a UPS better for a CNC machine in Ludhiana?",
+    "a": "Often both. A servo stabilizer keeps the machine supply steady through voltage swings, and a smaller online UPS on the CNC controller and PLC stops a short break from losing the program or the job."
+   },
+   {
+    "q": "Does Punjab's winter fog affect power backup?",
+    "a": "Fog and moisture can cause insulator flashovers and trips on overhead lines in winter. Sites with critical loads should check that UPS batteries are healthy before winter and that backup time covers longer breaks."
+   }
+  ]
+ },
+ "odisha": {
+  "power": "Odisha is a coastal state with a long, heavy monsoon and a high risk of cyclones along its coast. Its economy rests on minerals and metals, with steel, aluminium and power plants and mines across the interior, a refinery and port at Paradip, and an IT and services base in Bhubaneswar. Metal plants and mines are hot, dusty and full of heavy electrical loads. That calls for rugged DC systems, IP-rated industrial UPS and long-life batteries at plant sites, and online UPS for offices, hospitals and data rooms in the cities.",
+  "needs": [
+   {
+    "h": "Steel and aluminium plant controls",
+    "t": "Control rooms, DCS and switchgear at steel and aluminium plants suit float cum boost chargers with nickel cadmium batteries and IP55 industrial UPS for dust and heat."
+   },
+   {
+    "h": "Mines and mineral processing",
+    "t": "Conveyor controls, weighbridges and communication at mines need rugged UPS in sealed enclosures, sized for long breaks at remote sites."
+   },
+   {
+    "h": "Offices and hospitals in Bhubaneswar",
+    "t": "IT offices at Infocity and hospitals in Bhubaneswar need online UPS with enough backup to ride through storm-related outages until the DG set takes over."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How should a site in coastal Odisha plan UPS backup for cyclone season?",
+    "a": "Expect long outages after a cyclone. Size the battery for the loads that must stay up, keep batteries and UPS above flood level, and plan DG fuel so the UPS only has to bridge short gaps."
+   },
+   {
+    "q": "Which batteries suit DC systems in Odisha's metal plants?",
+    "a": "Nickel cadmium batteries are often chosen for substations and plant DC systems because they tolerate heat and deep discharge and have a long life, paired with a float cum boost charger."
+   }
+  ]
+ },
+ "assam": {
+  "power": "Assam has a long, very wet monsoon, high humidity through much of the year and frequent floods in the Brahmaputra valley. Industry includes oil and gas fields, refineries, tea gardens and processing factories, and hospitals and offices in Guwahati, the commercial centre of the North East. Humidity corrodes contacts and shortens battery life, and storms and floods cause long outages in places. That makes sealed or coated UPS, battery rooms with humidity control, and rugged DC systems for oil and gas sites the main needs.",
+  "needs": [
+   {
+    "h": "Oil, gas and refinery controls",
+    "t": "Control rooms and instrumentation at oil fields and refineries need IP-rated industrial UPS and float cum boost chargers with long-life batteries."
+   },
+   {
+    "h": "Tea processing factories",
+    "t": "Withering, rolling and drying controls in tea factories suit an online UPS on controls and a stabilizer on motors, sized for the long processing season."
+   },
+   {
+    "h": "Hospitals and offices in Guwahati",
+    "t": "Hospitals, banks and offices in Guwahati need online UPS with enough backup to cover monsoon outages until the DG set starts."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How does Assam's humidity affect a UPS?",
+    "a": "High humidity can corrode connectors and boards and shorten battery life. A UPS in a dry, ventilated room, with conformal-coated boards where available and regular terminal cleaning, lasts much longer."
+   },
+   {
+    "q": "Should batteries be kept on a raised platform in flood-prone parts of Assam?",
+    "a": "Yes. In areas that flood, keep the UPS and battery bank on a raised platform or an upper floor so they are not damaged and can restart quickly when power returns."
+   }
+  ]
+ },
+ "jammu-kashmir": {
+  "power": "Jammu and Kashmir ranges from the hot plains around Jammu to cold, snowbound valleys and high-altitude Ladakh. Industry is concentrated in the Jammu region's estates, such as Bari Brahmana, Gangyal, Digiana and Kathua, with pharma, steel re-rolling, food and packaging units, while hospitals, government offices and a large defence presence spread across the region. Winters bring snow and long outages in the hills, and summers are hot in Jammu. That calls for online UPS with long backup, batteries suited to cold and heat, and rugged UPS for defence and remote sites.",
+  "needs": [
+   {
+    "h": "Pharma units in the Jammu and Kathua estates",
+    "t": "Formulation and packing lines and QC labs in Bari Brahmana and Kathua need three-phase online UPS with isolation transformers for clean power."
+   },
+   {
+    "h": "Steel re-rolling and engineering units",
+    "t": "Mill controls and machine shops in Jammu's estates suit an industrial UPS on controls and servo stabilizers on machine supplies."
+   },
+   {
+    "h": "Defence and remote sites",
+    "t": "Communication and equipment at defence and remote sites need rugged, MIL grade UPS built for shock, vibration and temperature extremes."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Which battery suits a UPS in cold parts of Jammu and Kashmir?",
+    "a": "Battery capacity drops in the cold, so size the battery bank with a margin for winter temperatures and keep it in a heated or insulated room. Nickel cadmium batteries handle low temperatures better than lead acid."
+   },
+   {
+    "q": "Is a MIL grade UPS available for defence sites in Jammu and Kashmir?",
+    "a": "Yes. E&C makes MIL grade UPS for defence use, built for shock, vibration and EMI/EMC requirements. Share the application and site conditions in the quote form."
+   }
+  ]
+ },
+ "jammu": {
+  "power": "Jammu has hot summers in the plains, a humid monsoon and cool winters, and it is the industrial centre of the Union Territory. Units in the Bari Brahmana, Gangyal and Digiana estates, and in Kathua nearby, make pharma products, steel, food, packaging and plastics. Jammu also has large hospitals, government offices and a strong defence presence. For buyers, that means online UPS with isolation transformers for pharma and healthcare, industrial UPS and stabilizers for factories, and rugged UPS for defence users.",
+  "needs": [
+   {
+    "h": "Bari Brahmana and Kathua pharma units",
+    "t": "Tablet presses, packing lines and QC instruments need clean, continuous power; an online UPS with an isolation transformer avoids batch loss and data gaps."
+   },
+   {
+    "h": "Gangyal and Digiana factories",
+    "t": "Machine controls and packaging lines in Jammu's estates suit an industrial UPS on the PLCs and a servo stabilizer on machines sensitive to voltage swings."
+   },
+   {
+    "h": "Hospitals and government offices",
+    "t": "Operation theatres, diagnostic equipment and records rooms in Jammu's hospitals and offices need online UPS with backup sized to bridge to the DG set."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Does E&C have an office in Jammu?",
+    "a": "Yes. E&C's Jammu office, at D-59, Sector 1, Durga Nagar, Jammu, handles sales for Jammu, Kashmir and Ladakh."
+   },
+   {
+    "q": "Which UPS suits a pharma unit in Bari Brahmana?",
+    "a": "A three-phase online UPS with an isolation transformer for production and a separate online UPS for the QC lab is a common choice. The size depends on the connected load and the backup time you need."
+   }
+  ]
+ }
+}

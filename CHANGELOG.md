@@ -2,6 +2,43 @@
 
 All notable changes to this project. Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Added
+
+- `/ups-price-in-india`: price page for 29 "price / cost / buy" keywords that were on the quote form. It lists 18 products with their range and what sets the price, and covers price drivers, cost of ownership, how to buy and FAQs. Prices show "Get price" until the client confirms ranges (`PRICE` in the page). Linked from `/get-a-quote`, `/sitemap` and `llms.txt`.
+- `/custom-solutions` rebuilt as a hub (8 keywords): custom UPS design, OEM, indigenisation, power conditioning, the design process, and sections for ports and shipping, smart cities, defence and machine builders.
+- 12 blog posts (18 in total) answering the "what is / how" keywords: SMF vs VRLA, tubular vs GEL vs AGM, Ni-Cd batteries, FCBC chargers, static transfer switch, rack mount UPS, MIL grade vs IP55 UPS, THD / surge / bypass, MPPT controllers, solar DC UPS, SNMP and remote monitoring, UPS for hospitals and fire alarm systems. Each links to and from its product pages and is in `llms.txt`.
+- Product FAQs: all 35 product pages get 5 FAQs each (175 in `src/data/product-faq.js`), with FAQPage schema, answering the keywords mapped to each page. Product pages now carry about 450–800 words of body text, up from about 120.
+- `/solar-solutions` rebuilt as a hub (5 keywords): solar range, grid-tie vs off-grid vs hybrid table, uses, the installation service and FAQs.
+
+- 40 more blog posts (58 in total) from the content plan: online UPS by sector (10), industrial sectors (9), data centre and IT (6), defence/rail/telecom (3), batteries (3), service and AMC (5), solar and EV (3), power quality (1). Each supports a hub or product page and is listed in `llms.txt`.
+- `/blogs` grouped by topic with jump links, one section per content silo.
+- India / state / city keyword structure for the client's 43 priority keywords (see `eandcpower.com-audit/ACTION-PLAN.md`):
+  - Every city and state page gets a "UPS products and services in {place}" section with 8 keyword cards (online UPS, industrial UPS, power backup, voltage stabilizers, UPS batteries, service/AMC/per-call, battery chargers, EV chargers). Each card links to the national page for its keyword, is written from the place's own sectors, areas and office, and is ordered by local industry. The cards are also listed in the Service schema as an OfferCatalog. Titles name two keywords ("UPS Manufacturer in Pune | Online & Industrial UPS | E&C").
+  - 6 new state hubs: Delhi NCR, Madhya Pradesh, Punjab, Odisha, Assam, Jammu and Kashmir, with local content in `local.json`. Every city now sits under a state hub.
+  - New Jammu city page (office already listed; Jammu moved onto its service list).
+  - `/ups-batteries`: batteries category page (SMF, tubular, AGM / GEL, lithium ion, Ni-Cd), with a comparison table, battery guides and FAQs. Battery product pages link back to it.
+  - Legacy pages that stand as a product category (inverters, solar, battery chargers, EV chargers) now list their products in a range block, and three got new descriptions.
+
+### Fixed
+
+- Nav linked 194 pages to the noindex `/comming-soon` placeholder ("Lead Acid Battery to Lithium Converter"); the item is removed at build time.
+
+- SEO / GEO / AEO audit fixes: 58 legacy pages declared `lang="zxx"` or `"eng"` (now `en`); 12 location descriptions over 160 characters shortened; a `callto:` phone link and number format fixed on `/eandcpower-services`; BreadcrumbList schema added to the ~40 legacy pages without one; Facebook and X added to the Organization `sameAs`; `llms.txt` now lists every indexable page.
+
+- Heading order: skipped levels (h2 → h4) fixed on every indexable page. Headings that set their size inline move up a level automatically; the rest are re-levelled with their measured look pinned inline (`src/data/heading-levels.json`), verified pixel-identical in screenshots.
+- Location pages were 60–70% alike. Each of the 36 now has its own "Power conditions in …" section, 3 local needs and 2 local FAQs (`src/data/local.json`), and a product range picked from its industries: the most similar pair is now 37% alike, the average 27%.
+
+### Changed
+
+- 34 product pages retitled for India: titles and descriptions now set in `products.js` (no "in Bangalore", no phone number in descriptions; "Made in India" only on products E&C builds, "Supplier in India" on batteries). An optional `heading` field puts the keyword in the H1 on the 8 pages mapped to priority keywords. `/ev-chargers` gets a spec title so it stops competing with `/ev-charger-manufacturer-in-india`. `/stabilizer` title now targets India.
+- `vercel.json`: security headers (nosniff, X-Frame-Options, Referrer-Policy, Permissions-Policy) and caching (7 days for unhashed assets, immutable for `/_astro/`).
+
+- Blog and guide authors: `src/data/author.js` takes a named engineer (name, job title, profile link) and shows it on every post and guide with Person schema; until set, posts stay credited to the company.
+- `docs/LAUNCH-KIT.md`: Search Console, Bing, Google Business Profile (head office and regional offices), review request, citations and backlink plan, ready to paste.
+- Footer: five columns (Contact, UPS systems, Power & energy, UPS across India, Company) on a wide 1440px row, with Get a quote and UPS prices buttons. Contact spans the top row on tablets; two columns on phones.
+
 ## [1.0.0] - 2026-11-17
 
 First release of the Astro rebuild of eandcpower.com: 143 pages, 139 indexable, all 500 target keywords mapped to a page.

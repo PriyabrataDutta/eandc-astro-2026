@@ -5,6 +5,8 @@ import { officesHtml, OFFICES } from '../data/offices.js';
 import path from 'node:path';
 import vercel from '../../vercel.json';
 import { meta as seo, alts as seoAlts, headingFixes, productPages } from '../data/seo.js';
+import { products, families } from '../data/products.js';
+import headingLevels from '../data/heading-levels.json' with { type: 'json' };
 
 export const SITE = 'https://www.eandcpower.com';
 const DIR = path.resolve('src/legacy');
@@ -65,7 +67,7 @@ export const ORG = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '09:00', closes: '17:30' },
   ],
   areaServed: { '@type': 'Country', name: 'India' },
-  sameAs: ['https://www.linkedin.com/company/electronics-controls-power-systems-pvt-ltd/'],
+  sameAs: ['https://www.linkedin.com/company/electronics-controls-power-systems-pvt-ltd/', 'https://www.facebook.com/eandcpower', 'https://twitter.com/eandcpower'],
   address: {
     '@type': 'PostalAddress',
     streetAddress: '29/A, 2nd Phase, Peenya Industrial Area',
@@ -127,10 +129,71 @@ function fixImages(html) {
   });
 }
 
+// Heading groups that skip a level and take their look from the tag (theme CSS), e.g. every FAQ question as h4 under
+// the h1. Each heading moves to the right level with the style it had before pinned inline, so nothing changes on
+// screen. Styles were measured in Chrome at 1280px (src/data/heading-levels.json), in source order per tag.
+function relevelHeadings(html, levels) {
+  if (!levels) return html;
+  for (const [tag, { to, styles }] of Object.entries(levels)) {
+    let i = 0;
+    const re = new RegExp(`<!--[\\s\\S]*?-->|<${tag}(\\s[^>]*)?>([\\s\\S]*?)</${tag}>`, 'gi');
+    html = html.replace(re, (m, attrs = '', inner) => {
+      if (m.startsWith('<!--')) return m;
+      const style = styles[i++];
+      if (!style) return m;
+      // An existing inline style is kept and wins over the measured one.
+      const a = /\bstyle="/i.test(attrs) ? attrs.replace(/\bstyle="/i, `style="${style};`) : `${attrs} style="${style}"`;
+      return `<h${to}${a}>${inner}</h${to}>`;
+    });
+  }
+  return html;
+}
+
+// Headings that skip a level (h2 -> h4) are moved up to the next level when they set their own font-size inline,
+// so the look does not depend on the tag. Others are left for headingFixes.
+function fixHeadingOrder(html) {
+  let prev = 0;
+  return html.replace(/<h([1-6])(\s[^>]*)?>([\s\S]*?)<\/h\1>/gi, (m, n, attrs = '', inner) => {
+    let lvl = +n;
+    if (prev && lvl > prev + 1 && /font-size\s*:/i.test(attrs)) {
+      lvl = prev + 1;
+      m = `<h${lvl}${attrs}>${inner}</h${lvl}>`;
+    }
+    prev = lvl;
+    return m;
+  });
+}
+
+// Legacy landing pages that stand as a product category (families[].url) listed none of the category's products in
+// their body, so they passed no relevance to them. Same self-contained style as officesHtml().
+function rangeHtml(slug) {
+  const fam = Object.entries(families).find(([, f]) => f.url === `/${slug}`);
+  if (!fam) return '';
+  const items = Object.entries(products).filter(([, p]) => p.family === fam[0]);
+  const card = ([s, p]) => `<a href="/${s}">${p.image ? `<img src="${p.image}" alt="${escAttr(p.name)}" width="150" height="110" loading="lazy" />` : ''}<strong>${p.name}</strong>${p.capacity ? `<span>${p.capacity}</span>` : ''}</a>`;
+  return `<style>
+.rg{padding:30px 0;background:#f4f7fb}
+.rg h2{color:#0b2546;font-size:22px;font-weight:600;margin:0 0 14px}
+.rg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.rg-grid a{display:flex;flex-direction:column;align-items:center;gap:4px;background:#fff;border:1px solid #dde5ee;border-radius:8px;padding:12px;text-align:center;color:#0b2546}
+.rg-grid a:hover{border-color:#005c9e}
+.rg-grid img{max-width:100%;height:auto;object-fit:contain}
+.rg-grid strong{font-size:14px;font-weight:600}
+.rg-grid span{font-size:12.5px;color:#506070}
+</style>
+<section class="rg" aria-labelledby="h-rg"><div class="container">
+<h2 id="h-rg">${fam[1].name} range</h2>
+<div class="rg-grid">${items.map(card).join('')}</div>
+</div></section>
+`;
+}
+
 export function cleanup(html, slug) {
   const known = new Set([...slugs(), ...astroPages()]);
 
   html = replaceFooter(html);
+  // Legacy pages declared lang="zxx" (no linguistic content) or "eng"; one callto: link had no country code.
+  html = html.replace(/<html lang="[^"]*"/i, '<html lang="en"').replace(/callto:080-28397120/g, 'tel:+918028397120').replace(/>080-28397120</g, '>080 2839 7120<');
   if (slug === 'contact') {
     html = html.replace('<!-- Map -->', `${officesHtml()}\n\t<!-- Map -->`);
     // Accessible names that change nothing on screen.
@@ -142,13 +205,20 @@ export function cleanup(html, slug) {
     html = html.replace(/(background-image:url\('image\/slider-lg-civil-[ab])\.jpg'/g, "$1.webp'");
     html = html.replace(/<\/head>/i, '<link rel="preload" as="image" href="/image/slider-lg-civil-a.webp" fetchpriority="high">\n</head>');
   }
+  const range = rangeHtml(slug);
+  if (range) html = html.replace('<!-- Footer Widget -->', `${range}\t<!-- Footer Widget -->`);
   html = fixLinks(html, known);
   html = fixMeta(html, slug);
   html = fixImages(html);
   for (const [from, to] of headingFixes[slug] ?? []) html = html.replace(from, to);
+  html = relevelHeadings(html, headingLevels[slug]);
+  html = fixHeadingOrder(html);
 
   // A jQuery fallback ran before jQuery loaded and requested a broken relative URL (404 on every page).
   html = html.replace(/<script>\s*window\.jQuery \|\|\s*document\.write\("<script src='\.\.\/cdnjs\.cloudflare\.com[^"]*"\);\s*<\/script>\s*/g, '');
+
+  // The nav linked an unbuilt product to the noindex "comming-soon" placeholder on every page.
+  html = html.replace(/[ \t]*<li>\s*<a href="\/?comming-soon(?:\.html)?"\s*>[^<]*<\/a>\s*<\/li>\s*/g, '');
 
   // Hand-written schema on legacy pages names the company in several ways; point every mention at the one entity.
   html = html.replace(/(<script[^>]*application\/ld\+json[^>]*>)([\s\S]*?)(<\/script>)/gi, (m, open, body, close) => {
@@ -190,6 +260,19 @@ export function cleanup(html, slug) {
   html = html.replace(/[ \t]*<link[^>]*rel=["']canonical["'][^>]*>\s*/gi, '');
   let head = `<link rel="canonical" href="${urlFor(slug)}" />\n`;
   if (NOINDEX.has(slug)) head += '<meta name="robots" content="noindex, follow" />\n';
+  // Home > page breadcrumb for search results, where the page has none of its own. Emitted after the canonical
+  // so shell().analytics, which is cut just before it, does not copy it onto Hub and Product pages.
+  if (slug !== 'index' && !NOINDEX.has(slug) && !/BreadcrumbList/.test(html)) {
+    const crumb = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: urlFor('index') },
+        { '@type': 'ListItem', position: 2, name: textOf(html.match(/<title>([^<|]*)/i)?.[1] ?? slug).trim(), item: urlFor(slug) },
+      ],
+    };
+    head += `<script type="application/ld+json">${JSON.stringify(crumb)}</script>\n`;
+  }
   head += ogTags({
     title: textOf(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] ?? ''),
     description: html.match(/<meta\s+name="description"\s+content="([^"]*)"/i)?.[1]?.replace(/&amp;/g, '&'),

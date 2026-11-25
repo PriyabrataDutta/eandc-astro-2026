@@ -17,7 +17,7 @@ export const families = {
   inverter: { name: 'Inverters', url: '/power-inverter-manufacturer-in-india', guides: ['ups-vs-inverter', 'ups-battery-backup-time'] },
   stabilizer: { name: 'Voltage Stabilizers', url: '/stabilizer', guides: [], ...OTHER, field: 'Capacity needed (kVA)' },
   accessory: { name: 'UPS Accessories', url: null, guides: ['ups-sizing-kva'], ...OTHER },
-  battery: { name: 'Batteries', url: null, guides: ['ups-battery-backup-time'], ...OTHER, field: 'Battery rating (Ah) or quantity' },
+  battery: { name: 'Batteries', url: '/ups-batteries', guides: ['ups-battery-backup-time'], ...OTHER, field: 'Battery rating (Ah) or quantity' },
   charger: { name: 'Battery Chargers', url: '/battery-charger-manufacturer-in-india', guides: [], ...OTHER, field: 'DC voltage / current' },
   solar: { name: 'Solar Solutions', url: '/solar-inverter-manufacturer-in-india', guides: [], ...OTHER },
   ev: { name: 'EV Chargers', url: '/ev-charger-manufacturer-in-india', guides: [], ...OTHER, field: 'Charger rating (kW)' },
@@ -78,6 +78,8 @@ export const products = {
   },
   accenta: {
     name: 'Accenta Online UPS',
+    title: 'Accenta Online UPS 1–10 kVA | Made in India | E&C Power',
+    description: 'Accenta double conversion online UPS, 1 to 10 kVA, for offices, clinics and server rooms. Designed and built in Bengaluru by E&C Power, supplied across India.',
     family: 'online',
     tagline: 'Lightweight, high-efficiency double conversion online UPS for IT and light loads',
     capacity: '1 – 10 kVA',
@@ -92,6 +94,8 @@ export const products = {
   },
   renata300: {
     name: 'Renata-300 Online UPS',
+    title: 'Renata-300 Online UPS 10–800 kVA | Made in India | E&C',
+    description: 'Renata-300 three phase online UPS, 10 to 800 kVA, for factories, hospitals and data centres. Built in Bengaluru by E&C Power, with service across India.',
     family: 'online',
     tagline: 'Rugged, transformer-based three phase online UPS with up to 95% efficiency',
     capacity: '10 – 800 kVA',
@@ -106,6 +110,8 @@ export const products = {
   },
   renatacyclone: {
     name: 'Renata-DS Online UPS',
+    title: 'Renata-DS Online UPS 10–300 kVA | Made in India | E&C',
+    description: 'Renata-DS three phase online UPS, 10 to 300 kVA, for industrial and commercial loads. Designed and built in Bengaluru by E&C Power, supplied across India.',
     family: 'online',
     tagline: 'Transformerless, DSP-controlled three phase online UPS with up to 94% efficiency',
     capacity: '10 – 300 kVA',
@@ -120,6 +126,9 @@ export const products = {
   },
   renatamodular: {
     name: 'Renata Modular UPS',
+    heading: 'Modular UPS Manufacturer in India: Renata Modular UPS',
+    title: 'Modular UPS Manufacturer in India | Renata 10–1200 kVA',
+    description: 'Renata Modular UPS from E&C Power, a modular UPS manufacturer in India: 10 to 1200 kVA, hot-swappable modules and N+X redundancy for data centres.',
     family: 'online',
     tagline: 'Hot-swappable modular online UPS that grows with your load',
     capacity: '10 – 1200 kVA',
@@ -134,6 +143,9 @@ export const products = {
   },
   'rack-mount': {
     name: 'Accenta Rack Mount UPS',
+    heading: 'Rack Mount UPS Manufacturer in India: Accenta Rack UPS',
+    title: 'Rack Mount UPS Manufacturer in India | Accenta 1–60 kVA',
+    description: 'Accenta rack mount online UPS, 1 to 60 kVA, for server racks, network rooms and telecom. Made in Bengaluru by E&C Power, a rack mount UPS manufacturer in India.',
     family: 'online',
     tagline: 'Online UPS for standard 19" racks, for server racks and shop-floor PLC panels',
     capacity: '1 – 60 kVA',
@@ -148,6 +160,9 @@ export const products = {
   },
   'lithium-ups': {
     name: 'Lithium UPS',
+    heading: 'Lithium UPS Manufacturer in India',
+    title: 'Lithium UPS Manufacturer in India | 1–5 kVA | E&C Power',
+    description: 'Lithium UPS from E&C Power, 1 to 5 kVA: online UPS with built-in lithium ion batteries, for homes, offices and shops. Made in Bengaluru, supplied across India.',
     family: 'online',
     tagline: 'Double conversion online UPS with a long-life lithium battery pack',
     capacity: '1 – 5 kVA',
@@ -159,6 +174,9 @@ export const products = {
   },
   'mil-grade': {
     name: 'MIL Grade UPS',
+    heading: 'MIL Grade and Rugged UPS for Defence',
+    title: 'MIL Grade & Rugged UPS Manufacturer in India | Defence',
+    description: 'MIL grade and rugged UPS for defence, radar and vehicles from E&C Power, Bengaluru: 20g shock and vibration resistance, EMI/EMC compliant to MIL 461 E/F/G.',
     family: 'industrial',
     tagline: 'Military-tough online UPS for defence and naval use, -10°C to +55°C',
     capacity: '1 – 10 kVA',
@@ -170,6 +188,9 @@ export const products = {
   },
   'ip-41-55-online-ups': {
     name: 'IP41 – IP55 Industrial Online UPS',
+    heading: 'IP41–IP55 Industrial UPS Manufacturer in India',
+    title: 'IP55 UPS Manufacturer in India | IP41–IP55 Industrial UPS',
+    description: 'IP41 to IP55 industrial online UPS, 10 to 40 kVA, sealed against dust and water for plants, ports and outdoor sites. Made in Bengaluru by E&C Power.',
     family: 'industrial',
     tagline: 'Sealed industrial online UPS for heat and dust in plants and factories',
     capacity: '10 – 40 kVA',
@@ -181,6 +202,8 @@ export const products = {
   },
   lineups: {
     name: 'Cheerups Line Interactive UPS',
+    title: 'Cheerups Line Interactive UPS 600 VA–5 kVA | E&C India',
+    description: 'Cheerups line interactive UPS, 600 VA to 5 kVA, with boost and buck AVR for homes, shops and small offices. From E&C Power, Bengaluru, supplied across India.',
     family: 'lineint',
     tagline: 'Line interactive UPS with voltage stabilisation for less critical loads',
     capacity: '600 VA – 5 kVA',
@@ -192,6 +215,8 @@ export const products = {
   },
   'domestic-Inverters': {
     name: 'Voltstar Domestic Inverter',
+    title: 'Voltstar Home Inverter 600 VA–5 kVA | Made in India | E&C',
+    description: 'Voltstar domestic inverter, 600 VA to 5 kVA, with DSP pure sine wave output for homes and shops. Designed and built in Bengaluru by E&C Power.',
     family: 'inverter',
     tagline: 'DSP-based sine wave inverter for homes, offices and showrooms',
     capacity: '600 VA – 5 kVA',
@@ -203,6 +228,8 @@ export const products = {
   },
   'industrial-inverter': {
     name: 'Industrial Inverter',
+    title: 'Industrial Inverter Manufacturer in India | 3–100 kVA',
+    description: 'Industrial inverters, 3 to 100 kVA, with IGBT PWM, built-in isolation transformer and static switch option, for CNC, pumps and controls. Made by E&C Power.',
     family: 'inverter',
     tagline: 'IGBT-based industrial inverter with built-in isolation transformer, 48 to 220 VDC',
     capacity: '3 – 100 kVA',
@@ -214,6 +241,8 @@ export const products = {
   },
   air_oil: {
     name: 'Air Cooled Voltage Stabilizer',
+    title: 'Air Cooled Voltage Stabilizer 2–100 kVA | Made in India',
+    description: 'Air cooled servo voltage stabilizers, 2 to 100 kVA, that hold output steady through mains swings, for machines and buildings. Made in Bengaluru by E&C Power.',
     family: 'stabilizer',
     tagline: 'Servo controlled stabilizer that holds a steady voltage for machinery',
     capacity: '2 – 100 kVA',
@@ -228,6 +257,8 @@ export const products = {
   },
   'oil-cooled': {
     name: 'Oil Cooled Voltage Stabilizer',
+    title: 'Oil Cooled Servo Stabilizer 100–1000 kVA | Made in India',
+    description: 'Oil cooled servo voltage stabilizers, 100 to 1000 kVA, for heavy industrial loads and high ambient temperatures. Designed and built in Bengaluru by E&C Power.',
     family: 'stabilizer',
     tagline: 'Servo controlled, oil cooled stabilizer for large industrial and building loads',
     capacity: '100 – 1000 kVA',
@@ -242,6 +273,8 @@ export const products = {
   },
   'energy-saver': {
     name: 'Industrial Energy Saver',
+    title: 'Lighting Energy Saver for Industry | E&C Power India',
+    description: 'Industrial lighting energy savers from E&C Power cut lighting power use in factories, hospitals and campuses by regulating voltage to large lighting loads.',
     family: 'stabilizer',
     tagline: 'Cuts lighting energy use by up to 25% in large facilities',
     image: '/image/product/energy.jpg',
@@ -252,6 +285,8 @@ export const products = {
   },
   isolation: {
     name: 'Isolation Transformer',
+    title: 'Isolation Transformer Manufacturer in India | 1–500 kVA',
+    description: 'Isolation and ultra isolation transformers, 1 to 500 kVA, including K-rated units, for UPS, CNC machines and telecom. Made in Bengaluru by E&C Power.',
     family: 'accessory',
     tagline: 'Ultra isolation and K-rated transformers with aluminium or copper winding',
     capacity: '1 – 500 kVA',
@@ -262,6 +297,8 @@ export const products = {
   },
   'intelligent-transfer-switch': {
     name: 'Intelligent Static Transfer Switch',
+    title: 'Static Transfer Switch Manufacturer in India | 1–500 kVA',
+    description: 'Intelligent static transfer switches, 1 to 500 kVA, move critical loads between two power sources without a break, for data centres and industry. By E&C Power.',
     family: 'accessory',
     tagline: 'Up to three inputs to one output, to make dissimilar UPS work as a redundant pair',
     capacity: '1 – 500 kVA',
@@ -271,6 +308,8 @@ export const products = {
   },
   'snmp-adapter': {
     name: 'SNMP Adapter for UPS',
+    title: 'SNMP Adapter for UPS Remote Monitoring | E&C Power India',
+    description: 'SNMP adapters let you monitor and manage a UPS over the network: status, alarms, traps and safe shutdown. From E&C Power, Bengaluru, for UPS across India.',
     family: 'accessory',
     tagline: 'Manage and monitor your UPS from a browser, NMS, Telnet or SNMP',
     image: '/image/home/Remote%20Monitoring.jpg',
@@ -279,6 +318,8 @@ export const products = {
   },
   smf: {
     name: 'SMF Battery',
+    title: 'SMF Batteries for UPS 7–200 Ah | Supplier in India | E&C',
+    description: 'Sealed maintenance free (SMF) batteries, 7 to 200 Ah, for UPS and inverters, supplied and installed with E&C Power systems across India.',
     family: 'battery',
     tagline: '12V sealed maintenance free batteries from leading brands, with onsite support',
     capacity: '7 – 200 Ah',
@@ -290,6 +331,8 @@ export const products = {
   },
   'tubular-batteries-manufacturing': {
     name: 'Tubular Battery',
+    title: 'Tubular Batteries 28–200 Ah | Supplier in India | E&C',
+    description: 'Flooded tubular batteries, 28 to 200 Ah, for inverters, UPS and solar systems, supplied and installed by E&C Power with leading Indian battery brands.',
     family: 'battery',
     tagline: '12V flooded tubular batteries from leading brands, with onsite support',
     capacity: '28 – 200 Ah',
@@ -301,6 +344,8 @@ export const products = {
   },
   'agm-gel': {
     name: 'AGM / GEL Battery',
+    title: 'AGM & GEL Batteries 30–165 Ah for UPS & Solar | E&C India',
+    description: 'AGM and GEL VRLA batteries, 30 to 165 Ah, for UPS, telecom and solar systems, supplied and installed by E&C Power across India.',
     family: 'battery',
     tagline: 'AGM and GEL batteries from Exide and HBL, with onsite support',
     capacity: '30 – 165 Ah',
@@ -312,6 +357,8 @@ export const products = {
   },
   'lithium-ion': {
     name: 'Lithium Ion Battery',
+    title: 'Lithium Batteries for UPS & Solar 6–100 Ah | E&C India',
+    description: 'Lithium ion (LiFePO4) batteries, 6 to 100 Ah, with built-in battery management, for UPS, inverters and solar systems. Supplied by E&C Power across India.',
     family: 'battery',
     tagline: 'LiFePO4 battery packs with built-in BMS, built to your voltage',
     capacity: '6 – 100 Ah',
@@ -326,6 +373,9 @@ export const products = {
   },
   nickel: {
     name: 'Nickel Cadmium Battery',
+    heading: 'Nickel Cadmium (Ni-Cd) Batteries',
+    title: 'Nickel Cadmium Batteries Supplier in India | Ni-Cd | E&C',
+    description: 'Nickel cadmium (Ni-Cd) batteries for substations, power plants and railways, paired with float cum boost chargers. Supplied by E&C Power across India.',
     family: 'battery',
     tagline: 'Ni-Cd batteries from Saft and HBL, sized to your UPS and backup time',
     overview: ['E&C supplies nickel cadmium batteries from Saft and HBL, depending on customer preference and stock. They are sized to the UPS capacity and the backup time needed, from a wide standard range. Every battery carries the manufacturer’s original warranty and is supported onsite.'],
@@ -334,6 +384,9 @@ export const products = {
   },
   'industrial-battery-charger-fcbc': {
     name: 'Industrial Battery Charger (FCBC)',
+    heading: 'Industrial Battery Charger (Float Cum Boost)',
+    title: 'Industrial Battery Charger Manufacturer in India | FCBC',
+    description: 'Float cum boost (FCBC) industrial battery chargers, 48, 110 and 220 V DC, for Ni-Cd and lead acid banks in power plants, telecom and railways. Made by E&C.',
     family: 'charger',
     tagline: 'Float cum boost chargers for Ni-Cd and lead acid batteries in power plants, telecom and railways',
     capacity: '48 / 110 / 220 V',
@@ -344,6 +397,8 @@ export const products = {
   },
   'solar-off-grid-inverter': {
     name: 'Off-Grid Solar Inverter',
+    title: 'Off-Grid Solar Inverter 1–5 kVA | Made in India | E&C',
+    description: 'Off-grid solar inverters, 1 to 5 kVA, with built-in MPPT charge controller and battery equalisation, for homes and sites without grid power. By E&C Power.',
     family: 'solar',
     tagline: 'Compact solar inverter with built-in MPPT charger for homes and small loads',
     capacity: '1 – 5 kVA',
@@ -355,6 +410,8 @@ export const products = {
   },
   'solar-grid': {
     name: 'Grid-Tie Solar Inverter',
+    title: 'Grid-Tie Solar Inverter 2–60 kVA | Made in India | E&C',
+    description: 'Grid-tie (on-grid) solar inverters, 2 to 60 kVA, with MPPT and net metering support, for rooftops and factories. Designed and built by E&C Power, Bengaluru.',
     family: 'solar',
     tagline: 'Transformerless three phase grid-tie inverter with multiple MPPT channels',
     capacity: '2 – 60 kVA',
@@ -366,6 +423,8 @@ export const products = {
   },
   'solar-hybrid-inverter': {
     name: 'Solar Hybrid Inverter',
+    title: 'Solar Hybrid Inverter 2–30 kVA | Made in India | E&C',
+    description: 'Solar hybrid inverters, 2 to 30 kVA, that run on solar, battery and grid with MPPT and SNMP monitoring, for homes, shops and factories. By E&C Power.',
     family: 'solar',
     tagline: 'Runs off-grid, on-grid or grid-tie with backup, from solar, mains and battery',
     capacity: '2 – 30 kVA',
@@ -377,6 +436,8 @@ export const products = {
   },
   'solar-dc-up': {
     name: 'Solar DC UPS',
+    title: 'Solar DC UPS for Homes and Shops | E&C Power India',
+    description: 'Solar DC UPS from E&C Power runs DC lights and fans from a solar panel and battery, for homes, shops and sites with unreliable grid power across India.',
     family: 'solar',
     tagline: 'Solar DC home lighting with battery storage for off-grid homes',
     image: '/image/product/solar%20home%20lighting%20system.jpg',
@@ -386,6 +447,8 @@ export const products = {
   },
   'solar-street-lighting': {
     name: 'Solar Street Light',
+    title: 'Solar Street Lights | Supply & Installation | E&C India',
+    description: 'Integrated solar LED street lights with dusk-to-dawn operation and proximity sensors, supplied and installed by E&C Power for roads, campuses and townships.',
     family: 'solar',
     tagline: 'All-in-one solar LED street light with dusk-to-dawn and proximity sensing',
     image: '/image/product/solar-street-lighting.jpg',
@@ -399,6 +462,8 @@ export const products = {
   },
   scc: {
     name: 'MPPT Solar Charge Controller',
+    title: 'MPPT Solar Charge Controller up to 60 A | E&C Power India',
+    description: 'MPPT solar charge controllers up to 60 A that draw the most power from your panels and protect the battery. From E&C Power, Bengaluru, supplied across India.',
     family: 'solar',
     tagline: 'MPPT charge controller for 12, 24 or 48 V systems, up to 60 A and 98% efficiency',
     capacity: 'Up to 60 A',
@@ -409,6 +474,8 @@ export const products = {
   },
   'ev-chargers': {
     name: 'AC & DC EV Charger',
+    title: 'AC & DC EV Chargers 3–240 kW | CCS2, CHAdeMO | E&C',
+    description: 'AC (3 to 22 kW) and DC (10 to 240 kW) EV chargers with CCS2, CHAdeMO and GB/T, RFID and app integration, for every EV in India. From E&C Power.',
     family: 'ev',
     tagline: 'Smart AC and DC chargers covering every EV in India, with RFID and app integration',
     capacity: 'AC 3 – 22 kW · DC 10 – 240 kW',
@@ -423,6 +490,8 @@ export const products = {
   },
   'ups-remote-monitoring': {
     name: 'UPS Remote Monitoring System',
+    title: 'UPS Remote Monitoring System | IoT & SNMP | E&C India',
+    description: 'UPS remote monitoring over GPRS and cloud: live readings, charts and SMS or e-mail alerts for UPS fleets across sites. From E&C Power, Bengaluru.',
     family: 'monitoring',
     tagline: 'UPS readings in the cloud, with SMS and email alerts',
     image: '/image/home/Remote%20Monitoring.jpg',
@@ -432,6 +501,8 @@ export const products = {
   },
   'battery-bank-remote-monitoring': {
     name: 'Battery Bank Monitoring System',
+    title: 'Battery Bank Monitoring System | E&C Power India',
+    description: 'Battery bank monitoring that tracks cell voltage, temperature and health remotely, so failing cells are found before an outage. From E&C Power, Bengaluru.',
     family: 'monitoring',
     tagline: 'Battery health in the cloud, with SMS and email alerts',
     image: '/image/home/Remote%20Monitoring.jpg',
@@ -441,6 +512,8 @@ export const products = {
   },
   'dg-monitoring': {
     name: 'Diesel Generator Monitoring System',
+    title: 'Diesel Generator (DG) Monitoring System | E&C India',
+    description: 'Remote diesel generator monitoring: fuel level, alarms and status over GPRS with SMS and e-mail alerts, for DG sets across sites. From E&C Power.',
     family: 'monitoring',
     tagline: 'Generator fuel, run-time and load in the cloud, with SMS and email alerts',
     image: '/image/product/Diesel-Generator.jpg',
@@ -450,6 +523,8 @@ export const products = {
   },
   'facility-monitoring': {
     name: 'Facility Monitoring System',
+    title: 'Facility Monitoring System | E&C Power India',
+    description: 'Facility monitoring that tracks temperature, power and equipment status remotely over GPRS with SMS alerts, for buildings and multi-site operations. E&C Power.',
     family: 'monitoring',
     tagline: 'CCTV, temperature, door and smoke sensors for remote sites, with alerts',
     image: '/image/home/Remote%20Monitoring.jpg',

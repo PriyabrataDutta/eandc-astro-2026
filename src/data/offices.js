@@ -9,7 +9,7 @@ export const OFFICES = [
   { key: 'kolkata', city: 'Kolkata', covers: 'West Bengal, Odisha, Bihar, Jharkhand and the North East', address: '5 B, Ground Floor, Charu Avenue, Kolkata 700033', service: ['kolkata', 'bhubaneswar', 'guwahati'], more: ['Patna', 'Ranchi', 'Agartala'], also: [] },
   { key: 'delhi', city: 'New Delhi', covers: 'Delhi, Punjab, Haryana and Chandigarh', address: '181, First Floor, Jeevan Nagar, Opposite Maharani Bagh, New Delhi 110014', service: ['delhi', 'jaipur', 'chandigarh'], more: ['Dehradun'], also: ['gurgaon', 'noida', 'ludhiana'] }, // Noida (UP, Delhi NCR) assumed served from New Delhi: client to confirm
   { key: 'indore', city: 'Indore', covers: 'Madhya Pradesh and Chhattisgarh', address: 'AM-32, Bapat Square, Sukhliya, Indore 452010', service: ['indore', 'bhopal'], more: ['Rewa', 'Gwalior', 'Jabalpur', 'Raipur'], also: [] },
-  { key: 'jammu', city: 'Jammu', covers: 'Jammu, Kashmir and Ladakh', address: 'D-59, Sector 1, Durga Nagar Last Line, PO Roop Nagar, Jammu 180013', service: [], more: ['Jammu', 'Srinagar'], also: [] },
+  { key: 'jammu', city: 'Jammu', covers: 'Jammu, Kashmir and Ladakh', address: 'D-59, Sector 1, Durga Nagar Last Line, PO Roop Nagar, Jammu 180013', service: ['jammu'], more: ['Srinagar'], also: [] },
 ];
 
 // The office that sells to / services a city page key.

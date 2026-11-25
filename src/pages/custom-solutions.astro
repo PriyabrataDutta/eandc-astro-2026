@@ -1,0 +1,162 @@
+---
+// Custom power solutions hub (8 keywords: custom UPS design, OEM, power conditioning, ports and shipping, smart cities).
+// Replaces the near-empty legacy page. Facts from the legacy custom-solutions and R&D pages; the ports and smart city
+// sections list products E&C makes, not projects (no case studies confirmed by the client yet).
+import Hub from '../layouts/Hub.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+
+const offers = [
+  { icon: 'fa-cogs', h: 'Custom UPS design', t: 'Input and output voltage, phase, backup time, form factor, enclosure, cooling and communication built to your specification where no standard model fits.' },
+  { icon: 'fa-handshake-o', h: 'OEM and private label', t: 'UPS, inverters, chargers and power modules designed to fit inside your machine or panel, built to your drawings and supplied in volume.' },
+  { icon: 'fa-flag', h: 'Indigenisation', t: 'Imported products and sub-assemblies redesigned for manufacture in India, cutting import cost and lead time and securing local service.' },
+  { icon: 'fa-sliders', h: 'Power conditioning', t: 'Isolation transformers, servo stabilizers, static transfer switches and online UPS combined into one clean, stable supply for sensitive loads.' },
+  { icon: 'fa-shield', h: 'Rugged and harsh-environment builds', t: 'MIL grade, IP41 to IP55 and marine versions for heat, dust, moisture and vibration.' },
+  { icon: 'fa-line-chart', h: 'Monitoring and integration', t: 'RS-232, Modbus, SNMP and dry contacts, and cloud monitoring of UPS, batteries and DG sets, so the system fits your SCADA or BMS.' },
+];
+
+const process = [
+  ['Requirement', 'Your load, environment, standards and volumes, and what the off-the-shelf options lack.'],
+  ['Design', 'Indigenous design by E&C R&D, with full control of components and long-term service support.'],
+  ['Prototype & trial', 'Bench tests on resistive, inductive and SMPS loads, heat chamber and endurance tests, vibration and EMI/EMC at partner labs, then a field trial on site.'],
+  ['Manufacture & support', 'Production at the Bengaluru plant, with changes controlled by engineering change management and service across India.'],
+];
+
+const sectors = [
+  {
+    id: 'ports', icon: 'fa-ship', h: 'Ports, shipping and offshore',
+    t: 'Control rooms, cranes, navigation, radar and communication equipment need power that survives salt air, vibration and unstable shore or ship supply.',
+    l: [['Marine UPS', '/marine-ups'], ['IP41 – IP55 industrial UPS', '/ip-41-55-online-ups'], ['Ni-Cd batteries', '/nickel'], ['Battery chargers (FCBC)', '/industrial-battery-charger-fcbc']],
+  },
+  {
+    id: 'smart-cities', icon: 'fa-building', h: 'Smart cities and infrastructure',
+    t: 'Traffic signals, CCTV, command and control centres, street lighting and EV charging need outdoor-rated, remotely monitored power.',
+    l: [['Solar street lights', '/solar-street-lighting'], ['EV chargers', '/ev-chargers'], ['Remote monitoring', '/ups-remote-monitoring'], ['Rugged outdoor UPS', '/ip-41-55-online-ups']],
+  },
+  {
+    id: 'defence', icon: 'fa-fighter-jet', h: 'Defence and aerospace',
+    t: 'Equipment that must pass environmental and EMI/EMC tests and be supported for many years.',
+    l: [['MIL grade UPS', '/mil-grade'], ['Research and development', '/research-and-development']],
+  },
+  {
+    id: 'oem', icon: 'fa-industry', h: 'Machine builders and system integrators',
+    t: 'Medical, analytical, printing, telecom and automation equipment that needs power electronics built in.',
+    l: [['Industrial UPS', '/industrial-ups-manufacturer-in-india'], ['Industrial inverters', '/industrial-inverter']],
+  },
+];
+
+const faq = [
+  { q: 'Can E&C design a UPS to our specification?', a: 'Yes. Where no standard product fits, E&C R&D designs, prototypes, tests and manufactures a UPS or power solution to your requirement, from the voltage and backup to the enclosure and communication.' },
+  { q: 'Does E&C manufacture for OEMs?', a: 'Yes. E&C designs and builds UPS, inverters, chargers and power modules for equipment makers and integrators, to their drawings and volumes, with service support across India.' },
+  { q: 'What is power conditioning?', a: 'Power conditioning cleans and stabilises the supply to sensitive equipment: correcting voltage, removing noise and spikes, isolating the load and keeping it running through interruptions. It combines products such as isolation transformers, stabilizers and online UPS.' },
+  { q: 'Can you replace an imported product or sub-assembly?', a: 'Yes. E&C takes on indigenisation: redesigning imported products and sub-assemblies for manufacture in India, which reduces import cost and gives local service.' },
+  { q: 'How do I start a custom project?', a: 'Send your requirement to sales@eandcpower.com or use the form below: what it must power, the environment, the standards it must meet and the quantity.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Custom UPS and power solutions design and manufacturing',
+    description: 'Custom UPS design, OEM manufacturing, indigenisation and power conditioning solutions from E&C Power Systems, Bengaluru.',
+    url: urlFor('custom-solutions'),
+    serviceType: 'Custom power electronics design and manufacturing',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="custom-solutions"
+  title="Custom UPS & Power Solutions Manufacturer | OEM | E&C"
+  description="Custom UPS design, OEM manufacturing, indigenisation and power conditioning solutions for ports, smart cities, defence and machine builders, from E&C Bengaluru."
+  name="Custom Solutions"
+  schema={schema}
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">Design · prototype · manufacture</span>
+          <h1>Custom UPS and Power Solutions Manufacturer</h1>
+          <p class="hb-lead">When an off-the-shelf product does not fit, E&amp;C designs one that does. Our R&amp;D and supplier network design, prototype and manufacture UPS, inverters, chargers and power conditioning systems to your requirement, for OEMs, integrators and demanding sites across India.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-flask" aria-hidden="true"></em>In-house R&amp;D</li>
+            <li><em class="fa fa-flag" aria-hidden="true"></em>Indigenous design</li>
+            <li><em class="fa fa-industry" aria-hidden="true"></em>Made in Bengaluru</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Discuss your requirement</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo"><img src="/image/about.jpg" alt="E&C Power Systems plant, Peenya, Bengaluru" width="600" height="400" fetchpriority="high" /><figcaption>E&amp;C plant, Peenya, Bengaluru</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-offer">
+    <div class="container">
+      <h2 class="pd-h" id="h-offer">What we build to order</h2>
+      <div class="hb-cards three">
+        {offers.map((x) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-process">
+    <div class="container">
+      <h2 class="pd-h" id="h-process">How a custom UPS is designed</h2>
+      <ol class="hb-flow">
+        {process.map(([h, t]) => <li><strong>{h}</strong>{t}</li>)}
+      </ol>
+      <p class="hb-p" style="margin-top:14px;">More about our <a href="/research-and-development">research and development</a> and <a href="/eandcpower-infrastructure">infrastructure</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-sectors">
+    <div class="container">
+      <h2 class="pd-h" id="h-sectors">Power solutions by sector</h2>
+      <div class="hb-cards cs-sec">
+        {sectors.map((x) => (
+          <div class="hb-card hb-ind" id={x.id}>
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+            <p class="hb-rec">{x.l.map(([t, u], i) => <>{i > 0 && ' · '}<a href={u}>{t}</a></>)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-blocks">
+    <div class="container">
+      <h2 class="pd-h" id="h-blocks">Standard building blocks</h2>
+      <p class="hb-p">Most custom systems start from proven E&amp;C products, adapted to your requirement.</p>
+      <Range slugs={['renata300', 'mil-grade', 'ip-41-55-online-ups', 'isolation', 'industrial-battery-charger-fcbc']} />
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Discuss a custom requirement" service="Quote: Custom solution" pitch="Tell us what it must power, the environment and the quantity. An engineer gets back to you to scope the design." step1="Share your requirement, standards and quantity" field="Quantity" ask="What must it power? Any standards or environment?" />
+</Hub>
+
+<style is:global>
+	@media (min-width: 768px) { .cs-sec { grid-template-columns:repeat(2, 1fr); } }
+</style>

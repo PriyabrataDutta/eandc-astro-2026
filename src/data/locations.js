@@ -1,4 +1,4 @@
-// India hub → 9 state hubs → city pages (plan: Architecture > Full URL list).
+// India hub → 15 state hubs → city pages (plan: Architecture > Full URL list).
 //
 // Every page is built and linked. A page is indexable (in the sitemap, no noindex) when at least one real local
 // fact covers it: a regional sales office (src/data/offices.js). Facts and the service line are derived from the
@@ -37,6 +37,12 @@ export const states = [
   state('andhra-pradesh', 'Andhra Pradesh', ['visakhapatnam'], 'Andhra Pradesh\'s industrial centre is Visakhapatnam, with a steel plant, refinery, port and a pharma manufacturing city.'),
   state('west-bengal', 'West Bengal', ['kolkata'], 'West Bengal\'s industry centres on Kolkata: IT in Salt Lake and New Town, engineering in the Howrah belt, and the port.'),
   state('rajasthan', 'Rajasthan', ['jaipur'], 'Rajasthan\'s largest industrial market is Jaipur, with engineering, textiles, gems and a growing IT and SEZ base.'),
+  state('delhi-ncr', 'Delhi NCR', ['delhi', 'gurgaon', 'noida'], 'Delhi NCR joins the capital\'s offices, hospitals and government buildings with the automotive belt of Gurugram and Manesar and the electronics and IT parks of Noida and Greater Noida.'),
+  state('madhya-pradesh', 'Madhya Pradesh', ['indore', 'bhopal'], 'Madhya Pradesh\'s industry is centred on Indore, with the Pithampur automotive and pharma estate, and on Bhopal, with heavy electrical and engineering plants at Govindpura and Mandideep.'),
+  state('punjab', 'Punjab', ['ludhiana', 'chandigarh'], 'Punjab\'s industry runs from Ludhiana\'s cycle, auto-component, hosiery and machine-tool units to the IT, pharma and hospital base of the Chandigarh tricity with Mohali.'),
+  state('odisha', 'Odisha', ['bhubaneswar'], 'Odisha is a mineral and metals state, with steel, aluminium, mining and power plants across its interior and an IT and services base in Bhubaneswar.'),
+  state('assam', 'Assam', ['guwahati'], 'Assam is the gateway to the North East, with oil and gas, a refinery, tea processing and hospitals, and Guwahati as the region\'s commercial and logistics centre.'),
+  state('jammu-kashmir', 'Jammu and Kashmir', ['jammu'], 'Jammu and Kashmir\'s industry is concentrated in the Jammu region\'s industrial estates, such as Bari Brahmana, Gangyal and Kathua, with pharma, steel and food units, alongside a large defence presence.'),
 ];
 
 // parent = state hub key, or null where the plan has no state hub (the city links to the India hub).
@@ -60,15 +66,16 @@ export const cities = [
   city('visakhapatnam', 'Visakhapatnam', 'andhra-pradesh', ['hyderabad', 'bhubaneswar'], ['Visakhapatnam Steel Plant', 'Pharma City (Parawada)', 'Atchutapuram SEZ', 'Visakhapatnam port'], ['heavy', 'pharma', 'defence']),
   city('kolkata', 'Kolkata', 'west-bengal', ['bhubaneswar', 'guwahati'], ['Salt Lake Sector V', 'New Town', 'Howrah industrial belt', 'Kolkata port'], ['it', 'bfsi', 'heavy']),
   city('jaipur', 'Jaipur', 'rajasthan', ['delhi', 'gurgaon'], ['Sitapura', 'VKI area', 'Mahindra World City'], ['auto', 'textile', 'it']),
-  city('delhi', 'Delhi', null, ['gurgaon', 'noida'], ['Okhla industrial area', 'Narela', 'Bawana', 'Mayapuri'], ['bfsi', 'health', 'it']),
-  city('gurgaon', 'Gurugram', null, ['delhi', 'noida'], ['IMT Manesar', 'Udyog Vihar', 'Cyber City'], ['auto', 'it', 'bfsi']),
-  city('noida', 'Noida', null, ['delhi', 'gurgaon'], ['Sectors 62 and 63', 'Greater Noida', 'Noida SEZ'], ['it', 'auto', 'health']),
-  city('indore', 'Indore', null, ['bhopal', 'nagpur'], ['Pithampur', 'Sanwer Road industrial area', 'Super Corridor'], ['auto', 'pharma', 'it']),
-  city('bhopal', 'Bhopal', null, ['indore', 'nagpur'], ['Mandideep', 'Govindpura industrial area'], ['heavy', 'pharma', 'bfsi']),
-  city('ludhiana', 'Ludhiana', null, ['chandigarh', 'delhi'], ['Focal Point', 'Industrial Areas A and B'], ['auto', 'textile', 'bfsi']),
-  city('chandigarh', 'Chandigarh', null, ['ludhiana', 'delhi'], ['Industrial Area Phase I and II', 'Mohali IT City', 'Panchkula'], ['it', 'pharma', 'health']),
-  city('bhubaneswar', 'Bhubaneswar', null, ['visakhapatnam', 'kolkata'], ['Mancheswar industrial estate', 'Infocity', 'Khurda'], ['it', 'heavy', 'bfsi']),
-  city('guwahati', 'Guwahati', null, ['kolkata', 'bhubaneswar'], ['Amingaon', 'Bamunimaidan', 'Noonmati refinery area'], ['heavy', 'health', 'bfsi']),
+  city('delhi', 'Delhi', 'delhi-ncr', ['gurgaon', 'noida'], ['Okhla industrial area', 'Narela', 'Bawana', 'Mayapuri'], ['bfsi', 'health', 'it']),
+  city('gurgaon', 'Gurugram', 'delhi-ncr', ['delhi', 'noida'], ['IMT Manesar', 'Udyog Vihar', 'Cyber City'], ['auto', 'it', 'bfsi']),
+  city('noida', 'Noida', 'delhi-ncr', ['delhi', 'gurgaon'], ['Sectors 62 and 63', 'Greater Noida', 'Noida SEZ'], ['it', 'auto', 'health']),
+  city('indore', 'Indore', 'madhya-pradesh', ['bhopal', 'nagpur'], ['Pithampur', 'Sanwer Road industrial area', 'Super Corridor'], ['auto', 'pharma', 'it']),
+  city('bhopal', 'Bhopal', 'madhya-pradesh', ['indore', 'nagpur'], ['Mandideep', 'Govindpura industrial area'], ['heavy', 'pharma', 'bfsi']),
+  city('ludhiana', 'Ludhiana', 'punjab', ['chandigarh', 'jammu'], ['Focal Point', 'Industrial Areas A and B'], ['auto', 'textile', 'bfsi']),
+  city('chandigarh', 'Chandigarh', 'punjab', ['ludhiana', 'delhi'], ['Industrial Area Phase I and II', 'Mohali IT City', 'Panchkula'], ['it', 'pharma', 'health']),
+  city('bhubaneswar', 'Bhubaneswar', 'odisha', ['visakhapatnam', 'kolkata'], ['Mancheswar industrial estate', 'Infocity', 'Khurda'], ['it', 'heavy', 'bfsi']),
+  city('guwahati', 'Guwahati', 'assam', ['kolkata', 'bhubaneswar'], ['Amingaon', 'Bamunimaidan', 'Noonmati refinery area'], ['heavy', 'health', 'bfsi']),
+  city('jammu', 'Jammu', 'jammu-kashmir', ['ludhiana', 'chandigarh'], ['Bari Brahmana industrial estate', 'Gangyal industrial area', 'Digiana', 'Kathua industrial estate'], ['pharma', 'defence', 'health']),
 ];
 
 export const indexable = (p) => p.facts.length > 0;
@@ -86,7 +93,7 @@ export const GEO = {
   chennai: [13.08, 80.27], coimbatore: [11.02, 76.96], kochi: [9.93, 76.27], trivandrum: [8.52, 76.94],
   hyderabad: [17.39, 78.49], visakhapatnam: [17.69, 83.22], kolkata: [22.57, 88.36], jaipur: [26.91, 75.79],
   delhi: [28.61, 77.21], gurgaon: [28.46, 77.03], noida: [28.54, 77.39], indore: [22.72, 75.86], bhopal: [23.26, 77.41],
-  ludhiana: [30.9, 75.86], chandigarh: [30.73, 76.78], bhubaneswar: [20.3, 85.82], guwahati: [26.14, 91.74],
+  ludhiana: [30.9, 75.86], chandigarh: [30.73, 76.78], jammu: [32.73, 74.86], bhubaneswar: [20.3, 85.82], guwahati: [26.14, 91.74],
 };
 
 // Straight-line km from the Peenya plant (haversine), rounded to 10 km.

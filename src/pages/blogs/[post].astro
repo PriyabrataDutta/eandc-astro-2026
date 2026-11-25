@@ -2,14 +2,16 @@
 import Page from '../../layouts/Page.astro';
 import { posts, longDate } from '../../lib/blog.js';
 import { products } from '../../data/products.js';
-import { faqPage } from '../../lib/schema.js';
+import { faqPage, authorNode } from '../../lib/schema.js';
 import { urlFor, SITE, ORG_REF } from '../../lib/legacy.js';
+import { AUTHOR } from '../../data/author.js';
 
 export const getStaticPaths = () => posts.map((p) => ({ params: { post: p.slug }, props: { p } }));
 
 const { p } = Astro.props;
 const { Content } = p;
 const url = urlFor(`blogs/${p.slug}`);
+const who = p.author ?? AUTHOR;
 const schema = [
   {
     '@context': 'https://schema.org',
@@ -19,7 +21,7 @@ const schema = [
     image: SITE + p.cover,
     datePublished: p.date,
     dateModified: p.updated ?? p.date,
-    author: ORG_REF,
+    author: authorNode(who),
     publisher: { ...ORG_REF, logo: { '@type': 'ImageObject', url: `${SITE}/image/logo2.png` } },
     mainEntityOfPage: url,
   },
@@ -38,7 +40,7 @@ const more = posts.filter((x) => x.slug !== p.slug).slice(0, 3);
   type="article"
   published={p.date}
 >
-  <p style="font-size:13px; color:#667; margin-top:-8px; text-align:left;">{p.tag} · By E&amp;C Power Systems · <time datetime={p.date}>{longDate(p.date)}</time> · {p.minutes} min read</p>
+  <p style="font-size:13px; color:#667; margin-top:-8px; text-align:left;">{p.tag} · By {who ? `${who.name}, ${who.jobTitle}, E&C Power Systems` : 'E&C Power Systems'} · <time datetime={p.date}>{longDate(p.date)}</time> · {p.minutes} min read</p>
   <figure><img src={p.cover} alt={p.coverAlt} width="1200" height="630" fetchpriority="high" /></figure>
 
   <Content />

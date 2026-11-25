@@ -1,0 +1,147 @@
+---
+// Solar hub (5 keywords: solar UPS / solar inverter manufacturer India, solar installation service, grid tie vs off
+// grid, hybrid vs off grid). Replaces the near-empty legacy page. Product facts from src/data/products.js; the
+// comparison matches the on-grid vs off-grid vs hybrid blog post. /solar-inverter-manufacturer-in-india stays the
+// broader inverter page and is linked, not duplicated.
+import Hub from '../layouts/Hub.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+import { families } from '../data/products.js';
+
+const fam = families.solar;
+
+const types = [
+  ['Connected to the grid', 'Yes', 'No (or grid as a charger only)', 'Yes'],
+  ['Batteries', 'No', 'Yes', 'Yes'],
+  ['Works in a power cut', 'No', 'Yes', 'Yes'],
+  ['Exports surplus to the grid', 'Yes, with net metering', 'No', 'Yes'],
+  ['Cost', 'Lowest', 'Medium', 'Highest'],
+  ['Best for', 'Cutting bills where power is reliable', 'Sites with no reliable grid', 'Cutting bills and backup'],
+  ['E&C range', '2 – 60 kVA', '1 – 5 kVA', '2 – 30 kVA'],
+];
+
+const uses = [
+  { icon: 'fa-industry', h: 'Factories and warehouses', t: 'Large grid-tie or hybrid rooftop plants cut daytime energy bills, with storage for critical loads.' },
+  { icon: 'fa-building', h: 'Offices, schools and hospitals', t: 'Hybrid systems that cut the bill and keep lights, IT and essential loads running in power cuts.' },
+  { icon: 'fa-home', h: 'Homes', t: 'Off-grid or hybrid inverters with battery backup, or grid-tie where cuts are rare and net metering is available.' },
+  { icon: 'fa-tree', h: 'Rural and off-grid sites', t: 'Solar DC home lighting with DC lights, fans and USB charging where there is no grid connection.' },
+  { icon: 'fa-road', h: 'Streets, campuses and parks', t: 'All-in-one solar street lights with dusk-to-dawn operation and proximity sensing.' },
+  { icon: 'fa-signal', h: 'Telecom and remote equipment', t: 'MPPT charge controllers and batteries power remote equipment from solar, with remote monitoring.' },
+];
+
+const install = [
+  ['Site survey', 'Roof or ground area, shading, loads, power cuts and your electricity bills.'],
+  ['System design', 'Grid-tie, off-grid or hybrid; panel, inverter and battery sizing.'],
+  ['Supply & installation', 'Inverter, charge controller, batteries and wiring, installed by E&C engineers.'],
+  ['Commissioning & service', 'Testing, handover, monitoring and AMC from E&C regional offices.'],
+];
+
+const faq = [
+  { q: 'What is the difference between grid-tie and off-grid solar?', a: 'A grid-tie (on-grid) system feeds your loads and exports surplus to the grid, but has no batteries and shuts down in a power cut. An off-grid system stores solar energy in batteries and works without the grid, which suits sites with no reliable supply.' },
+  { q: 'Hybrid or off-grid solar: which should I choose?', a: 'Where there is a grid connection but power cuts are common, a hybrid system gives both lower bills and backup, because it can export to the grid and also run from batteries. Off-grid suits places without a reliable grid connection.' },
+  { q: 'What is a solar UPS?', a: 'A solar UPS or solar inverter with battery charges its batteries from solar panels as well as the mains, and powers the loads in a power cut. E&C\'s off-grid and hybrid inverters have built-in MPPT chargers and selectable solar or mains priority.' },
+  { q: 'Does E&C install solar systems?', a: 'Yes. E&C engineers survey the site, design and size the system, supply and install the inverter, charge controller and batteries, and commission and service it across India.' },
+  { q: 'Why use an MPPT charge controller?', a: 'An MPPT controller keeps the panels at their maximum power point, raising charging efficiency by 25 to 30% compared with a basic controller. E&C\'s MPPT controllers work at 12, 24 or 48 V, up to 60 A.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Solar inverter and solar system manufacturing and installation',
+    description: 'Grid-tie, off-grid and hybrid solar inverters, MPPT charge controllers, solar DC UPS and street lights, with installation and service, from E&C Power Systems, Bengaluru.',
+    url: urlFor('solar-solutions'),
+    serviceType: 'Solar inverter manufacturing and solar system installation',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="solar-solutions"
+  title="Solar Inverter & Solar UPS Manufacturer in India | E&C"
+  description="Grid-tie, off-grid and hybrid solar inverters, solar UPS, MPPT charge controllers and street lights, with solar installation and service across India from E&C."
+  name="Solar Solutions"
+  schema={schema}
+  image="/image/product/Solar%20Hybrid%20Inverter.jpg"
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">Grid-tie · off-grid · hybrid</span>
+          <h1>Solar Inverter and Solar UPS Manufacturer in India</h1>
+          <p class="hb-lead">E&amp;C Power Systems makes solar inverters, solar UPS, MPPT charge controllers and solar lighting in Bengaluru, and designs, installs and services complete solar systems for factories, buildings, homes and off-grid sites across India.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-sun-o" aria-hidden="true"></em>1 – 60 kVA inverters</li>
+            <li><em class="fa fa-battery-full" aria-hidden="true"></em>Built-in MPPT</li>
+            <li><em class="fa fa-wrench" aria-hidden="true"></em>Installation &amp; AMC</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a solar quote</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo prod"><img src="/image/product/Solar%20Hybrid%20Inverter.jpg" alt="E&C solar hybrid inverter" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C solar hybrid inverter</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-range">
+    <div class="container">
+      <h2 class="pd-h" id="h-range">Solar range</h2>
+      <Range slugs={['solar-grid', 'solar-off-grid-inverter', 'solar-hybrid-inverter', 'scc', 'solar-dc-up', 'solar-street-lighting']} />
+      <p class="hb-p" style="margin-top:12px;">Batteries for solar storage: <a href="/lithium-ion">lithium ion</a>, <a href="/tubular-batteries-manufacturing">tubular</a> and <a href="/agm-gel">AGM / GEL</a>. For larger storage, see <a href="/battery-energy-storage-system">battery energy storage systems</a>. All our inverters: <a href="/solar-inverter-manufacturer-in-india">solar inverter manufacturer in India</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-types">
+    <div class="container">
+      <h2 class="pd-h" id="h-types">Grid-tie vs off-grid vs hybrid solar system</h2>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col"></th><th scope="col"><a href="/solar-grid" style="color:#fff;">Grid-tie (on-grid)</a></th><th scope="col"><a href="/solar-off-grid-inverter" style="color:#fff;">Off-grid</a></th><th scope="col"><a href="/solar-hybrid-inverter" style="color:#fff;">Hybrid</a></th></tr></thead>
+          <tbody>{types.map(([k, a, b, c]) => <tr><th scope="row">{k}</th><td>{a}</td><td>{b}</td><td>{c}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="hb-p" style="margin-top:12px;">A grid-tie system shuts down in a power cut, by design, so it gives no backup even on a sunny day. If you need backup, choose hybrid where there is a grid connection and off-grid where there is not. More in <a href="/blogs/on-grid-vs-off-grid-vs-hybrid-solar-inverter">on-grid vs off-grid vs hybrid solar inverter</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-uses">
+    <div class="container">
+      <h2 class="pd-h" id="h-uses">Where E&amp;C solar is used</h2>
+      <div class="hb-cards three">
+        {uses.map((x) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-install">
+    <div class="container">
+      <h2 class="pd-h" id="h-install">Solar system installation service</h2>
+      <ol class="hb-flow">
+        {install.map(([h, t]) => <li><strong>{h}</strong>{t}</li>)}
+      </ol>
+      <p class="hb-p" style="margin-top:14px;">Net metering eligibility, capacity limits and tariffs differ by state and DISCOM; we check the current rules for your site before sizing the plant. Find your nearest <a href="/contact#sales-offices">sales office</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get a solar quotation" service="Quote: Solar solution" pitch={fam.pitch} step1={fam.step1} field="System size (kW) or monthly bill" ask="Grid-tie, off-grid or hybrid? Backup needed?" />
+</Hub>

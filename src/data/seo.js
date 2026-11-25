@@ -1,11 +1,19 @@
 // Title and meta description overrides for legacy pages whose own were duplicated, missing or too long.
 // Primary keywords follow the Keyword map tab of the plan doc. Titles <= 60 characters, descriptions ~140-160.
 export const meta = {
-
-  'lithium-ion': {
-    title: 'Lithium Ion Batteries for UPS & Inverters | E&C Power',
-    description: 'Lithium ion batteries for UPS, inverters and solar systems from E&C Power Systems, Bengaluru: long cycle life, compact size and built-in battery management.',
+  'power-inverter-manufacturer-in-india': {
+    description: 'Power inverter manufacturer in India: E&C builds industrial inverters from 3 to 100 kVA and Voltstar home inverters from 600 VA to 5 kVA in Bengaluru.',
   },
+  'battery-charger-manufacturer-in-india': {
+    description: 'Battery charger manufacturer in India: E&C builds float cum boost (FCBC) industrial chargers at 48, 110 and 220 V DC for Ni-Cd and lead acid batteries.',
+  },
+  'solar-inverter-manufacturer-in-india': {
+    description: 'Solar inverter manufacturer in India: E&C builds grid-tie (2–60 kVA), hybrid (2–30 kVA) and off-grid (1–5 kVA) solar inverters and MPPT charge controllers.',
+  },
+  'ev-charger-manufacturer-in-india': {
+    description: 'EV charger manufacturer in India: E&C AC chargers from 3 to 22 kW and DC fast chargers from 10 to 240 kW, with CCS2, CHAdeMO and GB/T, for fleets and parking.',
+  },
+
   catalog: {
     title: 'Product Catalogs: UPS, Inverters, Batteries | E&C Power',
     description: 'Download E&C Power Systems product catalogs for online UPS, industrial inverters, stabilizers, batteries, solar systems and EV chargers.',
@@ -22,15 +30,7 @@ export const meta = {
     title: 'UPS Service, AMC & Repair | Bengaluru & India | E&C Power',
     description: 'UPS installation, commissioning, annual maintenance contracts, battery replacement and breakdown repair from E&C Power Systems, Peenya, Bengaluru.',
   },
-  'intelligent-transfer-switch': {
-    title: 'Static Transfer Switch Manufacturer | Intelligent STS | E&C',
-    description: 'Intelligent static transfer switches from E&C Power Systems switch critical loads between two power sources without interruption, for data centres and industry.',
-  },
 
-  'agm-gel': {
-    title: 'AGM & GEL Batteries for UPS and Solar | E&C Power Systems',
-    description: 'Sealed AGM and GEL batteries for UPS, solar and telecom from E&C Power Systems, Bengaluru. Maintenance-free, with GEL suited to deep and frequent discharges.',
-  },
   careers: {
     title: 'Careers at E&C Power Systems, Bengaluru',
     description: 'Work at E&C Power Systems in Peenya, Bengaluru: openings in power electronics engineering, manufacturing, sales and service.',
@@ -112,7 +112,6 @@ export const productPages = {
   'ip-41-55-online-ups': P('IP41 / IP55 Industrial Online UPS', 'Industrial UPS'),
   'lithium-ups': P('Lithium UPS', 'Online UPS'),
   lineups: P('Cheerups Line Interactive UPS', 'Line Interactive UPS'),
-  'custom-solutions': P('Custom UPS Solutions', 'Online UPS'),
   'domestic-Inverters': P('Domestic Inverter (600 VA–5 kVA)', 'Inverter'),
   'industrial-inverter': P('Industrial Inverter (3–100 kVA)', 'Inverter'),
   stabilizer: P('Voltage Stabilizer', 'Voltage Stabilizer'),
@@ -127,7 +126,6 @@ export const productPages = {
   'lithium-ion': P('Lithium Ion Battery', 'Battery'),
   nickel: P('Nickel Cadmium Battery', 'Battery'),
   'industrial-battery-charger-fcbc': P('Industrial Battery Charger (FCBC)', 'Battery Charger'),
-  'solar-solutions': P('Solar Power Solutions', 'Solar'),
   'solar-grid': P('Grid-Tie Solar Inverter', 'Solar'),
   'solar-off-grid-inverter': P('Off-Grid Solar Inverter', 'Solar'),
   'solar-hybrid-inverter': P('Solar Hybrid Inverter', 'Solar'),
