@@ -54,7 +54,7 @@ Do not hang a heavy UPS from its front ears alone. Use the **rail kit** or a fix
 
 ## External battery modules
 
-Internal batteries in a rack UPS usually give only a few minutes at full load. For longer backup, add **external battery modules (EBMs)**: rack-mounted battery packs that plug into the UPS. Each one takes rack space and adds weight, so plan the U count for the UPS and all its modules together. To estimate how many you need, use the [UPS battery backup time guide](/guides/ups-battery-backup-time). Battery chemistry matters too; see [lithium vs lead-acid UPS batteries](/blogs/lithium-vs-lead-acid-ups-battery).
+Internal batteries in a rack UPS usually give only a few minutes at full load. For longer backup, add **external battery modules (EBMs)**: rack-mounted battery packs that plug into the UPS. Each one takes rack space and adds weight, so plan the U count for the UPS and all its modules together. To estimate how many you need, use the [UPS battery backup time guide](/guides/ups-battery-backup-time). Battery chemistry matters too; see [lithium vs lead-acid UPS batteries](/blogs/batteries/lithium-vs-lead-acid-ups-battery).
 
 ## Network cards and monitoring
 

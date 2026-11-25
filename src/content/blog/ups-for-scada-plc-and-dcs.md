@@ -44,11 +44,11 @@ For many factories and utilities, a compact **online UPS** in the control room f
 
 ### Industrial AC UPS
 
-Large process plants often specify a separate charger, battery and inverter with a static switch. These systems are built for long life and harsh sites and are easier to make redundant. Our post on [UPS for oil, gas and petrochemical plants](/blogs/ups-for-oil-gas-and-petrochemical-plants) shows the layout.
+Large process plants often specify a separate charger, battery and inverter with a static switch. These systems are built for long life and harsh sites and are easier to make redundant. Our post on [UPS for oil, gas and petrochemical plants](/blogs/industrial-ups/ups-for-oil-gas-and-petrochemical-plants) shows the layout.
 
 ### DC systems
 
-PLCs and most field devices run on 24 VDC internally. Feeding them from a DC charger and battery removes the inverter and the AC-to-DC power supplies from the chain. A [float cum boost charger](/blogs/fcbc-battery-charger-explained) keeps the battery charged and supplies the load. Many plants use DC for controllers and instruments and an AC UPS for servers and stations.
+PLCs and most field devices run on 24 VDC internally. Feeding them from a DC charger and battery removes the inverter and the AC-to-DC power supplies from the chain. A [float cum boost charger](/blogs/batteries/fcbc-battery-charger-explained) keeps the battery charged and supplies the load. Many plants use DC for controllers and instruments and an AC UPS for servers and stations.
 
 ## Redundancy
 
@@ -56,7 +56,7 @@ A control system is only as reliable as its power. Common practices:
 
 1. **Dual power supplies** in controllers and servers, each fed from a different source.
 2. **Two UPS or two inverters**, in parallel or hot standby, so a single failure does not drop the load.
-3. **A static transfer switch** to give single-corded equipment a second source; see [what a static transfer switch is](/blogs/what-is-a-static-transfer-switch).
+3. **A static transfer switch** to give single-corded equipment a second source; see [what a static transfer switch is](/blogs/power-quality/what-is-a-static-transfer-switch).
 4. **Separate feeds for safety systems** as their designer specifies.
 5. **Maintenance bypass** so the UPS can be serviced without a plant shutdown.
 
@@ -78,15 +78,15 @@ Operators watch SCADA, not the UPS display. Wire the UPS into the control system
 - On bypass
 - UPS fault or overload
 
-Dry contacts are the simplest; MODBUS or SNMP give more detail. Our post on [SNMP and remote UPS monitoring](/blogs/snmp-and-remote-ups-monitoring) covers the network side.
+Dry contacts are the simplest; MODBUS or SNMP give more detail. Our post on [SNMP and remote UPS monitoring](/blogs/monitoring/snmp-and-remote-ups-monitoring) covers the network side.
 
 ## Earthing and noise
 
-Control systems are sensitive to electrical noise and earth loops. Keep the UPS output for control panels separate from drives, welding sets and other noisy loads, follow the control system maker's earthing guidance, and consider an [isolation transformer](/blogs/isolation-transformer-for-ups) where a clean neutral-earth bond is needed close to the panels.
+Control systems are sensitive to electrical noise and earth loops. Keep the UPS output for control panels separate from drives, welding sets and other noisy loads, follow the control system maker's earthing guidance, and consider an [isolation transformer](/blogs/power-quality/isolation-transformer-for-ups) where a clean neutral-earth bond is needed close to the panels.
 
 ## Environment
 
-Control room UPS units usually sit in clean, cooled rooms. Field panels and remote I/O sites are another matter: heat, dust and humidity call for sealed enclosures, cooled kiosks or DC power. For water utilities, see [UPS for water treatment plants](/blogs/ups-for-water-treatment-plants).
+Control room UPS units usually sit in clean, cooled rooms. Field panels and remote I/O sites are another matter: heat, dust and humidity call for sealed enclosures, cooled kiosks or DC power. For water utilities, see [UPS for water treatment plants](/blogs/industrial-ups/ups-for-water-treatment-plants).
 
 ## E&C power for SCADA, PLC and DCS
 

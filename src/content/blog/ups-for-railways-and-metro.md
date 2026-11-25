@@ -39,7 +39,7 @@ faq:
 ## How railway power backup is usually arranged
 
 1. **Two incoming feeds** where available, from different sources, with automatic changeover.
-2. **A DC battery system**, commonly 110 V, with float cum boost chargers (FCBC). The charger keeps the battery on float and supplies DC loads; the battery takes over instantly if AC fails. Our post on [FCBC battery chargers](/blogs/fcbc-battery-charger-explained) explains float and boost modes.
+2. **A DC battery system**, commonly 110 V, with float cum boost chargers (FCBC). The charger keeps the battery on float and supplies DC loads; the battery takes over instantly if AC fails. Our post on [FCBC battery chargers](/blogs/batteries/fcbc-battery-charger-explained) explains float and boost modes.
 3. **Inverters** that turn the battery's DC into clean AC for signalling equipment that needs it, often with a static transfer switch to a standby supply.
 4. **Online UPS** for servers, telecom racks and station systems, sometimes in an integrated power supply panel that brings chargers, inverters and UPS together.
 5. **Redundancy**: duplicated chargers, inverters or UPS, so one can fail or be serviced without losing the load.
@@ -48,7 +48,7 @@ faq:
 
 Railway sites are hot, dusty and often unattended, and batteries may sit in relay huts or location boxes with little temperature control.
 
-- **Nickel cadmium** batteries tolerate heat, cold and deep discharges and have a long service life, which is why they appear in many railway DC systems. See [what a nickel cadmium battery is](/blogs/nickel-cadmium-battery-explained).
+- **Nickel cadmium** batteries tolerate heat, cold and deep discharges and have a long service life, which is why they appear in many railway DC systems. See [what a nickel cadmium battery is](/blogs/batteries/nickel-cadmium-battery-explained).
 - **VRLA and tubular lead-acid** cost less upfront but age faster in heat.
 - **Lithium iron phosphate** is used in some newer installations where weight and space matter, with a battery management system.
 

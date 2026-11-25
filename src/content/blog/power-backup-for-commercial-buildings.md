@@ -55,7 +55,7 @@ These can be fed from one central UPS through a dedicated distribution, or from 
 
 **Power solutions for corporate campuses** add scale and redundancy:
 
-- **Campus data centre:** N+1 redundant UPS, either parallel units or a modular UPS with spare modules. See [modular UPS and N+1 redundancy](/blogs/modular-ups-n-plus-1-redundancy).
+- **Campus data centre:** N+1 redundant UPS, either parallel units or a modular UPS with spare modules. See [modular UPS and N+1 redundancy](/blogs/online-ups/modular-ups-n-plus-1-redundancy).
 - **Each office block:** a UPS for workstations, labs and floor network, sized for that block.
 - **Network cabinets on each floor:** small online or rack mount UPS units.
 - **Security and campus control room:** its own UPS so security systems never depend on an office block's UPS.
@@ -67,10 +67,10 @@ Separate systems per building keep a fault local, and let one block be serviced 
 Office loads are mostly switch-mode power supplies: PCs, monitors, LED lighting drivers and chargers. These draw non-linear current that raises harmonics and can overload neutrals in three phase systems. Ways to manage it:
 
 - A UPS with good input power factor correction, so it does not add to the problem on the DG.
-- An **isolation transformer** on the UPS output, which gives a fresh neutral-earth bond and can be K-rated for non-linear loads. See [isolation transformer for UPS](/blogs/isolation-transformer-for-ups).
+- An **isolation transformer** on the UPS output, which gives a fresh neutral-earth bond and can be K-rated for non-linear loads. See [isolation transformer for UPS](/blogs/power-quality/isolation-transformer-for-ups).
 - Neutral conductors sized for the harmonic content, as advised by the electrical designer.
 
-Our post on [UPS THD, surge and bypass](/blogs/ups-thd-surge-and-bypass-explained) explains these terms.
+Our post on [UPS THD, surge and bypass](/blogs/power-quality/ups-thd-surge-and-bypass-explained) explains these terms.
 
 ## Monitoring for facility teams
 
@@ -85,7 +85,7 @@ A facility manager running several buildings needs one view of every UPS. Remote
 
 ## Service and lifecycle
 
-Commercial buildings run for decades, while UPS batteries need replacing every few years. Build battery replacement, preventive maintenance and an AMC into the facility budget. Our [UPS maintenance checklist](/blogs/ups-maintenance-checklist) lists what to check.
+Commercial buildings run for decades, while UPS batteries need replacing every few years. Build battery replacement, preventive maintenance and an AMC into the facility budget. Our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist) lists what to check.
 
 ## E&C power backup for commercial buildings
 

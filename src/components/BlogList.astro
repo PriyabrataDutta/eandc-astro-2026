@@ -1,8 +1,8 @@
 ---
-// One page of the blog listing: 10 posts, topic links and page links. Used by /blogs, /blogs/page/N and the
-// topic pages, so the whole listing is never loaded at once.
+// One page of the blog listing: 10 posts, category links and page links. Used by /blogs, /blogs/page/N and the
+// category pages (/blogs/{category}, /blogs/{category}/page/N), so the whole listing is never loaded at once.
 import Page from '../layouts/Page.astro';
-import { posts, longDate, PER_PAGE, topics, topicSlug } from '../lib/blog.js';
+import { posts, longDate, topics, CATEGORIES, MIN_INDEXED } from '../lib/blog.js';
 import { guideTitles } from '../data/products.js';
 import { urlFor } from '../lib/legacy.js';
 
@@ -11,7 +11,8 @@ const href = (n) => (n === 1 ? base : `${base}/page/${n}`);
 const slug = href(page).slice(1);
 const of = pages > 1 ? ` (page ${page} of ${pages})` : '';
 const name = topic ? `${topic} articles` : 'Blogs';
-const title = topic ? `${topic} Articles${pages > 1 ? `, Page ${page}` : ''} | E&C Power Systems Blog` : page === 1 ? 'UPS, Battery & Power Backup Blog | E&C Power Systems' : `UPS & Power Backup Blog, Page ${page} | E&C Power Systems`;
+const total = topic ? posts.filter((p) => p.tag === topic).length : posts.length;
+const title = topic ? `${topic} Articles${page > 1 ? `, Page ${page}` : ''} | E&C Power Systems Blog` : page === 1 ? 'UPS, Battery & Power Backup Blog | E&C Power Systems' : `UPS & Power Backup Blog, Page ${page} | E&C Power Systems`;
 const description = topic
   ? `${topic} articles from E&C Power Systems: practical guides on choosing, sizing and looking after power equipment${of}.`
   : page === 1
@@ -26,11 +27,11 @@ const schema = [
     name: topic ? `${topic} articles` : 'E&C Power Systems Blog',
     url: urlFor(slug),
     ...(topic ? { isPartOf: { '@type': 'Blog', url: urlFor('blogs') } } : {}),
-    [topic ? 'hasPart' : 'blogPost']: items.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: urlFor(`blogs/${p.slug}`), datePublished: p.date })),
+    [topic ? 'hasPart' : 'blogPost']: items.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: urlFor(p.url.slice(1)), datePublished: p.date })),
   },
 ];
 ---
-<Page slug={slug} title={title} description={description} h1={h1} crumbs={crumbs} schema={schema} image={items[0].cover} noindex={!!topic}>
+<Page slug={slug} title={title} description={description} h1={h1} crumbs={crumbs} schema={schema} image={items[0].cover} noindex={!!topic && total < MIN_INDEXED}>
   <style>
     .bl-grid { display:grid; grid-template-columns:1fr; gap:18px; margin:0 0 28px; }
     @media (min-width:768px) { .bl-grid { grid-template-columns:1fr 1fr; } }
@@ -49,20 +50,20 @@ const schema = [
     .bl-pages { justify-content:center; margin:4px 0 32px; }
     .bl-pages .off { background:#f1f4f7; color:#9aa6b2; }
   </style>
-  {page === 1 && !topic && <p>Practical guides from E&amp;C's engineers on choosing, sizing and looking after UPS systems, batteries and power equipment.</p>}
+  {page === 1 && <p>{topic ? CATEGORIES[topic].intro : 'Practical guides from E&C\'s engineers on choosing, sizing and looking after UPS systems, batteries and power equipment.'}</p>}
 
   <ul class="bl-jump" aria-label="Topics">
     <li><a href="/blogs" aria-current={topic ? undefined : 'page'}>All ({posts.length})</a></li>
-    {topics.map(([tag, list]) => <li><a href={`/blogs/topic/${topicSlug(tag)}`} aria-current={tag === topic ? 'page' : undefined}>{tag} ({list.length})</a></li>)}
+    {topics.map(([tag, slug, list]) => <li><a href={`/blogs/${slug}`} aria-current={tag === topic ? 'page' : undefined}>{tag} ({list.length})</a></li>)}
   </ul>
 
   <div class="bl-grid">
     {items.map((p, i) => (
       <article class="bl-card">
-        <a href={`/blogs/${p.slug}`} tabindex="-1" aria-hidden="true"><img src={p.cover} alt="" width="360" height="189" loading={i < 2 ? undefined : 'lazy'} decoding="async" /></a>
+        <a href={p.url} tabindex="-1" aria-hidden="true"><img src={p.cover} alt="" width="360" height="189" loading={i < 2 ? undefined : 'lazy'} decoding="async" /></a>
         <div class="bl-body">
-          <span class="bl-tag">{p.tag}</span>
-          <h2 style="font-size:17px; line-height:1.35; margin:6px 0 8px;"><a href={`/blogs/${p.slug}`} style="color:#0b2546;">{p.title}</a></h2>
+          <a class="bl-tag" href={`/blogs/${p.category}`}>{p.tag}</a>
+          <h2 style="font-size:17px; line-height:1.35; margin:6px 0 8px;"><a href={p.url} style="color:#0b2546;">{p.title}</a></h2>
           <p>{p.description}</p>
           <span class="bl-meta"><time datetime={p.date}>{longDate(p.date)}</time> · {p.minutes} min read</span>
         </div>

@@ -62,7 +62,7 @@ Process areas in these plants are often classified as hazardous because flammabl
 <figcaption>A common industrial UPS layout. Redundant systems duplicate the charger and inverter.</figcaption>
 </figure>
 
-1. **Float cum boost charger (FCBC)** converts AC to DC, keeps the battery on float and recharges it after an outage. See [what an FCBC charger is](/blogs/fcbc-battery-charger-explained).
+1. **Float cum boost charger (FCBC)** converts AC to DC, keeps the battery on float and recharges it after an outage. See [what an FCBC charger is](/blogs/batteries/fcbc-battery-charger-explained).
 2. **Battery bank** on the DC bus, sized for the backup time in the project specification.
 3. **Inverter** converts DC back to clean sine wave AC.
 4. **Static transfer switch** moves the load to a bypass supply, usually through a bypass or regulating transformer, if the inverter is overloaded or faulty.
@@ -76,7 +76,7 @@ Alongside the AC UPS, substations in these plants use **110 V or 220 V DC system
 
 ## Batteries: why Ni-Cd is common
 
-Many oil and gas specifications call for [nickel cadmium batteries](/blogs/nickel-cadmium-battery-explained). They handle wide temperature ranges, tolerate deep discharge and have a long service life. Valve regulated lead acid batteries are also used, usually in air-conditioned rooms. Backup times are set by the project and are often much longer than in commercial buildings, because the control system may need to keep running through a long outage.
+Many oil and gas specifications call for [nickel cadmium batteries](/blogs/batteries/nickel-cadmium-battery-explained). They handle wide temperature ranges, tolerate deep discharge and have a long service life. Valve regulated lead acid batteries are also used, usually in air-conditioned rooms. Backup times are set by the project and are often much longer than in commercial buildings, because the control system may need to keep running through a long outage.
 
 ## Backup time and redundancy choices
 
@@ -93,7 +93,7 @@ Redundancy is a similar trade-off. Common options are:
 
 - **Input:** wide voltage and frequency range, since supply may come from the grid or captive generation.
 - **Output:** low harmonic distortion and good handling of non-linear loads such as instrument power supplies.
-- **Environment:** heat, dust and humidity in coastal or desert sites. For units outside air-conditioned rooms, consider sealed enclosures; see [MIL grade vs IP55 UPS](/blogs/mil-grade-vs-ip55-industrial-ups).
+- **Environment:** heat, dust and humidity in coastal or desert sites. For units outside air-conditioned rooms, consider sealed enclosures; see [MIL grade vs IP55 UPS](/blogs/online-ups/mil-grade-vs-ip55-industrial-ups).
 - **Communication:** alarms and status to the DCS, often by potential free contacts or MODBUS.
 - **Documentation and testing:** factory and site tests as required by the end user or engineering contractor.
 - **Service:** spares and trained engineers for a long plant life; see [E&C services](/eandcpower-services).

@@ -49,7 +49,7 @@ Size every cable for its current, installation method, grouping and ambient temp
 ### Earthing
 
 - A clear earth connection to the UPS, battery racks and any isolation transformer, sized as the codes require.
-- A defined neutral-to-earth bonding point. With a transformer-based UPS or an output [isolation transformer](/blogs/isolation-transformer-for-ups), the output is a separately derived supply and needs its own bond.
+- A defined neutral-to-earth bonding point. With a transformer-based UPS or an output [isolation transformer](/blogs/power-quality/isolation-transformer-for-ups), the output is a separately derived supply and needs its own bond.
 
 All design and installation must follow the applicable codes and the authority having jurisdiction.
 
@@ -70,7 +70,7 @@ A **rack UPS** shares its rack with servers or PLC equipment, so add:
 - Plan output connections and rack PDUs so loads are spread across circuits.
 - Leave space and cable slack to slide units out for service.
 
-See [what is a rack mount UPS](/blogs/what-is-rack-mount-ups) for choosing one.
+See [what is a rack mount UPS](/blogs/online-ups/what-is-rack-mount-ups) for choosing one.
 
 ## 5. Modular UPS installation
 
@@ -101,7 +101,7 @@ Commissioning is done by trained engineers with the load still off, or on bypass
 - Operating and maintenance manuals.
 - Battery records: make, model, serial numbers, date installed.
 - Warranty details and service contacts.
-- A preventive maintenance schedule; see [UPS preventive maintenance and load testing](/blogs/ups-preventive-maintenance-and-load-testing).
+- A preventive maintenance schedule; see [UPS preventive maintenance and load testing](/blogs/service/ups-preventive-maintenance-and-load-testing).
 - Short training for the site team on alarms and bypass operation.
 
 ## Power backup system installation with E&C

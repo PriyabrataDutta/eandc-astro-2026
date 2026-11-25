@@ -43,7 +43,7 @@ For **UPS for broadcast towers in India**, the transmitter maker's specification
 
 Many sites use outdoor cabinets instead of shelters to save space and cooling energy. Points to check:
 
-- **IP rating** against dust and rain, and protection against insects. Our post on [MIL grade vs IP55 UPS](/blogs/mil-grade-vs-ip55-industrial-ups) explains what IP ratings do and do not cover.
+- **IP rating** against dust and rain, and protection against insects. Our post on [MIL grade vs IP55 UPS](/blogs/online-ups/mil-grade-vs-ip55-industrial-ups) explains what IP ratings do and do not cover.
 - **Cooling method**: fans with filters, heat exchangers or cabinet air-conditioners. Each has trade-offs between dust entry, power draw and maintenance.
 - **Solar gain**: a cabinet in direct sun can run far hotter than the air around it, so shading and light colours help.
 
@@ -51,7 +51,7 @@ Many sites use outdoor cabinets instead of shelters to save space and cooling en
 
 Batteries are the weak point at most tower sites.
 
-- **Heat:** lead-acid life roughly halves for every 8 to 10°C above 25°C, so a battery in a hot cabinet may need replacing far sooner than its rated life. Temperature-compensated charging, a separate cooled battery compartment, or a more heat-tolerant chemistry such as lithium iron phosphate or nickel cadmium can help. See [how to extend UPS battery life](/blogs/how-to-extend-ups-battery-life).
+- **Heat:** lead-acid life roughly halves for every 8 to 10°C above 25°C, so a battery in a hot cabinet may need replacing far sooner than its rated life. Temperature-compensated charging, a separate cooled battery compartment, or a more heat-tolerant chemistry such as lithium iron phosphate or nickel cadmium can help. See [how to extend UPS battery life](/blogs/batteries/how-to-extend-ups-battery-life).
 - **Deep cycling:** sites with long daily outages discharge the battery every day, which wears lead-acid batteries much faster than standby duty.
 - **Theft:** batteries and DG fuel are common targets at unmanned sites. Locked cabinets, battery cages, door sensors and alarms tied to remote monitoring reduce losses.
 
@@ -64,7 +64,7 @@ With hundreds of sites and few technicians, operators depend on remote data:
 3. **Facility monitoring**: door, temperature and smoke sensors, plus CCTV.
 4. **Alerts by SMS and email**, so the nearest technician is sent before the battery runs flat.
 
-Our post on [SNMP and remote UPS monitoring](/blogs/snmp-and-remote-ups-monitoring) covers the AC UPS side.
+Our post on [SNMP and remote UPS monitoring](/blogs/monitoring/snmp-and-remote-ups-monitoring) covers the AC UPS side.
 
 ## DG and solar hybrid sites
 

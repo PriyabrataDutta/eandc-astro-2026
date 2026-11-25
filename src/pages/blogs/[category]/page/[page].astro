@@ -1,0 +1,14 @@
+---
+// Category pages 2..N (/blogs/{category}/page/N), 10 posts each.
+import BlogList from '../../../../components/BlogList.astro';
+import { topics, paged } from '../../../../lib/blog.js';
+
+export function getStaticPaths() {
+  return topics.flatMap(([tag, slug, list]) => {
+    const pages = paged(list);
+    return pages.slice(1).map((items, i) => ({ params: { category: slug, page: String(i + 2) }, props: { tag, slug, items, page: i + 2, pages: pages.length } }));
+  });
+}
+const { tag, slug, items, page, pages } = Astro.props;
+---
+<BlogList items={items} page={page} pages={pages} base={`/blogs/${slug}`} topic={tag} />

@@ -33,7 +33,7 @@ Sags come from faults elsewhere on the grid, large motors starting nearby, trans
 
 ## Test equipment and labs
 
-Automated test equipment, burn-in racks and calibration labs often need clean power for accuracy as well as continuity. A long test aborted by a sag is expensive in time. Rack-mounted online UPS put protection right in the test rack. Where instruments specify a low neutral-to-earth voltage, add an [isolation transformer](/blogs/isolation-transformer-for-ups) to give them a local neutral-to-earth bond.
+Automated test equipment, burn-in racks and calibration labs often need clean power for accuracy as well as continuity. A long test aborted by a sag is expensive in time. Rack-mounted online UPS put protection right in the test rack. Where instruments specify a low neutral-to-earth voltage, add an [isolation transformer](/blogs/power-quality/isolation-transformer-for-ups) to give them a local neutral-to-earth bond.
 
 ## Cleanroom and facility controls
 
@@ -62,7 +62,7 @@ Front-end fabs are a specialised case. Process tools have their own ride-through
 Points to check for any choice:
 
 1. **Low input current THD**, so the UPS does not add to harmonic distortion in a plant full of non-linear loads.
-2. **High efficiency**, since electronics plants run around the clock. See [UPS efficiency and running cost](/blogs/ups-efficiency-and-running-cost).
+2. **High efficiency**, since electronics plants run around the clock. See [UPS efficiency and running cost](/blogs/online-ups/ups-efficiency-and-running-cost).
 3. **Static and maintenance bypass**, to service the UPS without stopping the line.
 4. **Monitoring**, so sags, battery events and alarms are logged and can be matched to line stops.
 5. **Correct sizing** on real power with margin, using [how to size a UPS in kVA](/guides/ups-sizing-kva).

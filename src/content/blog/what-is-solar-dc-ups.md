@@ -27,7 +27,7 @@ An **off-grid solar system** works independently of the electricity grid. Everyt
 3. A **battery** stores energy for use after dark.
 4. **Loads**, either DC loads connected to the battery through the controller, or AC loads through an inverter.
 
-An off-grid system differs from an on-grid system, which feeds the grid and stops in a power cut, and from a hybrid system, which does both. Our guide to [on-grid, off-grid and hybrid solar inverters](/blogs/on-grid-vs-off-grid-vs-hybrid-solar-inverter) covers those differences.
+An off-grid system differs from an on-grid system, which feeds the grid and stops in a power cut, and from a hybrid system, which does both. Our guide to [on-grid, off-grid and hybrid solar inverters](/blogs/solar/on-grid-vs-off-grid-vs-hybrid-solar-inverter) covers those differences.
 
 <figure>
 <svg viewBox="0 0 680 200" role="img" aria-labelledby="dcups-t" style="max-width:100%;height:auto;font-family:Poppins,Arial,sans-serif">

@@ -1,0 +1,63 @@
+---
+// A blog post at /blogs/{category}/{slug}.
+import Page from '../../../layouts/Page.astro';
+import { posts, longDate } from '../../../lib/blog.js';
+import { products } from '../../../data/products.js';
+import { faqPage, authorNode } from '../../../lib/schema.js';
+import { urlFor, SITE, ORG_REF } from '../../../lib/legacy.js';
+import { AUTHOR } from '../../../data/author.js';
+
+export const getStaticPaths = () => posts.map((p) => ({ params: { category: p.category, post: p.slug }, props: { p } }));
+
+const { p } = Astro.props;
+const { Content } = p;
+const url = urlFor(p.url.slice(1));
+const who = p.author ?? AUTHOR;
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: p.title,
+    description: p.description,
+    image: SITE + p.cover,
+    datePublished: p.date,
+    dateModified: p.updated ?? p.date,
+    author: authorNode(who),
+    publisher: { ...ORG_REF, logo: { '@type': 'ImageObject', url: `${SITE}/image/logo2.png` } },
+    mainEntityOfPage: url,
+  },
+  ...(p.faq ? [faqPage(p.faq)] : []),
+];
+// Same-category posts first, so readers (and links) stay within the topic.
+const more = [...posts.filter((x) => x.category === p.category), ...posts.filter((x) => x.category !== p.category)].filter((x) => x.slug !== p.slug).slice(0, 4);
+---
+<Page
+  slug={p.url.slice(1)}
+  title={p.seoTitle ?? p.title}
+  description={p.description}
+  h1={p.title}
+  crumbs={[{ name: 'Blogs', url: '/blogs' }, { name: p.tag, url: `/blogs/${p.category}` }]}
+  schema={schema}
+  image={p.cover}
+  type="article"
+  published={p.date}
+>
+  <p style="font-size:13px; color:#667; margin-top:-8px; text-align:left;"><a href={`/blogs/${p.category}`}>{p.tag}</a> · By {who ? `${who.name}, ${who.jobTitle}, E&C Power Systems` : 'E&C Power Systems'} · <time datetime={p.date}>{longDate(p.date)}</time> · {p.minutes} min read</p>
+  <figure><img src={p.cover} alt={p.coverAlt} width="1200" height="630" fetchpriority="high" /></figure>
+
+  <Content />
+
+  {p.faq && (
+    <>
+      <h2>Frequently asked questions</h2>
+      {p.faq.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+    </>
+  )}
+
+  <h2>Related products</h2>
+  <ul>{p.products.map((k) => <li><a href={`/${k}`}>{products[k].name}</a>{products[k].capacity && ` (${products[k].capacity})`}</li>)}</ul>
+
+  <h2>More from the blog</h2>
+  <ul>{more.map((x) => <li><a href={x.url}>{x.title}</a></li>)}</ul>
+  <p><a href={`/blogs/${p.category}`}>All {p.tag} articles</a></p>
+</Page>

@@ -37,7 +37,7 @@ Our guide to [UPS sizing in kVA](/guides/ups-sizing-kva) covers the kW, kVA and 
 | Parallel UPS | Two or more identical units share the load | N+1 redundancy, large fixed loads | Each unit is a big step; parallel cabling and controls must be designed well |
 | Modular UPS | Hot-swappable power modules in one or more frames | Growing loads, N+X redundancy | Capacity is capped by the frame; plan the frame size for the final load |
 
-A **500 kVA modular UPS** might start with only the modules needed for today's load plus one spare, and add modules as racks fill. A fixed **high capacity UPS of 500 kVA** in an N+1 pair means two full-size units from day one. Our post on [modular UPS and N+1 redundancy](/blogs/modular-ups-n-plus-1-redundancy) explains the arithmetic.
+A **500 kVA modular UPS** might start with only the modules needed for today's load plus one spare, and add modules as racks fill. A fixed **high capacity UPS of 500 kVA** in an N+1 pair means two full-size units from day one. Our post on [modular UPS and N+1 redundancy](/blogs/online-ups/modular-ups-n-plus-1-redundancy) explains the arithmetic.
 
 <figure>
 <svg viewBox="0 0 680 200" role="img" aria-labelledby="lg-ups-t" style="max-width:100%;height:auto;font-family:Poppins,Arial,sans-serif">

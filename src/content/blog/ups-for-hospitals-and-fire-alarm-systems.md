@@ -40,13 +40,13 @@ In a typical hospital, mains fails, the online UPS carries critical loads from i
 
 ## Isolation and low neutral-to-earth voltage
 
-Many medical devices specify a low neutral-to-earth voltage and are sensitive to electrical noise. A transformer-based UPS, or a transformerless UPS with an [isolation transformer](/blogs/isolation-transformer-for-ups) on the output, creates a new neutral-to-earth bond close to the load and blocks much common-mode noise.
+Many medical devices specify a low neutral-to-earth voltage and are sensitive to electrical noise. A transformer-based UPS, or a transformerless UPS with an [isolation transformer](/blogs/power-quality/isolation-transformer-for-ups) on the output, creates a new neutral-to-earth bond close to the load and blocks much common-mode noise.
 
 Operation theatres and ICUs often also use an isolated (IT) power supply with an insulation monitoring device, so that a single earth fault raises an alarm instead of tripping power during a procedure. Requirements for these medical locations vary, so follow the applicable codes, the authority having jurisdiction and the equipment makers' instructions.
 
 ## N+1 redundancy for critical areas
 
-A single UPS is a single point of failure. For ICUs, OTs and data rooms, hospitals commonly use **N+1 redundancy**: one more UPS or power module than the load needs, so any one can fail or be serviced while the rest carry the load. This can be done with parallel UPS units or a [modular UPS](/blogs/modular-ups-n-plus-1-redundancy) with hot-swappable modules. Separate UPS systems for different areas also limit how far one fault can spread.
+A single UPS is a single point of failure. For ICUs, OTs and data rooms, hospitals commonly use **N+1 redundancy**: one more UPS or power module than the load needs, so any one can fail or be serviced while the rest carry the load. This can be done with parallel UPS units or a [modular UPS](/blogs/online-ups/modular-ups-n-plus-1-redundancy) with hot-swappable modules. Separate UPS systems for different areas also limit how far one fault can spread.
 
 ## Battery backup sizing
 

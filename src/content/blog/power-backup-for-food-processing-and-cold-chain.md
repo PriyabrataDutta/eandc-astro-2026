@@ -82,14 +82,14 @@ Distribution centres for chilled and frozen goods add:
 
 ## Watching the DG
 
-In an unmanned or lightly staffed cold store, the DG is the real backup for the product. Know its fuel level, running hours and load, and get an alert if it fails to start. Remote DG and UPS monitoring turns a silent failure into an SMS. See our post on [SNMP and remote UPS monitoring](/blogs/snmp-and-remote-ups-monitoring).
+In an unmanned or lightly staffed cold store, the DG is the real backup for the product. Know its fuel level, running hours and load, and get an alert if it fails to start. Remote DG and UPS monitoring turns a silent failure into an SMS. See our post on [SNMP and remote UPS monitoring](/blogs/monitoring/snmp-and-remote-ups-monitoring).
 
 ## Common mistakes
 
 - **Controllers on raw mains.** If refrigeration controllers reboot at each changeover, set points may revert to defaults and defrost cycles may restart, which affects room temperature.
 - **DG sized for running load only.** Several compressors restarting together after changeover can stall or trip an undersized DG.
 - **No alert path.** A temperature alarm that only sounds a local buzzer in an empty building is not much use at night. Route alarms by SMS or call.
-- **Batteries ignored.** UPS batteries in hot plant rooms age quickly. Check them on a schedule; our [UPS maintenance checklist](/blogs/ups-maintenance-checklist) covers what to test.
+- **Batteries ignored.** UPS batteries in hot plant rooms age quickly. Check them on a schedule; our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist) covers what to test.
 - **Wash-down near panels.** Food plants are cleaned with water and chemicals. Keep UPS units out of wash-down zones or use suitably sealed enclosures.
 
 ## Sizing notes

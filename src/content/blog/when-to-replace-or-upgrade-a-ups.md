@@ -55,7 +55,7 @@ A battery replacement is a natural decision point. New batteries for an old UPS 
 
 ## The modular retrofit option
 
-A [modular UPS](/blogs/modular-ups-n-plus-1-redundancy) suits sites that replaced a UPS because the load grew, and expect it to grow again. You install a frame sized for the future, fill it with enough modules for today's load plus one spare for N+1 redundancy, and add modules later. Hot-swappable modules also make future repairs faster, because a faulty module is swapped rather than the whole UPS being repaired in place.
+A [modular UPS](/blogs/online-ups/modular-ups-n-plus-1-redundancy) suits sites that replaced a UPS because the load grew, and expect it to grow again. You install a frame sized for the future, fill it with enough modules for today's load plus one spare for N+1 redundancy, and add modules later. Hot-swappable modules also make future repairs faster, because a faulty module is swapped rather than the whole UPS being repaired in place.
 
 ## Changing over without downtime
 

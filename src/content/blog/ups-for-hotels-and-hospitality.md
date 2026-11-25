@@ -72,7 +72,7 @@ The [UPS battery backup time](/guides/ups-battery-backup-time) guide shows how t
 
 ## Redundancy without overspending
 
-A mid-size hotel can usually live with one central UPS plus a static and maintenance bypass, as long as a service contract keeps it healthy. Larger and luxury properties, or hotels that host conferences, often add a second UPS in **hot standby or parallel** for the IT room. A [static transfer switch](/blogs/what-is-a-static-transfer-switch) can also let two different UPS units feed one critical load.
+A mid-size hotel can usually live with one central UPS plus a static and maintenance bypass, as long as a service contract keeps it healthy. Larger and luxury properties, or hotels that host conferences, often add a second UPS in **hot standby or parallel** for the IT room. A [static transfer switch](/blogs/power-quality/what-is-a-static-transfer-switch) can also let two different UPS units feed one critical load.
 
 ## Noise, space and appearance
 
@@ -80,12 +80,12 @@ Hotels care more about these than most buildings.
 
 - **Noise:** UPS fans and transformer hum should not reach guest rooms or the spa. Keep the UPS in a plant or electrical room with sound-separated walls.
 - **Space:** basements are often shared with car parking and services. Plan a ventilated UPS and battery room early in the design, not after fit-out.
-- **Rack mount units** suit floor IT closets where a tower UPS would not fit; see [what is a rack mount UPS](/blogs/what-is-rack-mount-ups).
+- **Rack mount units** suit floor IT closets where a tower UPS would not fit; see [what is a rack mount UPS](/blogs/online-ups/what-is-rack-mount-ups).
 - **Battery rooms:** keep them ventilated and dry, with access only for engineering staff.
 
 ## Monitoring for the engineering team
 
-The chief engineer needs to know when a UPS is on battery or in alarm before the front desk does. An SNMP card on each UPS lets the IT and engineering teams see status from a browser and receive email or SMS alerts. Groups with many properties can watch every hotel from one place. Our post on [SNMP and remote UPS monitoring](/blogs/snmp-and-remote-ups-monitoring) explains the set-up.
+The chief engineer needs to know when a UPS is on battery or in alarm before the front desk does. An SNMP card on each UPS lets the IT and engineering teams see status from a browser and receive email or SMS alerts. Groups with many properties can watch every hotel from one place. Our post on [SNMP and remote UPS monitoring](/blogs/monitoring/snmp-and-remote-ups-monitoring) explains the set-up.
 
 ## Service
 

@@ -18,7 +18,7 @@ faq:
 
 An **isolation transformer** gives galvanic isolation and a clean neutral-to-earth bond, but no backup. An **isolation UPS**, usually a transformer-based online UPS, gives isolation and backup in one unit. A transformerless online UPS has no isolation of its own, so an external isolation transformer is added when the load needs it. The detail that decides between them is the **bypass path**: when the UPS goes to bypass, the load may lose its isolation unless the transformer sits where both paths pass through it.
 
-For what an isolation transformer does, K-ratings and sizing, see [what is an isolation transformer and does your UPS need one](/blogs/isolation-transformer-for-ups). This post compares the three ways of getting isolation.
+For what an isolation transformer does, K-ratings and sizing, see [what is an isolation transformer and does your UPS need one](/blogs/power-quality/isolation-transformer-for-ups). This post compares the three ways of getting isolation.
 
 ## The three options
 

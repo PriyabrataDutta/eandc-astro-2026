@@ -43,7 +43,7 @@ Data centre load tends to grow as racks fill. Decide two numbers:
 - **Day-one load:** what will run when the room opens.
 - **Final load:** what the room is designed for, limited by space, cooling and the utility connection.
 
-A conventional UPS must be bought for the final load on day one, and will run lightly loaded for years. A [modular UPS](/blogs/modular-ups-n-plus-1-redundancy) lets you install the frame for the final load and add power modules as the load grows.
+A conventional UPS must be bought for the final load on day one, and will run lightly loaded for years. A [modular UPS](/blogs/online-ups/modular-ups-n-plus-1-redundancy) lets you install the frame for the final load and add power modules as the load grows.
 
 ## Step 4: kW, kVA and headroom
 
@@ -51,7 +51,7 @@ Divide kW by the UPS output power factor (read from the datasheet; modern UPS ar
 
 ## Step 5: Add redundancy
 
-Decide how the UPS should behave when one part fails or is serviced. N+1 adds one spare module or unit. 2N duplicates the whole system on separate A and B paths. Our post on [N+1 vs 2N UPS redundancy](/blogs/n-plus-1-vs-2n-ups-redundancy) compares the two.
+Decide how the UPS should behave when one part fails or is serviced. N+1 adds one spare module or unit. 2N duplicates the whole system on separate A and B paths. Our post on [N+1 vs 2N UPS redundancy](/blogs/data-centre/n-plus-1-vs-2n-ups-redundancy) compares the two.
 
 ### Worked example
 

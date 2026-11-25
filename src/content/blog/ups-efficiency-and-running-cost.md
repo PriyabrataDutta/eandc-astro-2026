@@ -77,13 +77,13 @@ Transformerless UPS avoid the losses of a large output transformer and are often
 
 ## Eco mode
 
-Many UPS offer an energy saver or eco mode, which feeds the load from filtered mains and keeps the inverter on standby, giving higher efficiency. The trade-off is less protection: the load sees mains disturbances and a short transfer if mains fails. See [UPS THD, bypass and eco mode explained](/blogs/ups-thd-surge-and-bypass-explained) before deciding.
+Many UPS offer an energy saver or eco mode, which feeds the load from filtered mains and keeps the inverter on standby, giving higher efficiency. The trade-off is less protection: the load sees mains disturbances and a short transfer if mains fails. See [UPS THD, bypass and eco mode explained](/blogs/power-quality/ups-thd-surge-and-bypass-explained) before deciding.
 
 ## Other running costs
 
 Efficiency is not the only running cost. Also compare:
 
-- **Battery replacement**, which depends on battery type and temperature. See [lithium vs lead-acid UPS batteries](/blogs/lithium-vs-lead-acid-ups-battery).
+- **Battery replacement**, which depends on battery type and temperature. See [lithium vs lead-acid UPS batteries](/blogs/batteries/lithium-vs-lead-acid-ups-battery).
 - **Cooling for the UPS and battery room.**
 - **Maintenance and AMC**, and the cost of downtime if service is slow.
 - **Input power factor and harmonics**, which affect cable, transformer and DG sizing.

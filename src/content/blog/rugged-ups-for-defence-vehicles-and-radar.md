@@ -18,7 +18,7 @@ faq:
 
 A UPS or inverter in a defence vehicle, radar shelter or warship has to keep working while it is shaken, heated, cooled and surrounded by sensitive radio equipment. It must accept whatever power the platform offers, usually a DC battery bus, a field generator or both, and deliver clean AC without a break. That means choosing for the platform's supply, environment, space and electromagnetic compatibility, not just for kVA.
 
-This post covers the platform requirements. For what "MIL grade" and IP ratings actually mean, read our post on [MIL grade vs IP55 industrial UPS](/blogs/mil-grade-vs-ip55-industrial-ups).
+This post covers the platform requirements. For what "MIL grade" and IP ratings actually mean, read our post on [MIL grade vs IP55 industrial UPS](/blogs/online-ups/mil-grade-vs-ip55-industrial-ups).
 
 ## Know the power source first
 

@@ -18,7 +18,7 @@ faq:
 
 A diagnostic centre needs a **UPS** wherever an interruption would cost a scan, a sample or a report: imaging consoles and reconstruction computers, laboratory analysers, PACS and reporting workstations, and the network that links them. The heavy power stages of CT, MRI and X-ray machines usually run from mains and the diesel generator (DG), not the UPS. Getting that split right, with an online UPS and clean neutral-to-earth conditions, is most of the job.
 
-Our post on [UPS for hospitals](/blogs/ups-for-hospitals-and-fire-alarm-systems) covers wards, theatres and ICUs. This one looks at standalone diagnostic centres and imaging chains, where the loads and the business problem are different.
+Our post on [UPS for hospitals](/blogs/online-ups/ups-for-hospitals-and-fire-alarm-systems) covers wards, theatres and ICUs. This one looks at standalone diagnostic centres and imaging chains, where the loads and the business problem are different.
 
 ## Imaging: what goes on UPS and what goes on DG
 
@@ -57,11 +57,11 @@ Images are worthless if they cannot be stored, sent and reported. Put these on U
 - Radiologist reporting workstations and their diagnostic displays.
 - Front-desk billing and appointment PCs, so patients are not left waiting.
 
-Servers should be set to **shut down cleanly** if the DG does not come on. The UPS's SNMP or shutdown software can trigger this. Our post on [SNMP and remote UPS monitoring](/blogs/snmp-and-remote-ups-monitoring) explains how.
+Servers should be set to **shut down cleanly** if the DG does not come on. The UPS's SNMP or shutdown software can trigger this. Our post on [SNMP and remote UPS monitoring](/blogs/monitoring/snmp-and-remote-ups-monitoring) explains how.
 
 ## Clean power: isolation and neutral-to-earth voltage
 
-Imaging and lab equipment is sensitive to electrical noise and often specifies a low neutral-to-earth voltage. In older buildings and shopping-complex units, where many diagnostic centres operate, the neutral can sit several volts above earth. A **transformer-based UPS**, or an [isolation transformer](/blogs/isolation-transformer-for-ups) close to the equipment, creates a new neutral-earth bond and blocks much common-mode noise.
+Imaging and lab equipment is sensitive to electrical noise and often specifies a low neutral-to-earth voltage. In older buildings and shopping-complex units, where many diagnostic centres operate, the neutral can sit several volts above earth. A **transformer-based UPS**, or an [isolation transformer](/blogs/power-quality/isolation-transformer-for-ups) close to the equipment, creates a new neutral-earth bond and blocks much common-mode noise.
 
 ## Diagnostic chains: many small sites
 

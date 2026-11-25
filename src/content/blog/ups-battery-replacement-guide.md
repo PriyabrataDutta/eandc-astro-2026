@@ -72,7 +72,7 @@ Lead-acid batteries contain lead and sulphuric acid. Under Indian rules, used ba
 
 ## To make the new batteries last
 
-Most early failures come from heat, wrong float voltage and deep cycling. Our post on [how to extend UPS battery life](/blogs/how-to-extend-ups-battery-life) covers the habits that matter, and [lithium vs lead-acid UPS batteries](/blogs/lithium-vs-lead-acid-ups-battery) helps if you are considering a change of chemistry.
+Most early failures come from heat, wrong float voltage and deep cycling. Our post on [how to extend UPS battery life](/blogs/batteries/how-to-extend-ups-battery-life) covers the habits that matter, and [lithium vs lead-acid UPS batteries](/blogs/batteries/lithium-vs-lead-acid-ups-battery) helps if you are considering a change of chemistry.
 
 ## Battery bank replacement services from E&C
 

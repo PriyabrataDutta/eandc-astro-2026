@@ -46,10 +46,10 @@ Group the loads by how long they can survive without power.
 
 1. **N+1 or 2N UPS** for the data centre and security operations, so one unit can fail or be maintained while the load is fully supported.
 2. **Separate UPS systems per terminal zone** so a fault in one area does not affect the whole terminal.
-3. **Dual-corded loads** fed from two UPS sources where the equipment allows, and a [static transfer switch](/blogs/what-is-a-static-transfer-switch) for single-corded critical loads.
+3. **Dual-corded loads** fed from two UPS sources where the equipment allows, and a [static transfer switch](/blogs/power-quality/what-is-a-static-transfer-switch) for single-corded critical loads.
 4. **Maintenance bypass** on every UPS so work can happen without a shutdown.
 
-A [modular UPS](/blogs/modular-ups-n-plus-1-redundancy) suits growing terminals: modules are added as gates open, and N+1 is built into each frame.
+A [modular UPS](/blogs/online-ups/modular-ups-n-plus-1-redundancy) suits growing terminals: modules are added as gates open, and N+1 is built into each frame.
 
 ## Sizing for growth and diversity
 
@@ -71,7 +71,7 @@ Large UPS installations need dedicated electrical rooms and battery rooms.
 - **Cable routes** between UPS, battery and distribution should be short and protected.
 - **Access** for replacing batteries and modules must be possible without disturbing passenger areas. Airside access may need security clearance and escorts.
 
-Lithium batteries are increasingly considered for their smaller footprint and lighter weight. They need their own battery management system and fire safety review; see [lithium vs lead-acid UPS battery](/blogs/lithium-vs-lead-acid-ups-battery).
+Lithium batteries are increasingly considered for their smaller footprint and lighter weight. They need their own battery management system and fire safety review; see [lithium vs lead-acid UPS battery](/blogs/batteries/lithium-vs-lead-acid-ups-battery).
 
 ## Smaller transport hubs
 
@@ -79,7 +79,7 @@ Metro stations, railway stations and bus terminals have the same categories of l
 
 ## Monitoring and integration
 
-Airport UPS systems should report into the building management or SCADA system. SNMP and MODBUS let the operations team see load, battery state and alarms in real time and log events for later analysis. Alerts should go to the duty electrical engineer, not just a screen. See [SNMP and remote UPS monitoring](/blogs/snmp-and-remote-ups-monitoring).
+Airport UPS systems should report into the building management or SCADA system. SNMP and MODBUS let the operations team see load, battery state and alarms in real time and log events for later analysis. Alerts should go to the duty electrical engineer, not just a screen. See [SNMP and remote UPS monitoring](/blogs/monitoring/snmp-and-remote-ups-monitoring).
 
 ## Service in a secure environment
 

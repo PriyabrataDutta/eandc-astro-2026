@@ -35,7 +35,7 @@ To make recombination work, the electrolyte has to be held still rather than slo
 - **AGM (absorbent glass mat):** the acid is soaked into a fine glass-fibre mat packed between the plates. AGM batteries have low internal resistance and deliver high currents well, which suits UPS loads with short to medium backup times. Most 12V SMF batteries sold for UPS use are AGM.
 - **GEL:** the acid is mixed with fumed silica to form a stiff gel. GEL batteries usually handle deep discharges and higher temperatures better than AGM, but give less peak current and need careful charging.
 
-For a closer comparison with flooded tubular batteries, read [tubular vs GEL vs AGM batteries](/blogs/tubular-vs-gel-vs-agm-battery).
+For a closer comparison with flooded tubular batteries, read [tubular vs GEL vs AGM batteries](/blogs/batteries/tubular-vs-gel-vs-agm-battery).
 
 ## Life and temperature
 
@@ -48,7 +48,7 @@ Practical steps:
 1. Keep the battery area as close to 25°C as you can, and away from DG set exhausts and direct sun.
 2. Leave ventilation gaps between blocks in racks and cabinets.
 3. Use a UPS or charger with battery temperature compensation where available.
-4. Test backup time once or twice a year, as in our [UPS maintenance checklist](/blogs/ups-maintenance-checklist).
+4. Test backup time once or twice a year, as in our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist).
 
 ## Float voltage matters
 
@@ -72,7 +72,7 @@ They are a good fit when backup time is from a few minutes to a few hours, the b
 
 **Choose flooded tubular** when outages are long and frequent and the battery is cycled deeply, as with home inverters and long-backup systems. Tubular batteries tolerate deep cycling and heat better and cost less per Ah, but they need water topping and a ventilated space.
 
-**Choose lithium (LiFePO4)** when the battery room is warm, outages are frequent, space or weight is limited, or you want to avoid replacing batteries every few years. Lithium costs more upfront but typically lasts much longer. The UPS must support lithium charging. Our [lithium vs lead-acid UPS battery](/blogs/lithium-vs-lead-acid-ups-battery) post compares them in detail.
+**Choose lithium (LiFePO4)** when the battery room is warm, outages are frequent, space or weight is limited, or you want to avoid replacing batteries every few years. Lithium costs more upfront but typically lasts much longer. The UPS must support lithium charging. Our [lithium vs lead-acid UPS battery](/blogs/batteries/lithium-vs-lead-acid-ups-battery) post compares them in detail.
 
 **Stay with SMF / VRLA** when you want the lowest upfront cost, sealed and clean installation, and moderate backup in a reasonably cool room.
 

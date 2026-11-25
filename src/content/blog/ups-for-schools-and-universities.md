@@ -58,7 +58,7 @@ Larger labs usually justify a three phase input online UPS, which balances the l
 Research instruments are the most sensitive loads on a campus. A spectrometer, chromatograph or PCR machine that loses power mid-run may lose a sample or a day's work. Things to plan for:
 
 - **Instrument makers often specify** a UPS rating, backup and power quality. Follow those specifications.
-- **Low neutral-to-earth voltage** is often required. A transformer-based UPS, or an isolation transformer on the output, helps. See [isolation transformer for UPS](/blogs/isolation-transformer-for-ups).
+- **Low neutral-to-earth voltage** is often required. A transformer-based UPS, or an isolation transformer on the output, helps. See [isolation transformer for UPS](/blogs/power-quality/isolation-transformer-for-ups).
 - **Freezers and incubators** themselves usually stay on DG, but their controllers and alarm systems can be put on a small UPS so a fault is still reported.
 - **One UPS per lab or instrument group** keeps a fault in one department from affecting another.
 
@@ -75,7 +75,7 @@ Keeping each building on its own UPS also means one block can be serviced during
 
 ## Monitoring across a spread-out campus
 
-The estate team cannot check every UPS daily. Connecting each UPS to the campus network with SNMP lets the IT team see status, load and battery condition from one console and receive alerts. Our post on [SNMP and remote UPS monitoring](/blogs/snmp-and-remote-ups-monitoring) covers set-up.
+The estate team cannot check every UPS daily. Connecting each UPS to the campus network with SNMP lets the IT team see status, load and battery condition from one console and receive alerts. Our post on [SNMP and remote UPS monitoring](/blogs/monitoring/snmp-and-remote-ups-monitoring) covers set-up.
 
 ## Installation and battery rooms
 
@@ -86,7 +86,7 @@ The estate team cannot check every UPS daily. Connecting each UPS to the campus 
 
 ## Service and budgeting
 
-Institutions buy through annual budgets and tenders. Factor in battery replacement every few years, preventive maintenance visits and an AMC, not just the UPS purchase. Our [UPS maintenance checklist](/blogs/ups-maintenance-checklist) lists what each visit should cover, and [UPS price in India](/ups-price-in-india) explains what drives cost.
+Institutions buy through annual budgets and tenders. Factor in battery replacement every few years, preventive maintenance visits and an AMC, not just the UPS purchase. Our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist) lists what each visit should cover, and [UPS price in India](/ups-price-in-india) explains what drives cost.
 
 ## E&C UPS for schools and universities
 

@@ -49,7 +49,7 @@ Government departments, PSU offices and insurance branches share a common patter
 - Heat and dust at plant sites
 - Long cable runs and uncertain earthing
 
-These conditions favour a rugged, transformer-based online UPS with a wide input window. Where control panels and instrumentation run from DC systems, a battery charger and industrial inverter may suit better than a conventional UPS. See [mil grade vs IP55 industrial UPS](/blogs/mil-grade-vs-ip55-industrial-ups) for harsher environments.
+These conditions favour a rugged, transformer-based online UPS with a wide input window. Where control panels and instrumentation run from DC systems, a battery charger and industrial inverter may suit better than a conventional UPS. See [mil grade vs IP55 industrial UPS](/blogs/online-ups/mil-grade-vs-ip55-industrial-ups) for harsher environments.
 
 ## UPS for insurance company offices
 
@@ -59,7 +59,7 @@ These conditions favour a rugged, transformer-based online UPS with a wide input
 - Backup sized to the branch's DG arrangement; many branches in leased premises share the building's DG.
 - Remote monitoring so the IT team can see battery and mains status across branches.
 
-At the data centre, redundancy and monitoring matter more. A [modular UPS with N+1 redundancy](/blogs/modular-ups-n-plus-1-redundancy) or parallel UPS units are common choices.
+At the data centre, redundancy and monitoring matter more. A [modular UPS with N+1 redundancy](/blogs/online-ups/modular-ups-n-plus-1-redundancy) or parallel UPS units are common choices.
 
 ## Writing a clear tender specification
 
@@ -68,7 +68,7 @@ Many problems with UPS in public offices start with vague tenders. A good specif
 1. **Capacity** in kVA and kW, with the expected load.
 2. **Topology:** online double conversion, and whether transformer-based or transformerless.
 3. **Input and output:** single or three phase, voltage window, frequency range.
-4. **Backup time** at a stated load, and battery type (SMF/VRLA, tubular or lithium). See [SMF vs VRLA battery](/blogs/smf-vs-vrla-battery).
+4. **Backup time** at a stated load, and battery type (SMF/VRLA, tubular or lithium). See [SMF vs VRLA battery](/blogs/batteries/smf-vs-vrla-battery).
 5. **Bypass:** static and maintenance bypass.
 6. **Communication:** SNMP or other interfaces for monitoring.
 7. **Installation scope:** cabling, battery racks, earthing, distribution board.
@@ -100,7 +100,7 @@ Many government offices are in older buildings with limited space and old wiring
 
 ## Service and AMC
 
-Public sector UPS often stays in service for many years. A comprehensive AMC with preventive visits, battery checks and clear repair terms keeps it reliable. Our [UPS maintenance checklist](/blogs/ups-maintenance-checklist) lists what each visit should cover.
+Public sector UPS often stays in service for many years. A comprehensive AMC with preventive visits, battery checks and clear repair terms keeps it reliable. Our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist) lists what each visit should cover.
 
 ## E&C UPS for government, PSU and insurance offices
 

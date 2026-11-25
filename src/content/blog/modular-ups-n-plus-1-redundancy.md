@@ -78,7 +78,7 @@ For critical sites some owners go further, to N+2, or run two separate frames fe
 - **Small, stable loads.** For a few kVA that will not grow, a single online UPS such as [Accenta](/accenta) or [Renata-I](/renata) costs less.
 - **Harsh sites.** Dusty, hot plant rooms may suit a rugged transformer-based UPS like [Renata-300](/renata300) or an [IP-rated industrial UPS](/ip-41-55-online-ups) better.
 - **When the frame itself is the risk.** The modules are redundant, but the frame's backplane, static bypass, controls and usually the battery string are shared. For loads that cannot tolerate any single point of failure, use two separate frames or UPS systems on separate feeds (2N).
-- **When you need galvanic isolation.** Most modular UPS are transformerless. If your load needs isolation, add an [isolation transformer](/blogs/isolation-transformer-for-ups).
+- **When you need galvanic isolation.** Most modular UPS are transformerless. If your load needs isolation, add an [isolation transformer](/blogs/power-quality/isolation-transformer-for-ups).
 
 ## The Renata Modular UPS
 

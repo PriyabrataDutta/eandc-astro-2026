@@ -48,11 +48,11 @@ Cement dust is fine and abrasive; steel plant dust can be conductive. Either can
 2. **Use a sealed enclosure** such as IP54 or IP55 when the UPS has to sit near the process.
 3. **Filter and clean.** If an open enclosure is used, fit filters and clean them on a fixed schedule.
 
-Our post on [MIL grade vs IP55 industrial UPS](/blogs/mil-grade-vs-ip55-industrial-ups) explains what the IP digits mean.
+Our post on [MIL grade vs IP55 industrial UPS](/blogs/online-ups/mil-grade-vs-ip55-industrial-ups) explains what the IP digits mean.
 
 ### Heat
 
-Ambient temperatures near furnaces, kilns and coolers can be far above what a typical UPS or battery is rated for. Battery life falls sharply as temperature rises, so the battery room matters as much as the UPS. Keep batteries cool or choose a chemistry suited to heat, such as [Ni-Cd](/blogs/nickel-cadmium-battery-explained).
+Ambient temperatures near furnaces, kilns and coolers can be far above what a typical UPS or battery is rated for. Battery life falls sharply as temperature rises, so the battery room matters as much as the UPS. Keep batteries cool or choose a chemistry suited to heat, such as [Ni-Cd](/blogs/batteries/nickel-cadmium-battery-explained).
 
 ### Vibration
 
@@ -67,7 +67,7 @@ Steel and cement plants generate much of their own power quality trouble:
 - **Flicker and imbalance** on weaker grid connections.
 - **Regenerative energy** from some drives and hoists.
 
-A double conversion online UPS isolates the load from most of this, but the UPS must be chosen to cope with it: a **wide input voltage range** so dips do not drain the battery, good tolerance of distorted input, and, where some loads feed energy back, a design that handles **regenerative power**. An isolation transformer, with a K-rating where harmonic currents are high, adds noise rejection and a clean neutral-earth bond. See [isolation transformers for UPS](/blogs/isolation-transformer-for-ups) and [UPS THD and bypass](/blogs/ups-thd-surge-and-bypass-explained).
+A double conversion online UPS isolates the load from most of this, but the UPS must be chosen to cope with it: a **wide input voltage range** so dips do not drain the battery, good tolerance of distorted input, and, where some loads feed energy back, a design that handles **regenerative power**. An isolation transformer, with a K-rating where harmonic currents are high, adds noise rejection and a clean neutral-earth bond. See [isolation transformers for UPS](/blogs/power-quality/isolation-transformer-for-ups) and [UPS THD and bypass](/blogs/power-quality/ups-thd-surge-and-bypass-explained).
 
 ## Stabilizer or UPS?
 
@@ -82,7 +82,7 @@ Dust, heat and vibration shorten the interval between problems, so maintenance h
 - **Measure battery voltages and temperatures** and replace weak cells early.
 - **Test the bypass and transfer** during planned shutdowns, when a fault will not stop production.
 
-Our [UPS maintenance checklist](/blogs/ups-maintenance-checklist) lists the routine checks, and an [AMC](/eandcpower-services) can cover planned visits.
+Our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist) lists the routine checks, and an [AMC](/eandcpower-services) can cover planned visits.
 
 ## Sizing and backup time
 

@@ -1,0 +1,14 @@
+---
+// Category page 1 (/blogs/{category}); later pages: blogs/[category]/page/[page].astro.
+import BlogList from '../../components/BlogList.astro';
+import { topics, paged } from '../../lib/blog.js';
+
+export function getStaticPaths() {
+  return topics.map(([tag, slug, list]) => {
+    const pages = paged(list);
+    return { params: { category: slug }, props: { tag, slug, items: pages[0], pages: pages.length } };
+  });
+}
+const { tag, slug, items, pages } = Astro.props;
+---
+<BlogList items={items} page={1} pages={pages} base={`/blogs/${slug}`} topic={tag} />

@@ -55,7 +55,7 @@ A UPS only proves its worth during a power cut, which is the worst time to disco
 | Cooling fans | Around 5 to 7 years | Dust, continuous high load |
 | Capacitors | Around 5 to 10 years | Heat, high load |
 
-These are typical values; the UPS maker's manual gives the figures for your model. For battery types and backup time, see [UPS battery backup time](/guides/ups-battery-backup-time) and [lithium vs lead-acid batteries](/blogs/lithium-vs-lead-acid-ups-battery).
+These are typical values; the UPS maker's manual gives the figures for your model. For battery types and backup time, see [UPS battery backup time](/guides/ups-battery-backup-time) and [lithium vs lead-acid batteries](/blogs/batteries/lithium-vs-lead-acid-ups-battery).
 
 ## Watch it remotely
 

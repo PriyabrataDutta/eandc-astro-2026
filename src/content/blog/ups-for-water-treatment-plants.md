@@ -60,8 +60,8 @@ Water and sewage plants are harder on electronics than they look:
 Practical steps:
 
 - **Locate the UPS in a dedicated electrical room**, away from chlorine stores, wet wells and inlet channels, with ventilation designed for the site.
-- **Use sealed enclosures** such as IP54 or IP55 when equipment must sit in a kiosk or plant area; see [MIL grade vs IP55 industrial UPS](/blogs/mil-grade-vs-ip55-industrial-ups).
-- **Mind the batteries.** Heat shortens battery life; shade and ventilate kiosks or choose a battery type suited to heat. See [tubular vs gel vs AGM batteries](/blogs/tubular-vs-gel-vs-agm-battery).
+- **Use sealed enclosures** such as IP54 or IP55 when equipment must sit in a kiosk or plant area; see [MIL grade vs IP55 industrial UPS](/blogs/online-ups/mil-grade-vs-ip55-industrial-ups).
+- **Mind the batteries.** Heat shortens battery life; shade and ventilate kiosks or choose a battery type suited to heat. See [tubular vs gel vs AGM batteries](/blogs/batteries/tubular-vs-gel-vs-agm-battery).
 
 ## Remote and unmanned sites
 
@@ -70,7 +70,7 @@ Many utilities run dozens of pumping stations and small treatment units with no 
 - **Monitor every UPS and DG remotely.** A UPS stuck on battery, a battery at end of life or a DG out of fuel should raise an alert, not be found on the next site visit.
 - **Bring UPS alarms into SCADA** using dry contacts or a communication port, so the control room sees power status next to process data.
 - **Standardise equipment** across sites to simplify spares and training.
-- **Plan maintenance** with a fixed schedule; see our [UPS maintenance checklist](/blogs/ups-maintenance-checklist).
+- **Plan maintenance** with a fixed schedule; see our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist).
 
 ## A quick audit for existing plants
 
@@ -87,7 +87,7 @@ If a plant already has UPS units, a short check often finds easy wins:
 - Size from the control panel load list, analysers and communication equipment; see [UPS sizing in kVA](/guides/ups-sizing-kva).
 - Treatment plants with a DG typically need backup to cover DG start and changeover with margin.
 - Remote sites without a DG often need longer backup, so telemetry can report and hold a safe state through the outage; see [UPS battery backup time](/guides/ups-battery-backup-time).
-- For larger plants, consider DC power for the control system; our post on [UPS for SCADA, PLC and DCS](/blogs/ups-for-scada-plc-and-dcs) compares the options.
+- For larger plants, consider DC power for the control system; our post on [UPS for SCADA, PLC and DCS](/blogs/industrial-ups/ups-for-scada-plc-and-dcs) compares the options.
 
 ## E&C industrial UPS for water treatment
 

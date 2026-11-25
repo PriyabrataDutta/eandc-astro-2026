@@ -18,7 +18,7 @@ faq:
 
 For industrial DC systems, **nickel cadmium (Ni-Cd)** wins on proven reliability, tolerance of heat, cold and abuse, and simple charging without electronics. **Lithium-ion**, usually lithium iron phosphate (LiFePO4) in stationary use, wins on space, weight, cycle life and built-in monitoring, but depends on a battery management system (BMS). Ni-Cd is the conservative choice for substations and power plants on float duty; lithium suits cycling duty and tight spaces.
 
-If you are new to Ni-Cd, start with [what a nickel cadmium battery is](/blogs/nickel-cadmium-battery-explained). For lithium against lead-acid in a UPS, see [lithium vs lead-acid UPS batteries](/blogs/lithium-vs-lead-acid-ups-battery). This post compares the two premium options directly.
+If you are new to Ni-Cd, start with [what a nickel cadmium battery is](/blogs/batteries/nickel-cadmium-battery-explained). For lithium against lead-acid in a UPS, see [lithium vs lead-acid UPS batteries](/blogs/batteries/lithium-vs-lead-acid-ups-battery). This post compares the two premium options directly.
 
 ## Nickel cadmium vs lithium ion battery at a glance
 
@@ -77,7 +77,7 @@ The BMS measures cell voltages and temperatures and reports alarms, giving more 
 
 Ni-Cd and lithium need different chargers.
 
-- **Ni-Cd** uses float and boost voltages set per cell, typically with a float cum boost charger (FCBC) and often a dropper to hold the load voltage within limits during boost. See [what an FCBC charger is](/blogs/fcbc-battery-charger-explained).
+- **Ni-Cd** uses float and boost voltages set per cell, typically with a float cum boost charger (FCBC) and often a dropper to hold the load voltage within limits during boost. See [what an FCBC charger is](/blogs/batteries/fcbc-battery-charger-explained).
 - **Lithium-ion** needs a constant current, constant voltage profile matched to its BMS, and usually communication between charger and BMS.
 
 When switching chemistry on an existing DC system, check the charger, the DC voltage window and the protection settings, not just the battery.

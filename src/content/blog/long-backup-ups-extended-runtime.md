@@ -51,7 +51,7 @@ Ask the supplier for the charger capacity in amps and the expected recharge time
 - **DC cabling and protection.** Long runs at high current need large cables to limit voltage drop, with DC breakers or fuses near the bank.
 - **Access** for inspection, testing and replacement.
 
-Lithium (LiFePO4) batteries take much less space and weight for the same energy and tolerate heat better, but need a compatible UPS and a battery management system. See [lithium vs lead-acid UPS batteries](/blogs/lithium-vs-lead-acid-ups-battery).
+Lithium (LiFePO4) batteries take much less space and weight for the same energy and tolerate heat better, but need a compatible UPS and a battery management system. See [lithium vs lead-acid UPS batteries](/blogs/batteries/lithium-vs-lead-acid-ups-battery).
 
 ## Step 4: Battery or DG?
 
@@ -67,7 +67,7 @@ As runtime grows, the battery grows with it, while a DG's size depends on the lo
 
 ## Long backup UPS for hospitals
 
-Hospitals usually rely on DG sets for long outages, with UPS batteries bridging the gap. Longer battery backup is often chosen for specific areas: data and PACS rooms that must shut down cleanly, and critical areas where the hospital wants extra time if the DG fails to start. Requirements vary, so follow the applicable codes and the authority having jurisdiction. Our post on [UPS for hospitals](/blogs/ups-for-hospitals-and-fire-alarm-systems) covers DG coordination.
+Hospitals usually rely on DG sets for long outages, with UPS batteries bridging the gap. Longer battery backup is often chosen for specific areas: data and PACS rooms that must shut down cleanly, and critical areas where the hospital wants extra time if the DG fails to start. Requirements vary, so follow the applicable codes and the authority having jurisdiction. Our post on [UPS for hospitals](/blogs/online-ups/ups-for-hospitals-and-fire-alarm-systems) covers DG coordination.
 
 ## E&C UPS for long backup
 

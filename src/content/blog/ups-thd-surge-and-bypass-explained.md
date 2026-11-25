@@ -77,7 +77,7 @@ But a UPS is not a lightning arrester:
 - When the UPS is on bypass, the load is connected to mains, so surges pass through.
 - Surges can enter through data, telephone and earth paths too.
 
-So fit **surge protective devices (SPDs)** at the main and sub-distribution boards, coordinated by type, and make sure the earthing is sound. For noise and neutral-to-earth problems, see [isolation transformers for UPS](/blogs/isolation-transformer-for-ups).
+So fit **surge protective devices (SPDs)** at the main and sub-distribution boards, coordinated by type, and make sure the earthing is sound. For noise and neutral-to-earth problems, see [isolation transformers for UPS](/blogs/power-quality/isolation-transformer-for-ups).
 
 ## What is energy saver (eco) mode on a UPS?
 
@@ -92,4 +92,4 @@ UPS eco mode is not the same thing as E&C's [industrial energy saver](/energy-sa
 
 ## E&C online UPS and power quality
 
-E&C's [Renata-I](/renata) is a transformer-based double conversion UPS, 2 to 30 kVA, with IGBT PWM output and an inbuilt static bypass. The [Renata-DS](/renatacyclone), 10 to 300 kVA, has a high input power factor, low input current THD, and both static and maintenance bypass. The [Renata Modular UPS](/renatamodular), 10 to 1200 kVA, uses advanced PFC technology and includes lightning, surge, short circuit and overload protection with an EMI / RFI noise filter. For regular checks of bypass and surge protection, see the [UPS maintenance checklist](/blogs/ups-maintenance-checklist).
+E&C's [Renata-I](/renata) is a transformer-based double conversion UPS, 2 to 30 kVA, with IGBT PWM output and an inbuilt static bypass. The [Renata-DS](/renatacyclone), 10 to 300 kVA, has a high input power factor, low input current THD, and both static and maintenance bypass. The [Renata Modular UPS](/renatamodular), 10 to 1200 kVA, uses advanced PFC technology and includes lightning, surge, short circuit and overload protection with an EMI / RFI noise filter. For regular checks of bypass and surge protection, see the [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist).

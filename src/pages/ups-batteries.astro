@@ -8,6 +8,7 @@ import Faq from '../components/Faq.astro';
 import Quote from '../components/Quote.astro';
 import { ORG_REF, urlFor } from '../lib/legacy.js';
 import { families, products } from '../data/products.js';
+import { postUrl } from '../lib/blog.js';
 
 const fam = families.battery;
 const range = ['smf', 'tubular-batteries-manufacturing', 'agm-gel', 'lithium-ion', 'nickel'];
@@ -111,7 +112,7 @@ const schema = [
           <tbody>{types.map(([k, ...v]) => <tr><th scope="row">{k}</th>{v.map((x) => <td>{x}</td>)}</tr>)}</tbody>
         </table>
       </div>
-      <p class="hb-p" style="margin-top:12px;">Life figures are typical at 25°C; as a rule of thumb, lead acid battery life roughly halves for every 8 to 10°C above that. More in <a href="/blogs/lithium-vs-lead-acid-ups-battery">lithium vs lead acid UPS batteries</a>.</p>
+      <p class="hb-p" style="margin-top:12px;">Life figures are typical at 25°C; as a rule of thumb, lead acid battery life roughly halves for every 8 to 10°C above that. More in <a href="/blogs/batteries/lithium-vs-lead-acid-ups-battery">lithium vs lead acid UPS batteries</a>.</p>
     </div>
   </section>
 
@@ -133,7 +134,7 @@ const schema = [
   <section class="pd-sec alt" aria-labelledby="h-guides">
     <div class="container">
       <h2 class="pd-h" id="h-guides">Battery guides</h2>
-      <ul class="hb-tags">{guides.map(([s, t]) => <li><a href={`/blogs/${s}`}>{t}</a></li>)}</ul>
+      <ul class="hb-tags">{guides.map(([s, t]) => <li><a href={postUrl(s)}>{t}</a></li>)}</ul>
     </div>
   </section>
 

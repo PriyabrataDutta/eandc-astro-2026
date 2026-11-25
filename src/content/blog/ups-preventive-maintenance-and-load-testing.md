@@ -18,7 +18,7 @@ faq:
 
 **UPS preventive maintenance** is a scheduled engineer visit that cleans, inspects, measures and tests the UPS before something fails. A thorough visit goes beyond reading the display: it includes a thermal scan of connections, a battery health test, checks on fans and capacitors against the maker's replacement schedule, and, at least once a year for critical sites, a **load bank test** that proves the UPS can still carry its full rating.
 
-Our [UPS maintenance checklist](/blogs/ups-maintenance-checklist) lists what to check monthly, quarterly and yearly. This post goes into the engineer's side: what the tests are, how they are done safely, and what you should get in the report.
+Our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist) lists what to check monthly, quarterly and yearly. This post goes into the engineer's side: what the tests are, how they are done safely, and what you should get in the report.
 
 ## What a preventive maintenance visit includes
 
@@ -92,4 +92,4 @@ Factories, power plants and process industry put more stress on a UPS than an of
 
 ## Online UPS servicing from E&C
 
-E&C provides preventive maintenance and breakdown support during warranty, then comprehensive or non-comprehensive AMC, or per-call service, from service locations across India; see [UPS service and AMC](/eandcpower-services). Transformer-based UPS such as the [Renata-I](/renata) and [Renata-300](/renata300) have inbuilt static bypass, and SNMP or RS-232 communication helps record events between visits. [UPS remote monitoring](/ups-remote-monitoring) adds cloud logging of load, battery voltage and mode with SMS and email alerts. For how bypass works during these tests, see [UPS bypass and eco mode explained](/blogs/ups-thd-surge-and-bypass-explained).
+E&C provides preventive maintenance and breakdown support during warranty, then comprehensive or non-comprehensive AMC, or per-call service, from service locations across India; see [UPS service and AMC](/eandcpower-services). Transformer-based UPS such as the [Renata-I](/renata) and [Renata-300](/renata300) have inbuilt static bypass, and SNMP or RS-232 communication helps record events between visits. [UPS remote monitoring](/ups-remote-monitoring) adds cloud logging of load, battery voltage and mode with SMS and email alerts. For how bypass works during these tests, see [UPS bypass and eco mode explained](/blogs/power-quality/ups-thd-surge-and-bypass-explained).

@@ -33,7 +33,7 @@ Both give a sine wave AC output from a battery. The difference is where the batt
 | Typical sites | Substations, power plants, pumping stations, process plants | Factories, CNC shops, offices, data rooms |
 | Mains bypass | Optional static transfer switch | Static bypass built in |
 
-For how FCBCs work, see [FCBC battery charger explained](/blogs/fcbc-battery-charger-explained), and for the household version of this question, [UPS vs inverter](/guides/ups-vs-inverter).
+For how FCBCs work, see [FCBC battery charger explained](/blogs/batteries/fcbc-battery-charger-explained), and for the household version of this question, [UPS vs inverter](/guides/ups-vs-inverter).
 
 ## Power backup for CNC machines
 
@@ -48,7 +48,7 @@ So an **uninterruptible power supply for CNC** is usually sized for the control 
 
 Points for CNC shops:
 
-- **Neutral-to-earth voltage.** Many CNC controls are sensitive to it. A transformer-based UPS, or an [isolation transformer](/blogs/isolation-transformer-for-ups) after a transformerless one, helps.
+- **Neutral-to-earth voltage.** Many CNC controls are sensitive to it. A transformer-based UPS, or an [isolation transformer](/blogs/power-quality/isolation-transformer-for-ups) after a transformerless one, helps.
 - **Voltage swings.** For the full machine, a servo stabilizer upstream handles slow swings; the UPS covers the controls.
 - **One UPS per machine or a central UPS?** Per-machine UPS are simple to install. A central UPS with a dedicated control-power distribution is easier to maintain across many machines.
 

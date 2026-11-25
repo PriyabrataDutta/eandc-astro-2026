@@ -276,6 +276,306 @@
       "source": "/line_ups-2",
       "destination": "/lineups",
       "permanent": true
+    },
+    {
+      "source": "/blogs/choose-ev-charger-for-business-india",
+      "destination": "/blogs/ev-charging/choose-ev-charger-for-business-india",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/designing-solar-street-lighting",
+      "destination": "/blogs/solar/designing-solar-street-lighting",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ev-charging-for-commercial-parking",
+      "destination": "/blogs/ev-charging/ev-charging-for-commercial-parking",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/fcbc-battery-charger-explained",
+      "destination": "/blogs/batteries/fcbc-battery-charger-explained",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/how-mppt-solar-charge-controller-works",
+      "destination": "/blogs/solar/how-mppt-solar-charge-controller-works",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/how-to-extend-ups-battery-life",
+      "destination": "/blogs/batteries/how-to-extend-ups-battery-life",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/how-to-size-ups-for-data-centre",
+      "destination": "/blogs/data-centre/how-to-size-ups-for-data-centre",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/industrial-inverter-for-cnc-and-pumping-stations",
+      "destination": "/blogs/industrial-ups/industrial-inverter-for-cnc-and-pumping-stations",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/isolation-transformer-for-ups",
+      "destination": "/blogs/power-quality/isolation-transformer-for-ups",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/isolation-transformer-vs-isolation-ups",
+      "destination": "/blogs/power-quality/isolation-transformer-vs-isolation-ups",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/lithium-vs-lead-acid-ups-battery",
+      "destination": "/blogs/batteries/lithium-vs-lead-acid-ups-battery",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/long-backup-ups-extended-runtime",
+      "destination": "/blogs/online-ups/long-backup-ups-extended-runtime",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/mil-grade-vs-ip55-industrial-ups",
+      "destination": "/blogs/online-ups/mil-grade-vs-ip55-industrial-ups",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/modular-ups-n-plus-1-redundancy",
+      "destination": "/blogs/online-ups/modular-ups-n-plus-1-redundancy",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/n-plus-1-vs-2n-ups-redundancy",
+      "destination": "/blogs/data-centre/n-plus-1-vs-2n-ups-redundancy",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/nicd-vs-lithium-ion-battery",
+      "destination": "/blogs/batteries/nicd-vs-lithium-ion-battery",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/nickel-cadmium-battery-explained",
+      "destination": "/blogs/batteries/nickel-cadmium-battery-explained",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/on-grid-vs-off-grid-vs-hybrid-solar-inverter",
+      "destination": "/blogs/solar/on-grid-vs-off-grid-vs-hybrid-solar-inverter",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/planning-a-large-ups-installation",
+      "destination": "/blogs/data-centre/planning-a-large-ups-installation",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/power-backup-for-commercial-buildings",
+      "destination": "/blogs/online-ups/power-backup-for-commercial-buildings",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/power-backup-for-food-processing-and-cold-chain",
+      "destination": "/blogs/industrial-ups/power-backup-for-food-processing-and-cold-chain",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/power-backup-for-pharmaceutical-plants",
+      "destination": "/blogs/industrial-ups/power-backup-for-pharmaceutical-plants",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/power-backup-for-telecom-and-broadcast-towers",
+      "destination": "/blogs/industrial-ups/power-backup-for-telecom-and-broadcast-towers",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/power-protection-for-textile-mills",
+      "destination": "/blogs/industrial-ups/power-protection-for-textile-mills",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/rugged-ups-for-defence-vehicles-and-radar",
+      "destination": "/blogs/industrial-ups/rugged-ups-for-defence-vehicles-and-radar",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/smf-vs-vrla-battery",
+      "destination": "/blogs/batteries/smf-vs-vrla-battery",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/snmp-and-remote-ups-monitoring",
+      "destination": "/blogs/monitoring/snmp-and-remote-ups-monitoring",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/solar-hybrid-system-for-factories",
+      "destination": "/blogs/solar/solar-hybrid-system-for-factories",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/three-phase-vs-single-phase-ups",
+      "destination": "/blogs/online-ups/three-phase-vs-single-phase-ups",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/tubular-vs-gel-vs-agm-battery",
+      "destination": "/blogs/batteries/tubular-vs-gel-vs-agm-battery",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-battery-replacement-guide",
+      "destination": "/blogs/service/ups-battery-replacement-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-efficiency-and-running-cost",
+      "destination": "/blogs/online-ups/ups-efficiency-and-running-cost",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-airports",
+      "destination": "/blogs/online-ups/ups-for-airports",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-banks-and-atms",
+      "destination": "/blogs/online-ups/ups-for-banks-and-atms",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-broadcast-and-research-labs",
+      "destination": "/blogs/online-ups/ups-for-broadcast-and-research-labs",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-cctv-and-security-systems",
+      "destination": "/blogs/online-ups/ups-for-cctv-and-security-systems",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-diagnostic-centres",
+      "destination": "/blogs/online-ups/ups-for-diagnostic-centres",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-government-and-psu-offices",
+      "destination": "/blogs/online-ups/ups-for-government-and-psu-offices",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-hospitals-and-fire-alarm-systems",
+      "destination": "/blogs/online-ups/ups-for-hospitals-and-fire-alarm-systems",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-hotels-and-hospitality",
+      "destination": "/blogs/online-ups/ups-for-hotels-and-hospitality",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-oil-gas-and-petrochemical-plants",
+      "destination": "/blogs/industrial-ups/ups-for-oil-gas-and-petrochemical-plants",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-railways-and-metro",
+      "destination": "/blogs/industrial-ups/ups-for-railways-and-metro",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-retail-and-malls",
+      "destination": "/blogs/online-ups/ups-for-retail-and-malls",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-scada-plc-and-dcs",
+      "destination": "/blogs/industrial-ups/ups-for-scada-plc-and-dcs",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-schools-and-universities",
+      "destination": "/blogs/online-ups/ups-for-schools-and-universities",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-semiconductor-and-electronics-factories",
+      "destination": "/blogs/industrial-ups/ups-for-semiconductor-and-electronics-factories",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-steel-and-cement-plants",
+      "destination": "/blogs/industrial-ups/ups-for-steel-and-cement-plants",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-for-water-treatment-plants",
+      "destination": "/blogs/industrial-ups/ups-for-water-treatment-plants",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-installation-and-commissioning-checklist",
+      "destination": "/blogs/service/ups-installation-and-commissioning-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-maintenance-checklist",
+      "destination": "/blogs/service/ups-maintenance-checklist",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-preventive-maintenance-and-load-testing",
+      "destination": "/blogs/service/ups-preventive-maintenance-and-load-testing",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/ups-thd-surge-and-bypass-explained",
+      "destination": "/blogs/power-quality/ups-thd-surge-and-bypass-explained",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/what-a-power-audit-checks",
+      "destination": "/blogs/power-quality/what-a-power-audit-checks",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/what-a-ups-amc-covers",
+      "destination": "/blogs/service/what-a-ups-amc-covers",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/what-is-a-static-transfer-switch",
+      "destination": "/blogs/power-quality/what-is-a-static-transfer-switch",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/what-is-rack-mount-ups",
+      "destination": "/blogs/online-ups/what-is-rack-mount-ups",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/what-is-solar-dc-ups",
+      "destination": "/blogs/solar/what-is-solar-dc-ups",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/when-to-replace-or-upgrade-a-ups",
+      "destination": "/blogs/service/when-to-replace-or-upgrade-a-ups",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/topic/:category/page/:page",
+      "destination": "/blogs/:category/page/:page",
+      "permanent": true
+    },
+    {
+      "source": "/blogs/topic/:category",
+      "destination": "/blogs/:category",
+      "permanent": true
     }
   ]
 }

@@ -34,7 +34,7 @@ When mains fails, the UPS carries the chain while the DG starts and the changeov
 
 ### Redundancy
 
-Playout and master control usually have dual power supplies in the equipment. Feed each supply from a **different UPS**, or from a redundant system, so one UPS fault cannot take the channel off air. A [modular UPS with N+1 redundancy](/blogs/modular-ups-n-plus-1-redundancy) lets a failed module be swapped without a shutdown, which suits round-the-clock operation.
+Playout and master control usually have dual power supplies in the equipment. Feed each supply from a **different UPS**, or from a redundant system, so one UPS fault cannot take the channel off air. A [modular UPS with N+1 redundancy](/blogs/online-ups/modular-ups-n-plus-1-redundancy) lets a failed module be swapped without a shutdown, which suits round-the-clock operation.
 
 ### Outside broadcast and remote sites
 
@@ -51,7 +51,7 @@ Research labs, in universities, institutes and industry, have a different mix:
 
 ### Clean power and grounding
 
-Instruments measuring tiny signals are sensitive to electrical noise and neutral-to-earth voltage. Many specify a low neutral-to-earth voltage in their installation guide. Use a transformer-based UPS, or add an [isolation transformer](/blogs/isolation-transformer-for-ups) close to the instruments. Keep the UPS output for instruments separate from motors, pumps and compressors, which inject noise and inrush current.
+Instruments measuring tiny signals are sensitive to electrical noise and neutral-to-earth voltage. Many specify a low neutral-to-earth voltage in their installation guide. Use a transformer-based UPS, or add an [isolation transformer](/blogs/power-quality/isolation-transformer-for-ups) close to the instruments. Keep the UPS output for instruments separate from motors, pumps and compressors, which inject noise and inrush current.
 
 ### Backup time
 
@@ -83,7 +83,7 @@ Our guide to [UPS battery backup time](/guides/ups-battery-backup-time) shows ho
 ## Planning tips
 
 - **List loads by nameplate**, not guesswork, and allow for start-up current. See [UPS sizing in kVA](/guides/ups-sizing-kva).
-- **Use bypass sensibly.** Static and maintenance bypass let the UPS be serviced without a shutdown; see [THD, surge and bypass](/blogs/ups-thd-surge-and-bypass-explained).
+- **Use bypass sensibly.** Static and maintenance bypass let the UPS be serviced without a shutdown; see [THD, surge and bypass](/blogs/power-quality/ups-thd-surge-and-bypass-explained).
 - **Monitor the UPS** over SNMP so the engineering team knows before a battery fails.
 - **Schedule maintenance** in programme breaks or between experiments, and consider an [AMC](/eandcpower-services).
 

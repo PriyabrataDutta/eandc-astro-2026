@@ -62,7 +62,7 @@ Large campuses usually choose distributed UPS, with all units reporting to one m
 
 Cameras on poles, gates and boundary walls bring extra issues:
 
-- **Heat:** outdoor cabinets in Indian summers get very hot. Lead-acid batteries lose life quickly at high temperatures. Lithium battery UPS units tolerate cycling better and are compact; see [lithium vs lead-acid UPS battery](/blogs/lithium-vs-lead-acid-ups-battery).
+- **Heat:** outdoor cabinets in Indian summers get very hot. Lead-acid batteries lose life quickly at high temperatures. Lithium battery UPS units tolerate cycling better and are compact; see [lithium vs lead-acid UPS battery](/blogs/batteries/lithium-vs-lead-acid-ups-battery).
 - **Surges:** long outdoor cables pick up lightning-induced surges. Surge protection on power and data lines is as important as the UPS.
 - **Weatherproof enclosures** for any UPS or battery mounted outside.
 
@@ -70,11 +70,11 @@ Cameras on poles, gates and boundary walls bring extra issues:
 
 - **Online UPS** for NVRs, servers and core switches. Recorders write to disk continuously, and an online UPS removes the transfer gap and filters voltage swings.
 - **Line interactive UPS** can suit small edge cabinets with a few cameras and a less critical role, where cost and size matter more.
-- **Rack mount UPS** for network cabinets with 19-inch rails. See [what is a rack mount UPS](/blogs/what-is-rack-mount-ups).
+- **Rack mount UPS** for network cabinets with 19-inch rails. See [what is a rack mount UPS](/blogs/online-ups/what-is-rack-mount-ups).
 
 ## Monitoring the monitoring system
 
-A security system that silently loses power is worse than one with a known gap. Connect UPS units to the network so the security team gets an alert when a cabinet goes on battery, when a battery is weak, or when a UPS fails. Most VMS and NMS platforms can receive SNMP traps. See [SNMP and remote UPS monitoring](/blogs/snmp-and-remote-ups-monitoring).
+A security system that silently loses power is worse than one with a known gap. Connect UPS units to the network so the security team gets an alert when a cabinet goes on battery, when a battery is weak, or when a UPS fails. Most VMS and NMS platforms can receive SNMP traps. See [SNMP and remote UPS monitoring](/blogs/monitoring/snmp-and-remote-ups-monitoring).
 
 ## Installation and service tips
 

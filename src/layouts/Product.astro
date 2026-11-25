@@ -143,7 +143,7 @@ const ld = [
 						<ul class="pd-apps">{p.applications.map((a) => <li><em class={`fa ${a.icon}`} aria-hidden="true"></em>{a.text}</li>)}</ul>
 						{p.guides.length + reads.length > 0 && <nav class="pd-guides" aria-label="Guides and articles">
 							{p.guides.map((g) => <a href={`/guides/${g}`}><em class="fa fa-arrow-right" aria-hidden="true"></em>{guideTitles[g]}</a>)}
-							{reads.map((x) => <a href={`/blogs/${x.slug}`}><em class="fa fa-arrow-right" aria-hidden="true"></em>{x.title}</a>)}
+							{reads.map((x) => <a href={x.url}><em class="fa fa-arrow-right" aria-hidden="true"></em>{x.title}</a>)}
 						</nav>}
 					</div>
 				</div>

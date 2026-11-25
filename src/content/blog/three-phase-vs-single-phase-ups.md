@@ -56,7 +56,7 @@ Work out the load first with [how to size a UPS in kVA](/guides/ups-sizing-kva).
 
 ## Three phase UPS for industries in India
 
-Industrial loads are usually three phase: machine tools, process lines, compressors and conveyors. Even where only controls are backed up, a three phase UPS feeding a control-power distribution board keeps the plant supply balanced. Rugged, transformer-based three phase UPS cope with demanding plant loads, while transformerless designs are lighter, smaller and often more efficient. For harsh areas, see [MIL grade vs IP55 industrial UPS](/blogs/mil-grade-vs-ip55-industrial-ups).
+Industrial loads are usually three phase: machine tools, process lines, compressors and conveyors. Even where only controls are backed up, a three phase UPS feeding a control-power distribution board keeps the plant supply balanced. Rugged, transformer-based three phase UPS cope with demanding plant loads, while transformerless designs are lighter, smaller and often more efficient. For harsh areas, see [MIL grade vs IP55 industrial UPS](/blogs/online-ups/mil-grade-vs-ip55-industrial-ups).
 
 ## Online UPS: 3 phase vs single phase in practice
 
@@ -64,7 +64,7 @@ Both are double conversion online UPS and protect the load the same way. The dif
 
 ## 3 phase modular UPS
 
-A three phase modular UPS has a frame with plug-in power modules. You install the frame for the final load and add modules as the load grows, with one spare module for N+1 redundancy. It suits server rooms and data centres that start small and grow. See [modular UPS and N+1 redundancy](/blogs/modular-ups-n-plus-1-redundancy).
+A three phase modular UPS has a frame with plug-in power modules. You install the frame for the final load and add modules as the load grows, with one spare module for N+1 redundancy. It suits server rooms and data centres that start small and grow. See [modular UPS and N+1 redundancy](/blogs/online-ups/modular-ups-n-plus-1-redundancy).
 
 ## E&C single and three phase online UPS
 

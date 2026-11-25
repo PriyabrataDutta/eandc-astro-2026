@@ -74,7 +74,7 @@ Industrial pocket-plate Ni-Cd cells on float duty are much less affected. Long p
 - **Marine and offshore:** where shock, vibration and salt air are routine.
 - **Process plants:** DC control systems and emergency lighting.
 
-In almost all of these, the battery sits on float for most of its life, charged by a **float cum boost charger (FCBC)**. The charger holds the battery at float voltage and supplies the DC load, then switches to boost after a discharge. Read [what an FCBC battery charger is](/blogs/fcbc-battery-charger-explained) for how they work together.
+In almost all of these, the battery sits on float for most of its life, charged by a **float cum boost charger (FCBC)**. The charger holds the battery at float voltage and supplies the DC load, then switches to boost after a discharge. Read [what an FCBC battery charger is](/blogs/batteries/fcbc-battery-charger-explained) for how they work together.
 
 ## Ni-Cd or lead-acid?
 

@@ -18,7 +18,7 @@ faq:
 
 **N+1** protects the load against the failure of one module or unit inside a single UPS system. **2N**, also called **N+N**, protects it against the failure of a whole UPS system, by building two independent systems that each carry the full load on separate A and B paths. Colocation data centres often choose 2N for customer racks because it lets any one power path be lost or shut down for maintenance without the customer noticing.
 
-If you are new to N+1, start with [what a modular UPS is and how N+1 works](/blogs/modular-ups-n-plus-1-redundancy). This post focuses on what 2N adds.
+If you are new to N+1, start with [what a modular UPS is and how N+1 works](/blogs/online-ups/modular-ups-n-plus-1-redundancy). This post focuses on what 2N adds.
 
 ## What N+1 leaves exposed
 
@@ -60,7 +60,7 @@ In normal operation each side carries about half the load. If side A fails or is
 
 ## Single-corded equipment and STS
 
-Not every device has two power supplies. Older servers, some network and telecom equipment and many appliances have one cord. For these, a [static transfer switch](/blogs/what-is-a-static-transfer-switch) takes both the A and B feeds and switches the load to the healthy one in a few milliseconds. Rack-level transfer switches do the same for a single rack. The STS becomes a shared point for the loads behind it, so keep each one serving a limited group of loads.
+Not every device has two power supplies. Older servers, some network and telecom equipment and many appliances have one cord. For these, a [static transfer switch](/blogs/power-quality/what-is-a-static-transfer-switch) takes both the A and B feeds and switches the load to the healthy one in a few milliseconds. Rack-level transfer switches do the same for a single rack. The STS becomes a shared point for the loads behind it, so keep each one serving a limited group of loads.
 
 ## Concurrent maintenance
 
@@ -93,4 +93,4 @@ Colocation operators sell space and power to many customers, so the power design
 
 ## E&C equipment for redundant designs
 
-E&C's [Intelligent Static Transfer Switch](/intelligent-transfer-switch), 1 to 500 kVA, takes up to three inputs to one output and makes dissimilar UPS work as a redundant pair. The [Renata Modular](/renatamodular) UPS gives N+X within each frame, with up to four frames in parallel, and the [Renata-300](/renata300) parallels up to four units. The [SNMP adapter](/snmp-adapter) sends alerts by email and SMS. Read [how to size a data centre UPS](/blogs/how-to-size-ups-for-data-centre), and talk to our [service team](/eandcpower-services) about maintenance for redundant systems.
+E&C's [Intelligent Static Transfer Switch](/intelligent-transfer-switch), 1 to 500 kVA, takes up to three inputs to one output and makes dissimilar UPS work as a redundant pair. The [Renata Modular](/renatamodular) UPS gives N+X within each frame, with up to four frames in parallel, and the [Renata-300](/renata300) parallels up to four units. The [SNMP adapter](/snmp-adapter) sends alerts by email and SMS. Read [how to size a data centre UPS](/blogs/data-centre/how-to-size-ups-for-data-centre), and talk to our [service team](/eandcpower-services) about maintenance for redundant systems.

@@ -18,7 +18,7 @@ faq:
 
 A **hybrid solar system for a factory** combines rooftop solar, batteries and the grid so that the plant uses as much of its own solar power as possible during the day and keeps critical loads running in a power cut. In most factories the best design splits the job: grid-tie inverters feed the main daytime load, while a smaller hybrid inverter with batteries backs up the loads that must not stop. The system also has to work safely with the DG set, and any export to the grid depends on your state and DISCOM rules.
 
-Our post on [on-grid vs off-grid vs hybrid solar inverters](/blogs/on-grid-vs-off-grid-vs-hybrid-solar-inverter) explains the three inverter types. This one is about putting them together for an industrial site.
+Our post on [on-grid vs off-grid vs hybrid solar inverters](/blogs/solar/on-grid-vs-off-grid-vs-hybrid-solar-inverter) explains the three inverter types. This one is about putting them together for an industrial site.
 
 ## Start with self-consumption
 
@@ -70,7 +70,7 @@ This is where many factory solar plants go wrong.
 
 ### Battery choice
 
-LiFePO4 lithium batteries suit daily cycling: they tolerate deeper discharge and more cycles than lead-acid, but cost more up front. Lead-acid can suit backup-only duty where the battery is rarely cycled. See [lithium vs lead-acid batteries](/blogs/lithium-vs-lead-acid-ups-battery).
+LiFePO4 lithium batteries suit daily cycling: they tolerate deeper discharge and more cycles than lead-acid, but cost more up front. Lead-acid can suit backup-only duty where the battery is rarely cycled. See [lithium vs lead-acid batteries](/blogs/batteries/lithium-vs-lead-acid-ups-battery).
 
 ## Choosing a solar UPS for commercial use
 

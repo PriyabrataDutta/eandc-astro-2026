@@ -108,7 +108,7 @@ At critical sites, a single charger is a single point of failure. Common arrange
 
 ## Pairing with Ni-Cd or lead-acid
 
-An FCBC must be set for the battery it charges. Ni-Cd and lead-acid have different cell voltages, float and boost levels and temperature behaviour. **Ni-Cd** is often chosen for long life in hot or remote sites; read [what a nickel cadmium battery is](/blogs/nickel-cadmium-battery-explained). **Flooded tubular** and VRLA lead-acid cost less upfront and suit many plant and telecom systems. Battery temperature compensation helps protect either type in hot rooms.
+An FCBC must be set for the battery it charges. Ni-Cd and lead-acid have different cell voltages, float and boost levels and temperature behaviour. **Ni-Cd** is often chosen for long life in hot or remote sites; read [what a nickel cadmium battery is](/blogs/batteries/nickel-cadmium-battery-explained). **Flooded tubular** and VRLA lead-acid cost less upfront and suit many plant and telecom systems. Battery temperature compensation helps protect either type in hot rooms.
 
 ## FCBC chargers from E&C
 

@@ -22,7 +22,7 @@ Most batteries do not wear out from age alone. They are cut short by heat, wrong
 
 ## 1. Keep the batteries cool
 
-Temperature is the single biggest factor. Lead-acid batteries are rated at 25°C, and as a rule of thumb their life roughly halves for every 8 to 10°C above that. Our post on [SMF vs VRLA batteries](/blogs/smf-vs-vrla-battery) explains why.
+Temperature is the single biggest factor. Lead-acid batteries are rated at 25°C, and as a rule of thumb their life roughly halves for every 8 to 10°C above that. Our post on [SMF vs VRLA batteries](/blogs/batteries/smf-vs-vrla-battery) explains why.
 
 - Keep the battery room or cabinet as close to 25°C as you can. Air-conditioning a small battery room usually costs far less than replacing a bank early.
 - Keep batteries away from DG exhausts, sunny walls and the UPS's own hot air outlet.
@@ -52,7 +52,7 @@ A lead-acid battery left partly charged starts to sulphate. After a long outage,
 
 ## 5. Equalise flooded batteries, as the maker advises
 
-Cells in a long string drift apart over time. **Flooded tubular** batteries are usually given a periodic equalising (boost) charge to bring all cells back to full charge and stir the electrolyte, along with distilled water top-ups and specific gravity checks. **Sealed VRLA** batteries generally should not be equalised unless the maker recommends it, because the extra gassing cannot be replaced. See [tubular vs GEL vs AGM batteries](/blogs/tubular-vs-gel-vs-agm-battery) for how the types differ.
+Cells in a long string drift apart over time. **Flooded tubular** batteries are usually given a periodic equalising (boost) charge to bring all cells back to full charge and stir the electrolyte, along with distilled water top-ups and specific gravity checks. **Sealed VRLA** batteries generally should not be equalised unless the maker recommends it, because the extra gassing cannot be replaced. See [tubular vs GEL vs AGM batteries](/blogs/batteries/tubular-vs-gel-vs-agm-battery) for how the types differ.
 
 ## 6. Check terminal torque and cleanliness
 
@@ -68,11 +68,11 @@ A loose or corroded link adds resistance, which heats the terminal and can melt 
 - **Every few months:** measure each block's voltage and internal resistance or conductance; one block drifting from the rest is an early warning.
 - **Once or twice a year:** run a controlled backup test at known load and compare it with earlier tests.
 
-[Battery bank monitoring](/battery-bank-remote-monitoring) does much of this continuously, logging block voltage, temperature, current and internal resistance. Our [UPS maintenance checklist](/blogs/ups-maintenance-checklist) covers the rest of the UPS.
+[Battery bank monitoring](/battery-bank-remote-monitoring) does much of this continuously, logging block voltage, temperature, current and internal resistance. Our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist) covers the rest of the UPS.
 
 ## 8. Don't mix old and new, and store new batteries properly
 
-- Replace a weak block with one of the same make, model and similar age where possible, or replace the whole string, as explained in our [UPS battery replacement guide](/blogs/ups-battery-replacement-guide).
+- Replace a weak block with one of the same make, model and similar age where possible, or replace the whole string, as explained in our [UPS battery replacement guide](/blogs/service/ups-battery-replacement-guide).
 - Batteries self-discharge in storage. Install new batteries soon after delivery, or recharge them at the interval the maker specifies.
 
 ## How long will your backup last?

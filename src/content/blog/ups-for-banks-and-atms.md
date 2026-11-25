@@ -80,13 +80,13 @@ A bank with hundreds of ATMs cannot send a technician to check each UPS. **Power
 - **SMS and email alerts** when a site goes on battery, the battery falls low, or the UPS goes into bypass.
 - **Trend data** to spot batteries that are losing capacity before they fail during an outage.
 
-Branches with a LAN can use an [SNMP adapter](/snmp-adapter); kiosks without a dependable network can use a GPRS-based [UPS remote monitoring system](/ups-remote-monitoring). Our post on [SNMP and remote UPS monitoring](/blogs/snmp-and-remote-ups-monitoring) explains the options.
+Branches with a LAN can use an [SNMP adapter](/snmp-adapter); kiosks without a dependable network can use a GPRS-based [UPS remote monitoring system](/ups-remote-monitoring). Our post on [SNMP and remote UPS monitoring](/blogs/monitoring/snmp-and-remote-ups-monitoring) explains the options.
 
 ## Installation and battery care
 
 - **Space:** branches are often in leased premises with no dedicated UPS room. A floor-standing UPS with batteries in a separate rack, placed in the server or strong-room corridor, is common.
 - **Ventilation:** batteries last longest at moderate temperatures. A battery rack sealed in a hot cupboard can lose life quickly.
-- **Battery replacement cycles:** plan replacement across the network rather than waiting for each site to fail. See our [UPS maintenance checklist](/blogs/ups-maintenance-checklist).
+- **Battery replacement cycles:** plan replacement across the network rather than waiting for each site to fail. See our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist).
 
 ## Service across many locations
 

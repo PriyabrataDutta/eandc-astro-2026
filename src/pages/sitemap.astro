@@ -135,7 +135,7 @@ const total = all.size + posts.length;
       <div class="sm-grid">
         <div class="sm-card">
           <h3><a href="/blogs">{blog[0]?.name ?? 'Blog'}</a></h3>
-          <ul>{posts.map((p) => <li><a href={`/blogs/${p.slug}`}>{p.title}</a></li>)}</ul>
+          <ul>{posts.map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
         </div>
         <div class="sm-card">
           <h3>Buying guides</h3>

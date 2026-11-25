@@ -61,7 +61,7 @@ A stabilizer corrects slow voltage swings but gives **no backup**. A UPS gives b
 
 ## Practical points for the mill floor
 
-1. **Keep UPS out of the lint.** Fibre dust clogs fan filters and heat sinks and is the most common cause of overheating. Install UPS in a separate electrical room where possible, and clean filters on a schedule. Our [UPS maintenance checklist](/blogs/ups-maintenance-checklist) covers what to check.
+1. **Keep UPS out of the lint.** Fibre dust clogs fan filters and heat sinks and is the most common cause of overheating. Install UPS in a separate electrical room where possible, and clean filters on a schedule. Our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist) covers what to check.
 2. **Control the temperature.** UPS batteries age faster in a hot plant room. Ventilation or air conditioning for the battery area pays for itself.
 3. **Allow for harmonics.** VFDs and other non-linear loads distort the supply. Choose a UPS that copes with a distorted input and with non-linear loads on its output.
 4. **Coordinate with the DG.** The UPS should accept DG supply with its frequency and voltage swings without dropping to battery repeatedly. Tell your DG supplier about the UPS rectifier and charger load.

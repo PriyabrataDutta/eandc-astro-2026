@@ -46,7 +46,7 @@ Skip the topping up and the plates dry out and fail early.
 
 ### GEL vs AGM in one line
 
-Choose AGM for high-rate, short-backup UPS duty; choose GEL for deeper, more frequent cycling where the battery must still be sealed. For more on how sealed batteries work, see [SMF vs VRLA battery](/blogs/smf-vs-vrla-battery).
+Choose AGM for high-rate, short-backup UPS duty; choose GEL for deeper, more frequent cycling where the battery must still be sealed. For more on how sealed batteries work, see [SMF vs VRLA battery](/blogs/batteries/smf-vs-vrla-battery).
 
 ## Side-by-side comparison
 
@@ -74,7 +74,7 @@ UPS batteries usually sit on float for months and then deliver high current for 
 
 ### Solar
 
-A solar battery charges by day and discharges at night, every day. That calls for a deep-cycle battery: **flooded tubular** where maintenance is possible, or **GEL** at remote and unmanned sites where water topping is not practical. Lithium is also a strong option for daily cycling; see [lithium vs lead-acid](/blogs/lithium-vs-lead-acid-ups-battery). E&C's [off-grid solar inverters](/solar-off-grid-inverter) work with battery storage for such systems.
+A solar battery charges by day and discharges at night, every day. That calls for a deep-cycle battery: **flooded tubular** where maintenance is possible, or **GEL** at remote and unmanned sites where water topping is not practical. Lithium is also a strong option for daily cycling; see [lithium vs lead-acid](/blogs/batteries/lithium-vs-lead-acid-ups-battery). E&C's [off-grid solar inverters](/solar-off-grid-inverter) work with battery storage for such systems.
 
 ### Telecom and remote sites
 

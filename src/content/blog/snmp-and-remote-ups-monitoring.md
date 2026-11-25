@@ -63,7 +63,7 @@ SNMP suits a site with an IT team on the network. For branches, ATMs, telecom sh
 2. **Faster response.** An alert reaches the right person within moments of a fault, an overload or a switch to bypass, instead of being noticed days later during a site visit.
 3. **Multi-site visibility.** One screen shows the status of every UPS, so service visits go where they are needed.
 4. **Automatic, graceful shutdown.** When the battery runs low, the UPS tells servers and storage to save data and shut down in order, avoiding corrupted files and databases.
-5. **Records for maintenance and audits.** Event logs show how often mains fails, how long the UPS ran on battery and how the load has grown, which helps plan battery replacement and capacity upgrades. Pair this with a regular [UPS maintenance checklist](/blogs/ups-maintenance-checklist).
+5. **Records for maintenance and audits.** Event logs show how often mains fails, how long the UPS ran on battery and how the load has grown, which helps plan battery replacement and capacity upgrades. Pair this with a regular [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist).
 
 ## E&C monitoring products
 

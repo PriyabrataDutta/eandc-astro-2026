@@ -58,7 +58,7 @@ Lab instruments are sensitive to voltage disturbances and noise, and a power dro
 - Servers for ERP, LIMS, batch records and document management.
 - Network switches and storage.
 
-A central, redundant UPS for the server room is typical; our post on [modular UPS and N+1 redundancy](/blogs/modular-ups-n-plus-1-redundancy) covers the options.
+A central, redundant UPS for the server room is typical; our post on [modular UPS and N+1 redundancy](/blogs/online-ups/modular-ups-n-plus-1-redundancy) covers the options.
 
 ## A practical power scheme
 
@@ -71,9 +71,9 @@ A central, redundant UPS for the server room is typical; our post on [modular UP
 ## Power quality points
 
 - **No transfer time:** a double conversion online UPS keeps the load on the inverter at all times.
-- **Isolation and neutral-to-earth voltage:** important for lab instruments; see [isolation transformers for UPS](/blogs/isolation-transformer-for-ups).
+- **Isolation and neutral-to-earth voltage:** important for lab instruments; see [isolation transformers for UPS](/blogs/power-quality/isolation-transformer-for-ups).
 - **DG compatibility:** the UPS should accept DG voltage and frequency swings without repeatedly dropping to battery.
-- **Harmonics:** many drives and switch-mode supplies distort the supply; see [UPS THD and bypass](/blogs/ups-thd-surge-and-bypass-explained).
+- **Harmonics:** many drives and switch-mode supplies distort the supply; see [UPS THD and bypass](/blogs/power-quality/ups-thd-surge-and-bypass-explained).
 
 ## Common gaps found in plant audits
 
@@ -99,7 +99,7 @@ Use our [UPS battery backup time](/guides/ups-battery-backup-time) guide for the
 
 ## Maintenance and records
 
-Plants expect evidence that critical utilities are maintained. Keep a planned maintenance schedule for every UPS and battery bank, record test results, and investigate alarms. Our [UPS maintenance checklist](/blogs/ups-maintenance-checklist) is a starting point, and an [AMC](/eandcpower-services) can cover routine visits and breakdowns.
+Plants expect evidence that critical utilities are maintained. Keep a planned maintenance schedule for every UPS and battery bank, record test results, and investigate alarms. Our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist) is a starting point, and an [AMC](/eandcpower-services) can cover routine visits and breakdowns.
 
 ## E&C UPS for pharmaceutical plants
 

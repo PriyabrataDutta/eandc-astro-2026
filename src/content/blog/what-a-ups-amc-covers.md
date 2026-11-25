@@ -70,7 +70,7 @@ A preventive maintenance visit typically covers:
 6. Testing transfer to bypass and back, where safe.
 7. A service report with findings and recommendations.
 
-Our [UPS maintenance checklist](/blogs/ups-maintenance-checklist) lists what to do monthly, quarterly and yearly.
+Our [UPS maintenance checklist](/blogs/service/ups-maintenance-checklist) lists what to do monthly, quarterly and yearly.
 
 ## Batteries and the AMC
 
@@ -78,7 +78,7 @@ Batteries are the most common cause of UPS failure and often the largest cost in
 
 - Check whether **battery checking** (voltage, conductance, backup test) is included even if replacement is not.
 - If replacement is offered, check whether it is all batteries or only failed blocks, and which brands.
-- Plan replacement separately, as in our [UPS battery replacement guide](/blogs/ups-battery-replacement-guide).
+- Plan replacement separately, as in our [UPS battery replacement guide](/blogs/service/ups-battery-replacement-guide).
 
 ## UPS per-call services
 

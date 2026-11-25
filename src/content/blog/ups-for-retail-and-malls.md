@@ -52,7 +52,7 @@ There are two common layouts.
 
 **Centralised:** one UPS in the back office or IT room feeding a dedicated UPS distribution board, with sockets at each counter. Fewer batteries, one point to monitor, and easier to keep clean of unauthorised loads.
 
-**Online UPS for retail chains in India** usually standardise on the centralised model per store, with the same UPS model across all outlets. That makes spares, training and battery replacement predictable. Where the store has a 19-inch network rack, a rack mount online UPS saves floor space; see [what is a rack mount UPS](/blogs/what-is-rack-mount-ups).
+**Online UPS for retail chains in India** usually standardise on the centralised model per store, with the same UPS model across all outlets. That makes spares, training and battery replacement predictable. Where the store has a 19-inch network rack, a rack mount online UPS saves floor space; see [what is a rack mount UPS](/blogs/online-ups/what-is-rack-mount-ups).
 
 ## Shopping mall common services
 
@@ -65,7 +65,7 @@ A mall owner's UPS list is very different from a tenant's:
 - **Public address** amplifier racks where the designer specifies a UPS-backed supply
 - **Data room** for mall Wi-Fi, footfall analytics and tenant billing
 
-These loads are larger and grow as the mall adds services, so a **modular UPS** that accepts extra power modules over time is a good fit. It also gives N+1 redundancy within one frame. Our post on [modular UPS and N+1 redundancy](/blogs/modular-ups-n-plus-1-redundancy) explains the idea.
+These loads are larger and grow as the mall adds services, so a **modular UPS** that accepts extra power modules over time is a good fit. It also gives N+1 redundancy within one frame. Our post on [modular UPS and N+1 redundancy](/blogs/online-ups/modular-ups-n-plus-1-redundancy) explains the idea.
 
 ## Monitoring a chain of stores
 

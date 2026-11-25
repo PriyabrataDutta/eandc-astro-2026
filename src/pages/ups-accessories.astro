@@ -8,6 +8,7 @@ import Faq from '../components/Faq.astro';
 import Quote from '../components/Quote.astro';
 import { ORG_REF, urlFor } from '../lib/legacy.js';
 import { families, products } from '../data/products.js';
+import { postUrl } from '../lib/blog.js';
 
 const fam = families.accessory;
 const range = ['isolation', 'intelligent-transfer-switch', 'snmp-adapter'];
@@ -130,7 +131,7 @@ const schema = [
   <section class="pd-sec alt" aria-labelledby="h-guides">
     <div class="container">
       <h2 class="pd-h" id="h-guides">Guides</h2>
-      <ul class="hb-tags">{guides.map(([s, t]) => <li><a href={`/blogs/${s}`}>{t}</a></li>)}</ul>
+      <ul class="hb-tags">{guides.map(([s, t]) => <li><a href={postUrl(s)}>{t}</a></li>)}</ul>
     </div>
   </section>
 

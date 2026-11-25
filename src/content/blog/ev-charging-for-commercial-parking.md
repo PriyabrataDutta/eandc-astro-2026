@@ -18,7 +18,7 @@ faq:
 
 Planning **EV chargers for commercial parking** is mostly a power question: how many chargers your electricity connection and transformer can supply, how load management shares that power, and what needs backup when the grid fails. Start from the site's spare capacity, not from the number of parking bays. Use load management to fit more chargers into that capacity, put the controllers, network and payment systems on a small UPS, and consider solar to offset daytime charging.
 
-Our guide on [how to choose an EV charger for your business](/blogs/choose-ev-charger-for-business-india) covers AC vs DC, connectors and billing. This post is about the electrical side of a multi-charger car park.
+Our guide on [how to choose an EV charger for your business](/blogs/ev-charging/choose-ev-charger-for-business-india) covers AC vs DC, connectors and billing. This post is about the electrical side of a multi-charger car park.
 
 ## Step 1: Work out the connected load
 

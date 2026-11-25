@@ -80,7 +80,7 @@ Use **peak sun hours for the worst month**, often during the monsoon, not the an
 
 255 ÷ (4 × 0.7) ≈ 91 W, so a 100 W panel or more.
 
-After a run of cloudy days the panel must also recharge the battery while still supplying each night's load, so many designers add margin above this figure. An [MPPT charge controller](/blogs/how-mppt-solar-charge-controller-works) gets more energy from the panel than a basic PWM controller, especially in cool weather and at partial charge.
+After a run of cloudy days the panel must also recharge the battery while still supplying each night's load, so many designers add margin above this figure. An [MPPT charge controller](/blogs/solar/how-mppt-solar-charge-controller-works) gets more energy from the panel than a basic PWM controller, especially in cool weather and at partial charge.
 
 ## 6. All-in-one or split design?
 
@@ -93,4 +93,4 @@ Clean panels regularly, since dust can cut output noticeably in dry seasons. Che
 
 ## E&C solar street lights
 
-E&C's [solar street light](/solar-street-lighting) is an all-in-one design with an integrated solar panel, luminaire and battery, dusk-to-dawn operation, a proximity sensor to save power, and AC and DC LED options from 3000 to 7000 K. It is built to resist sea-front conditions and is listed for streets, campuses and sea-front areas; how long it stays on depends on location, season and weather. For split systems, the E&C [MPPT solar charge controller](/scc) works with 12, 24 or 48 V systems up to 60 A, and E&C supplies [LiFePO4 lithium ion batteries](/lithium-ion) with a built-in BMS. See all [solar solutions](/solar-solutions), and our comparison of [lithium vs lead-acid batteries](/blogs/lithium-vs-lead-acid-ups-battery).
+E&C's [solar street light](/solar-street-lighting) is an all-in-one design with an integrated solar panel, luminaire and battery, dusk-to-dawn operation, a proximity sensor to save power, and AC and DC LED options from 3000 to 7000 K. It is built to resist sea-front conditions and is listed for streets, campuses and sea-front areas; how long it stays on depends on location, season and weather. For split systems, the E&C [MPPT solar charge controller](/scc) works with 12, 24 or 48 V systems up to 60 A, and E&C supplies [LiFePO4 lithium ion batteries](/lithium-ion) with a built-in BMS. See all [solar solutions](/solar-solutions), and our comparison of [lithium vs lead-acid batteries](/blogs/batteries/lithium-vs-lead-acid-ups-battery).
