@@ -1,6 +1,19 @@
 // Title and meta description overrides for legacy pages whose own were duplicated, missing or too long.
 // Primary keywords follow the Keyword map tab of the plan doc. Titles <= 60 characters, descriptions ~140-160.
 export const meta = {
+  // About pages describe the company; the sales keywords forced onto them belong to /get-a-quote and /ups-supplier-in-india.
+  'about-us': {
+    title: 'About E&C Power Systems | UPS Manufacturer Since 1978',
+    description: 'E&C Power Systems has designed and built UPS and power electronics in Bengaluru since 1978, with in-house R&D, two factories and service across India.',
+  },
+  management: {
+    title: 'Management Team | E&C Power Systems',
+    description: 'Meet the people who lead E&C Power Systems: Chairperson Sundari Ramachandran, MD Vidya Iyer, CEO Rajaram Ramamoorthy and Director M. S. Sivasankaran.',
+  },
+  missionandvision: {
+    title: 'Mission, Vision & Quality Policy | E&C Power Systems',
+    description: 'The mission, vision and quality policy of E&C Power Systems, an ISO 9001 and 14001 accredited UPS and power electronics manufacturer in Bengaluru.',
+  },
   // Home keeps its Bangalore target (it ranks for it on the live site) with India alongside, as the live H1 had it; the
   // exact "…in India" term stays with /online-ups and /ups-manufacturer-in-india. Peenya is said once, naturally.
   index: {
@@ -97,6 +110,29 @@ export const alts = {
 // Pages whose main heading isn't an <h1> (or which have two). The theme's size classes and the original
 // margins keep the look identical: h1 gets margin 0 from the theme, h2 gets 0 0 18px.
 export const headingFixes = {
+  // About pages: company headings instead of repeated sales keywords; descriptive image alts.
+  'about-us': [
+    ['<h1 class="heading-section">Power Electronics Manufacturer in Bangalore Peenya</h1>', '<h1 class="heading-section">About E&amp;C Power Systems</h1>'],
+    ['margin-bottom: 25px;">Power Electronics Manufacturer in India</h2>', 'margin-bottom: 25px;">Power electronics, designed and built in Peenya, Bengaluru, since 1978</h2>'],
+    // Banner first, then the photo: each replace() changes the first match only.
+    ['alt="Power Electronics Manufacturer in Peenya Industrial Area"', 'alt="E&amp;C Power Systems"'],
+    ['alt="Power Electronics Manufacturer in Peenya Industrial Area"', 'alt="E&amp;C Power Systems office and factory"'],
+    ['letter-spacing: 0.2px;">Power Electronics Manufacturer in Bangalore</h2>', 'letter-spacing: 0.2px;">Talk to our engineers</h2>'],
+  ],
+  management: [
+    ['<h1>Industrial UPS quotation in Peenya Bangalore</h1>', '<h1>Our Management Team</h1>'],
+    ['alt="Industrial UPS quotation in Bangalore India"', 'alt="E&amp;C Power Systems"'],
+    ['font-weight: 600;">Industrial UPS quotation in Bangalore India</h2>', 'font-weight: 600;">Leading E&amp;C since it was founded in 1978</h2>'],
+    ['letter-spacing: 0.2px;">Industrial UPS quotation in Peenya Bangalore</h2>', 'letter-spacing: 0.2px;">Talk to our team</h2>'],
+    ['>Request an Industrial UPS Quotation from E&amp;C Power Across India</h4>', '>Request a quotation from E&amp;C Power</h4>'],
+  ],
+  missionandvision: [
+    ['<h1>Bulk UPS supplier in Bangalore</h1>', '<h1>Mission and Vision</h1>'],
+    ['alt="Bulk UPS supplier in Bangalore"', 'alt="E&amp;C Power Systems"'],
+    ['font-weight: 600;">Bulk UPS supplier in Peenya Bangalore</h2>', 'font-weight: 600;">What E&amp;C works towards, and how we assure quality</h2>'],
+    ['letter-spacing: 0.2px;">Bulk UPS supplier in Bangalore</h2>', 'letter-spacing: 0.2px;">Talk to our team</h2>'],
+    ['>Connect with Leading Bulk UPS Supplier Across India</h4>', '>Sales and service across India</h4>'],
+  ],
   // Home: no "Bangalore Peenya" keyword string, no H2 competing with /online-ups, no repeated title, descriptive alt.
   index: [
     ['>Online UPS Manufacturer in Bangalore Peenya</h1>', '>Online UPS Manufacturer in Bangalore, India</h1>'],
@@ -151,4 +187,14 @@ export const productPages = {
   'dg-monitoring': P('Diesel Generator Monitoring System', 'Remote Monitoring'),
   'facility-monitoring': P('Facility Monitoring System', 'Remote Monitoring'),
   'snmp-adapter': P('SNMP Adapter for UPS', 'Remote Monitoring'),
+};
+
+// People named on /management, added as Person schema (E-E-A-T): names and roles exactly as the page shows them.
+export const people = {
+  management: [
+    ['Sundari Ramachandran', 'Chairperson'],
+    ['Vidya Iyer', 'Managing Director'],
+    ['Rajaram Ramamoorthy', 'Chief Executive Officer'],
+    ['M. S. Sivasankaran', 'Director'],
+  ],
 };

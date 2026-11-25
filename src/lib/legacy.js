@@ -4,7 +4,7 @@ import { replaceFooter } from './footer.js';
 import { officesHtml, OFFICES } from '../data/offices.js';
 import path from 'node:path';
 import vercel from '../../vercel.json';
-import { meta as seo, alts as seoAlts, headingFixes, productPages } from '../data/seo.js';
+import { meta as seo, alts as seoAlts, headingFixes, productPages, people } from '../data/seo.js';
 import { products, families } from '../data/products.js';
 import headingLevels from '../data/heading-levels.json' with { type: 'json' };
 
@@ -236,6 +236,7 @@ export function cleanup(html, slug) {
   // The nav linked an unbuilt product to the noindex "comming-soon" placeholder on every page.
   html = html.replace(/[ \t]*<li>\s*<a href="\/?comming-soon(?:\.html)?"\s*>[^<]*<\/a>\s*<\/li>\s*/g, '');
 
+  const visible = (html.split(/<\/head>/i)[1] ?? '').replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#0?39;|&rsquo;/g, "'").replace(/\s+/g, ' ');
   // Hand-written schema on legacy pages names the company in several ways; point every mention at the one entity.
   html = html.replace(/(<script[^>]*application\/ld\+json[^>]*>)([\s\S]*?)(<\/script>)/gi, (m, open, body, close) => {
     let data;
@@ -243,6 +244,10 @@ export function cleanup(html, slug) {
     const walk = (o) => {
       if (Array.isArray(o)) return o.forEach(walk);
       if (!o || typeof o !== 'object') return;
+      // Google ignores schema keyword lists; the legacy ones only repeated stuffed phrases.
+      delete o.keywords;
+      // A page node keeps the page's own (corrected) title as its name.
+      if (/^(WebPage|AboutPage|ContactPage|CollectionPage)$/.test(o['@type']) && seo[slug]?.title) o.name = seo[slug].title;
       if (o['@type'] === 'Organization' && /^Electronics & Controls Power Systems/.test(o.name ?? '')) {
         o.name = ORG_NAME;
         o['@id'] ??= ORG_REF['@id'];
@@ -250,8 +255,16 @@ export function cleanup(html, slug) {
       Object.values(o).forEach(walk);
     };
     walk(data);
+    // FAQPage whose questions the page never shows breaks Google's rule that structured data match visible content.
+    const isHiddenFaq = (x) => x?.['@type'] === 'FAQPage' && !x.mainEntity?.some((q) => visible.includes(q.name.slice(0, 35)));
+    if (isHiddenFaq(data)) return '';
+    if (Array.isArray(data['@graph'])) data['@graph'] = data['@graph'].filter((x) => !isHiddenFaq(x));
     return open + JSON.stringify(data) + close;
   });
+  if (people[slug]) {
+    const nodes = people[slug].map(([name, jobTitle]) => ({ '@context': 'https://schema.org', '@type': 'Person', name, jobTitle, worksFor: ORG_REF }));
+    html = html.replace(/<\/head>/i, `${nodes.map((n) => `<script type="application/ld+json">${JSON.stringify(n)}</script>`).join('\n')}\n</head>`);
+  }
 
   if (productPages[slug]) {
     const name = productPages[slug].name;

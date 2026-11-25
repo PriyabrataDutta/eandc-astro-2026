@@ -24,6 +24,8 @@ All notable changes to this project. Format based on [Keep a Changelog](https://
 
 ### Fixed
 
+- FAQPage schema whose questions the page never showed (6 pages: `/about-us`, `/management`, `/missionandvision`, `/eandcpower-sales`, `/eandcpower-services`, `/newtestimonal`) is dropped at build time, since Google requires structured data to match visible content; the 151 pages with visible FAQs keep theirs. Schema `keywords` lists (ignored by Google, full of stuffed phrases) removed site-wide, and legacy page nodes take the page's corrected title as their `name`.
+
 - Products menu: every category except Online UPS was a dead `#` link. Each now opens its category page (industrial UPS, line interactive, inverters, EV chargers, stabilizers, remote monitoring, batteries, accessories); on mobile the first tap still opens the submenu.
 
 - Nav linked 194 pages to the noindex `/comming-soon` placeholder ("Lead Acid Battery to Lithium Converter"); the item is removed at build time.
@@ -34,6 +36,8 @@ All notable changes to this project. Format based on [Keep a Changelog](https://
 - Location pages were 60–70% alike. Each of the 36 now has its own "Power conditions in …" section, 3 local needs and 2 local FAQs (`src/data/local.json`), and a product range picked from its industries: the most similar pair is now 37% alike, the average 27%.
 
 ### Changed
+
+- About pages describe the company instead of carrying unrelated sales keywords: `/about-us` "About E&C Power Systems | UPS Manufacturer Since 1978" (was "Power Electronics Manufacturer in Bangalore Peenya"), `/management` "Management Team | E&C Power Systems" (was "Industrial UPS quotation in Peenya Bangalore"), `/missionandvision` "Mission, Vision & Quality Policy | E&C Power Systems" (was "Bulk UPS supplier in Bangalore"). Matching H1s, no repeated keyword H2s, descriptive image alts, new descriptions without phone numbers, and Person schema for the four leaders on `/management`. The keywords stay with `/get-a-quote` and `/ups-supplier-in-india`.
 
 - `/sitemap` redesigned as a directory: one panel per section with balanced columns (4 on wide desktop, 3 on laptop, 2 on tablet), long groups allowed to continue in the next column so columns end level, Company / Sales / Solutions kept whole across the top, and states as compact rows with city chips. Height vs the first compact version: desktop 4,008 → 3,098 px, tablet 4,990 → 4,401 px, mobile 8,989 → 7,073 px; all 211 unique links kept.
 - Home page SEO: title "Online UPS Manufacturer in Bangalore, India | E&C Power" (brand added); H1 "Online UPS Manufacturer in Bangalore, India" (was "…Bangalore Peenya"; keeps the Bangalore phrase and adds India, as the live H1 did, without copying `/online-ups`'s exact "…in India" target); the H2 under it no longer repeats `/online-ups`'s "Online UPS Manufacturer in India" and now reads "Made in Peenya, Bengaluru. Supplied and serviced across India"; the lower H2 that repeated the title is now "Talk to our UPS engineers"; the description no longer opens with a question and phone number; the product image alt is descriptive instead of a keyword string. Applied through `meta` and `headingFixes` in `src/data/seo.js`.
