@@ -6,7 +6,7 @@ import { render, slugs } from '../lib/legacy.js';
 import { sitePages } from '../lib/pages.js';
 import { products, families, guideTitles } from '../data/products.js';
 import { states, cities, indexable, cityLink } from '../data/locations.js';
-import { posts } from '../lib/blog.js';
+import { posts, topics } from '../lib/blog.js';
 
 const all = new Set(sitePages());
 all.delete('sitemap');
@@ -19,7 +19,7 @@ const NAMES = {
   annualreturn: 'Annual return (MGT-7)', contact: 'Contact us', 'eandcpower-sales': 'Sales offices', 'eandcpower-services': 'Service, AMC & repair',
   feedback: 'Feedback', 'custom-solutions': 'Custom UPS solutions', 'ups-manufacturer-in-bangalore': 'Bengaluru', 'get-a-quote': 'Get a quote', 'ups-price-in-india': 'UPS price in India', 'online-ups': 'Online UPS', stabilizer: 'Voltage stabilizers',
   'industrial-ups-manufacturer-in-india': 'Industrial UPS', 'battery-energy-storage-system': 'Battery energy storage (BESS)',
-  'marine-ups': 'Marine UPS', 'ups-manufacturer-in-india': 'UPS manufacturer in India', 'solar-solutions': 'Solar solutions',
+  'marine-ups': 'Marine UPS', 'ups-batteries': 'UPS batteries', 'ups-accessories': 'UPS accessories', 'ups-manufacturer-in-india': 'UPS manufacturer in India', 'solar-solutions': 'Solar solutions',
   ...Object.fromEntries(states.map((x) => [x.slug, `UPS supplier in ${x.name}`])),
   ...Object.fromEntries(cities.map((x) => [x.slug, x.name])),
 };
@@ -29,7 +29,7 @@ const take = (list) => list.filter((s) => all.has(s) && !used.has(s)).map((s) =>
 
 const company = take(['index', 'about-us', 'management', 'missionandvision', 'research-and-development', 'eandcpower-infrastructure', 'machinery', 'newtestimonal', 'careers', 'catalog', 'frequently-asked-questions', 'annualreturn']);
 const contact = take(['contact', 'get-a-quote', 'ups-price-in-india', 'eandcpower-sales', 'eandcpower-services', 'feedback']);
-const categories = take(['online-ups', 'industrial-ups-manufacturer-in-india', 'stabilizer', 'solar-solutions', 'battery-energy-storage-system', 'marine-ups', 'custom-solutions']);
+const categories = take(['online-ups', 'industrial-ups-manufacturer-in-india', 'stabilizer', 'ups-batteries', 'ups-accessories', 'solar-solutions', 'battery-energy-storage-system', 'marine-ups', 'custom-solutions']);
 const productGroups = Object.entries(families)
   .map(([k, f]) => ({ title: f.name, links: take(Object.keys(products).filter((p) => products[p].family === k)) }))
   .filter((g) => g.links.length);
@@ -71,9 +71,9 @@ const total = all.size + posts.length;
     </div>
   </section>
 
-  <section class="pd-sec">
+  <section class="pd-sec sm-sec">
     <div class="container">
-      <div class="sm-grid">
+      <div class="sm-row">
         {groups.map((g) => (
           <div class="sm-card" id={g.id}>
             <h2><em class={`fa ${g.icon}`} aria-hidden="true"></em>{g.title}</h2>
@@ -84,7 +84,7 @@ const total = all.size + posts.length;
     </div>
   </section>
 
-  <section class="pd-sec alt" id="products" aria-labelledby="h-products">
+  <section class="pd-sec alt sm-sec" id="products" aria-labelledby="h-products">
     <div class="container">
       <h2 class="pd-h" id="h-products">Products</h2>
       <div class="sm-grid">
@@ -98,7 +98,7 @@ const total = all.size + posts.length;
     </div>
   </section>
 
-  <section class="pd-sec" id="india" aria-labelledby="h-india">
+  <section class="pd-sec sm-sec" id="india" aria-labelledby="h-india">
     <div class="container">
       <h2 class="pd-h" id="h-india">UPS across India</h2>
       <div class="sm-grid">
@@ -122,21 +122,23 @@ const total = all.size + posts.length;
     </div>
   </section>
 
-  <section class="pd-sec alt" id="bengaluru" aria-labelledby="h-blr">
+  <section class="pd-sec alt sm-sec" id="bengaluru" aria-labelledby="h-blr">
     <div class="container">
       <h2 class="pd-h" id="h-blr">UPS in Bengaluru</h2>
       <div class="sm-card sm-wide"><ul>{blr.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul></div>
     </div>
   </section>
 
-  <section class="pd-sec" id="learn" aria-labelledby="h-learn">
+  <section class="pd-sec sm-sec" id="learn" aria-labelledby="h-learn">
     <div class="container">
-      <h2 class="pd-h" id="h-learn">Blog and buying guides</h2>
+      <h2 class="pd-h" id="h-learn"><a href="/blogs">{blog[0]?.name ?? 'Blog'}</a> and buying guides</h2>
       <div class="sm-grid">
-        <div class="sm-card">
-          <h3><a href="/blogs">{blog[0]?.name ?? 'Blog'}</a></h3>
-          <ul>{posts.map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
-        </div>
+        {topics.map(([tag, slug, list]) => (
+          <div class="sm-card">
+            <h3><a href={`/blogs/${slug}`}>{tag}</a></h3>
+            <ul>{list.map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
+          </div>
+        ))}
         <div class="sm-card">
           <h3>Buying guides</h3>
           <ul>{guides.map((l) => <li><a href={l.url}>{l.name}</a></li>)}</ul>
@@ -153,34 +155,50 @@ const total = all.size + posts.length;
 </Hub>
 
 <style is:global>
-	.sm-hero { padding:22px 0 24px; }
-	.sm-hero h1 { margin-bottom:6px; }
-	.sm-hero .hb-lead { margin-bottom:14px; }
+	/* Compact: cards flow in packed columns (no grid gaps), tight link rows, less section padding. */
+	.sm-hero { padding:16px 0 18px; }
+	.sm-hero h1 { margin-bottom:4px; }
+	.sm-hero .hb-lead { margin-bottom:10px; }
 	.sm-jump { display:flex; flex-wrap:wrap; gap:6px; }
-	.sm-jump a { display:inline-flex; align-items:center; min-height:36px; padding:6px 12px; border-radius:18px; border:1px solid rgba(255,255,255,.3); color:#fff !important; font-size:13.5px; }
+	.sm-jump a { display:inline-flex; align-items:center; min-height:32px; padding:4px 12px; border-radius:16px; border:1px solid rgba(255,255,255,.3); color:#fff !important; font-size:13px; }
 	.sm-jump a:hover { background:rgba(255,255,255,.12); border-color:#ff9900; }
-	.sm-grid { display:grid; grid-template-columns:1fr; gap:12px; align-items:start; }
-	.sm-card { background:#fff; border:1px solid var(--line); border-radius:8px; padding:14px 16px; scroll-margin-top:16px; }
-	.sm-card h2 { display:flex; align-items:center; gap:8px; font-size:17px; font-weight:600; color:var(--navy); margin:0 0 10px; }
-	.pd .sm-card h2 em.fa { color:var(--blue); font-size:15px !important; }
-	.sm-card h3 { font-size:15px; font-weight:600; color:var(--navy); margin:0 0 8px; }
+	.pd .sm-sec { padding:18px 0; }
+	.pd .sm-sec .pd-h { margin-bottom:10px; }
+	.pd .sm-sec .pd-h a { color:inherit; }
+	.sm-grid { columns:1; column-gap:12px; }
+	.sm-row { display:grid; grid-template-columns:1fr; gap:12px; align-items:start; }
+	.sm-row .sm-card { margin:0; }
+	.sm-card { break-inside:avoid; display:inline-block; width:100%; margin:0 0 12px; background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px 14px; scroll-margin-top:16px; }
+	.sm-card h2 { display:flex; align-items:center; gap:8px; font-size:15.5px; font-weight:600; color:var(--navy); margin:0 0 6px; }
+	.pd .sm-card h2 em.fa { color:var(--blue); font-size:14px !important; }
+	.sm-card h3 { font-size:14.5px; font-weight:600; color:var(--navy); margin:0 0 4px; }
 	.sm-card h3 a { color:var(--navy); }
 	.sm-card ul { list-style:none; margin:0; padding:0; }
-	.sm-card li { margin:0; border-top:1px solid #eef2f6; }
-	.sm-card li:first-child { border-top:0; }
-	.sm-card li a { display:block; padding:7px 0; font-size:14px; color:var(--blue); line-height:1.4; }
-	.sm-card li a:hover { color:var(--navy); }
-	.sm-card .sm-chips { display:flex; flex-wrap:wrap; gap:5px; }
-	.sm-card .sm-chips li { border:0; }
-	.sm-card .sm-chips a { padding:4px 10px; border-radius:14px; background:var(--tint); font-size:13px; }
-	.sm-card .sm-chips a:hover { background:var(--blue); color:#fff; }
+	.sm-card li { margin:0; }
+	.sm-card li a { display:block; padding:3px 0; font-size:13.5px; color:var(--blue); line-height:1.35; }
+	.sm-card li a:hover { color:var(--navy); text-decoration:underline; }
+	.sm-card .sm-chips { display:flex; flex-wrap:wrap; gap:4px; }
+	.sm-card .sm-chips a { padding:2px 9px; border-radius:12px; background:var(--tint); font-size:12.5px; }
+	.sm-card .sm-chips a:hover { background:var(--blue); color:#fff; text-decoration:none; }
+	.sm-wide ul { columns:2; column-gap:20px; }
+	.sm-wide li { break-inside:avoid; }
+	/* Phones: two columns of links where they are short, so the page is not one very long list. */
+	@media (max-width: 767px) {
+		.sm-grid { columns:auto; }
+		.sm-card { display:block; }
+		.sm-card ul:not(.sm-chips) a { overflow-wrap:anywhere; }
+		.sm-card ul:not(.sm-chips) { columns:2; column-gap:14px; }
+		.sm-card li { break-inside:avoid; }
+		.sm-card li a { padding:5px 0; }
+		#learn .sm-card ul { columns:1; } /* blog titles are too long for two columns */
+	}
 	@media (min-width: 768px) {
-		.sm-grid { grid-template-columns:repeat(2, 1fr); }
-		.sm-wide ul { columns:2; column-gap:24px; }
-		.sm-wide li { break-inside:avoid; }
+		.sm-grid { columns:2; }
+		.sm-row { grid-template-columns:repeat(3, 1fr); }
+		.sm-wide ul { columns:3; }
 	}
 	@media (min-width: 992px) {
-		.sm-grid { grid-template-columns:repeat(3, 1fr); }
-		.sm-wide ul { columns:3; }
+		.sm-grid { columns:3; }
+		.sm-wide ul { columns:4; }
 	}
 </style>
