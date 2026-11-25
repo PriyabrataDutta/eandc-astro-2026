@@ -1,0 +1,86 @@
+---
+// Redesigned header: top bar, sticky nav with a Products mega menu, and a <details> menu on phones. No JavaScript:
+// desktop menus open on hover and on keyboard focus.
+import Icon from './Icon.astro';
+import { menu, PHONE, EMAIL } from '../../data/nav.js';
+const link = 'block rounded-md px-3 py-2 text-[15px] text-slate-700 hover:bg-brand-50 hover:text-brand-700';
+---
+<div class="bg-navy-950 text-[13px] text-slate-300">
+  <div class="wrap flex h-9 items-center justify-between gap-4">
+    <p class="truncate"><span class="font-semibold text-white">Electronics &amp; Controls Power Systems Pvt. Ltd.</span><span class="hidden md:inline"> · Power electronics and online UPS manufacturer since 1978</span></p>
+    <div class="flex shrink-0 items-center gap-5">
+      <a class="flex items-center gap-1.5 hover:text-white" href={`tel:${PHONE.tel}`}><Icon name="phone" class="size-3.5" />{PHONE.label}</a>
+      <a class="hidden items-center gap-1.5 hover:text-white sm:flex" href={`mailto:${EMAIL}`}><Icon name="mail" class="size-3.5" />{EMAIL}</a>
+    </div>
+  </div>
+</div>
+
+<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+  <div class="wrap flex h-16 items-center gap-6 lg:h-[72px]">
+    <a href="/" class="flex shrink-0 items-center gap-3" aria-label="E&C Power Systems, home">
+      <img src="/image/logo2.png" alt="E&C Power Systems logo" width="160" height="54" class="h-10 w-auto lg:h-12" />
+      <span class="hidden border-l border-slate-200 pl-3 text-xs font-medium leading-tight text-slate-500 xl:block">Since<br />1978</span>
+    </a>
+
+    <nav class="ml-auto hidden lg:block" aria-label="Main">
+      <ul class="flex items-center gap-1">
+        {menu.map((m) => (
+          <li class="group relative">
+            {m.url ? (
+              <a href={m.url} class="flex h-10 items-center rounded-md px-3 text-[15px] font-medium text-slate-800 hover:text-brand-600">{m.label}</a>
+            ) : (
+              <>
+                <button type="button" class="flex h-10 items-center gap-1 rounded-md px-3 text-[15px] font-medium text-slate-800 group-hover:text-brand-600 group-focus-within:text-brand-600" aria-haspopup="true">
+                  {m.label}<Icon name="chevron" class="size-4 transition group-hover:rotate-180" />
+                </button>
+                <div class={`invisible absolute top-full pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 ${m.mega ? 'left-1/2 w-[860px] -translate-x-1/2' : 'left-0 w-64'}`}>
+                  <div class="rounded-xl border border-slate-200 bg-white p-3 shadow-xl shadow-slate-900/10">
+                    {m.mega ? (
+                      <div class="grid grid-cols-4 gap-2">
+                        {m.mega.map(([h, url, items]) => (
+                          <div>
+                            <a href={url} class="mb-1 block rounded-md px-3 py-2 text-sm font-semibold text-navy-900 hover:text-brand-600">{h}</a>
+                            <ul>{items.map(([l, u]) => <li><a class="block rounded-md px-3 py-1.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700" href={u}>{l}</a></li>)}</ul>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <ul>{m.items.map(([l, u]) => <li><a class={link} href={u}>{l}</a></li>)}</ul>
+                    )}
+                  </div>
+                </div>
+              </>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a href="/get-a-quote" class="btn-primary ml-auto hidden h-10 px-4 text-sm sm:inline-flex lg:ml-2">Get a quote<Icon name="arrow" class="size-4" /></a>
+
+    <details class="group/m ml-auto sm:ml-0 lg:hidden">
+      <summary class="flex size-11 cursor-pointer list-none items-center justify-center rounded-md text-navy-900 hover:bg-slate-100 [&::-webkit-details-marker]:hidden" aria-label="Menu">
+        <Icon name="menu" class="size-6 group-open/m:hidden" /><Icon name="close" class="hidden size-6 group-open/m:block" />
+      </summary>
+      <nav class="absolute inset-x-0 top-full max-h-[calc(100dvh-100px)] overflow-y-auto border-b border-slate-200 bg-white px-4 pb-6 shadow-lg" aria-label="Main">
+        <ul class="divide-y divide-slate-100">
+          {menu.map((m) => (
+            <li>
+              {m.url ? <a href={m.url} class="block py-3.5 font-medium text-slate-800">{m.label}</a> : (
+                <details class="group/s">
+                  <summary class="flex cursor-pointer list-none items-center justify-between py-3.5 font-medium text-slate-800 [&::-webkit-details-marker]:hidden">{m.label}<Icon name="chevron" class="size-4 transition group-open/s:rotate-180" /></summary>
+                  <ul class="pb-3">
+                    {(m.mega ? m.mega.flatMap(([h, u, items]) => [[h, u, true], ...items]) : m.items).map(([l, u, head]) => (
+                      <li><a href={u} class={`block py-2 pl-3 ${head ? 'pt-3 text-sm font-semibold text-navy-900' : 'text-[15px] text-slate-600'}`}>{l}</a></li>
+                    ))}
+                  </ul>
+                </details>
+              )}
+            </li>
+          ))}
+        </ul>
+        <a href="/get-a-quote" class="btn-primary mt-4 h-12 w-full">Get a quote<Icon name="arrow" class="size-4" /></a>
+      </nav>
+    </details>
+  </div>
+</header>

@@ -6,6 +6,7 @@ All notable changes to this project. Format based on [Keep a Changelog](https://
 
 ### Added
 
+- Homepage redesign (branch `ui/home-redesign`): new header with a Products mega menu, hero, numbers strip, product groups, industries, about, why E&C, full range, services, reviews and customer logos, states, latest posts, enquiry form and footer. Tailwind CSS v4 (`src/styles/site.css`, homepage only), no client JavaScript beyond the shared enquiry script. Title, description, canonical, schema and the H1 keyword are unchanged. Lighthouse mobile: 100 / 100 / 100 / 100.
 - `/remote-monitoring-system`: category hub for UPS, battery bank, DG and facility monitoring and the SNMP adapter, with a comparison table, uses, guides and FAQs. The "Remote Monitoring" menu item and the monitoring product breadcrumbs now open it instead of the UPS monitoring product.
 - `/ups-price-in-india`: price page for 29 "price / cost / buy" keywords that were on the quote form. It lists 18 products with their range and what sets the price, and covers price drivers, cost of ownership, how to buy and FAQs. Prices show "Get price" until the client confirms ranges (`PRICE` in the page). Linked from `/get-a-quote`, `/sitemap` and `llms.txt`.
 - `/custom-solutions` rebuilt as a hub (8 keywords): custom UPS design, OEM, indigenisation, power conditioning, the design process, and sections for ports and shipping, smart cities, defence and machine builders.

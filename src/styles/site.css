@@ -1,0 +1,64 @@
+/* Redesign styles (Tailwind v4). Only the redesigned pages import this, so the legacy Bootstrap pages are untouched.
+   Scans only the redesign sources: the legacy HTML is full of Bootstrap class names. */
+@import "tailwindcss" source(none);
+@source "../components/site";
+@source "../pages/index.astro";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-navy-950: #04122b;
+  --color-navy-900: #0b2546;
+  --color-navy-800: #10325e;
+  --color-brand-50: #eef5ff;
+  --color-brand-100: #d9e8ff;
+  --color-brand-300: #8ec1ff;
+  --color-brand-400: #4ea0ff;
+  --color-brand-500: #1f7ff0;
+  --color-brand-600: #0b63d6;
+  --color-brand-700: #0a4fab;
+  --color-cyan-accent: #33c6f4;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-white font-sans text-slate-700 antialiased; }
+  h1, h2, h3 { @apply font-display text-navy-900; text-wrap: balance; }
+  :focus-visible { outline: 2px solid var(--color-brand-500); outline-offset: 2px; }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 font-semibold text-white transition hover:bg-brand-700; }
+  .btn-ghost { @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/30 font-semibold text-white transition hover:border-white hover:bg-white/10; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.14em] text-brand-600; }
+  .sec-h { @apply text-2xl font-bold tracking-tight sm:text-3xl; }
+  .more { @apply inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:gap-2.5 hover:text-brand-700 transition-all; }
+}
+
+/* Sections fade up as they scroll in, where the browser supports scroll-driven animation; no JavaScript. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+  }
+}
+@keyframes reveal { from { opacity: 0; transform: translateY(24px); } }
+
+/* Customer logos scroll in a loop; static and wrapped when motion is reduced. */
+.marquee { mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee-track { animation: marquee 40s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { mask-image: none; }
+  .marquee-track { animation: none; flex-wrap: wrap; justify-content: center; width: auto; }
+  .marquee-track [aria-hidden="true"] { display: none; }
+}
+
+.hero-grid {
+  background-image:
+    radial-gradient(60% 70% at 78% 40%, rgb(31 127 240 / 0.35), transparent 70%),
+    linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+}
