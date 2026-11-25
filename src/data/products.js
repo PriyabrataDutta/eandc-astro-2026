@@ -16,7 +16,7 @@ export const families = {
   lineint: { name: 'Line Interactive UPS', url: null, guides: ['online-vs-offline-ups', 'ups-vs-inverter'] },
   inverter: { name: 'Inverters', url: '/power-inverter-manufacturer-in-india', guides: ['ups-vs-inverter', 'ups-battery-backup-time'] },
   stabilizer: { name: 'Voltage Stabilizers', url: '/stabilizer', guides: [], ...OTHER, field: 'Capacity needed (kVA)' },
-  accessory: { name: 'UPS Accessories', url: null, guides: ['ups-sizing-kva'], ...OTHER },
+  accessory: { name: 'UPS Accessories', url: '/ups-accessories', guides: ['ups-sizing-kva'], ...OTHER },
   battery: { name: 'Batteries', url: '/ups-batteries', guides: ['ups-battery-backup-time'], ...OTHER, field: 'Battery rating (Ah) or quantity' },
   charger: { name: 'Battery Chargers', url: '/battery-charger-manufacturer-in-india', guides: [], ...OTHER, field: 'DC voltage / current' },
   solar: { name: 'Solar Solutions', url: '/solar-inverter-manufacturer-in-india', guides: [], ...OTHER },

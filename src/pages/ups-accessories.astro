@@ -1,0 +1,145 @@
+---
+// UPS accessories hub: isolation transformers, static transfer switches and SNMP adapters had no category page,
+// so the "Accessories" menu item opened nothing. Product facts from src/data/products.js; guides are the matching
+// blog posts.
+import Hub from '../layouts/Hub.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+import { families, products } from '../data/products.js';
+
+const fam = families.accessory;
+const range = ['isolation', 'intelligent-transfer-switch', 'snmp-adapter'];
+const iso = products.isolation;
+const sts = products['intelligent-transfer-switch'];
+
+const types = [
+  ['What it does', 'Separates the load from the mains and the UPS bypass, cutting noise and giving a clean neutral', 'Switches a load between up to three sources without a break', 'Puts the UPS on the network for monitoring, alerts and shutdown'],
+  ['E&C range', iso.capacity, sts.capacity, 'Network card for the UPS'],
+  ['Key options', 'Ultra isolation; K4, K7, K13, K20 ratings; aluminium or copper winding', 'Up to 3 inputs / 1 output; wall, floor or rack; optional RS-232', 'Web, NMS, Telnet, SNMP; HTTPS, SSL, SSH, SNMP v3'],
+  ['Best for', 'CNC machines, telecom, labs and loads that create harmonics', 'Data centres and dual-UPS setups, including UPS of different makes', 'Server rooms and multi-site UPS fleets'],
+];
+const links = ['/isolation', '/intelligent-transfer-switch', '/snmp-adapter'];
+const heads = ['Isolation transformer', 'Static transfer switch', 'SNMP adapter'];
+
+const uses = [
+  { icon: 'fa-cogs', h: 'CNC and machine tools', t: 'An isolation transformer gives sensitive CNC controls a clean, separate supply and a stable neutral-to-earth voltage.' },
+  { icon: 'fa-server', h: 'Data centres and server rooms', t: 'A static transfer switch keeps single-corded servers running if one UPS fails, and SNMP adapters alert the team at once.' },
+  { icon: 'fa-signal', h: 'Telecom sites', t: 'Isolation transformers give telecom equipment a clean, isolated supply; SNMP lets remote sites be watched centrally.' },
+  { icon: 'fa-hospital-o', h: 'Hospitals and labs', t: 'Isolation for medical and lab instruments, and transfer switches so critical loads never drop.' },
+  { icon: 'fa-industry', h: 'Process industry', t: 'K-rated transformers handle harmonic-rich loads such as drives, and transfer switches add redundancy to control systems.' },
+  { icon: 'fa-random', h: 'Making two UPS redundant', t: 'An intelligent static transfer switch lets two UPS of different makes or ratings work as a redundant pair.' },
+];
+
+const guides = [
+  ['isolation-transformer-for-ups', 'What is an isolation transformer, and does your UPS need one?'],
+  ['isolation-transformer-vs-isolation-ups', 'Isolation transformer vs isolation UPS'],
+  ['what-is-a-static-transfer-switch', 'What is a static transfer switch?'],
+  ['snmp-and-remote-ups-monitoring', 'What is SNMP UPS monitoring?'],
+  ['ups-thd-surge-and-bypass-explained', 'UPS THD, surge protection and bypass explained'],
+];
+
+const faq = [
+  { q: 'Does my UPS need an isolation transformer?', a: 'Many transformerless online UPS benefit from one on the output or bypass, especially for CNC machines, medical and lab equipment, or sites with a poor neutral. It separates the load from the mains, reduces noise and gives a clean neutral-to-earth reference.' },
+  { q: 'What is a K-rated isolation transformer?', a: 'A K-rated transformer is built to carry the extra heating caused by harmonic currents from drives, computers and LED lighting. E&C makes K4, K7, K13 and K20 units; the higher the K number, the more harmonics it can handle.' },
+  { q: 'What does a static transfer switch do?', a: 'It switches a load between two or three power sources, such as two UPS, without a break. E&C\'s intelligent static transfer switch takes up to three inputs to one output, from 1 to 500 kVA, and can make two UPS of different makes work as a redundant pair.' },
+  { q: 'Why add an SNMP adapter to a UPS?', a: 'An SNMP adapter puts the UPS on your network, so you can see its status in a browser or network management system, get email and SMS alerts, schedule self-tests and shut servers down safely before the battery runs out.' },
+  { q: 'Does E&C supply accessories across India?', a: 'Yes. E&C designs and builds isolation transformers and static transfer switches in Bengaluru and supplies them, with SNMP adapters, through its regional sales offices across India.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'UPS accessories: isolation transformers, static transfer switches and SNMP adapters',
+    description: 'Isolation and K-rated transformers, intelligent static transfer switches and SNMP adapters for UPS systems, from E&C Power Systems, Bengaluru, supplied across India.',
+    url: urlFor('ups-accessories'),
+    serviceType: 'UPS accessory manufacturing and supply',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="ups-accessories"
+  title="UPS Accessories in India | Isolation Transformer, STS | E&C"
+  description="Isolation and K-rated transformers, static transfer switches and SNMP adapters for UPS systems, made in Bengaluru by E&C Power and supplied across India."
+  name="UPS Accessories"
+  schema={schema}
+  image="/image/product/isolation_transformer.jpg"
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">Isolation · transfer switches · SNMP</span>
+          <h1>UPS Accessories: Isolation Transformers, Static Transfer Switches and SNMP</h1>
+          <p class="hb-lead">E&amp;C Power Systems makes isolation transformers and intelligent static transfer switches in Bengaluru, and supplies SNMP adapters, to give UPS systems cleaner power, redundancy and remote monitoring across India.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-bolt" aria-hidden="true"></em>1 – 500 kVA</li>
+            <li><em class="fa fa-random" aria-hidden="true"></em>Up to 3 inputs</li>
+            <li><em class="fa fa-wifi" aria-hidden="true"></em>SNMP v3</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a quote</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo prod"><img src="/image/product/isolation_transformer.jpg" alt="E&C isolation transformer" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C isolation transformer</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-range">
+    <div class="container">
+      <h2 class="pd-h" id="h-range">Accessories range</h2>
+      <Range slugs={range} />
+      <p class="hb-p" style="margin-top:12px;">For monitoring beyond the UPS, see <a href="/ups-remote-monitoring">UPS remote monitoring</a> and <a href="/battery-bank-remote-monitoring">battery bank monitoring</a>. All our UPS: <a href="/online-ups">online UPS</a> and <a href="/industrial-ups-manufacturer-in-india">industrial UPS</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-types">
+    <div class="container">
+      <h2 class="pd-h" id="h-types">Which accessory do you need?</h2>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col"></th>{heads.map((h, i) => <th scope="col"><a href={links[i]} style="color:#fff;">{h}</a></th>)}</tr></thead>
+          <tbody>{types.map(([k, ...v]) => <tr><th scope="row">{k}</th>{v.map((x) => <td>{x}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-uses">
+    <div class="container">
+      <h2 class="pd-h" id="h-uses">Where they are used</h2>
+      <div class="hb-cards three">
+        {uses.map((x) => (
+          <div class="hb-card hb-ind">
+            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <h3>{x.h}</h3>
+            <p>{x.t}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-guides">
+    <div class="container">
+      <h2 class="pd-h" id="h-guides">Guides</h2>
+      <ul class="hb-tags">{guides.map(([s, t]) => <li><a href={`/blogs/${s}`}>{t}</a></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get an accessories quotation" service="Quote: UPS accessories" pitch={fam.pitch} step1={fam.step1} field={fam.field} ask={fam.ask} />
+</Hub>

@@ -188,6 +188,18 @@ function rangeHtml(slug) {
 `;
 }
 
+// Product menu category -> page.
+const MENU_CATEGORIES = {
+  'Industrial Online UPS': '/industrial-ups-manufacturer-in-india',
+  'Line Interactive UPS': '/lineups',
+  Inverters: '/power-inverter-manufacturer-in-india',
+  'EV Chargers': '/ev-charger-manufacturer-in-india',
+  Stabilizers: '/stabilizer',
+  'Remote Monitoring': '/ups-remote-monitoring',
+  Batteries: '/ups-batteries',
+  Accessories: '/ups-accessories',
+};
+
 export function cleanup(html, slug) {
   const known = new Set([...slugs(), ...astroPages()]);
 
@@ -216,6 +228,10 @@ export function cleanup(html, slug) {
 
   // A jQuery fallback ran before jQuery loaded and requested a broken relative URL (404 on every page).
   html = html.replace(/<script>\s*window\.jQuery \|\|\s*document\.write\("<script src='\.\.\/cdnjs\.cloudflare\.com[^"]*"\);\s*<\/script>\s*/g, '');
+
+  // Product menu categories were dead "#" links (only Online UPS opened a page). Point each at its category page;
+  // the theme's menu script still opens the submenu on the first tap on mobile and follows the link on the second.
+  for (const [label, url] of Object.entries(MENU_CATEGORIES)) html = html.replaceAll(`<a href="#">${label}</a>`, `<a href="${url}">${label}</a>`);
 
   // The nav linked an unbuilt product to the noindex "comming-soon" placeholder on every page.
   html = html.replace(/[ \t]*<li>\s*<a href="\/?comming-soon(?:\.html)?"\s*>[^<]*<\/a>\s*<\/li>\s*/g, '');

@@ -20,8 +20,11 @@ All notable changes to this project. Format based on [Keep a Changelog](https://
   - New Jammu city page (office already listed; Jammu moved onto its service list).
   - `/ups-batteries`: batteries category page (SMF, tubular, AGM / GEL, lithium ion, Ni-Cd), with a comparison table, battery guides and FAQs. Battery product pages link back to it.
   - Legacy pages that stand as a product category (inverters, solar, battery chargers, EV chargers) now list their products in a range block, and three got new descriptions.
+  - `/ups-accessories`: accessories category page (isolation transformers, static transfer switches, SNMP adapters) with a comparison table, uses, guides and FAQs.
 
 ### Fixed
+
+- Products menu: every category except Online UPS was a dead `#` link. Each now opens its category page (industrial UPS, line interactive, inverters, EV chargers, stabilizers, remote monitoring, batteries, accessories); on mobile the first tap still opens the submenu.
 
 - Nav linked 194 pages to the noindex `/comming-soon` placeholder ("Lead Acid Battery to Lithium Converter"); the item is removed at build time.
 
@@ -31,6 +34,8 @@ All notable changes to this project. Format based on [Keep a Changelog](https://
 - Location pages were 60–70% alike. Each of the 36 now has its own "Power conditions in …" section, 3 local needs and 2 local FAQs (`src/data/local.json`), and a product range picked from its industries: the most similar pair is now 37% alike, the average 27%.
 
 ### Changed
+
+- `vercel.json`: `X-Robots-Tag: noindex, nofollow` on `*.vercel.app` hosts only, so the pre-production URL is not indexed; the production domain is unaffected.
 
 - 34 product pages retitled for India: titles and descriptions now set in `products.js` (no "in Bangalore", no phone number in descriptions; "Made in India" only on products E&C builds, "Supplier in India" on batteries). An optional `heading` field puts the keyword in the H1 on the 8 pages mapped to priority keywords. `/ev-chargers` gets a spec title so it stops competing with `/ev-charger-manufacturer-in-india`. `/stabilizer` title now targets India.
 - `vercel.json`: security headers (nosniff, X-Frame-Options, Referrer-Policy, Permissions-Policy) and caching (7 days for unhashed assets, immutable for `/_astro/`).

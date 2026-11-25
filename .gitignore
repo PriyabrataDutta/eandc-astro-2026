@@ -25,3 +25,5 @@ Thumbs.db
 
 # local tools
 graphify-out/
+.vercel
+.env*
