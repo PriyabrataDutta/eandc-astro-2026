@@ -1,6 +1,7 @@
 ---
 // Long pages (blog posts, guides, 404, get-a-quote): Base with a breadcrumb, the article in `prose-ec`, an optional
-// quote call-out and the sidebar (quick enquiry, featured products, address).
+// quote call-out and the sidebar (quick enquiry, featured products, address). `ld` replaces the generated schema
+// (breadcrumb plus `schema`) when a page brings its own complete set, as the converted pages in src/content/pages do.
 import Base from './Base.astro';
 import Breadcrumb from '../components/site/Breadcrumb.astro';
 import Sidebar from '../components/site/Sidebar.astro';
@@ -8,10 +9,10 @@ import Icon from '../components/site/Icon.astro';
 import { urlFor } from '../lib/site.js';
 import { SALES_PHONE } from '../data/nav.js';
 
-const { slug, title, description, h1, crumbs = [], schema = [], sidebar = true, cta = true, noindex = false, image = '/image/logo2.png', type, published } = Astro.props;
+const { slug, title, description, h1, crumbs = [], schema = [], ld: own, sidebar = true, cta = true, noindex = false, image = '/image/logo2.png', type, published } = Astro.props;
 
 const trail = [{ name: 'Home', url: '/' }, ...crumbs];
-const ld = [
+const ld = own ?? [
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

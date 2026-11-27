@@ -1,0 +1,19 @@
+---
+title: "Customer Feedback | E&C Power Systems"
+description: "Share your feedback on E&C Power Systems UPS, inverters, stabilizers, installation, service and support, or scan the code to leave a Google review."
+h1: "Customer Feedback"
+image: "/image/banner-blog.jpg"
+sidebar: false
+schema: [{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.eandcpower.com/#organization","name":"Electronics & Controls Power Systems Private Limited","alternateName":"Electronics & Controls (E&C)","url":"https://www.eandcpower.com/","logo":{"@type":"ImageObject","url":"https://www.eandcpower.com/image/logo2.png"},"description":"Electronics & Controls Power Systems Private Limited is a power electronics company based in Peenya Industrial Area, Bengaluru, India, offering UPS systems and other power solutions.","telephone":["+91-80-2837-1974","+91-80-2837-9401"],"email":"sales@eandcpower.com","address":{"@type":"PostalAddress","streetAddress":"29/A, 2nd Phase, Peenya Industrial Area","addressLocality":"Bengaluru","addressRegion":"Karnataka","postalCode":"560058","addressCountry":"IN"},"identifier":{"@type":"PropertyValue","propertyID":"CIN","value":"U31200KA1997PTC022448"},"knowsAbout":["Online UPS systems","Industrial UPS systems","Power electronics","UPS product feedback","Customer feedback management","UPS product support","Power backup solutions"],"contactPoint":{"@type":"ContactPoint","contactType":"Customer feedback and sales enquiries","telephone":"+91-80-2837-1974","email":"sales@eandcpower.com"}},{"@type":"WebSite","@id":"https://www.eandcpower.com/#website","url":"https://www.eandcpower.com/","name":"Electronics & Controls Power Systems Private Limited","publisher":{"@id":"https://www.eandcpower.com/#organization"},"inLanguage":"en-IN"},{"@type":"WebPage","@id":"https://www.eandcpower.com/feedback#webpage","url":"https://www.eandcpower.com/feedback","name":"Customer Feedback | E&C Power Systems","description":"Share your feedback about E&C UPS systems and customer experience. Electronics & Controls Power Systems Private Limited welcomes customer feedback from Bangalore, Peenya and other service locations.","isPartOf":{"@id":"https://www.eandcpower.com/#website"},"about":{"@id":"https://www.eandcpower.com/#organization"},"mainEntity":{"@id":"https://www.eandcpower.com/feedback#feedbackpage"},"breadcrumb":{"@id":"https://www.eandcpower.com/feedback#breadcrumb"},"inLanguage":"en-IN"},{"@type":"WebPageElement","@id":"https://www.eandcpower.com/feedback#feedbackpage","name":"UPS Systems Customer Feedback","description":"Customer feedback form for sharing experiences and suggestions about E&C products and services.","url":"https://www.eandcpower.com/feedback","isPartOf":{"@id":"https://www.eandcpower.com/feedback#webpage","about":{"@id":"https://www.eandcpower.com/#organization"}}},{"@type":"BreadcrumbList","@id":"https://www.eandcpower.com/feedback#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.eandcpower.com/"},{"@type":"ListItem","position":2,"name":"Feedback","item":"https://www.eandcpower.com/feedback"}]}]}]
+---
+
+## Tell us how we did
+
+We thank you for purchasing an E&C product and extending your patronage to us. At E&C, we take customer feedback very seriously and ensure that they are discussed internally and amend our processes.\
+Hence, we request you to kindly take a few minutes to fill out the [**feedback form**](https://docs.google.com/forms/u/0/d/10aRQgQ16B9w93DmytZltJ7kgjOAtx1uMWC1aNJxjjfM/viewform?edit_requested=true) to let us know your feedback.
+
+This feed back is solicited by the MD/ CEO and it will directly reach him. It will help us immensely to understand our customers and serve them better.\
+We value your inputs as it is very important to us. You can be assured that your feedback will be kept confidential, the feedback points discussed and implemented.
+
+\
+\

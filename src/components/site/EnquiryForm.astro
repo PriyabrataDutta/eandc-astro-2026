@@ -1,0 +1,26 @@
+---
+// Enquiry forms for content pages. Posts to /api/contact through /js/enquiry.js, which sends name, email, phone, service
+// and message, and adds any other field (company, designation) to the message.
+// variant "contact": the contact page's message form; "catalog": a catalog request.
+const { variant = 'contact' } = Astro.props;
+const field = 'block w-full min-h-11 rounded-lg border border-slate-300 bg-white px-3 text-[15px] text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20';
+const label = 'mb-1 block text-[13px] font-semibold text-slate-800';
+const contact = variant === 'contact';
+---
+<section class="not-prose my-8 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8" aria-labelledby={`form-${variant}`}>
+  <h2 id={`form-${variant}`} class="!mt-0 font-display text-xl font-semibold text-navy-900">{contact ? 'Send us a message' : 'Request a catalog'}</h2>
+  <form action="/api/contact" method="POST" data-enquiry class="mt-5 grid gap-4 sm:grid-cols-2">
+    <input type="hidden" name="service" value={contact ? 'Contact page' : 'Catalog request'} />
+    <div><label class={label} for={`${variant}-name`}>Name *</label><input id={`${variant}-name`} name="name" required autocomplete="name" class={field} /></div>
+    <div><label class={label} for={`${variant}-email`}>Email *</label><input id={`${variant}-email`} type="email" name="email" required autocomplete="email" class={field} /></div>
+    <div><label class={label} for={`${variant}-phone`}>Phone{contact ? '' : ' *'}</label><input id={`${variant}-phone`} type="tel" name="phone" required={!contact} autocomplete="tel" inputmode="tel" class={field} /></div>
+    {contact ? (
+      <div><label class={label} for="contact-area">Area of interest</label><input id="contact-area" name="area" class={field} /></div>
+    ) : (
+      <div><label class={label} for="catalog-company">Company *</label><input id="catalog-company" name="company" required autocomplete="organization" class={field} /></div>
+    )}
+    {!contact && <div><label class={label} for="catalog-designation">Designation *</label><input id="catalog-designation" name="designation" required autocomplete="organization-title" class={field} /></div>}
+    <div class="sm:col-span-2"><label class={label} for={`${variant}-msg`}>{contact ? 'Message *' : 'Which catalogs do you need? *'}</label><textarea id={`${variant}-msg`} name="message" rows="4" required class={`${field} py-2.5`}></textarea></div>
+    <div class="sm:col-span-2"><button type="submit" class="btn-solid h-11 px-6 text-sm">{contact ? 'Send message' : 'Request catalog'}</button></div>
+  </form>
+</section>

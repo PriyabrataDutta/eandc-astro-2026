@@ -43,6 +43,9 @@ html, body { overflow-x: clip; }
   .prose-ec table { @apply w-full border-collapse text-sm; }
   .prose-ec th, .prose-ec td { @apply border border-slate-200 px-3 py-2 text-left align-top; }
   .prose-ec th { @apply bg-slate-50 font-semibold text-navy-900; }
+  /* Content images keep their shape and never outgrow the column or 28rem in height (a QR code, a portrait). */
+  .prose-ec img { @apply h-auto w-auto max-w-full rounded-lg; max-height: 28rem; }
+  .prose-ec img[src*="qrcode"] { width: 11rem; }
   .prose-ec figure { @apply my-6; }
   .prose-ec figure img { @apply h-auto max-w-full rounded-lg; }
   .prose-ec figcaption { @apply mt-1.5 text-sm text-slate-500; }

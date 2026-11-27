@@ -2,7 +2,8 @@
 // HTML sitemap: every indexable page, grouped. Built from the same list as /sitemap.xml (src/lib/pages.js), and any
 // page not placed in a named group lands in "Other pages", so a new page can never be missing here.
 import Hub from '../layouts/Hub.astro';
-import { render, slugs } from '../lib/legacy.js';
+// Titles of the Markdown pages (src/content/pages), up to the "|".
+const contentTitles = Object.fromEntries(Object.entries(import.meta.glob('../content/pages/*.md', { eager: true })).map(([f, m]) => [f.split('/').pop().replace(/\.md$/, ''), m.frontmatter.title.split('|')[0]]));
 import { sitePages } from '../lib/pages.js';
 import { products, families, guideTitles } from '../data/products.js';
 import { states, cities, indexable, cityLink } from '../data/locations.js';
@@ -11,7 +12,6 @@ import { posts, topics } from '../lib/blog.js';
 const all = new Set(sitePages());
 all.delete('sitemap');
 const used = new Set();
-const legacy = new Set(slugs());
 const NAMES = {
   index: 'Home', blogs: 'Blog', 'about-us': 'About us', management: 'Management', missionandvision: 'Mission and vision',
   'research-and-development': 'Research & development', 'eandcpower-infrastructure': 'Infrastructure', machinery: 'Machinery & utilities',
@@ -24,7 +24,7 @@ const NAMES = {
   ...Object.fromEntries(cities.map((x) => [x.slug, x.name])),
 };
 // Legacy pages: their own title up to the first "|".
-const name = (s) => NAMES[s] ?? products[s]?.name ?? guideTitles[s.replace('guides/', '')] ?? (legacy.has(s) ? render(s).match(/<title>([^<|]*)/)?.[1] ?? s : s).replace(/&amp;/g, '&').trim();
+const name = (s) => NAMES[s] ?? products[s]?.name ?? guideTitles[s.replace('guides/', '')] ?? (contentTitles[s] ?? s).trim();
 const take = (list) => list.filter((s) => all.has(s) && !used.has(s)).map((s) => (used.add(s), { url: s === 'index' ? '/' : `/${s}`, name: name(s) }));
 
 const company = take(['index', 'about-us', 'management', 'missionandvision', 'research-and-development', 'eandcpower-infrastructure', 'machinery', 'newtestimonal', 'careers', 'catalog', 'frequently-asked-questions', 'annualreturn']);

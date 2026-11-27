@@ -1,0 +1,33 @@
+---
+// Company, contact and keyword pages written in Markdown (src/content/pages/<slug>.md). Frontmatter carries the head
+// exactly as published: title, description, h1, robots, Open Graph image and the full JSON-LD set (`schema`).
+// Extras: `form` ("contact" or "catalog") adds an enquiry form, `map` the Google map of the Peenya plant.
+import Page from '../layouts/Page.astro';
+import EnquiryForm from '../components/site/EnquiryForm.astro';
+
+export function getStaticPaths() {
+  const files = import.meta.glob('../content/pages/*.md', { eager: true });
+  return Object.entries(files).map(([file, mod]) => ({
+    params: { slug: file.split('/').pop().replace(/\.md$/, '') },
+    props: { fm: mod.frontmatter, Content: mod.Content },
+  }));
+}
+
+const { slug } = Astro.params;
+const { fm, Content } = Astro.props;
+---
+<Page slug={slug} title={fm.title} description={fm.description} h1={fm.h1} image={fm.image} ld={fm.schema} noindex={fm.noindex} sidebar={fm.sidebar} cta={fm.cta ?? true}>
+  {fm.form === 'contact' && <EnquiryForm variant="contact" />}
+  <Content />
+  {fm.form === 'catalog' && <EnquiryForm variant="catalog" />}
+  {fm.map && (
+    <iframe
+      title="Map: E&C Power Systems, Peenya, Bengaluru"
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15548.36200721826!2d77.5122065!3d13.0299085!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x56f51002842745!2sElectronics%20%26%20Controls%20Power%20Systems%20Private%20Limited!5e0!3m2!1sen!2sin!4v1669988288450!5m2!1sen!2sin"
+      class="mt-8 h-[420px] w-full rounded-xl border-0"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen
+    ></iframe>
+  )}
+</Page>
