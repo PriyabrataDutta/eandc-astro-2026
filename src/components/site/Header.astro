@@ -2,6 +2,7 @@
 // Redesigned header: top bar, sticky nav with a Products mega menu, and a <details> menu on phones. No JavaScript:
 // desktop menus open on hover and on keyboard focus. Avoids the class `hidden`: legacy Bootstrap sets it
 // display:none !important, which would beat the responsive reveals on the legacy pages (see chrome.css).
+// The Products item fills the bar's height, so the pointer never leaves it on the way down to the full-width panel.
 import Icon from './Icon.astro';
 import { menu, PHONE, EMAIL } from '../../data/nav.js';
 const link = 'block rounded-md px-3 py-2 text-[15px] text-slate-700 hover:bg-brand-50 hover:text-brand-700';
@@ -26,7 +27,7 @@ const link = 'block rounded-md px-3 py-2 text-[15px] text-slate-700 hover:bg-bra
     <nav class="ml-auto max-lg:hidden" aria-label="Main">
       <ul class="flex items-center gap-1">
         {menu.map((m) => (
-          <li class="group relative">
+          <li class={m.mega ? 'group flex h-[72px] items-center' : 'group relative'}>
             {m.url ? (
               <a href={m.url} class="flex h-10 items-center whitespace-nowrap rounded-md px-2 text-[15px] font-medium text-slate-800 hover:text-brand-600 xl:px-3">{m.label}</a>
             ) : (
@@ -34,22 +35,36 @@ const link = 'block rounded-md px-3 py-2 text-[15px] text-slate-700 hover:bg-bra
                 <button type="button" class="flex h-10 items-center gap-1 whitespace-nowrap rounded-md px-2 text-[15px] font-medium text-slate-800 group-hover:text-brand-600 group-focus-within:text-brand-600 xl:px-3" aria-haspopup="true">
                   {m.label}<Icon name="chevron" class="size-4 transition group-hover:rotate-180" />
                 </button>
-                <div class={`invisible absolute top-full pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 ${m.mega ? 'left-1/2 w-[860px] -translate-x-1/2' : 'left-0 w-64'}`}>
-                  <div class="rounded-xl bg-white p-3 shadow-xl shadow-slate-900/15">
-                    {m.mega ? (
-                      <div class="grid grid-cols-4 gap-2">
-                        {m.mega.map(([h, url, items]) => (
-                          <div>
-                            <a href={url} class="mb-1 block rounded-md px-3 py-2 text-sm font-semibold text-navy-900 hover:text-brand-600">{h}</a>
-                            <ul>{items.map(([l, u]) => <li><a class="block rounded-md px-3 py-1.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700" href={u}>{l}</a></li>)}</ul>
-                          </div>
-                        ))}
+                {m.mega ? (
+                  /* Full width under the header bar (the li is static, so this sits on the sticky header). */
+                  <div class="invisible absolute inset-x-0 top-full border-t border-slate-200 bg-white opacity-0 shadow-xl shadow-slate-900/10 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                    <div class="wrap grid grid-cols-4 gap-x-8 py-6">
+                      {m.mega.map((col) => (
+                        <div class="flex flex-col gap-5">
+                          {col.map(([h, url, items]) => (
+                            <div>
+                              <a href={url} class="block py-1 text-[15px] font-semibold text-navy-900 hover:text-brand-600">{h}</a>
+                              {items.length > 0 && <ul class="mt-1 border-l border-slate-200">{items.map(([l, u]) => <li><a class="-ml-px block border-l border-transparent py-1 pl-3 text-sm text-slate-600 hover:border-brand-600 hover:text-brand-700" href={u}>{l}</a></li>)}</ul>}
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                    <div class="border-t border-slate-100 bg-slate-50">
+                      <div class="wrap flex h-12 items-center gap-6 text-sm">
+                        <a href="/ups-price-in-india" class="font-medium text-slate-700 hover:text-brand-700">UPS price in India</a>
+                        <a href="/catalog" class="font-medium text-slate-700 hover:text-brand-700">Product catalogs</a>
+                        <a href="/get-a-quote" class="ml-auto font-semibold text-brand-600 hover:text-brand-700">Get a quote for your load</a>
                       </div>
-                    ) : (
-                      <ul>{m.items.map(([l, u]) => <li><a class={link} href={u}>{l}</a></li>)}</ul>
-                    )}
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div class="invisible absolute left-0 top-full w-64 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                    <div class="rounded-xl bg-white p-3 shadow-xl shadow-slate-900/15">
+                      <ul>{m.items.map(([l, u]) => <li><a class={link} href={u}>{l}</a></li>)}</ul>
+                    </div>
+                  </div>
+                )}
               </>
             )}
           </li>
@@ -71,7 +86,7 @@ const link = 'block rounded-md px-3 py-2 text-[15px] text-slate-700 hover:bg-bra
                 <details class="group/s">
                   <summary class="flex cursor-pointer list-none items-center justify-between py-3.5 font-medium text-slate-800 [&::-webkit-details-marker]:hidden">{m.label}<Icon name="chevron" class="size-4 transition group-open/s:rotate-180" /></summary>
                   <ul class="pb-3">
-                    {(m.mega ? m.mega.flatMap(([h, u, items]) => [[h, u, true], ...items]) : m.items).map(([l, u, head]) => (
+                    {(m.mega ? m.mega.flat().flatMap(([h, u, items]) => [[h, u, true], ...items]) : m.items).map(([l, u, head]) => (
                       <li><a href={u} class={`block py-2 pl-3 ${head ? 'pt-3 text-sm font-semibold text-navy-900' : 'text-[15px] text-slate-600'}`}>{l}</a></li>
                     ))}
                   </ul>
