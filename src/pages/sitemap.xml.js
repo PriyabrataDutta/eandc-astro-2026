@@ -1,4 +1,4 @@
-import { urlFor } from '../lib/legacy.js';
+import { urlFor } from '../lib/site.js';
 import { sitePages } from '../lib/pages.js';
 import { posts, topics, MIN_INDEXED } from '../lib/blog.js';
 

@@ -1,0 +1,26 @@
+---
+// The one page shell: Head, the site header and footer, and the Tailwind stylesheet. Pages pass the Head props;
+// the "head" slot takes page-only additions (a font, a preload). `enquiry` loads the shared enquiry-form script.
+import '../styles/site.css';
+import Head from '../components/site/Head.astro';
+import Header from '../components/site/Header.astro';
+import Footer from '../components/site/Footer.astro';
+
+const { enquiry = false, ...head } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Head {...head} />
+  <slot name="head" />
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:m-2 focus:rounded focus:bg-white focus:px-4 focus:py-2">Skip to content</a>
+  <Header />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer />
+  {enquiry && <script is:inline src="/js/enquiry.js" defer></script>}
+</body>
+</html>

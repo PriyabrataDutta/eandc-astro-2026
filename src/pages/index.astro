@@ -1,23 +1,15 @@
 ---
-// Redesigned homepage (Tailwind, no client JavaScript except the shared enquiry form script). It replaces the legacy
-// index.html render but keeps that page's <head> (title, description, canonical, Open Graph, schema, analytics),
-// built by cleanup() from src/data/seo.js, so search signals don't change. The H1 keeps the ranking keyword.
-import '../styles/site.css';
-import Header from '../components/site/Header.astro';
-import Footer from '../components/site/Footer.astro';
+// Homepage (Astro + Tailwind). Title and description from src/data/seo.js, schema from src/data/schema-home.js; the
+// H1 keeps the ranking keyword. No client JavaScript except the shared enquiry form script.
+import Base from '../layouts/Base.astro';
 import Icon from '../components/site/Icon.astro';
-import { render } from '../lib/legacy.js';
+import { meta } from '../data/seo.js';
+import { homeSchema } from '../data/schema-home.js';
 import { posts, longDate, postUrl } from '../lib/blog.js';
 import { states } from '../data/locations.js';
 import { customers } from '../data/customers.js';
 import { PHONE, EMAIL } from '../data/nav.js';
 
-const head = render('index')
-  .match(/<head[^>]*>([\s\S]*?)<\/head>/i)[1]
-  .replace(/<meta (?:http-equiv="content-type"|charset|name="viewport")[^>]*>\s*/gi, '')
-  .replace(/<link[^>]*rel="stylesheet"[^>]*>\s*/gi, '')
-  .replace(/<link rel="preload" as="image"[^>]*>\s*/gi, '')
-  .replace(/href="image\//g, 'href="/image/');
 
 const img = (p) => `/image/${p.split('/').map(encodeURIComponent).join('/')}`;
 
@@ -79,22 +71,13 @@ const testimonials = [
 const latest = posts.slice(0, 3);
 const field = 'w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-[15px] text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none';
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" /></noscript>
-  <Fragment set:html={head} />
-</head>
-<body>
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:m-2 focus:rounded focus:bg-white focus:px-4 focus:py-2">Skip to content</a>
-  <Header />
-
-  <main id="main">
+<Base slug="index" title={meta.index.title} description={meta.index.description} image="/image/home/online%20ups.jpg" schema={[homeSchema]} enquiry>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" /></noscript>
+  </Fragment>
     <!-- Hero -->
     <section class="hero-grid relative overflow-hidden bg-navy-900 text-white">
       <div class="wrap grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
@@ -359,9 +342,4 @@ const field = 'w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 
         </form>
       </div>
     </section>
-  </main>
-
-  <Footer />
-  <script is:inline src="/js/enquiry.js" defer></script>
-</body>
-</html>
+</Base>

@@ -4,7 +4,7 @@
 import Page from '../layouts/Page.astro';
 import { posts, longDate, topics, CATEGORIES, MIN_INDEXED } from '../lib/blog.js';
 import { guideTitles } from '../data/products.js';
-import { urlFor } from '../lib/legacy.js';
+import { urlFor } from '../lib/site.js';
 
 const { items, page, pages, base, topic } = Astro.props;
 const href = (n) => (n === 1 ? base : `${base}/page/${n}`);

@@ -107,7 +107,7 @@ a.hb-card:hover { border-color:#8ec1ff; box-shadow:0 12px 24px -8px rgba(11,99,2
 @media (min-width: 768px) { .hb-logos { grid-template-columns:repeat(7, 1fr); } }
 /* Process steps with arrows */
 .hb-flow { list-style:none; margin:0; padding:0; display:grid; gap:10px; counter-reset:f; }
-.hb-flow li { margin:0; background:#fff; border:1px solid var(--line); border-top:3px solid var(--blue); border-radius:12px; padding:12px 14px; font-size:13.5px; color:var(--muted); line-height:1.55; position:relative; }
+.hb-flow li { margin:0; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; font-size:13.5px; color:var(--muted); line-height:1.55; position:relative; }
 .hb-flow strong { display:block; color:var(--navy); font-size:15px; margin-bottom:2px; }
 .hb-flow strong::before { counter-increment:f; content:counter(f); display:inline-flex; width:22px; height:22px; border-radius:50%; background:var(--blue); color:#fff; font-size:12px; align-items:center; justify-content:center; margin-right:8px; }
 @media (min-width: 768px) { .hb-flow { grid-template-columns:repeat(4, 1fr); } .hb-flow li:not(:last-child)::after { content:'\2192'; position:absolute; right:-10px; top:50%; transform:translateY(-50%); color:var(--blue); font-weight:700; background:var(--soft); width:16px; text-align:center; z-index:1; } }

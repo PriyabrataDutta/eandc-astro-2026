@@ -16,7 +16,7 @@
 .pd-eyebrow { display:inline-block; font-size:13.5px; font-weight:500; color:var(--blue-dark); background:var(--tint); padding:4px 12px; border-radius:999px; margin-bottom:12px; }
 .pd-hero h1 { color:var(--navy); font-size:26px; font-weight:700; line-height:1.2; margin:0 0 8px; }
 .pd-tagline { color:var(--muted); font-size:15px; line-height:1.55; margin:0 0 14px; }
-.pd-cap { display:inline-flex; align-items:baseline; gap:8px; border-left:4px solid var(--accent); background:var(--tint); border-radius:0 8px 8px 0; padding:6px 14px; margin:0 0 14px; }
+.pd-cap { display:inline-flex; align-items:baseline; gap:8px; background:var(--tint); border-radius:8px; padding:6px 14px; margin:0 0 14px; }
 .pd-cap small { font-size:13px; color:var(--muted); }
 .pd-cap strong { font-size:20px; color:var(--navy); }
 .pd-chips { list-style:none; padding:0; margin:0 0 16px; display:flex; flex-wrap:wrap; gap:6px; }
