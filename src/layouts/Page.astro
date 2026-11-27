@@ -1,11 +1,14 @@
 ---
-// New pages in the exact design of the live SEO pages: same head, header, sidebar and footer.
-import { shell, urlFor, ogTags } from '../lib/legacy.js';
+// Long pages (blog posts, guides, 404, get-a-quote): Base with a breadcrumb, the article in `prose-ec`, an optional
+// quote call-out and the sidebar (quick enquiry, featured products, address).
+import Base from './Base.astro';
+import Breadcrumb from '../components/site/Breadcrumb.astro';
+import Sidebar from '../components/site/Sidebar.astro';
+import Icon from '../components/site/Icon.astro';
+import { urlFor } from '../lib/site.js';
+import { SALES_PHONE } from '../data/nav.js';
 
 const { slug, title, description, h1, crumbs = [], schema = [], sidebar = true, cta = true, noindex = false, image = '/image/logo2.png', type, published } = Astro.props;
-const s = shell();
-const esc = (t) => t.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
-const header = s.header.replace(/(<div class="banner[\s\S]*?<img\b[^>]*?\balt=")[^"]*/, `$1${esc(h1)}`);
 
 const trail = [{ name: 'Home', url: '/' }, ...crumbs];
 const ld = [
@@ -22,77 +25,23 @@ const ld = [
   ...schema,
 ];
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>{title}</title>
-	<meta name="description" content={description} />
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="icon" href="/image/favicon.png" type="image/png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" href="/css/vendor.bundle.css">
-	<link id="style-css" rel="stylesheet" type="text/css" href="/css/style62ea62ea.css?ver=1.2">
-	{ld.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
-	<Fragment set:html={s.analytics} />
-	<Fragment set:html={s.css} />
-	<link rel="canonical" href={urlFor(slug)} />
-	<Fragment set:html={ogTags({ title, description, url: urlFor(slug), image: urlFor('index') + image.slice(1), type, published })} />
-	{noindex && <meta name="robots" content="noindex, follow" />}
-	<style is:global>
-		/* Same values the live pages set inline on every element. */
-		.seo-copy p, .seo-copy li { text-align:justify; line-height:1.7; color:#444; margin-bottom:14px; font-size:14.5px; }
-		.seo-copy h2 { color:#005c9e; font-size:22px; font-weight:600; margin-top:30px; margin-bottom:12px; }
-		.seo-copy h3 { color:#2c3e50; font-size:18px; font-weight:600; margin-top:20px; margin-bottom:10px; }
-		.seo-copy table { width:100%; margin-bottom:18px; font-size:14px; }
-		.seo-copy th, .seo-copy td { border:1px solid #e2e8f0; padding:8px 10px; vertical-align:top; }
-		.seo-copy th { background:#f4f6f8; color:#2c3e50; }
-		.seo-copy figure { margin:22px 0; }
-		.seo-copy figure img { max-width:100%; height:auto; border-radius:6px; }
-		.seo-copy figcaption { font-size:13px; color:#667; margin-top:6px; line-height:1.5; }
-		@media (max-width: 767px) {
-			.seo-copy table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
-			.seo-copy p, .seo-copy li { text-align:left; }
-		}
-		.seo-copy p a, .seo-copy li a { text-decoration:underline; text-underline-offset:2px; }
-		.seo-copy .note { background:#fff6e8; border-left:4px solid #ff9900; padding:10px 14px; text-align:left; }
-	</style>
-</head>
-<body class="site-body style-v1">
-	<Fragment set:html={header} />
-	<!-- Breadcrumb -->
-	<div class="section section-breadcrumb" style="background:#f4f6f8; padding:12px 0; border-bottom:1px solid #e2e8f0;">
-		<div class="container">
-			<ul class="breadcrumb" style="margin:0; background:transparent; padding:0; font-size:13px;">
-				{trail.map((c) => <li><a href={c.url}>{c.name}</a></li>)}
-				<li class="active" style="color:#506070;">{h1}</li>
-			</ul>
-		</div>
-	</div>
-
-	<!-- Content Section -->
-	<div class="section section-contents section-pad">
-		<div class="container">
-			<div class="row">
-				<div class={sidebar ? 'col-md-8 col-sm-12' : 'col-md-12'}>
-					<div class="content-wrapper seo-copy">
-						<h1 style="color:#005c9e; font-size:28px; font-weight:600; margin-top:0; margin-bottom:20px; border-bottom:2px solid #005c9e; padding-bottom:10px;">{h1}</h1>
-						<slot />
-						{cta && (
-							<div class="callout-box mt-4" style="background:linear-gradient(135deg, #005c9e 0%, #003366 100%); color:#ffffff; padding:28px; border-radius:8px; margin-top:35px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
-								<h3 style="color:#ffffff; margin-top:0; font-size:22px;">Ready to Power Your Critical Infrastructure?</h3>
-								<p style="color:#e0e8f0; font-size:15px; margin-bottom:20px; text-align:left;">Consult with E&amp;C Power Systems engineering specialists for custom load audits, product sizing, and quotation tailored to your technical specifications.</p>
-								<a href="/get-a-quote" class="btn btn-primary" style="background:#ff9900; border:none; padding:10px 24px; font-weight:bold; color:#ffffff; border-radius:4px; text-transform:uppercase;">Request a Quote</a>
-								<a href="tel:+918028397120" class="btn btn-outline" style="border:1px solid #ffffff; padding:10px 20px; color:#ffffff; margin-left:10px; border-radius:4px;"><em class="fa fa-phone"></em> (+91) 80-2839 7120</a>
-							</div>
-						)}
-					</div>
-				</div>
-				{sidebar && <Fragment set:html={s.sidebar} />}
-			</div>
-		</div>
-	</div>
-	<!-- End Content Section -->
-
-	<Fragment set:html={s.footer} />
-</body>
-</html>
+<Base slug={slug} title={title} description={description} image={image} type={type} published={published} schema={ld} noindex={noindex} enquiry>
+  <Breadcrumb trail={trail} current={h1} />
+  <div class={`container grid gap-10 py-10 lg:py-14 ${sidebar ? 'lg:grid-cols-[minmax(0,1fr)_22rem]' : ''}`}>
+    <article class="min-w-0">
+      <h1 class="border-b-2 border-brand-600 pb-3 font-display text-[1.75rem] font-semibold leading-tight text-navy-900 sm:text-[2rem]">{h1}</h1>
+      <div class="prose-ec mt-6"><slot /></div>
+      {cta && (
+        <section class="mt-10 rounded-2xl bg-navy-900 p-7 text-white" aria-labelledby="cta-h">
+          <h2 id="cta-h" class="font-display text-xl font-semibold text-white">Ready to power your critical infrastructure?</h2>
+          <p class="mt-2 max-w-2xl text-[15px] leading-relaxed text-slate-300">Consult E&amp;C Power Systems engineers for a load audit, product sizing and a quotation built to your technical specification.</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href="/get-a-quote" class="btn-solid h-11 px-5 text-sm">Request a quote</a>
+            <a href={`tel:${SALES_PHONE.tel}`} class="btn-ghost h-11 px-5 text-sm"><Icon name="phone" class="size-4" />{SALES_PHONE.label}</a>
+          </div>
+        </section>
+      )}
+    </article>
+    {sidebar && <Sidebar />}
+  </div>
+</Base>

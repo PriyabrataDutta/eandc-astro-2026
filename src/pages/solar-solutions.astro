@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // Solar hub (5 keywords: solar UPS / solar inverter manufacturer India, solar installation service, grid tie vs off
 // grid, hybrid vs off grid). Replaces the near-empty legacy page. Product facts from src/data/products.js; the
 // comparison matches the on-grid vs off-grid vs hybrid blog post. /solar-inverter-manufacturer-in-india stays the
@@ -76,13 +77,13 @@ const schema = [
           <h1>Solar Inverter and Solar UPS Manufacturer in India</h1>
           <p class="hb-lead">E&amp;C Power Systems makes solar inverters, solar UPS, MPPT charge controllers and solar lighting in Bengaluru, and designs, installs and services complete solar systems for factories, buildings, homes and off-grid sites across India.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-sun-o" aria-hidden="true"></em>1 to 60 kVA inverters</li>
-            <li><em class="fa fa-battery-full" aria-hidden="true"></em>Built-in MPPT</li>
-            <li><em class="fa fa-wrench" aria-hidden="true"></em>Installation &amp; AMC</li>
+            <li><Icon name="fa-sun-o" class="ic" />1 to 60 kVA inverters</li>
+            <li><Icon name="fa-battery-full" class="ic" />Built-in MPPT</li>
+            <li><Icon name="fa-wrench" class="ic" />Installation &amp; AMC</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a solar quote</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo prod"><img src="/image/product/Solar%20Hybrid%20Inverter.jpg" alt="E&C solar hybrid inverter" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C solar hybrid inverter</figcaption></figure>
@@ -117,7 +118,7 @@ const schema = [
       <div class="hb-cards three">
         {uses.map((x) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={x.icon} class="ic" /></span>
             <h3>{x.h}</h3>
             <p>{x.t}</p>
           </div>

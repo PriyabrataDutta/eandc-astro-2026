@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // State hubs (/ups-supplier-in-{state}) and city pages (/ups-manufacturer-in-{city}) from src/data/locations.js.
 // Built for every location; noindex until the location has real local facts (see locations.js).
 import Hub from '../layouts/Hub.astro';
@@ -137,11 +138,11 @@ schema[0].hasOfferCatalog = {
           <h1>{h1}</h1>
           <p class="hb-lead">{intro}</p>
           <ul class="pd-chips">
-            {sectors.slice(0, 3).map((s) => <li><em class={`fa ${s.icon}`} aria-hidden="true"></em>{s.label}</li>)}
+            {sectors.slice(0, 3).map((s) => <li><Icon name={s.icon} class="ic" />{s.label}</li>)}
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <IndiaMap highlight={mapOn} labels={mapLabels} title={isCity ? `${p.name} and nearby cities, supplied from Bengaluru` : `Cities in ${p.name} supplied from Bengaluru`} />
@@ -151,9 +152,9 @@ schema[0].hasOfferCatalog = {
 
   <div class="container">
     <ul class="pd-trust">
-      <li><em class="fa fa-check" aria-hidden="true"></em>UPS manufacturer since 1978</li>
-      <li><em class="fa fa-industry" aria-hidden="true"></em>Designed and built in Peenya, Bengaluru</li>
-      <li><em class="fa fa-truck" aria-hidden="true"></em>Supply, installation and AMC in {p.name}</li>
+      <li><Icon name="fa-check" class="ic" />UPS manufacturer since 1978</li>
+      <li><Icon name="fa-industry" class="ic" />Designed and built in Peenya, Bengaluru</li>
+      <li><Icon name="fa-truck" class="ic" />Supply, installation and AMC in {p.name}</li>
     </ul>
   </div>
 
@@ -162,7 +163,7 @@ schema[0].hasOfferCatalog = {
       <div class="container">
         <h2 class="pd-h" id="h-areas">Power backup for {p.name}'s industrial areas</h2>
         <p class="hb-sub">Major industrial and business areas in {p.name}:</p>
-        <ul class="hb-tags">{p.areas.map((a) => <li><span><em class="fa fa-map-marker" aria-hidden="true"></em> {a}</span></li>)}</ul>
+        <ul class="hb-tags">{p.areas.map((a) => <li><span><Icon name="fa-map-marker" class="ic" /> {a}</span></li>)}</ul>
       </div>
     </section>
   ) : (
@@ -205,7 +206,7 @@ schema[0].hasOfferCatalog = {
       <div class="hb-cards">
         {sectors.map((s) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${s.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={s.icon} class="ic" /></span>
             <h3>{s.label}</h3>
             <p>{s.need}</p>
             <p class="hb-rec">{s.links.map((l, i) => (<>{i > 0 && ' · '}<a href={l[1]}>{l[0]}</a></>))}</p>
@@ -242,11 +243,11 @@ schema[0].hasOfferCatalog = {
     <div class="container">
       <h2 class="pd-h" id="h-svc">Supply, installation and service in {p.name}</h2>
       <ul class="hb-why">
-        <li><em class="fa fa-industry" aria-hidden="true"></em><span><strong>Built in Bengaluru</strong>Design, R&amp;D and manufacturing in Peenya Industrial Area, since 1978.</span></li>
-        <li><em class="fa fa-truck" aria-hidden="true"></em><span><strong>Delivered to your site</strong>All-India sales and service network, with over 1 lakh installations across India.</span></li>
-        <li><em class="fa fa-cogs" aria-hidden="true"></em><span><strong>Installed and commissioned</strong>By trained engineers, with load and battery checks at handover.</span></li>
-        <li><em class="fa fa-wrench" aria-hidden="true"></em><span><strong>Looked after</strong>AMC, battery replacement and breakdown service: see <a href="/eandcpower-services">UPS service and AMC</a>.</span></li>
-        {p.facts.map((f) => <li><em class="fa fa-check" aria-hidden="true"></em><span>{f}</span></li>)}
+        <li><Icon name="fa-industry" class="ic" /><span><strong>Built in Bengaluru</strong>Design, R&amp;D and manufacturing in Peenya Industrial Area, since 1978.</span></li>
+        <li><Icon name="fa-truck" class="ic" /><span><strong>Delivered to your site</strong>All-India sales and service network, with over 1 lakh installations across India.</span></li>
+        <li><Icon name="fa-cogs" class="ic" /><span><strong>Installed and commissioned</strong>By trained engineers, with load and battery checks at handover.</span></li>
+        <li><Icon name="fa-wrench" class="ic" /><span><strong>Looked after</strong>AMC, battery replacement and breakdown service: see <a href="/eandcpower-services">UPS service and AMC</a>.</span></li>
+        {p.facts.map((f) => <li><Icon name="fa-check" class="ic" /><span>{f}</span></li>)}
       </ul>
       {p.service && <p class="hb-p" style="margin-top:12px;">{p.service}</p>}
     </div>

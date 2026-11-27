@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // Batteries hub (keywords: UPS battery supplier in India, lithium batteries, nickel cadmium batteries). The battery
 // product pages had no category page. E&C supplies these batteries (it does not make the cells), so the copy says
 // supplier. Ratings and brands from src/data/products.js; life figures match the battery blog posts.
@@ -81,13 +82,13 @@ const schema = [
           <h1>UPS and Industrial Batteries Supplier in India</h1>
           <p class="hb-lead">E&amp;C Power Systems supplies, installs and replaces batteries for UPS, inverters, solar systems and plant DC systems across India, from sealed SMF batteries for office UPS to lithium ion packs and nickel cadmium banks for substations.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-battery-full" aria-hidden="true"></em>7 to 200 Ah lead acid</li>
-            <li><em class="fa fa-check" aria-hidden="true"></em>Manufacturer's warranty</li>
-            <li><em class="fa fa-wrench" aria-hidden="true"></em>Onsite installation</li>
+            <li><Icon name="fa-battery-full" class="ic" />7 to 200 Ah lead acid</li>
+            <li><Icon name="fa-check" class="ic" />Manufacturer's warranty</li>
+            <li><Icon name="fa-wrench" class="ic" />Onsite installation</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a battery quote</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo prod"><img src="/image/product/smf.jpg" alt="SMF batteries for UPS" width="420" height="360" fetchpriority="high" /><figcaption>SMF batteries for UPS</figcaption></figure>
@@ -122,7 +123,7 @@ const schema = [
       <div class="hb-cards three">
         {uses.map((x) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={x.icon} class="ic" /></span>
             <h3>{x.h}</h3>
             <p>{x.t}</p>
           </div>

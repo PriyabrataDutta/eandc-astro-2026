@@ -5,7 +5,7 @@
 .hb-hero h1 { color:#fff; font-size:30px; font-weight:700; line-height:1.15; letter-spacing:-.015em; margin:0 0 12px; text-wrap:balance; }
 .hb-lead { color:#cbd5e1; font-size:15.5px; line-height:1.6; margin:0 0 16px; }
 .hb-hero .pd-chips li { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.2); color:#fff; }
-.hb-hero .pd-chips em { color:#33c6f4; }
+.hb-hero .pd-chips .ic { color:#33c6f4; }
 .hb-hero .pd-btn-line { background:transparent; border-color:rgba(255,255,255,.3); color:#fff !important; }
 .hb-hero .pd-btn-line:hover { background:rgba(255,255,255,.1); border-color:#fff; }
 .hb-photo { margin:0; border-radius:24px; overflow:hidden; position:relative; box-shadow:0 25px 50px -12px rgba(0,0,0,.4); }
@@ -48,7 +48,7 @@ a.hb-card:hover { border-color:#8ec1ff; box-shadow:0 12px 24px -8px rgba(11,99,2
 .hb-tags a, .hb-tags span { display:inline-block; font-size:12.5px; padding:4px 9px; border-radius:14px; background:var(--tint); color:var(--blue); line-height:1.3; }
 .hb-tags a:hover { background:var(--blue); color:#fff; }
 .hb-ic { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--blue); margin-bottom:10px; }
-.pd .hb-ic em.fa { font-size:18px !important; }
+.pd .hb-ic .ic { width:20px; height:20px; }
 .hb-ind h3 { font-size:15.5px; }
 .hb-rec { font-size:13px; margin:0; color:var(--ink); }
 .hb-rec a { color:var(--blue); font-weight:500; }
@@ -79,7 +79,7 @@ a.hb-card:hover { border-color:#8ec1ff; box-shadow:0 12px 24px -8px rgba(11,99,2
 
 .hb-why { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
 .hb-why li { margin:0; display:flex; gap:12px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; font-size:14px; line-height:1.55; color:#3d4b5a; }
-.hb-why li > em { flex:0 0 34px; height:34px; border-radius:10px; background:var(--tint); color:var(--blue); display:inline-flex; align-items:center; justify-content:center; }
+.hb-why li > .ic { flex:0 0 34px; width:34px; height:34px; padding:8px; border-radius:10px; background:var(--tint); color:var(--blue); }
 .hb-why strong { color:var(--ink); display:block; }
 
 @media (min-width: 768px) {
@@ -96,7 +96,6 @@ a.hb-card:hover { border-color:#8ec1ff; box-shadow:0 12px 24px -8px rgba(11,99,2
 	.hb-cards.three { grid-template-columns:repeat(3, 1fr); }
 	.hb-range { grid-template-columns:repeat(5, 1fr); }
 }
-.pd .hb-why li > em.fa { display:inline-flex; width:34px; height:34px; font-size:15px !important; }
 /* Hero product shot (cut-out photo on white) instead of a full-bleed photo. */
 .hb-photo.prod { background:#fff; padding:18px; }
 .hb-photo.prod img { object-fit:contain; aspect-ratio:auto; max-height:300px; margin:0 auto; }

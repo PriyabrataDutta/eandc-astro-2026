@@ -1,20 +1,25 @@
 ---
 // The one page shell: Head, the site header and footer, and the Tailwind stylesheet. Pages pass the Head props;
-// the "head" slot takes page-only additions (a font, a preload). `enquiry` loads the shared enquiry-form script.
+// the "head" slot takes page-only additions (a preload). `enquiry` loads the shared enquiry-form script; `bodyClass`
+// lets a template reserve room (the product pages' sticky call bar).
 import '../styles/site.css';
 import Head from '../components/site/Head.astro';
 import Header from '../components/site/Header.astro';
 import Footer from '../components/site/Footer.astro';
 
-const { enquiry = false, ...head } = Astro.props;
+const { enquiry = false, bodyClass, ...head } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <Head {...head} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" /></noscript>
   <slot name="head" />
 </head>
-<body>
+<body class={bodyClass}>
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:m-2 focus:rounded focus:bg-white focus:px-4 focus:py-2">Skip to content</a>
   <Header />
   <main id="main">

@@ -1,11 +1,12 @@
 ---
-// Redesigned product page: the site's header, footer and colours, with a compact, mobile-first product layout.
-// Flat style (no shadows/gradients), visible form labels, 44px tap targets, stacked spec table on phones.
-import { shell, urlFor, ogTags, render, ORG_REF } from '../lib/legacy.js';
+// Product page: Base (head, header, footer, Tailwind) with a compact, mobile-first product layout from products.js.
+// Flat style, visible form labels, 44px tap targets, stacked spec table on phones.
+import Base from './Base.astro';
+import Breadcrumb from '../components/site/Breadcrumb.astro';
+import Icon from '../components/site/Icon.astro';
+import { urlFor, ORG_REF } from '../lib/site.js';
 import { products, families, guideTitles } from '../data/products.js';
 import { posts } from '../lib/blog.js';
-import '../styles/pd.css';
-import '../styles/hub.css';
 import Quote from '../components/Quote.astro';
 import Faq from '../components/Faq.astro';
 import { productFaq } from '../data/product-faq.js';
@@ -13,15 +14,12 @@ import { productFaq } from '../data/product-faq.js';
 const { slug } = Astro.props;
 const raw = products[slug];
 const fam = families[raw.family];
-// Keep the legacy page's keyword-mapped title and description unless the entry sets its own.
-const old = render(slug);
-const pick = (re) => old.match(re)?.[1].replace(/&amp;/g, '&');
 const asItem = (x, icon) => (typeof x === 'string' ? { icon, title: x, text: x } : x);
 const p = {
   ...raw,
   family: fam,
-  title: raw.title ?? pick(/<title>([^<]*)<\/title>/),
-  description: raw.description ?? pick(/<meta name="description" content="([^"]*)"/),
+  title: raw.title,
+  description: raw.description,
   overview: raw.overview ?? [],
   specs: raw.specs ?? [],
   highlights: raw.highlights ?? [],
@@ -33,9 +31,6 @@ const p = {
 const ups = !fam.field;
 const faq = raw.faq ?? productFaq[slug] ?? [];
 const reads = posts.filter((x) => x.products?.includes(slug));
-const s = shell();
-// No banner strip: the page's own hero opens it.
-const header = s.header.replace(/<!-- Banner -->[\s\S]*?<!-- End Banner -->/, '');
 
 const ld = [
   {
@@ -60,37 +55,9 @@ const ld = [
   ...(faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
 ];
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>{p.title}</title>
-	<meta name="description" content={p.description} />
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="icon" href="/image/favicon.png" type="image/png" sizes="16x16">
-	<link rel="stylesheet" type="text/css" href="/css/vendor.bundle.css">
-	<link id="style-css" rel="stylesheet" type="text/css" href="/css/style62ea62ea.css?ver=1.2">
-	{ld.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
-	<Fragment set:html={s.analytics} />
-	<Fragment set:html={s.css} />
-	<link rel="canonical" href={urlFor(slug)} />
-	<Fragment set:html={ogTags({ title: p.title, description: p.description, url: urlFor(slug), image: urlFor('index').slice(0, -1) + (p.image ?? '/image/logo2.png') })} />
-</head>
-<body class="site-body style-v1 has-pd-bar">
-	<Fragment set:html={header} />
-
-	<!-- Breadcrumb -->
-	<div class="section section-breadcrumb" style="background:#f4f6f8; padding:12px 0; border-bottom:1px solid #e2e8f0;">
-		<div class="container">
-			<ul class="breadcrumb" style="margin:0; background:transparent; padding:0; font-size:13px;">
-				<li><a href="/">Home</a></li>
-				<li>{p.family.url ? <a href={p.family.url}>{p.family.name}</a> : p.family.name}</li>
-				<li class="active" style="color:#506070;">{p.name}</li>
-			</ul>
-		</div>
-	</div>
-
-	<main class="pd">
+<Base slug={slug} title={p.title} description={p.description} image={p.image ?? '/image/logo2.png'} schema={ld} bodyClass="has-pd-bar" enquiry>
+	<Breadcrumb trail={[{ name: 'Home', url: '/' }, ...(p.family.url ? [{ name: p.family.name, url: p.family.url }] : [])]} current={p.name} />
+	<div class="pd">
 		<section class="pd-hero">
 			<div class="container">
 				<div class={`pd-wrap${p.image ? '' : ' pd-noimg'}`}>
@@ -99,10 +66,10 @@ const ld = [
 						<h1>{p.heading ?? p.name}</h1>
 						<p class="pd-tagline">{p.tagline}</p>
 						{p.capacity && <div class="pd-cap"><small>{ups ? 'Capacity' : 'Range'}</small><strong>{p.capacity}</strong></div>}
-						{p.highlights.length > 0 && <ul class="pd-chips">{p.highlights.map((h) => <li><em class={`fa ${h.icon}`} aria-hidden="true"></em>{h.text}</li>)}</ul>}
+						{p.highlights.length > 0 && <ul class="pd-chips">{p.highlights.map((h) => <li><Icon name={h.icon} class="ic" />{h.text}</li>)}</ul>}
 						<div class="pd-ctas">
 							<a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
-							<a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+							<a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
 						</div>
 					</div>
 					{p.image && <div class="pd-img"><img src={p.image} alt={p.name} width="420" height="360" fetchpriority="high" /></div>}
@@ -112,9 +79,9 @@ const ld = [
 
 		<div class="container">
 			<ul class="pd-trust">
-				<li><em class="fa fa-check" aria-hidden="true"></em>40+ years in power electronics</li>
-				<li><em class="fa fa-industry" aria-hidden="true"></em>Designed and built in Peenya, Bengaluru</li>
-				<li><em class="fa fa-cogs" aria-hidden="true"></em>Installation, AMC and service</li>
+				<li><Icon name="fa-check" class="ic" />40+ years in power electronics</li>
+				<li><Icon name="fa-industry" class="ic" />Designed and built in Peenya, Bengaluru</li>
+				<li><Icon name="fa-cogs" class="ic" />Installation, AMC and service</li>
 			</ul>
 		</div>
 
@@ -123,7 +90,7 @@ const ld = [
 				<h2 class="pd-h" id="h-features">Key features</h2>
 				<div class="pd-feats">
 					{p.features.map((f) => (
-						<div class={`pd-feat${f.text ? '' : ' mini'}`}><em class={`fa ${f.icon}`} aria-hidden="true"></em><div><h3>{f.title}</h3>{f.text && <p>{f.text}</p>}</div></div>
+						<div class={`pd-feat${f.text ? '' : ' mini'}`}><Icon name={f.icon} class="ic" /><div><h3>{f.title}</h3>{f.text && <p>{f.text}</p>}</div></div>
 					))}
 				</div>
 			</div>
@@ -142,10 +109,10 @@ const ld = [
 						{p.overview.length > 0 && <h2 class="pd-h" id={p.specs.length ? undefined : 'h-specs'}>Overview</h2>}
 						{p.overview.map((t) => <p>{t}</p>)}
 						<h2 class="pd-h" style={p.overview.length ? 'margin-top:18px;' : undefined} id={p.specs.length || p.overview.length ? undefined : 'h-specs'}>Applications</h2>
-						<ul class="pd-apps">{p.applications.map((a) => <li><em class={`fa ${a.icon}`} aria-hidden="true"></em>{a.text}</li>)}</ul>
+						<ul class="pd-apps">{p.applications.map((a) => <li><Icon name={a.icon} class="ic" />{a.text}</li>)}</ul>
 						{p.guides.length + reads.length > 0 && <nav class="pd-guides" aria-label="Guides and articles">
-							{p.guides.map((g) => <a href={`/guides/${g}`}><em class="fa fa-arrow-right" aria-hidden="true"></em>{guideTitles[g]}</a>)}
-							{reads.map((x) => <a href={x.url}><em class="fa fa-arrow-right" aria-hidden="true"></em>{x.title}</a>)}
+							{p.guides.map((g) => <a href={`/guides/${g}`}><Icon name="fa-arrow-right" class="ic" />{guideTitles[g]}</a>)}
+							{reads.map((x) => <a href={x.url}><Icon name="fa-arrow-right" class="ic" />{x.title}</a>)}
 						</nav>}
 					</div>
 				</div>
@@ -173,11 +140,8 @@ const ld = [
 		</section>}
 
 		<div class="pd-bar">
-			<a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>Call</a>
+			<a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />Call</a>
 			<a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
 		</div>
-	</main>
-
-	<Fragment set:html={s.footer} />
-</body>
-</html>
+	</div>
+</Base>

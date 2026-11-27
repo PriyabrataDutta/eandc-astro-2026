@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // Inverter category hub. Replaces the legacy text-only page; same title, description and H1. Facts come from the two
 // inverter product pages (src/data/products.js) and the legacy copy (industries served, 3 to 100 kVA range).
 import Hub from '../layouts/Hub.astro';
@@ -65,13 +66,13 @@ const schema = [
           <h1>Power Inverter Manufacturer in India</h1>
           <p class="hb-lead">E&amp;C Power Systems designs and builds inverters in Peenya, Bengaluru: IGBT industrial inverters for power plants, substations and process plants, and Voltstar sine wave inverters for homes, offices and showrooms.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-bolt" aria-hidden="true"></em>600 VA to 100 kVA</li>
-            <li><em class="fa fa-battery-full" aria-hidden="true"></em>48, 110 and 220 VDC</li>
-            <li><em class="fa fa-wrench" aria-hidden="true"></em>Installation &amp; AMC</li>
+            <li><Icon name="fa-bolt" class="ic" />600 VA to 100 kVA</li>
+            <li><Icon name="fa-battery-full" class="ic" />48, 110 and 220 VDC</li>
+            <li><Icon name="fa-wrench" class="ic" />Installation &amp; AMC</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo prod"><img src="/image/home/industrial%20Inverters.jpg" alt="E&C industrial inverter" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C industrial inverter, 3 to 100 kVA</figcaption></figure>
@@ -81,9 +82,9 @@ const schema = [
 
   <div class="container">
     <ul class="pd-trust">
-      <li><em class="fa fa-check" aria-hidden="true"></em>Power electronics since 1978</li>
-      <li><em class="fa fa-industry" aria-hidden="true"></em>Designed and built in Peenya, Bengaluru</li>
-      <li><em class="fa fa-flask" aria-hidden="true"></em>In-house engineering and R&amp;D</li>
+      <li><Icon name="fa-check" class="ic" />Power electronics since 1978</li>
+      <li><Icon name="fa-industry" class="ic" />Designed and built in Peenya, Bengaluru</li>
+      <li><Icon name="fa-flask" class="ic" />In-house engineering and R&amp;D</li>
     </ul>
   </div>
 
@@ -112,7 +113,7 @@ const schema = [
       <h2 class="pd-h" id="h-apps">Where E&amp;C inverters are used</h2>
       <div class="hb-cards three">
         {apps.map((x) => {
-          const body = <><span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span><h3>{x.h}</h3><p>{x.t}</p></>;
+          const body = <><span class="hb-ic"><Icon name={x.icon} class="ic" /></span><h3>{x.h}</h3><p>{x.t}</p></>;
           return x.url ? <a class="hb-card hb-ind" href={x.url}>{body}</a> : <div class="hb-card hb-ind">{body}</div>;
         })}
       </div>

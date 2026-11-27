@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // Marine UPS page (keyword map: "Marine UPS Manufacturer"). Based on what the site already states: MIL grade UPS for
 // naval use, UPS supplied to the Navy and able to be mounted on board ships. No ship-class approval claims
 // (IRS, DNV, ABS...) until the client confirms any.
@@ -57,13 +58,13 @@ const schema = [
           <h1>Marine UPS Manufacturer in India</h1>
           <p class="hb-lead">E&amp;C Power Systems builds rugged online UPS for ships, naval vessels and offshore sites. Its MIL grade UPS are supplied to the Navy and built to take shock, vibration, heat and electrical noise on board, keeping navigation, communication and control systems powered.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-arrows" aria-hidden="true"></em>20g shock / vibration</li>
-            <li><em class="fa fa-signal" aria-hidden="true"></em>MIL-STD-461 E/F/G</li>
-            <li><em class="fa fa-thermometer-three-quarters" aria-hidden="true"></em>-10°C to +55°C</li>
+            <li><Icon name="fa-arrows" class="ic" />20g shock / vibration</li>
+            <li><Icon name="fa-signal" class="ic" />MIL-STD-461 E/F/G</li>
+            <li><Icon name="fa-thermometer-three-quarters" class="ic" />-10°C to +55°C</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo prod"><img src="/image/MIL-Grade-removebg-preview%20(1).png" alt="E&C MIL grade online UPS for marine and naval use" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C MIL grade online UPS, 1 to 10 kVA</figcaption></figure>
@@ -73,9 +74,9 @@ const schema = [
 
   <div class="container">
     <ul class="pd-trust">
-      <li><em class="fa fa-check" aria-hidden="true"></em>Supplied to the Army, Air Force, Navy and BSF</li>
-      <li><em class="fa fa-industry" aria-hidden="true"></em>Designed and built in Peenya, Bengaluru</li>
-      <li><em class="fa fa-cogs" aria-hidden="true"></em>Custom builds for special duties</li>
+      <li><Icon name="fa-check" class="ic" />Supplied to the Army, Air Force, Navy and BSF</li>
+      <li><Icon name="fa-industry" class="ic" />Designed and built in Peenya, Bengaluru</li>
+      <li><Icon name="fa-cogs" class="ic" />Custom builds for special duties</li>
     </ul>
   </div>
 
@@ -86,7 +87,7 @@ const schema = [
       <div class="hb-cards three">
         {needs.map((x) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={x.icon} class="ic" /></span>
             <h3>{x.h}</h3>
             <p>{x.t}</p>
           </div>

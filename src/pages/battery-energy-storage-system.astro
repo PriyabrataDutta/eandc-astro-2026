@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // BESS page (keyword map: "Battery Energy Storage System", "BESS"). Built from what E&C makes: LiFePO4 packs with
 // BMS, hybrid inverters, chargers and battery monitoring. No utility-scale (MWh) or certification claims:
 // the client has not confirmed a packaged BESS product line (see README).
@@ -73,13 +74,13 @@ const schema = [
           <h1>Battery Energy Storage System (BESS)</h1>
           <p class="hb-lead">E&amp;C Power Systems designs and supplies battery energy storage systems for homes, offices, commercial buildings and industrial sites: LiFePO4 batteries with a battery management system, hybrid inverters, solar charging and remote monitoring, sized to your loads and installed by E&amp;C engineers.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-battery-full" aria-hidden="true"></em>LiFePO4 with BMS</li>
-            <li><em class="fa fa-sun-o" aria-hidden="true"></em>Solar-ready hybrid inverters</li>
-            <li><em class="fa fa-line-chart" aria-hidden="true"></em>Cloud monitoring</li>
+            <li><Icon name="fa-battery-full" class="ic" />LiFePO4 with BMS</li>
+            <li><Icon name="fa-sun-o" class="ic" />Solar-ready hybrid inverters</li>
+            <li><Icon name="fa-line-chart" class="ic" />Cloud monitoring</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Size my BESS</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo prod"><img src="/image/product/Lithium%20ion.jpg" alt="E&C LiFePO4 lithium battery pack with BMS for energy storage" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C LiFePO4 battery pack with built-in BMS</figcaption></figure>
@@ -89,9 +90,9 @@ const schema = [
 
   <div class="container">
     <ul class="pd-trust">
-      <li><em class="fa fa-check" aria-hidden="true"></em>Power electronics since 1978</li>
-      <li><em class="fa fa-industry" aria-hidden="true"></em>Designed in Peenya, Bengaluru</li>
-      <li><em class="fa fa-truck" aria-hidden="true"></em>Supply, installation and AMC across India</li>
+      <li><Icon name="fa-check" class="ic" />Power electronics since 1978</li>
+      <li><Icon name="fa-industry" class="ic" />Designed in Peenya, Bengaluru</li>
+      <li><Icon name="fa-truck" class="ic" />Supply, installation and AMC across India</li>
     </ul>
   </div>
 
@@ -102,7 +103,7 @@ const schema = [
       <div class="hb-cards three">
         {parts.map((x) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={x.icon} class="ic" /></span>
             <h3>{x.h}</h3>
             <p>{x.t}</p>
             <p class="hb-rec"><a href={x.l[1]}>{x.l[0]}</a></p>
@@ -116,7 +117,7 @@ const schema = [
     <div class="container">
       <h2 class="pd-h" id="h-uses">What a BESS is used for</h2>
       <ul class="hb-why">
-        {uses.map((u) => <li><em class={`fa ${u.icon}`} aria-hidden="true"></em><span><strong>{u.h}</strong>{u.t}</span></li>)}
+        {uses.map((u) => <li><Icon name={u.icon} class="ic" /><span><strong>{u.h}</strong>{u.t}</span></li>)}
       </ul>
     </div>
   </section>

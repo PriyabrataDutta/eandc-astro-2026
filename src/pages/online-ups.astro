@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // Online UPS category hub (44 keywords in the keyword map). Replaces the thin legacy /online-ups (a list of 5 links).
 import Hub from '../layouts/Hub.astro';
 import Range from '../components/Range.astro';
@@ -88,13 +89,13 @@ const schema = [
           <h1>Online UPS Manufacturer in India</h1>
           <p class="hb-lead">E&amp;C Power Systems designs and builds double conversion online UPS (uninterruptible power supply) systems in Bengaluru, from 1 kVA for a single ATM to 1200 kVA modular systems for data centres, and supplies and services them across India.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-bolt" aria-hidden="true"></em>1 to 1200 kVA</li>
-            <li><em class="fa fa-random" aria-hidden="true"></em>Single &amp; three phase</li>
-            <li><em class="fa fa-shield" aria-hidden="true"></em>IP20 to IP55</li>
+            <li><Icon name="fa-bolt" class="ic" />1 to 1200 kVA</li>
+            <li><Icon name="fa-random" class="ic" />Single &amp; three phase</li>
+            <li><Icon name="fa-shield" class="ic" />IP20 to IP55</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo prod"><img src="/image/product/Renata%20300%20Series.jpg" alt="E&C Renata-300 three phase online UPS" width="420" height="360" fetchpriority="high" /><figcaption>Renata-300 three phase online UPS, 10 to 800 kVA</figcaption></figure>
@@ -104,9 +105,9 @@ const schema = [
 
   <div class="container">
     <ul class="pd-trust">
-      <li><em class="fa fa-check" aria-hidden="true"></em>UPS manufacturer since 1978</li>
-      <li><em class="fa fa-industry" aria-hidden="true"></em>Designed and built in Peenya, Bengaluru</li>
-      <li><em class="fa fa-map-marker" aria-hidden="true"></em>8 sales offices, service in 34 cities</li>
+      <li><Icon name="fa-check" class="ic" />UPS manufacturer since 1978</li>
+      <li><Icon name="fa-industry" class="ic" />Designed and built in Peenya, Bengaluru</li>
+      <li><Icon name="fa-map-marker" class="ic" />8 sales offices, service in 34 cities</li>
     </ul>
   </div>
 
@@ -157,7 +158,7 @@ const schema = [
       <div class="hb-cards three">
         {sectors.map((x) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={x.icon} class="ic" /></span>
             <h3>{x.h}</h3>
             <p>{x.t}</p>
             <p class="hb-rec">{x.link ? <a href={x.link[1]}>{x.link[0]} →</a> : x.r.map((k, i) => (<>{i > 0 && ' · '}<a href={L[k][1]}>{L[k][0]}</a></>))}</p>
@@ -173,10 +174,10 @@ const schema = [
     <div class="container">
       <h2 class="pd-h" id="h-why">Why choose E&amp;C as your online UPS manufacturer</h2>
       <ul class="hb-why">
-        <li><em class="fa fa-history" aria-hidden="true"></em><span><strong>Since 1978</strong>More than four decades designing and building UPS in India.</span></li>
-        <li><em class="fa fa-industry" aria-hidden="true"></em><span><strong>Made in Bengaluru</strong>In-house R&amp;D and manufacturing in Peenya, with <a href="/custom-solutions">custom builds</a> for special requirements.</span></li>
-        <li><em class="fa fa-map-marker" aria-hidden="true"></em><span><strong>Sales and service near you</strong>8 regional <a href="/contact#sales-offices">sales offices</a> and service in 34 cities. See <a href="/ups-manufacturer-in-india">UPS across India</a>.</span></li>
-        <li><em class="fa fa-wrench" aria-hidden="true"></em><span><strong>Looked after for life</strong>Installation, warranty support, AMC, battery replacement and rental UPS through <a href="/eandcpower-services">E&amp;C service</a>.</span></li>
+        <li><Icon name="fa-history" class="ic" /><span><strong>Since 1978</strong>More than four decades designing and building UPS in India.</span></li>
+        <li><Icon name="fa-industry" class="ic" /><span><strong>Made in Bengaluru</strong>In-house R&amp;D and manufacturing in Peenya, with <a href="/custom-solutions">custom builds</a> for special requirements.</span></li>
+        <li><Icon name="fa-map-marker" class="ic" /><span><strong>Sales and service near you</strong>8 regional <a href="/contact#sales-offices">sales offices</a> and service in 34 cities. See <a href="/ups-manufacturer-in-india">UPS across India</a>.</span></li>
+        <li><Icon name="fa-wrench" class="ic" /><span><strong>Looked after for life</strong>Installation, warranty support, AMC, battery replacement and rental UPS through <a href="/eandcpower-services">E&amp;C service</a>.</span></li>
       </ul>
     </div>
   </section>

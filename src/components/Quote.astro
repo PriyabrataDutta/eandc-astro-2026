@@ -1,4 +1,5 @@
 ---
+import Icon from './site/Icon.astro';
 // Navy quote band with the enquiry form (posts to /api/contact). Non-UPS families pass their own field labels.
 const { title, service, pitch, step1, field, ask } = Astro.props;
 const ups = !field;
@@ -16,8 +17,8 @@ const ups = !field;
 					<li><b>3</b><span>Quotation usually within one working day</span></li>
 				</ol>
 				<div class="pd-qcontact">
-					<a href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em><span><small>Call sales</small>080 2837 1974</span></a>
-					<a href="mailto:sales@eandcpower.com"><em class="fa fa-envelope" aria-hidden="true"></em><span><small>Email</small>sales@eandcpower.com</span></a>
+					<a href="tel:+918028371974"><Icon name="fa-phone" class="ic" /><span><small>Call sales</small>080 2837 1974</span></a>
+					<a href="mailto:sales@eandcpower.com"><Icon name="fa-envelope" class="ic" /><span><small>Email</small>sales@eandcpower.com</span></a>
 				</div>
 			</div>
 			<form class="pd-form" action="/api/contact" method="POST" data-enquiry>
@@ -32,8 +33,8 @@ const ups = !field;
 					<div><label for="q-kva">{field ?? 'Capacity needed (kVA)'}</label><input id="q-kva" name="capacity" inputmode={ups ? 'decimal' : undefined} placeholder={ups ? 'e.g. 20' : undefined} /></div>
 					<div class="full"><label for="q-msg">{ask ?? 'What will it power? Backup time?'} <i aria-hidden="true">*</i></label><textarea id="q-msg" name="message" rows="3" required placeholder={ups ? 'e.g. 10 servers and network, 30 minutes backup' : undefined}></textarea></div>
 				</div>
-				<button type="submit" class="pd-btn pd-btn-main pd-submit">Get my quote <em class="fa fa-arrow-right" aria-hidden="true"></em></button>
-				<p class="pd-note"><em class="fa fa-shield" aria-hidden="true"></em>Your details are used only to prepare this quotation.</p>
+				<button type="submit" class="pd-btn pd-btn-main pd-submit">Get my quote <Icon name="fa-arrow-right" class="ic" /></button>
+				<p class="pd-note"><Icon name="fa-shield" class="ic" />Your details are used only to prepare this quotation.</p>
 			</form>
 		</div>
 	</div>

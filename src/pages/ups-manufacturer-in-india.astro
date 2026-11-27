@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // India hub: links to every state hub and city page. Replaces the legacy page at the same URL.
 import Hub from '../layouts/Hub.astro';
 import IndiaMap from '../components/IndiaMap.astro';
@@ -65,13 +66,13 @@ const major = ['delhi', 'mumbai', 'kolkata', 'chennai', 'hyderabad', 'ahmedabad'
           <h1>UPS Manufacturer in India</h1>
           <p class="hb-lead">Electronics &amp; Controls (E&amp;C) Power Systems designs and builds online UPS, industrial UPS and power electronics at its plant in Peenya Industrial Area, Bengaluru, and supplies customers across India through an all-India sales and service network.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-bolt" aria-hidden="true"></em>Online UPS 1 to 1200 kVA</li>
-            <li><em class="fa fa-map-marker" aria-hidden="true"></em>{states.length} states, {cities.length + 1} cities</li>
-            <li><em class="fa fa-wrench" aria-hidden="true"></em>Installation, AMC &amp; service</li>
+            <li><Icon name="fa-bolt" class="ic" />Online UPS 1 to 1200 kVA</li>
+            <li><Icon name="fa-map-marker" class="ic" />{states.length} states, {cities.length + 1} cities</li>
+            <li><Icon name="fa-wrench" class="ic" />Installation, AMC &amp; service</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo"><img src="/image/about.jpg" alt="E&C Power Systems UPS plant in Peenya Industrial Area, Bengaluru" width="855" height="570" fetchpriority="high" /><figcaption>Our plant in Peenya Industrial Area, Bengaluru</figcaption></figure>
@@ -140,7 +141,7 @@ const major = ['delhi', 'mumbai', 'kolkata', 'chennai', 'hyderabad', 'ahmedabad'
       <div class="hb-cards three">
         {Object.values(SECTORS).map((s) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${s.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={s.icon} class="ic" /></span>
             <h3>{s.label}</h3>
             <p>{s.need}</p>
             <p class="hb-rec">{s.links.map((l, i) => (<>{i > 0 && ' · '}<a href={l[1]}>{l[0]}</a></>))}</p>
@@ -154,10 +155,10 @@ const major = ['delhi', 'mumbai', 'kolkata', 'chennai', 'hyderabad', 'ahmedabad'
     <div class="container">
       <h2 class="pd-h" id="h-why">Why choose E&amp;C as your UPS manufacturer</h2>
       <ul class="hb-why">
-        <li><em class="fa fa-history" aria-hidden="true"></em><span><strong>Over four decades in power electronics</strong>Designing and building UPS since 1978.</span></li>
-        <li><em class="fa fa-industry" aria-hidden="true"></em><span><strong>A true manufacturer</strong>In-house R&amp;D, design and manufacturing in Bengaluru, plus <a href="/custom-solutions">custom power solutions</a>.</span></li>
-        <li><em class="fa fa-wrench" aria-hidden="true"></em><span><strong>All-India sales and service</strong>Installation, AMC and battery replacement through <a href="/eandcpower-services">E&amp;C service</a>.</span></li>
-        <li><em class="fa fa-plug" aria-hidden="true"></em><span><strong>One supplier for the whole power chain</strong>UPS, inverters, stabilizers, isolation transformers, transfer switches, batteries, chargers and <a href="/ups-remote-monitoring">remote monitoring</a>.</span></li>
+        <li><Icon name="fa-history" class="ic" /><span><strong>Over four decades in power electronics</strong>Designing and building UPS since 1978.</span></li>
+        <li><Icon name="fa-industry" class="ic" /><span><strong>A true manufacturer</strong>In-house R&amp;D, design and manufacturing in Bengaluru, plus <a href="/custom-solutions">custom power solutions</a>.</span></li>
+        <li><Icon name="fa-wrench" class="ic" /><span><strong>All-India sales and service</strong>Installation, AMC and battery replacement through <a href="/eandcpower-services">E&amp;C service</a>.</span></li>
+        <li><Icon name="fa-plug" class="ic" /><span><strong>One supplier for the whole power chain</strong>UPS, inverters, stabilizers, isolation transformers, transfer switches, batteries, chargers and <a href="/ups-remote-monitoring">remote monitoring</a>.</span></li>
       </ul>
     </div>
   </section>

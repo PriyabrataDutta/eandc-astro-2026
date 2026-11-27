@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // Industrial UPS category hub (keyword map: all "/industrial-ups" keywords). Replaces the legacy page at this URL,
 // which already ranked for "industrial UPS manufacturer in India", rather than starting a competing /industrial-ups.
 import Hub from '../layouts/Hub.astro';
@@ -93,13 +94,13 @@ const schema = [
           <h1>Industrial UPS Manufacturer in India</h1>
           <p class="hb-lead">E&amp;C Power Systems designs and builds industrial UPS and power backup in Bengaluru: rugged transformer-based online UPS, sealed IP41–IP55 UPS for dusty plants, industrial inverters, DC battery chargers and stabilizers, supplied and serviced across India.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-bolt" aria-hidden="true"></em>Online UPS 10 to 800 kVA</li>
-            <li><em class="fa fa-shield" aria-hidden="true"></em>IP41 – IP55 enclosures</li>
-            <li><em class="fa fa-battery-full" aria-hidden="true"></em>48 to 220 V DC systems</li>
+            <li><Icon name="fa-bolt" class="ic" />Online UPS 10 to 800 kVA</li>
+            <li><Icon name="fa-shield" class="ic" />IP41 – IP55 enclosures</li>
+            <li><Icon name="fa-battery-full" class="ic" />48 to 220 V DC systems</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo"><img src="/image/Manufactures.jpg" alt="Automated engine assembly line in a factory" width="855" height="570" fetchpriority="high" /><figcaption>Production lines need zero-break power for their controls</figcaption></figure>
@@ -109,9 +110,9 @@ const schema = [
 
   <div class="container">
     <ul class="pd-trust">
-      <li><em class="fa fa-check" aria-hidden="true"></em>Products tested by ETDC, SAMEER and ERTL</li>
-      <li><em class="fa fa-industry" aria-hidden="true"></em>Designed and built in Peenya, Bengaluru</li>
-      <li><em class="fa fa-truck" aria-hidden="true"></em>Supply, installation and AMC across India</li>
+      <li><Icon name="fa-check" class="ic" />Products tested by ETDC, SAMEER and ERTL</li>
+      <li><Icon name="fa-industry" class="ic" />Designed and built in Peenya, Bengaluru</li>
+      <li><Icon name="fa-truck" class="ic" />Supply, installation and AMC across India</li>
     </ul>
   </div>
 
@@ -122,7 +123,7 @@ const schema = [
       <div class="hb-cards three">
         {industries.map((x) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={x.icon} class="ic" /></span>
             <h3>{x.h}</h3>
             <p>{x.t}</p>
             <p class="hb-rec">{x.r.map((k, i) => (<>{i > 0 && ' · '}<a href={L[k][1]}>{L[k][0]}</a></>))}</p>
@@ -156,12 +157,12 @@ const schema = [
     <div class="container">
       <h2 class="pd-h" id="h-choose">How to choose an industrial UPS</h2>
       <ul class="hb-why">
-        <li><em class="fa fa-calculator" aria-hidden="true"></em><span><strong>Size the load, including inrush</strong>Add the kVA of every control and machine on the UPS, allow for motor and transformer inrush, and keep 20 to 25% headroom. See <a href="/guides/ups-sizing-kva">how to size a UPS</a>.</span></li>
-        <li><em class="fa fa-clock-o" aria-hidden="true"></em><span><strong>Set the backup time</strong>Long enough for the DG to start and take over, or to shut the process down safely. See <a href="/guides/ups-battery-backup-time">battery backup time</a>.</span></li>
-        <li><em class="fa fa-thermometer-three-quarters" aria-hidden="true"></em><span><strong>Match the environment</strong>Choose an IP-rated enclosure for dust and moisture, and Ni-Cd or tubular batteries where the battery room runs hot.</span></li>
-        <li><em class="fa fa-random" aria-hidden="true"></em><span><strong>Plan isolation and earthing</strong>A transformer-based UPS or an <a href="/isolation">isolation transformer</a> gives sensitive controls a clean neutral–earth reference.</span></li>
-        <li><em class="fa fa-clone" aria-hidden="true"></em><span><strong>Decide on redundancy</strong>N+1 modules, parallel UPS or a <a href="/intelligent-transfer-switch">static transfer switch</a> for loads that cannot stop. See <a href="/blogs/online-ups/modular-ups-n-plus-1-redundancy">N+1 redundancy explained</a>.</span></li>
-        <li><em class="fa fa-wifi" aria-hidden="true"></em><span><strong>Monitor and maintain</strong><a href="/ups-remote-monitoring">Remote monitoring</a> and an <a href="/eandcpower-services">AMC</a> catch weak batteries before an outage does.</span></li>
+        <li><Icon name="fa-calculator" class="ic" /><span><strong>Size the load, including inrush</strong>Add the kVA of every control and machine on the UPS, allow for motor and transformer inrush, and keep 20 to 25% headroom. See <a href="/guides/ups-sizing-kva">how to size a UPS</a>.</span></li>
+        <li><Icon name="fa-clock-o" class="ic" /><span><strong>Set the backup time</strong>Long enough for the DG to start and take over, or to shut the process down safely. See <a href="/guides/ups-battery-backup-time">battery backup time</a>.</span></li>
+        <li><Icon name="fa-thermometer-three-quarters" class="ic" /><span><strong>Match the environment</strong>Choose an IP-rated enclosure for dust and moisture, and Ni-Cd or tubular batteries where the battery room runs hot.</span></li>
+        <li><Icon name="fa-random" class="ic" /><span><strong>Plan isolation and earthing</strong>A transformer-based UPS or an <a href="/isolation">isolation transformer</a> gives sensitive controls a clean neutral–earth reference.</span></li>
+        <li><Icon name="fa-clone" class="ic" /><span><strong>Decide on redundancy</strong>N+1 modules, parallel UPS or a <a href="/intelligent-transfer-switch">static transfer switch</a> for loads that cannot stop. See <a href="/blogs/online-ups/modular-ups-n-plus-1-redundancy">N+1 redundancy explained</a>.</span></li>
+        <li><Icon name="fa-wifi" class="ic" /><span><strong>Monitor and maintain</strong><a href="/ups-remote-monitoring">Remote monitoring</a> and an <a href="/eandcpower-services">AMC</a> catch weak batteries before an outage does.</span></li>
       </ul>
     </div>
   </section>
@@ -170,10 +171,10 @@ const schema = [
     <div class="container">
       <h2 class="pd-h" id="h-why">Why choose E&amp;C as your industrial UPS manufacturer</h2>
       <ul class="hb-why">
-        <li><em class="fa fa-history" aria-hidden="true"></em><span><strong>Power electronics since 1978</strong>More than four decades designing UPS, inverters and chargers.</span></li>
-        <li><em class="fa fa-industry" aria-hidden="true"></em><span><strong>Designed and built in-house</strong>R&amp;D and manufacturing in Peenya, Bengaluru, with <a href="/custom-solutions">custom builds</a> for special duties.</span></li>
-        <li><em class="fa fa-certificate" aria-hidden="true"></em><span><strong>Independently tested</strong>Products tested by ETDC, SAMEER and ERTL, with BIS and CE marking on applicable products.</span></li>
-        <li><em class="fa fa-plug" aria-hidden="true"></em><span><strong>The whole power chain from one supplier</strong>UPS, inverters, DC chargers, batteries, stabilizers, isolation transformers and monitoring.</span></li>
+        <li><Icon name="fa-history" class="ic" /><span><strong>Power electronics since 1978</strong>More than four decades designing UPS, inverters and chargers.</span></li>
+        <li><Icon name="fa-industry" class="ic" /><span><strong>Designed and built in-house</strong>R&amp;D and manufacturing in Peenya, Bengaluru, with <a href="/custom-solutions">custom builds</a> for special duties.</span></li>
+        <li><Icon name="fa-certificate" class="ic" /><span><strong>Independently tested</strong>Products tested by ETDC, SAMEER and ERTL, with BIS and CE marking on applicable products.</span></li>
+        <li><Icon name="fa-plug" class="ic" /><span><strong>The whole power chain from one supplier</strong>UPS, inverters, DC chargers, batteries, stabilizers, isolation transformers and monitoring.</span></li>
       </ul>
       <p class="hb-p" style="margin-top:14px;">In Bengaluru, see <a href="/ups-for-industries-in-bangalore">UPS for industries</a>, <a href="/ups-for-manufacturing-industries-in-bangalore">UPS for manufacturing</a> and <a href="/industrial-power-backup-solutions-in-bangalore">industrial power backup</a>. For ships and naval vessels, see <a href="/marine-ups">marine UPS</a>; for lithium storage, see <a href="/battery-energy-storage-system">battery energy storage systems</a>. Elsewhere, find your <a href="/ups-manufacturer-in-india">state or city</a>.</p>
     </div>

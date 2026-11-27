@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // EV charger category hub. Replaces the legacy text-only page; same title, description and H1. Facts come from the
 // /ev-chargers product data (src/data/products.js) and the legacy copy (sites served, how to choose).
 import Hub from '../layouts/Hub.astro';
@@ -60,13 +61,13 @@ const schema = [
           <h1>EV Charger Manufacturer in India</h1>
           <p class="hb-lead">E&amp;C Power Systems brings more than 40 years of power electronics to EV charging: AC and DC chargers for homes, commercial parking, fleets and public stations, from Peenya, Bengaluru.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-bolt" aria-hidden="true"></em>AC 3 to 22 kW</li>
-            <li><em class="fa fa-tachometer" aria-hidden="true"></em>DC 10 to 240 kW</li>
-            <li><em class="fa fa-plug" aria-hidden="true"></em>CCS2, CHAdeMO, GB/T</li>
+            <li><Icon name="fa-bolt" class="ic" />AC 3 to 22 kW</li>
+            <li><Icon name="fa-tachometer" class="ic" />DC 10 to 240 kW</li>
+            <li><Icon name="fa-plug" class="ic" />CCS2, CHAdeMO, GB/T</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo prod"><img src="/image/product/ev%20charger.jpg" alt="E&C AC and DC EV charger" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C EV charger</figcaption></figure>
@@ -76,9 +77,9 @@ const schema = [
 
   <div class="container">
     <ul class="pd-trust">
-      <li><em class="fa fa-check" aria-hidden="true"></em>Power electronics since 1978</li>
-      <li><em class="fa fa-id-card" aria-hidden="true"></em>RFID and third-party app integration</li>
-      <li><em class="fa fa-map-marker" aria-hidden="true"></em>Sales and service across India</li>
+      <li><Icon name="fa-check" class="ic" />Power electronics since 1978</li>
+      <li><Icon name="fa-id-card" class="ic" />RFID and third-party app integration</li>
+      <li><Icon name="fa-map-marker" class="ic" />Sales and service across India</li>
     </ul>
   </div>
 
@@ -100,7 +101,7 @@ const schema = [
       <h2 class="pd-h" id="h-sites">Where E&amp;C chargers are installed</h2>
       <div class="hb-cards">
         {sites.map((x) => {
-          const body = <><span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span><h3>{x.h}</h3><p>{x.t}</p></>;
+          const body = <><span class="hb-ic"><Icon name={x.icon} class="ic" /></span><h3>{x.h}</h3><p>{x.t}</p></>;
           return x.url ? <a class="hb-card hb-ind" href={x.url}>{body}</a> : <div class="hb-card hb-ind">{body}</div>;
         })}
       </div>

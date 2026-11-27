@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // Voltage stabilizer category hub (8 keywords). Replaces the thin legacy /stabilizer. Capacities follow the product
 // pages (air 2–100 kVA, oil 100–1000 kVA); the legacy page had them the other way round (README: data conflicts).
 import Hub from '../layouts/Hub.astro';
@@ -75,13 +76,13 @@ const schema = [
           <h1>Voltage Stabilizer Manufacturer in India</h1>
           <p class="hb-lead">E&amp;C Power Systems makes servo controlled automatic voltage stabilizers in Bengaluru: air cooled for machines and smaller buildings, oil cooled for whole plants and large buildings. Every stabilizer is sized, installed and serviced by E&amp;C engineers.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-bolt" aria-hidden="true"></em>2 to 1000 kVA</li>
-            <li><em class="fa fa-cog" aria-hidden="true"></em>Servo, AC synchronous motor</li>
-            <li><em class="fa fa-wrench" aria-hidden="true"></em>Installation &amp; AMC</li>
+            <li><Icon name="fa-bolt" class="ic" />2 to 1000 kVA</li>
+            <li><Icon name="fa-cog" class="ic" />Servo, AC synchronous motor</li>
+            <li><Icon name="fa-wrench" class="ic" />Installation &amp; AMC</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo prod"><img src="/image/Aries_Air_Cooled.jpg" alt="E&C Aries servo voltage stabilizer" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C Aries servo stabilizer</figcaption></figure>
@@ -91,9 +92,9 @@ const schema = [
 
   <div class="container">
     <ul class="pd-trust">
-      <li><em class="fa fa-check" aria-hidden="true"></em>Zero waveform distortion</li>
-      <li><em class="fa fa-cogs" aria-hidden="true"></em>No overshoot or hunting</li>
-      <li><em class="fa fa-plug" aria-hidden="true"></em>Generator compatible, balanced or unbalanced loads</li>
+      <li><Icon name="fa-check" class="ic" />Zero waveform distortion</li>
+      <li><Icon name="fa-cogs" class="ic" />No overshoot or hunting</li>
+      <li><Icon name="fa-plug" class="ic" />Generator compatible, balanced or unbalanced loads</li>
     </ul>
   </div>
 
@@ -143,7 +144,7 @@ const schema = [
       <div class="hb-cards three">
         {apps.map((x) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={x.icon} class="ic" /></span>
             <h3>{x.h}</h3>
             <p>{x.t}</p>
           </div>

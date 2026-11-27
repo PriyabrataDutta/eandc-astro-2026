@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // UPS accessories hub: isolation transformers, static transfer switches and SNMP adapters had no category page,
 // so the "Accessories" menu item opened nothing. Product facts from src/data/products.js; guides are the matching
 // blog posts.
@@ -79,13 +80,13 @@ const schema = [
           <h1>UPS Accessories: Isolation Transformers, Static Transfer Switches and SNMP</h1>
           <p class="hb-lead">E&amp;C Power Systems makes isolation transformers and intelligent static transfer switches in Bengaluru, and supplies SNMP adapters, to give UPS systems cleaner power, redundancy and remote monitoring across India.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-bolt" aria-hidden="true"></em>1 to 500 kVA</li>
-            <li><em class="fa fa-random" aria-hidden="true"></em>Up to 3 inputs</li>
-            <li><em class="fa fa-wifi" aria-hidden="true"></em>SNMP v3</li>
+            <li><Icon name="fa-bolt" class="ic" />1 to 500 kVA</li>
+            <li><Icon name="fa-random" class="ic" />Up to 3 inputs</li>
+            <li><Icon name="fa-wifi" class="ic" />SNMP v3</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a quote</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo prod"><img src="/image/product/isolation_transformer.jpg" alt="E&C isolation transformer" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C isolation transformer</figcaption></figure>
@@ -119,7 +120,7 @@ const schema = [
       <div class="hb-cards three">
         {uses.map((x) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={x.icon} class="ic" /></span>
             <h3>{x.h}</h3>
             <p>{x.t}</p>
           </div>

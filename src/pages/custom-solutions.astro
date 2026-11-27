@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // Custom power solutions hub (8 keywords: custom UPS design, OEM, power conditioning, ports and shipping, smart cities).
 // Replaces the near-empty legacy page. Facts from the legacy custom-solutions and R&D pages; the ports and smart city
 // sections list products E&C makes, not projects (no case studies confirmed by the client yet).
@@ -84,13 +85,13 @@ const schema = [
           <h1>Custom UPS and Power Solutions Manufacturer</h1>
           <p class="hb-lead">When an off-the-shelf product does not fit, E&amp;C designs one that does. Our R&amp;D and supplier network design, prototype and manufacture UPS, inverters, chargers and power conditioning systems to your requirement, for OEMs, integrators and demanding sites across India.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-flask" aria-hidden="true"></em>In-house R&amp;D</li>
-            <li><em class="fa fa-flag" aria-hidden="true"></em>Indigenous design</li>
-            <li><em class="fa fa-industry" aria-hidden="true"></em>Made in Bengaluru</li>
+            <li><Icon name="fa-flask" class="ic" />In-house R&amp;D</li>
+            <li><Icon name="fa-flag" class="ic" />Indigenous design</li>
+            <li><Icon name="fa-industry" class="ic" />Made in Bengaluru</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Discuss your requirement</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo"><img src="/image/about.jpg" alt="E&C Power Systems plant, Peenya, Bengaluru" width="600" height="400" fetchpriority="high" /><figcaption>E&amp;C plant, Peenya, Bengaluru</figcaption></figure>
@@ -104,7 +105,7 @@ const schema = [
       <div class="hb-cards three">
         {offers.map((x) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={x.icon} class="ic" /></span>
             <h3>{x.h}</h3>
             <p>{x.t}</p>
           </div>
@@ -129,7 +130,7 @@ const schema = [
       <div class="hb-cards cs-sec">
         {sectors.map((x) => (
           <div class="hb-card hb-ind" id={x.id}>
-            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={x.icon} class="ic" /></span>
             <h3>{x.h}</h3>
             <p>{x.t}</p>
             <p class="hb-rec">{x.l.map(([t, u], i) => <>{i > 0 && ' · '}<a href={u}>{t}</a></>)}</p>

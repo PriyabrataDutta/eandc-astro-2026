@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/site/Icon.astro';
 // Remote monitoring hub: UPS, battery bank, DG and facility monitoring had no category page, so the "Remote
 // Monitoring" menu item opened a single product. Product facts from src/data/products.js; guides are the matching
 // blog posts.
@@ -75,13 +76,13 @@ const schema = [
           <h1>Remote Monitoring Systems for UPS, Batteries and Generators</h1>
           <p class="hb-lead">E&amp;C Power Systems' remote monitoring sends UPS, battery bank, generator and facility readings over GPRS to the cloud, with charts and SMS and email alerts, so sites across India can be watched from one place.</p>
           <ul class="pd-chips">
-            <li><em class="fa fa-cloud" aria-hidden="true"></em>Cloud or local server</li>
-            <li><em class="fa fa-bell" aria-hidden="true"></em>SMS and email alerts</li>
-            <li><em class="fa fa-line-chart" aria-hidden="true"></em>Charts and logs</li>
+            <li><Icon name="fa-cloud" class="ic" />Cloud or local server</li>
+            <li><Icon name="fa-bell" class="ic" />SMS and email alerts</li>
+            <li><Icon name="fa-line-chart" class="ic" />Charts and logs</li>
           </ul>
           <div class="pd-ctas">
             <a class="pd-btn pd-btn-main" href="#quote">Get a quote</a>
-            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><Icon name="fa-phone" class="ic" />080 2837 1974</a>
           </div>
         </div>
         <figure class="hb-photo prod"><img src="/image/home/Remote%20Monitoring.jpg" alt="E&C remote monitoring dashboard" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C remote monitoring</figcaption></figure>
@@ -115,7 +116,7 @@ const schema = [
       <div class="hb-cards three">
         {uses.map((x) => (
           <div class="hb-card hb-ind">
-            <span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span>
+            <span class="hb-ic"><Icon name={x.icon} class="ic" /></span>
             <h3>{x.h}</h3>
             <p>{x.t}</p>
           </div>
