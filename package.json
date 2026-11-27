@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/blog-covers.mjs && astro build && node scripts/optimize-images.mjs && node scripts/minify-css.mjs",
+    "build": "node scripts/blog-covers.mjs && astro build && node scripts/optimize-images.mjs",
     "preview": "astro preview",
     "check:site": "node scripts/check-site.mjs",
     "covers": "node scripts/blog-covers.mjs"

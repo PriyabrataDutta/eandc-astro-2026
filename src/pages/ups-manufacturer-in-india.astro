@@ -7,7 +7,7 @@ import Range from '../components/Range.astro';
 import Faq from '../components/Faq.astro';
 import Quote from '../components/Quote.astro';
 import { ORG_REF, urlFor } from '../lib/site.js';
-import { officesHtml } from '../data/offices.js';
+import Offices from '../components/site/Offices.astro';
 import { states, cities, citiesWithoutHub, cityLink, SECTORS } from '../data/locations.js';
 
 const faq = [
@@ -113,7 +113,7 @@ const major = ['delhi', 'mumbai', 'kolkata', 'chennai', 'hyderabad', 'ahmedabad'
     </div>
   </section>
 
-  <Fragment set:html={officesHtml()} />
+  <Offices />
 
   <section class="pd-sec" aria-labelledby="h-blr">
     <div class="container">

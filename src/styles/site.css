@@ -1,7 +1,7 @@
 /* Hallmark · checked: 2026-11-27 · genre: modern-minimal (inferred)
  * floor: 0 FAIL · fixed: 11 (2b, 10, 11, 19, 26b, 29, 34, 38iii, 48, 54, 67) · structural: printed in handoff
  * built: the project · redesign: polish · v2.0.0 */
-/* Hallmark · waive 1 · Poppins is self-hosted in public/css/style62ea62ea.css on every legacy page · the E&C brand face stays on the homepage */
+/* Hallmark · waive 1 · Poppins is the E&C heading face across the whole site, loaded once by Base.astro · the brand face stays on the homepage */
 /* The site stylesheet (Tailwind v4), loaded by src/layouts/Base.astro on every page. The product, hub and city
    templates keep their named parts (pd-*, hb-*) as plain CSS in Tailwind's components layer. */
 @import "tailwindcss" source(none);

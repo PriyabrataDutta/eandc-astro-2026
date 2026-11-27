@@ -3,7 +3,7 @@
 # ⚡ eandcpower.com — Astro rebuild
 
 **The website of Electronics & Controls Power Systems Pvt. Ltd., Bengaluru — UPS manufacturer since 1978.**
-Rebuilt on Astro for pan-India SEO, without changing the look of a single legacy page.
+Built entirely with Astro and Tailwind CSS for pan-India SEO: no legacy HTML, Bootstrap or jQuery.
 
 ![Astro](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro&logoColor=white)
 ![Node](https://img.shields.io/badge/Node.js-22%2B-339933?logo=node.js&logoColor=white)
@@ -20,7 +20,7 @@ Rebuilt on Astro for pan-India SEO, without changing the look of a single legacy
 
 | | |
 |---|---|
-| 🧱 **Legacy pages, pixel-identical** | 90+ original HTML pages are served as-is from `src/legacy/`; an SEO pass runs over them at build time (clean URLs, canonicals, schema, alt text, lazy images, WebP). |
+| 🧱 **One Astro + Tailwind system** | Every page renders through `Base.astro` (head, header, footer, one Tailwind stylesheet). Company, contact and keyword pages are Markdown in `src/content/pages/`, each with its published title, description, H1 and JSON-LD in frontmatter. |
 | 🗺️ **India → state → city** | An India hub, 9 state pages and 28 city pages, each with a lat/long city map, distance from the Bengaluru plant, local industries, and the nearest of 8 regional sales offices. |
 | 🏭 **Category hubs** | Online UPS, Industrial UPS, Voltage Stabilizers, Battery Energy Storage (BESS) and Marine UPS — redesigned, mobile-first, every mapped keyword on the page. |
 | 📦 **35 product pages** | Data-driven from one file (`src/data/products.js`), with specs, applications, related products, linked articles and a quote form. |
@@ -44,10 +44,8 @@ Requires **Node.js 22+**. Copy `.env.example` to `.env` for the contact form.
 
 ```
 src/
-├─ legacy/              # original HTML pages (design untouched)
 ├─ lib/
-│  ├─ legacy.js         # build-time SEO cleanup + shared schema (ORG, ORG_REF)
-│  ├─ footer.js         # the one compact footer used on every page
+│  ├─ site.js           # SITE, urlFor, the company schema (ORG, ORG_REF)
 │  ├─ pages.js          # list of indexable pages → sitemap.xml and /sitemap
 │  ├─ blog.js           # blog loader
 │  └─ schema.js         # Article schema helper
@@ -55,16 +53,17 @@ src/
 │  ├─ products.js       # 35 products + families
 │  ├─ locations.js      # states, cities, sectors, coordinates, indexability
 │  ├─ offices.js        # 8 regional sales offices + service locations
-│  └─ seo.js            # title/description overrides for legacy pages
-├─ layouts/             # Page (legacy look), Product, Hub (redesigned pages)
-├─ components/          # Quote, Range, Faq, IndiaMap, Customers
-├─ pages/               # Astro pages; a page here replaces the legacy page with the same slug
-│  ├─ [slug].html.js    # serves every legacy page through cleanup()
+│  └─ seo.js            # home page title and description
+├─ layouts/             # Base (every page), Page (long pages), Product, Hub
+├─ components/          # Quote, Range, Faq, IndiaMap, Customers; site/ holds Head, Header, Footer, Icon, Breadcrumb, Sidebar, Offices, EnquiryForm
+├─ content/pages/       # company, contact and keyword pages as Markdown (frontmatter = published head)
+├─ pages/               # Astro pages
+│  ├─ [slug].astro      # renders every src/content/pages/*.md through Page
 │  ├─ [loc].astro       # all state and city pages
 │  ├─ blogs/ guides/
 │  └─ sitemap.xml.js
 ├─ content/blog/        # Markdown posts
-└─ styles/              # pd.css (product look), hub.css
+└─ styles/              # site.css (Tailwind, loaded by Base) with theme.css tokens and the pd.css / hub.css components layer
 api/contact.js          # quote & enquiry form → email (Resend)
 scripts/                # blog covers, image optimisation, site link check
 docs/PROJECT-NOTES.md   # detailed working notes, open questions for the client
@@ -81,7 +80,7 @@ Create `src/content/blog/my-post.md` with frontmatter `title`, `seoTitle` (≤ 6
 <details>
 <summary><b>Add or edit a product</b></summary>
 
-Edit `src/data/products.js`, then add a 3-line `src/pages/<slug>.astro` with `<Product slug="<slug>" />`. Title and description default to the legacy page's own.
+Edit `src/data/products.js` (including `title` and `description`), then add a 3-line `src/pages/<slug>.astro` with `<Product slug="<slug>" />`.
 </details>
 
 <details>

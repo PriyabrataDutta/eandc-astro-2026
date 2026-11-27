@@ -9,7 +9,7 @@ import Faq from '../components/Faq.astro';
 import Quote from '../components/Quote.astro';
 import { states, cities, indexable, cityLink, stateOf, SECTORS, kmFromPlant } from '../data/locations.js';
 import { ORG_REF, urlFor } from '../lib/site.js';
-import { officesHtml } from '../data/offices.js';
+import Offices from '../components/site/Offices.astro';
 import { products } from '../data/products.js';
 import LOCAL from '../data/local.json';
 
@@ -76,8 +76,8 @@ const km = isCity ? kmFromPlant(p.key) : null;
 const stateCities = isCity ? [] : p.cities.map((k) => ({ ...cityLink(k), c: cities.find((x) => x.key === k), km: k === 'bangalore' ? 0 : kmFromPlant(k) }));
 const others = isCity ? [] : states.filter((x) => x.key !== p.key);
 const offices = isCity
-  ? p.office && officesHtml({ only: [p.office.key], here: p.office.key, heading: p.office.key === p.key ? `Our sales office in ${p.name}` : 'Your nearest E&amp;C sales office', intro: p.office.key === p.key ? `Visit or write to the E&amp;C regional office in ${p.name}.` : `Sales and service for ${p.name} are handled by the E&amp;C ${p.office.city} office.` })
-  : p.offices.length && officesHtml({ only: p.offices.map((o) => o.key), heading: `E&amp;C sales offices for ${p.name}`, intro: `Sales and service across ${p.name} are handled by these E&amp;C offices.` });
+  ? p.office && { only: [p.office.key], here: p.office.key, heading: p.office.key === p.key ? `Our sales office in ${p.name}` : 'Your nearest E&C sales office', intro: p.office.key === p.key ? `Visit or write to the E&C regional office in ${p.name}.` : `Sales and service for ${p.name} are handled by the E&C ${p.office.city} office.` }
+  : p.offices.length && { only: p.offices.map((o) => o.key), heading: `E&C sales offices for ${p.name}`, intro: `Sales and service across ${p.name} are handled by these E&C offices.` };
 // Range: the products this place's industries call for first, then the core online UPS line.
 const range = [...new Set([...sectors.flatMap((s) => s.links.map((l) => l[1].slice(1))), 'renata', 'renata300', 'renatamodular'])].filter((s) => products[s]?.image).slice(0, 8);
 
@@ -253,7 +253,7 @@ schema[0].hasOfferCatalog = {
     </div>
   </section>
 
-  {offices && <Fragment set:html={offices} />}
+  {offices && <Offices {...offices} />}
 
   <section class="pd-sec" aria-labelledby="h-faq">
     <div class="container">

@@ -1,5 +1,4 @@
-/* Tokens and shared parts of the redesign, imported by site.css (redesigned pages) and chrome.css (the header and
-   footer on legacy pages). Parts are @utility so each stylesheet generates them where its own utilities go. */
+/* Design tokens and shared parts (wrap, buttons), imported by site.css. */
 @theme {
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;

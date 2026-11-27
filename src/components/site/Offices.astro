@@ -1,0 +1,27 @@
+---
+// "Our sales office locations": a card per regional office (src/data/offices.js). `only` limits it to some office keys;
+// `here` marks one office; `heading` and `intro` set the section text.
+import Icon from './Icon.astro';
+import { OFFICES } from '../../data/offices.js';
+
+const { only, here, heading = 'Our sales office locations', intro = 'E&C products are sold and serviced across India through 8 regional sales offices.' } = Astro.props;
+const list = only ? OFFICES.filter((o) => only.includes(o.key)) : OFFICES;
+const maps = (o) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Electronics & Controls Power Systems, ${o.address}`)}`;
+const cols = { 1: '', 2: 'md:grid-cols-2', 3: 'md:grid-cols-2 lg:grid-cols-3' }[list.length] ?? 'md:grid-cols-2 lg:grid-cols-4';
+---
+<section class="bg-slate-50 py-10" id="sales-offices" aria-labelledby="h-offices">
+  <div class="container">
+    <h2 id="h-offices" class="font-display text-[1.4rem] font-semibold text-navy-900">{heading}</h2>
+    <p class="mt-1 text-[14.5px] text-slate-600">{intro}</p>
+    <div class={`mt-5 grid gap-3 ${cols}`}>
+      {list.map((o) => (
+        <div class={`rounded-xl border bg-white p-4 ${o.key === here ? 'border-brand-500 ring-2 ring-brand-500/20' : 'border-slate-200'}`}>
+          <h3 class="font-display text-base font-semibold text-navy-900">{o.city}{o.hq && <span class="ml-2 rounded-full bg-brand-50 px-2 py-0.5 align-middle font-sans text-xs font-medium text-brand-700">Head office and plant</span>}</h3>
+          <p class="mt-0.5 text-[13px] text-brand-700">{o.covers}</p>
+          <p class="mt-2 flex gap-2 text-sm leading-relaxed text-slate-800"><Icon name="pin" class="mt-0.5 size-4 shrink-0 text-brand-600" />{o.address}</p>
+          <p class="mt-2 flex gap-4 text-[13px]"><a href="mailto:sales@eandcpower.com" class="text-brand-700 hover:underline">sales@eandcpower.com</a><a href={maps(o)} target="_blank" rel="noopener" class="text-brand-700 hover:underline">Directions</a></p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

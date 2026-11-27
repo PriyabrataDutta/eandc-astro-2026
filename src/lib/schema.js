@@ -1,5 +1,5 @@
 // JSON-LD shared by guide pages.
-import { ORG_REF, SITE, urlFor } from './legacy.js';
+import { ORG_REF, SITE, urlFor } from './site.js';
 import { AUTHOR } from '../data/author.js';
 
 // The named author (src/data/author.js) as a Person, or the company while none is set.
