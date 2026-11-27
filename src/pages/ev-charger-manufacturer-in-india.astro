@@ -1,0 +1,131 @@
+---
+// EV charger category hub. Replaces the legacy text-only page; same title, description and H1. Facts come from the
+// /ev-chargers product data (src/data/products.js) and the legacy copy (sites served, how to choose).
+import Hub from '../layouts/Hub.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+import { postUrl } from '../lib/blog.js';
+import { families } from '../data/products.js';
+
+const fam = families.ev;
+
+const compare = [
+  ['Power', '3 to 22 kW', '10 to 240 kW'],
+  ['Suits', 'Vehicles parked for hours: homes, offices, hotels', 'Faster charging: fleets and public stations'],
+  ['Guns per station', 'One or two', 'One or two, same or different connectors'],
+];
+
+const sites = [
+  { icon: 'fa-home', h: 'Homes and apartments', t: 'Chargers for independent homes, apartment complexes and gated communities with dedicated parking.' },
+  { icon: 'fa-building', h: 'Commercial parking', t: 'Malls, hotels, offices, hospitals and campuses, for customers, staff and visitors.', url: postUrl('ev-charging-for-commercial-parking') },
+  { icon: 'fa-truck', h: 'Fleets and depots', t: 'Delivery, corporate and logistics fleets, planned around vehicle numbers and charging schedules.' },
+  { icon: 'fa-road', h: 'Public charging', t: 'Charge point operators, with RFID access and integration with third-party charging apps.' },
+];
+
+const faq = [
+  { q: 'What EV chargers does E&C manufacture?', a: 'AC chargers from 3 to 22 kW and DC fast chargers from 10 to 240 kW, with CCS2, CHAdeMO and GB/T connectors, one or two charging guns per station, RFID and an LCD display.' },
+  { q: 'AC or DC charger: which do I need?', a: 'AC chargers suit places where vehicles stay parked for hours, such as homes, offices and hotels. DC chargers deliver much higher power for quick charging, for fleets and public stations. The right choice also depends on what the vehicle supports.' },
+  { q: 'Do E&C chargers work with charging apps?', a: 'Yes. The chargers integrate with third-party charging apps and support RFID access, so the station owner can manage who charges.' },
+  { q: 'What should I check before installing an EV charger?', a: 'The vehicle’s charging specification and connector, the electrical supply available at the site, indoor or outdoor installation, expected usage, and the maintenance and warranty support for the charger.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'EV Charger Manufacturer in India',
+    description: 'AC EV chargers from 3 to 22 kW and DC fast chargers from 10 to 240 kW, with CCS2, CHAdeMO and GB/T, from E&C Power Systems, Bengaluru.',
+    url: urlFor('ev-charger-manufacturer-in-india'),
+    serviceType: 'EV charger manufacturing, installation and service',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="ev-charger-manufacturer-in-india"
+  title="EV Charger Manufacturer in India | E&C Power"
+  description="EV charger manufacturer in India: E&C AC chargers from 3 to 22 kW and DC fast chargers from 10 to 240 kW, with CCS2, CHAdeMO and GB/T, for fleets and parking."
+  name="EV Chargers"
+  schema={schema}
+  image="/image/product/ev charger.jpg"
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">AC and DC fast charging</span>
+          <h1>EV Charger Manufacturer in India</h1>
+          <p class="hb-lead">E&amp;C Power Systems brings more than 40 years of power electronics to EV charging: AC and DC chargers for homes, commercial parking, fleets and public stations, from Peenya, Bengaluru.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-bolt" aria-hidden="true"></em>AC 3 to 22 kW</li>
+            <li><em class="fa fa-tachometer" aria-hidden="true"></em>DC 10 to 240 kW</li>
+            <li><em class="fa fa-plug" aria-hidden="true"></em>CCS2, CHAdeMO, GB/T</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo prod"><img src="/image/product/ev%20charger.jpg" alt="E&C AC and DC EV charger" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C EV charger</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <ul class="pd-trust">
+      <li><em class="fa fa-check" aria-hidden="true"></em>Power electronics since 1978</li>
+      <li><em class="fa fa-id-card" aria-hidden="true"></em>RFID and third-party app integration</li>
+      <li><em class="fa fa-map-marker" aria-hidden="true"></em>Sales and service across India</li>
+    </ul>
+  </div>
+
+  <section class="pd-sec" aria-labelledby="h-cmp">
+    <div class="container">
+      <h2 class="pd-h" id="h-cmp">AC vs DC EV chargers</h2>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col"></th><th scope="col">AC charger</th><th scope="col">DC fast charger</th></tr></thead>
+          <tbody>{compare.map(([k, a, b]) => <tr><th scope="row">{k}</th><td>{a}</td><td>{b}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="hb-p" style="margin-top:12px;">Both ranges are on the <a href="/ev-chargers">AC and DC EV charger</a> page, with specifications. For choosing between them, read <a href={postUrl('choose-ev-charger-for-business-india')}>how to choose an EV charger for your business</a>.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-sites">
+    <div class="container">
+      <h2 class="pd-h" id="h-sites">Where E&amp;C chargers are installed</h2>
+      <div class="hb-cards">
+        {sites.map((x) => {
+          const body = <><span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span><h3>{x.h}</h3><p>{x.t}</p></>;
+          return x.url ? <a class="hb-card hb-ind" href={x.url}>{body}</a> : <div class="hb-card hb-ind">{body}</div>;
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-plan">
+    <div class="container">
+      <h2 class="pd-h" id="h-plan">Planning a charging installation</h2>
+      <ol class="hb-flow">
+        <li><strong>Vehicles</strong>Which vehicles charge, their connectors and charging power.</li>
+        <li><strong>Supply</strong>The electrical capacity at site, and whether it needs upgrading.</li>
+        <li><strong>Site</strong>Indoor or outdoor, parking layout, expected use and future expansion.</li>
+        <li><strong>Support</strong>Installation, warranty, spares and maintenance by E&amp;C.</li>
+      </ol>
+      <p class="hb-p" style="margin-top:14px;">Pair charging with <a href="/solar-solutions">solar</a> or <a href="/battery-energy-storage-system">battery energy storage</a> to cut grid demand. Talk to our <a href="/contact#sales-offices">sales offices</a> across India.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get an EV charger quotation" service="Quote: EV charger" pitch={fam.pitch} step1={fam.step1} field={fam.field} ask={fam.ask} />
+</Hub>

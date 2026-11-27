@@ -34,7 +34,8 @@ const ups = !fam.field;
 const faq = raw.faq ?? productFaq[slug] ?? [];
 const reads = posts.filter((x) => x.products?.includes(slug));
 const s = shell();
-const header = s.header.replace(/(<div class="banner[\s\S]*?<img\b[^>]*?\balt=")[^"]*/, `$1${p.name}`);
+// No banner strip: the page's own hero opens it.
+const header = s.header.replace(/<!-- Banner -->[\s\S]*?<!-- End Banner -->/, '');
 
 const ld = [
   {

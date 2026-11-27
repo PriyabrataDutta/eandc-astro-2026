@@ -1,0 +1,143 @@
+---
+// Inverter category hub. Replaces the legacy text-only page; same title, description and H1. Facts come from the two
+// inverter product pages (src/data/products.js) and the legacy copy (industries served, 3 to 100 kVA range).
+import Hub from '../layouts/Hub.astro';
+import Range from '../components/Range.astro';
+import Faq from '../components/Faq.astro';
+import Quote from '../components/Quote.astro';
+import { ORG_REF, urlFor } from '../lib/legacy.js';
+import { postUrl } from '../lib/blog.js';
+
+const compare = [
+  ['Model', 'Voltstar', 'E&C industrial inverter'],
+  ['Capacity', '600 VA to 5 kVA', '3 to 100 kVA'],
+  ['Technology', 'DSP based sine wave', 'IGBT based PWM, built-in isolation transformer'],
+  ['Battery side', 'Intelligent 5-step charging', '48, 110 or 220 VDC systems'],
+  ['Build', 'Compact, noise-free, temperature controlled fan', 'Rack or floor mount, IP 21 to 54'],
+  ['Configuration', 'Standalone', 'Standalone, hot standby or parallel; optional static transfer switch'],
+  ['Best for', 'Homes, offices, showrooms and lighting', 'Power plants, substations and process industry'],
+];
+
+const apps = [
+  { icon: 'fa-bolt', h: 'Power plants and substations', t: 'AC supply for controls and protection from the station battery, at 48, 110 or 220 VDC.' },
+  { icon: 'fa-industry', h: 'Process industry', t: 'Pure sine wave power with low harmonics for instruments and control panels.' },
+  { icon: 'fa-cogs', h: 'CNC machines and pumping stations', t: 'Industrial inverters sized to the load, with isolation from the DC side.', url: postUrl('industrial-inverter-for-cnc-and-pumping-stations') },
+  { icon: 'fa-home', h: 'Homes', t: 'Voltstar keeps lights, fans and less critical equipment running through power cuts.' },
+  { icon: 'fa-briefcase', h: 'Offices and showrooms', t: 'Fast switchover, so desktop PCs do not reboot when mains fails.' },
+  { icon: 'fa-hospital-o', h: 'Healthcare, banking and government', t: 'Sectors E&C already serves with UPS, inverters and stabilizers across India.' },
+];
+
+const faq = [
+  { q: 'What inverters does E&C manufacture?', a: 'Two ranges, both built in Peenya, Bengaluru: Voltstar domestic inverters from 600 VA to 5 kVA, and industrial inverters from 3 to 100 kVA for 48, 110 or 220 VDC systems.' },
+  { q: 'Inverter or UPS: which do I need?', a: 'An inverter suits loads where a short break at switchover is acceptable, such as lights and less critical equipment. Computers, servers and medical or process equipment that cannot take any break need an online UPS, which has zero transfer time.' },
+  { q: 'What is an industrial inverter used for?', a: 'It turns a DC battery supply, typically a station battery at 48, 110 or 220 VDC, into a clean 220 or 230 VAC pure sine wave for controls, instruments and protection panels in power plants, substations and process plants.' },
+  { q: 'Can E&C industrial inverters run in parallel?', a: 'Yes. They run standalone, in hot standby or in parallel, in rack or floor mount, with an optional static transfer switch.' },
+  { q: 'How do I choose the inverter capacity?', a: 'It depends on the connected load, the equipment, how long the backup must last and the application. Share your load and backup time and an E&C engineer sizes the inverter and battery.' },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Power Inverter Manufacturer in India',
+    description: 'Industrial inverters from 3 to 100 kVA and Voltstar home inverters from 600 VA to 5 kVA, designed and built by E&C Power Systems in Bengaluru.',
+    url: urlFor('power-inverter-manufacturer-in-india'),
+    serviceType: 'Inverter manufacturing, installation and service',
+    provider: ORG_REF,
+    areaServed: { '@type': 'Country', name: 'India' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Hub
+  slug="power-inverter-manufacturer-in-india"
+  title="Power Inverter Manufacturer in India | E&C Power"
+  description="Power inverter manufacturer in India: E&C builds industrial inverters from 3 to 100 kVA and Voltstar home inverters from 600 VA to 5 kVA in Bengaluru."
+  name="Inverters"
+  schema={schema}
+  image="/image/home/industrial Inverters.jpg"
+>
+  <section class="hb-hero">
+    <div class="container">
+      <div class="pd-wrap">
+        <div>
+          <span class="pd-eyebrow">Industrial and home inverters</span>
+          <h1>Power Inverter Manufacturer in India</h1>
+          <p class="hb-lead">E&amp;C Power Systems designs and builds inverters in Peenya, Bengaluru: IGBT industrial inverters for power plants, substations and process plants, and Voltstar sine wave inverters for homes, offices and showrooms.</p>
+          <ul class="pd-chips">
+            <li><em class="fa fa-bolt" aria-hidden="true"></em>600 VA to 100 kVA</li>
+            <li><em class="fa fa-battery-full" aria-hidden="true"></em>48, 110 and 220 VDC</li>
+            <li><em class="fa fa-wrench" aria-hidden="true"></em>Installation &amp; AMC</li>
+          </ul>
+          <div class="pd-ctas">
+            <a class="pd-btn pd-btn-main" href="#quote">Get a price</a>
+            <a class="pd-btn pd-btn-line" href="tel:+918028371974"><em class="fa fa-phone" aria-hidden="true"></em>080 2837 1974</a>
+          </div>
+        </div>
+        <figure class="hb-photo prod"><img src="/image/home/industrial%20Inverters.jpg" alt="E&C industrial inverter" width="420" height="360" fetchpriority="high" /><figcaption>E&amp;C industrial inverter, 3 to 100 kVA</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <ul class="pd-trust">
+      <li><em class="fa fa-check" aria-hidden="true"></em>Power electronics since 1978</li>
+      <li><em class="fa fa-industry" aria-hidden="true"></em>Designed and built in Peenya, Bengaluru</li>
+      <li><em class="fa fa-flask" aria-hidden="true"></em>In-house engineering and R&amp;D</li>
+    </ul>
+  </div>
+
+  <section class="pd-sec" aria-labelledby="h-range">
+    <div class="container">
+      <h2 class="pd-h" id="h-range">Inverter range</h2>
+      <Range slugs={['industrial-inverter', 'domestic-Inverters']} />
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-cmp">
+    <div class="container">
+      <h2 class="pd-h" id="h-cmp">Home inverter vs industrial inverter</h2>
+      <div class="hb-scroll">
+        <table class="hb-cmp">
+          <thead><tr><th scope="col"></th><th scope="col"><a href="/domestic-Inverters" style="color:#fff;">Home inverter</a></th><th scope="col"><a href="/industrial-inverter" style="color:#fff;">Industrial inverter</a></th></tr></thead>
+          <tbody>{compare.map(([k, a, b]) => <tr><th scope="row">{k}</th><td>{a}</td><td>{b}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="hb-p" style="margin-top:12px;">An inverter allows a short break when it switches over. For loads that cannot take any break, use an <a href="/online-ups">online UPS</a>; the <a href="/guides/ups-vs-inverter">UPS vs inverter guide</a> explains the difference.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-apps">
+    <div class="container">
+      <h2 class="pd-h" id="h-apps">Where E&amp;C inverters are used</h2>
+      <div class="hb-cards three">
+        {apps.map((x) => {
+          const body = <><span class="hb-ic"><em class={`fa ${x.icon}`} aria-hidden="true"></em></span><h3>{x.h}</h3><p>{x.t}</p></>;
+          return x.url ? <a class="hb-card hb-ind" href={x.url}>{body}</a> : <div class="hb-card hb-ind">{body}</div>;
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="pd-sec alt" aria-labelledby="h-size">
+    <div class="container">
+      <h2 class="pd-h" id="h-size">Choosing the right inverter</h2>
+      <ol class="hb-flow">
+        <li><strong>Load</strong>The connected load and the equipment it runs.</li>
+        <li><strong>Backup</strong>How long the load must run on battery.</li>
+        <li><strong>Battery</strong>DC voltage, battery type and charging.</li>
+        <li><strong>Service</strong>Installation, commissioning and <a href="/eandcpower-services">AMC</a> by E&amp;C engineers.</li>
+      </ol>
+      <p class="hb-p" style="margin-top:14px;">E&amp;C also makes <a href="/online-ups">online UPS</a>, <a href="/stabilizer">stabilizers</a>, <a href="/solar-solutions">solar inverters</a> and <a href="/industrial-battery-charger-fcbc">industrial battery chargers</a>, with <a href="/contact#sales-offices">sales offices</a> across India.</p>
+    </div>
+  </section>
+
+  <section class="pd-sec" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 class="pd-h" id="h-faq">Frequently asked questions</h2>
+      <Faq faq={faq} />
+    </div>
+  </section>
+
+  <Quote title="Get an inverter quotation" service="Quote: Inverter" />
+</Hub>

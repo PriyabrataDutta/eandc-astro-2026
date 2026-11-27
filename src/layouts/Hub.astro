@@ -6,7 +6,8 @@ import '../styles/hub.css';
 
 const { slug, title, description, name, crumbs = [], schema = [], noindex = false, image = '/image/about.jpg', quote = true } = Astro.props;
 const s = shell();
-const header = s.header.replace(/(<div class="banner[\s\S]*?<img\b[^>]*?\balt=")[^"]*/, `$1${name.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}`);
+// No banner strip: the page's own hero opens it.
+const header = s.header.replace(/<!-- Banner -->[\s\S]*?<!-- End Banner -->/, '');
 const trail = [{ name: 'Home', url: '/' }, ...crumbs];
 const ld = [
   {
