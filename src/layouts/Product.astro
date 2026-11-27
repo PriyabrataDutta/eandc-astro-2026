@@ -34,7 +34,7 @@ const ups = !fam.field;
 const faq = raw.faq ?? productFaq[slug] ?? [];
 const reads = posts.filter((x) => x.products?.includes(slug));
 const s = shell();
-const header = s.header.replace(/alt="[^"]*"/, `alt="${p.name}"`);
+const header = s.header.replace(/(<div class="banner[\s\S]*?<img\b[^>]*?\balt=")[^"]*/, `$1${p.name}`);
 
 const ld = [
   {
@@ -71,6 +71,7 @@ const ld = [
 	<link id="style-css" rel="stylesheet" type="text/css" href="/css/style62ea62ea.css?ver=1.2">
 	{ld.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
 	<Fragment set:html={s.analytics} />
+	<Fragment set:html={s.css} />
 	<link rel="canonical" href={urlFor(slug)} />
 	<Fragment set:html={ogTags({ title: p.title, description: p.description, url: urlFor(slug), image: urlFor('index').slice(0, -1) + (p.image ?? '/image/logo2.png') })} />
 </head>

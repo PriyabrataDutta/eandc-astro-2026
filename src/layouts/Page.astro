@@ -5,7 +5,7 @@ import { shell, urlFor, ogTags } from '../lib/legacy.js';
 const { slug, title, description, h1, crumbs = [], schema = [], sidebar = true, cta = true, noindex = false, image = '/image/logo2.png', type, published } = Astro.props;
 const s = shell();
 const esc = (t) => t.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
-const header = s.header.replace(/alt="[^"]*"/, `alt="${esc(h1)}"`);
+const header = s.header.replace(/(<div class="banner[\s\S]*?<img\b[^>]*?\balt=")[^"]*/, `$1${esc(h1)}`);
 
 const trail = [{ name: 'Home', url: '/' }, ...crumbs];
 const ld = [
@@ -34,6 +34,7 @@ const ld = [
 	<link id="style-css" rel="stylesheet" type="text/css" href="/css/style62ea62ea.css?ver=1.2">
 	{ld.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
 	<Fragment set:html={s.analytics} />
+	<Fragment set:html={s.css} />
 	<link rel="canonical" href={urlFor(slug)} />
 	<Fragment set:html={ogTags({ title, description, url: urlFor(slug), image: urlFor('index') + image.slice(1), type, published })} />
 	{noindex && <meta name="robots" content="noindex, follow" />}

@@ -1,16 +1,17 @@
 ---
 // Redesigned header: top bar, sticky nav with a Products mega menu, and a <details> menu on phones. No JavaScript:
-// desktop menus open on hover and on keyboard focus.
+// desktop menus open on hover and on keyboard focus. Avoids the class `hidden`: legacy Bootstrap sets it
+// display:none !important, which would beat the responsive reveals on the legacy pages (see chrome.css).
 import Icon from './Icon.astro';
 import { menu, PHONE, EMAIL } from '../../data/nav.js';
 const link = 'block rounded-md px-3 py-2 text-[15px] text-slate-700 hover:bg-brand-50 hover:text-brand-700';
 ---
 <div class="bg-navy-950 text-[13px] text-slate-300">
   <div class="wrap flex h-9 items-center justify-between gap-4">
-    <p class="truncate"><span class="font-semibold text-white">Electronics &amp; Controls Power Systems Pvt. Ltd.</span><span class="hidden md:inline">, power electronics and online UPS manufacturer since 1978</span></p>
+    <p class="truncate"><span class="font-semibold text-white">Electronics &amp; Controls Power Systems Pvt. Ltd.</span><span class="max-md:hidden">, power electronics and online UPS manufacturer since 1978</span></p>
     <div class="flex shrink-0 items-center gap-5">
       <a class="flex items-center gap-1.5 hover:text-white" href={`tel:${PHONE.tel}`}><Icon name="phone" class="size-3.5" />{PHONE.label}</a>
-      <a class="hidden items-center gap-1.5 hover:text-white sm:flex" href={`mailto:${EMAIL}`}><Icon name="mail" class="size-3.5" />{EMAIL}</a>
+      <a class="flex items-center gap-1.5 hover:text-white max-sm:hidden" href={`mailto:${EMAIL}`}><Icon name="mail" class="size-3.5" />{EMAIL}</a>
     </div>
   </div>
 </div>
@@ -19,18 +20,18 @@ const link = 'block rounded-md px-3 py-2 text-[15px] text-slate-700 hover:bg-bra
   <div class="wrap flex h-16 items-center gap-6 lg:h-[72px]">
     <a href="/" class="flex shrink-0 items-center gap-3" aria-label="E&C Power Systems, home">
       <img src="/image/logo2.png" alt="E&C Power Systems logo" width="160" height="54" class="h-10 w-auto lg:h-12" />
-      <span class="hidden border-l border-slate-200 pl-3 text-xs font-medium leading-tight text-slate-500 xl:block">Since<br />1978</span>
+      <span class="border-l border-slate-200 pl-3 text-xs font-medium leading-tight text-slate-500 max-xl:hidden">Since<br />1978</span>
     </a>
 
-    <nav class="ml-auto hidden lg:block" aria-label="Main">
+    <nav class="ml-auto max-lg:hidden" aria-label="Main">
       <ul class="flex items-center gap-1">
         {menu.map((m) => (
           <li class="group relative">
             {m.url ? (
-              <a href={m.url} class="flex h-10 items-center rounded-md px-3 text-[15px] font-medium text-slate-800 hover:text-brand-600">{m.label}</a>
+              <a href={m.url} class="flex h-10 items-center whitespace-nowrap rounded-md px-2 text-[15px] font-medium text-slate-800 hover:text-brand-600 xl:px-3">{m.label}</a>
             ) : (
               <>
-                <button type="button" class="flex h-10 items-center gap-1 rounded-md px-3 text-[15px] font-medium text-slate-800 group-hover:text-brand-600 group-focus-within:text-brand-600" aria-haspopup="true">
+                <button type="button" class="flex h-10 items-center gap-1 whitespace-nowrap rounded-md px-2 text-[15px] font-medium text-slate-800 group-hover:text-brand-600 group-focus-within:text-brand-600 xl:px-3" aria-haspopup="true">
                   {m.label}<Icon name="chevron" class="size-4 transition group-hover:rotate-180" />
                 </button>
                 <div class={`invisible absolute top-full pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 ${m.mega ? 'left-1/2 w-[860px] -translate-x-1/2' : 'left-0 w-64'}`}>
@@ -56,11 +57,11 @@ const link = 'block rounded-md px-3 py-2 text-[15px] text-slate-700 hover:bg-bra
       </ul>
     </nav>
 
-    <a href="/get-a-quote" class="btn-primary ml-auto hidden h-10 px-4 text-sm sm:inline-flex lg:ml-2">Get a quote<Icon name="arrow" class="size-4" /></a>
+    <a href="/get-a-quote" class="btn-solid ml-auto h-10 whitespace-nowrap px-4 text-sm max-sm:hidden lg:ml-2">Get a quote<Icon name="arrow" class="size-4" /></a>
 
     <details class="group/m ml-auto sm:ml-0 lg:hidden">
       <summary class="flex size-11 cursor-pointer list-none items-center justify-center rounded-md text-navy-900 hover:bg-slate-100 [&::-webkit-details-marker]:hidden" aria-label="Menu">
-        <Icon name="menu" class="size-6 group-open/m:hidden" /><Icon name="close" class="hidden size-6 group-open/m:block" />
+        <Icon name="menu" class="size-6 group-open/m:hidden" /><Icon name="close" class="size-6 [display:none] group-open/m:block" />
       </summary>
       <nav class="absolute inset-x-0 top-full max-h-[calc(100dvh-100px)] overflow-y-auto border-b border-slate-200 bg-white px-4 pb-6 shadow-lg" aria-label="Main">
         <ul class="divide-y divide-slate-100">
@@ -79,7 +80,7 @@ const link = 'block rounded-md px-3 py-2 text-[15px] text-slate-700 hover:bg-bra
             </li>
           ))}
         </ul>
-        <a href="/get-a-quote" class="btn-primary mt-4 h-12 w-full">Get a quote<Icon name="arrow" class="size-4" /></a>
+        <a href="/get-a-quote" class="btn-solid mt-4 h-12 w-full">Get a quote<Icon name="arrow" class="size-4" /></a>
       </nav>
     </details>
   </div>

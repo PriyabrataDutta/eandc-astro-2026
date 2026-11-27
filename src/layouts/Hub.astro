@@ -6,7 +6,7 @@ import '../styles/hub.css';
 
 const { slug, title, description, name, crumbs = [], schema = [], noindex = false, image = '/image/about.jpg', quote = true } = Astro.props;
 const s = shell();
-const header = s.header.replace(/alt="[^"]*"/, `alt="${name.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}"`);
+const header = s.header.replace(/(<div class="banner[\s\S]*?<img\b[^>]*?\balt=")[^"]*/, `$1${name.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}`);
 const trail = [{ name: 'Home', url: '/' }, ...crumbs];
 const ld = [
   {
@@ -29,6 +29,7 @@ const ld = [
 	<link id="style-css" rel="stylesheet" type="text/css" href="/css/style62ea62ea.css?ver=1.2">
 	{ld.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
 	<Fragment set:html={s.analytics} />
+	<Fragment set:html={s.css} />
 	<link rel="canonical" href={urlFor(slug)} />
 	<Fragment set:html={ogTags({ title, description, url: urlFor(slug), image: urlFor('index').slice(0, -1) + image })} />
 	{noindex && <meta name="robots" content="noindex, follow" />}

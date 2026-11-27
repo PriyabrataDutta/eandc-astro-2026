@@ -1,0 +1,42 @@
+/* The redesigned header and footer on pages that still load the legacy theme CSS (Bootstrap 3 and style62ea62ea.css).
+   Everything is scoped under .ecc, the wrapper chrome.js puts round them: the legacy markup uses grid, group, sticky
+   and block as its own class names, so global utilities would restyle it. Unlayered, so the legacy rules (also
+   unlayered) cannot win by layer order; .ecc .x outranks their single-class and element selectors. */
+@import "tailwindcss/theme.css" layer(theme);
+@import "./theme.css";
+
+/* Bootstrap 3 sets html { font-size: 10px }, which would shrink every rem size to 10/16. The rem tokens the header
+   and footer use, in px. Breakpoints stay in rem: media queries measure against the browser default, not <html>. */
+@theme {
+  --spacing: 4px;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --container-xs: 320px;
+  --container-7xl: 1280px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+}
+
+/* The legacy page banner left 77px at its top for the old navbar, which floated over it. */
+.banner-static .imagebg { top: 0; }
+
+/* No box of its own, so the sticky header still sticks to the page, not to this wrapper. */
+.ecc { display: contents; font-family: var(--font-sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+/* Tailwind's preflight, only what the legacy CSS sets on these elements, and only inside the wrapper. */
+.ecc *, .ecc ::before, .ecc ::after { box-sizing: border-box; border: 0 solid; margin: 0; padding: 0; }
+.ecc a, .ecc a:hover, .ecc a:focus { color: inherit; text-decoration: inherit; }
+.ecc ul { list-style: none; }
+.ecc img, .ecc svg { display: block; vertical-align: middle; }
+.ecc img { max-width: 100%; height: auto; }
+.ecc h2 { font: inherit; color: inherit; text-transform: none; letter-spacing: normal; }
+.ecc button { font: inherit; color: inherit; background: transparent; }
+.ecc :focus-visible { outline: 2px solid var(--color-brand-500); outline-offset: 2px; }
+
+.ecc {
+  @tailwind utilities source(none);
+}
+@source "../components/site/Header.astro";
+@source "../components/site/Footer.astro";
+@source "../components/site/Icon.astro";

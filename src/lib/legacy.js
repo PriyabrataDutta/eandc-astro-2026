@@ -1,6 +1,7 @@
 // Serves the original HTML pages unchanged in design, with the SEO cleanup applied at build time.
 import fs from 'node:fs';
-import { replaceFooter } from './footer.js';
+import { replaceHeader, replaceFooter } from './footer.js';
+import { CHROME_CSS } from './chrome.js';
 import { officesHtml, OFFICES } from '../data/offices.js';
 import path from 'node:path';
 import vercel from '../../vercel.json';
@@ -203,7 +204,7 @@ const MENU_CATEGORIES = {
 export function cleanup(html, slug) {
   const known = new Set([...slugs(), ...astroPages()]);
 
-  html = replaceFooter(html);
+  html = replaceFooter(replaceHeader(html));
   // Legacy pages declared lang="zxx" (no linguistic content) or "eng"; one callto: link had no country code.
   html = html.replace(/<html lang="[^"]*"/i, '<html lang="en"').replace(/callto:080-28397120/g, 'tel:+918028397120').replace(/>080-28397120</g, '>080 2839 7120<');
   if (slug === 'contact') {
@@ -329,7 +330,8 @@ export function cleanup(html, slug) {
       .replace(/<script src="database\.js"><\/script>/, '<script src="/js/catalog-form.js"></script>');
   }
 
-  return html;
+  // Styles for the redesigned header and footer; last in <head>, after the canonical that shell() cuts at.
+  return html.replace(/<\/head>/i, `${CHROME_CSS}\n</head>`);
 }
 
 // Header, sidebar and footer of a live SEO page, reused so new pages match the current design exactly.
@@ -338,6 +340,7 @@ export function shell() {
   const html = render('ups-manufacturer-in-bangalore').replace(/(src|href)="(css|js|image|fonts|pdf)\//g, '$1="/$2/');
   const cut = (from, to) => html.slice(html.indexOf(from), html.indexOf(to));
   return {
+    css: CHROME_CSS,
     analytics: cut('<!-- Global site tag', '<link rel="canonical"').replace(/<\/head>\s*$/, ''),
     header: cut('<!-- Header -->', '<!-- Breadcrumb -->'),
     sidebar: html.match(/(<!-- Sidebar Column -->[\s\S]*?)\s*<\/div>\s*<\/div>\s*<\/div>\s*<!-- End Content Section -->/)[1],

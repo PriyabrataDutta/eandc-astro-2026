@@ -8,25 +8,7 @@
 @source "../components/site";
 @source "../pages/index.astro";
 
-@theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --color-navy-950: #04122b;
-  --color-navy-900: #0b2546;
-  --color-navy-800: #10325e;
-  --color-brand-50: #eef5ff;
-  --color-brand-100: #d9e8ff;
-  --color-brand-300: #8ec1ff;
-  --color-brand-400: #4ea0ff;
-  --color-brand-500: #1f7ff0;
-  --color-brand-600: #0b63d6;
-  --color-brand-700: #0a4fab;
-  --color-brand-800: #083d85;
-  --color-cyan-accent: #33c6f4;
-  --color-glow: rgb(31 127 240 / 0.35);
-  --color-gridline: rgb(255 255 255 / 0.05);
-  --color-press: rgb(255 255 255 / 0.2);
-}
+@import "./theme.css";
 
 html, body { overflow-x: clip; }
 
@@ -38,12 +20,6 @@ html, body { overflow-x: clip; }
 }
 
 @layer components {
-  .wrap { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
-  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 font-semibold text-white transition hover:bg-brand-700 ; }
-  .btn-primary:active { background-color: var(--color-brand-800); }
-  .btn-primary:disabled { cursor: not-allowed; opacity: 0.6; }
-  .btn-ghost { @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/30 font-semibold text-white transition hover:border-white hover:bg-white/10; }
-  .btn-ghost:active { background-color: var(--color-press); }
   .sec-h { @apply text-2xl font-bold tracking-tight sm:text-3xl; }
   .more { @apply inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-700; }
   .more:active { color: var(--color-brand-800); }
