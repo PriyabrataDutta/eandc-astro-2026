@@ -81,7 +81,7 @@
 .pd-fields label i { color:#c0392b; font-style:normal; }
 .pd-fields input, .pd-fields textarea { width:100%; min-height:44px; padding:9px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:15px; background:#fff; transition:border-color .15s, background-color .15s; }
 .pd-fields input:focus, .pd-fields textarea:focus { border-color:#1f7ff0; box-shadow:0 0 0 3px rgba(31,127,240,.2) !important; outline:none; }
-.pd-fields ::placeholder { color:#8a99a8; }
+.pd-fields ::placeholder { color:#64748b; }
 .pd-fields textarea { min-height:80px; }
 .pd-fields .full { grid-column:1 / -1; }
 .pd-submit { width:100%; }

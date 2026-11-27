@@ -2,6 +2,8 @@
  * floor: 0 FAIL · fixed: 11 (2b, 10, 11, 19, 26b, 29, 34, 38iii, 48, 54, 67) · structural: printed in handoff
  * built: the project · redesign: polish · v2.0.0 */
 /* Hallmark · waive 1 · Poppins is the E&C heading face across the whole site, loaded once by Base.astro · the brand face stays on the homepage */
+/* Hallmark · waive 74 · the site's shared header, footer and templates use Tailwind slate greys · the About page keeps the same greys so it reads as part of the site */
+/* Hallmark · waive 3 · the About page's Why E&C boxes are icon tiles over headings at the user's request · each box links to the page that proves its point */
 /* The site stylesheet (Tailwind v4), loaded by src/layouts/Base.astro on every page. The product, hub and city
    templates keep their named parts (pd-*, hb-*) as plain CSS in Tailwind's components layer. */
 @import "tailwindcss" source(none);
@@ -21,6 +23,7 @@ html, body { overflow-x: clip; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body { @apply bg-white font-sans text-slate-700 antialiased; }
   h1, h2, h3 { @apply font-display text-navy-900; text-wrap: balance; }
+  p, li { text-wrap: pretty; }
   :focus-visible { outline: 2px solid var(--color-brand-500); outline-offset: 2px; }
 }
 
@@ -31,6 +34,8 @@ html, body { overflow-x: clip; }
 
   /* Article copy on blog posts, guides and other long pages (Page.astro). */
   .prose-ec { @apply text-[15.5px] leading-[1.75] text-slate-700; }
+  /* Running text keeps a readable measure even in the full-width pages (FAQ, management). */
+  .prose-ec p, .prose-ec li, .prose-ec h2, .prose-ec h3 { max-width: 66ch; }
   .prose-ec > * + * { margin-top: 1rem; }
   .prose-ec h2 { @apply mt-10 font-display text-[1.4rem] font-semibold leading-snug text-navy-900; }
   .prose-ec h3 { @apply mt-7 font-display text-lg font-semibold leading-snug text-navy-900; }
@@ -64,7 +69,7 @@ html, body { overflow-x: clip; }
 /* Customer logos scroll in a loop; static and wrapped when motion is reduced. */
 .marquee { mask-image: linear-gradient(90deg, transparent, var(--color-navy-950) 8%, var(--color-navy-950) 92%, transparent); }
 .marquee-track { animation: marquee 40s linear infinite; }
-.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee:hover .marquee-track, .marquee:focus-within .marquee-track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
   .marquee { mask-image: none; }
@@ -74,8 +79,7 @@ html, body { overflow-x: clip; }
 
 .hero-grid {
   background-image:
-    radial-gradient(60% 70% at 78% 40%, var(--color-glow), transparent 70%),
     linear-gradient(var(--color-gridline) 1px, transparent 1px),
     linear-gradient(90deg, var(--color-gridline) 1px, transparent 1px);
-  background-size: auto, 48px 48px, 48px 48px;
+  background-size: 48px 48px, 48px 48px;
 }

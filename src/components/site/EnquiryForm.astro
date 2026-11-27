@@ -3,7 +3,7 @@
 // and message, and adds any other field (company, designation) to the message.
 // variant "contact": the contact page's message form; "catalog": a catalog request.
 const { variant = 'contact' } = Astro.props;
-const field = 'block w-full min-h-11 rounded-lg border border-slate-300 bg-white px-3 text-[15px] text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20';
+const field = 'block w-full min-h-11 rounded-lg border border-slate-300 bg-white px-3 text-[15px] text-slate-900 placeholder:text-slate-500 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20';
 const label = 'mb-1 block text-[13px] font-semibold text-slate-800';
 const contact = variant === 'contact';
 ---

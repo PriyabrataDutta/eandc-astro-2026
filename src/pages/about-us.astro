@@ -1,0 +1,164 @@
+---
+// About E&C: opens on the Peenya plant, then walks through what happens inside it (R&D, production, testing,
+// service), the company record, who runs it and who buys from it. The SEO head (title, description, H1, JSON-LD,
+// Open Graph) is the published one, kept in src/content/pages/about-us.md's frontmatter.
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/site/Breadcrumb.astro';
+import Icon from '../components/site/Icon.astro';
+import { frontmatter as fm } from '../content/pages/about-us.md';
+import { customers } from '../data/customers.js';
+import { PHONE, SALES_PHONE } from '../data/nav.js';
+
+const zones = [
+  ['Research and development', 'Products designed in-house, with a test bench for loads, heat and endurance.', '/research-and-development'],
+  ['Production', 'UPS, inverters and stabilizers built in company-owned factories.', '/eandcpower-infrastructure'],
+  ['Testing', 'Variacs, loads, heat chambers, a DG set and battery discharge testers.', '/machinery'],
+  ['Service', 'Load assessment, installation, AMC and upgrades across India.', '/eandcpower-services'],
+];
+
+// Why E&C as icon boxes, each pointing to the page that backs it up. The two unconfirmed figures in the original
+// copy ("12 Regional Offices", "24 x 7") are left out of the boxes; the record prose above still carries them.
+const why = [
+  ['flask', 'Research and Development', 'Standard and custom development of products to suit any special requirements.', '/research-and-development'],
+  ['factory', 'Manufacturing facilities', 'Fully equipped and company owned factories for production and timely delivery to its customers.', '/eandcpower-infrastructure'],
+  ['layers', 'Product Portfolio and Capability', 'Wide range of products to meet every customer’s needs.', '/sitemap'],
+  ['pin', 'Sales & Marketing Infrastructure', 'Regional sales offices across India.', '/contact#sales-offices'],
+  ['headset', 'Customer Support Services', 'Dedicated company owned service team for support and maintenance.', '/eandcpower-services'],
+  ['wrench', 'Surround Services', 'Load Assessment, Wiring and Upgradation.', '/get-a-quote'],
+];
+
+const leaders = [
+  ['Sundari Ramachandran', 'Chairperson', '/image/sundari-lyer.jpg'],
+  ['Rajaram Ramamoorthy', 'Chief Executive Officer', '/image/rajaram-ramamoorthy.jpg'],
+  ['Vidya Iyer', 'Managing Director', '/image/vidya-lyer.jpg'],
+  ['M. S. Sivasankaran', 'Director', null],
+];
+const initials = (n) => n.split(/[\s.]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('');
+---
+<Base slug="about-us" title={fm.title} description={fm.description} image={fm.image} schema={fm.schema}>
+  <Breadcrumb trail={[{ name: 'Home', url: '/' }]} current={fm.h1} />
+
+  <!-- The plant: navy field, the photograph bleeding off the right edge, the nameplate over it -->
+  <section class="relative overflow-hidden bg-navy-900">
+    <img src="/image/about.jpg" alt="E&C Power Systems office and factory in Peenya Industrial Area, Bengaluru" width="855" height="570" fetchpriority="high" class="aspect-[4/3] w-full object-cover lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:h-full lg:w-[68%]" />
+    <div class="container relative lg:flex lg:min-h-[520px] lg:items-end lg:pb-14 lg:pt-20">
+      <div class="-mt-16 bg-navy-950 p-7 text-white shadow-2xl ring-1 shadow-navy-950/60 ring-brand-300/25 sm:p-10 lg:mt-0 lg:w-[600px]">
+        <h1 class="font-display text-[2.4rem] font-bold leading-[1.05] tracking-[-0.02em] text-white sm:text-5xl">{fm.h1}</h1>
+        <p class="mt-4 max-w-[44ch] text-lg leading-relaxed text-slate-300">Power electronics designed and built at our own Bengaluru plant since 1978.</p>
+        <p class="mt-5 flex gap-2 text-sm text-brand-300"><Icon name="pin" class="mt-0.5 size-4 shrink-0" />29/A, 2nd Phase, Peenya Industrial Area, Bengaluru 560058</p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="/get-a-quote" class="btn-solid h-12 whitespace-nowrap px-6 active:bg-brand-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-500">Get a quote<Icon name="arrow" class="size-4" /></a>
+          <a href={`tel:${PHONE.tel}`} class="btn-ghost h-12 whitespace-nowrap px-6 active:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-500"><Icon name="phone" class="size-4" />{PHONE.label}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What happens inside: four zones, each with its own page -->
+  <nav aria-label="Inside the plant" class="border-b border-slate-200">
+    <ul class="container grid sm:grid-cols-2 lg:grid-cols-4">
+      {zones.map(([h, t, u]) => (
+        <li class="border-slate-200 max-lg:border-b sm:max-lg:odd:border-r lg:border-r lg:pl-6 lg:first:pl-0 lg:last:border-r-0">
+          <a href={u} class="group block h-full py-7 pr-6 active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-500">
+            <span class="block h-[3px] w-8 origin-left bg-brand-600 transition-transform duration-300 ease-out group-hover:scale-x-[1.75] motion-reduce:transition-none"></span>
+            <span class="mt-4 flex items-start justify-between gap-3 font-display text-xl font-semibold text-navy-900 group-hover:text-brand-700">{h}<Icon name="arrow" class="mt-1.5 size-4 shrink-0 text-brand-600" /></span>
+            <span class="mt-1.5 block text-[15px] leading-relaxed text-slate-600">{t}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <!-- The company record -->
+  <section class="py-20 lg:py-28" aria-labelledby="h-record">
+    <div class="container grid gap-12 lg:grid-cols-12 lg:gap-8">
+      <div class="lg:col-span-5">
+        <h2 id="h-record" class="font-display text-[2rem] font-bold leading-tight tracking-[-0.015em] text-navy-900 lg:text-[2.5rem]">Founded in 1978 and still led by the founder’s family</h2>
+        <dl class="mt-10 divide-y divide-slate-200 border-y border-slate-200 text-[15px]">
+          <div class="grid grid-cols-[9rem_minmax(0,1fr)] gap-4 py-3.5"><dt class="font-semibold text-navy-900">Founded</dt><dd class="text-slate-700">1978, as Electronics &amp; Controls</dd></div>
+          <div class="grid grid-cols-[9rem_minmax(0,1fr)] gap-4 py-3.5"><dt class="font-semibold text-navy-900">Founder</dt><dd class="text-slate-700">Rtn. K. Ramachandra Iyer</dd></div>
+          <div class="grid grid-cols-[9rem_minmax(0,1fr)] gap-4 py-3.5"><dt class="font-semibold text-navy-900">Incorporated</dt><dd class="text-slate-700">1997, private limited company</dd></div>
+          <div class="grid grid-cols-[9rem_minmax(0,1fr)] gap-4 py-3.5"><dt class="font-semibold text-navy-900">Standards</dt><dd class="text-slate-700">ISO 9001 and ISO 14001</dd></div>
+          <div class="grid grid-cols-[9rem_minmax(0,1fr)] gap-4 py-3.5"><dt class="font-semibold text-navy-900">CIN</dt><dd class="text-slate-700 tabular-nums">U31200KA1997PTC022448</dd></div>
+        </dl>
+      </div>
+      <div class="space-y-5 text-[17px] leading-[1.75] text-slate-700 lg:col-span-6 lg:col-start-7">
+        <p>Popularly known as “E&amp;C”, We are one of India’s most reputed manufacturers of Power solution products. With over three decades of experience in the field of Power electronics, E&amp;C specializes in manufacturing Online UPS systems. With an extensive customer base across India, E&amp;C is a well known brand enjoying a customer satisfaction rating of over 94%*.</p>
+        <p>Founded by Rtn. K. Ramachandra Iyer (popularly known as “Iyer”), a technocrat, in 1978, as Electronics &amp; Controls, it was later converted into a Private Limited Company in 1997.</p>
+        <p>E&amp;C’s own customer support services are available in 10 regional offices and 48 dedicated service locations operating 24x7 across the country.</p>
+        <p>E&amp;C is a major player in the Power Electronics industry in India serving a wide range of customers including Banks, Financial Services, Insurance, Government, Manufacturing, Retail and Corporate Customers</p>
+        <p>An <strong class="font-semibold text-navy-900">ISO 9001 &amp; 14001</strong> accredited company, E&amp;C follows very high quality standards for all its power products combining this with a strong Research and Development team. E&amp;C’s products are CE certified and have been tested by ETDC, SAMEER and ERTL for industry set parameters as well as environmental and safety standards. E&amp;C’s online UPS are certified by Bureau of Indian Standards(BIS).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why E&C: six icon boxes, each linking to its proof page, then the facilities text -->
+  <section class="bg-slate-50 py-20 lg:py-28" aria-labelledby="h-why">
+    <div class="container">
+      <h2 id="h-why" class="font-display text-[2rem] font-bold leading-tight tracking-[-0.015em] text-navy-900 lg:text-[2.5rem]">Why E&amp;C</h2>
+      <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {why.map(([icon, h, x, u]) => (
+          <li>
+            <a href={u} class="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-6 transition-colors duration-200 hover:border-brand-300 active:border-brand-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500">
+              <span class="flex items-start justify-between">
+                <span class="flex size-12 items-center justify-center rounded-lg bg-brand-50 text-brand-600"><Icon name={icon} class="size-6" /></span>
+                <Icon name="arrow" class="size-5 text-slate-300 transition-colors duration-200 group-hover:text-brand-600" />
+              </span>
+              <span class="mt-5 font-display text-lg font-semibold text-navy-900">{h}</span>
+              <span class="mt-1.5 text-[15px] leading-relaxed text-slate-600">{x}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="mt-12 grid gap-5 border-t border-slate-200 pt-8 text-[17px] leading-[1.75] text-slate-700 lg:grid-cols-2 lg:gap-8">
+        <p>E&amp;C has manufacturing facilities in Bangalore and Pondicherry of over 30,000 sq feet is well equipped with modern manufacturing and testing facilities. Very high quality parameters are laid for incoming raw material and finished products are subjected to rigorous tests to ensure high reliability of the end product. Delivery timeliness is monitored and maintained at 95%.</p>
+        <p>E&amp;C employs automated software to manage inventory, purchase, finance and service to achieve high levels of accuracy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section class="py-20 lg:py-28" aria-labelledby="h-people">
+    <div class="container">
+      <div class="flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
+        <h2 id="h-people" class="font-display text-[2rem] font-bold leading-tight tracking-[-0.015em] text-navy-900 lg:text-[2.5rem]">The people who run E&amp;C</h2>
+        <a href="/management" class="inline-flex items-center gap-2 text-base font-semibold text-brand-700 underline decoration-brand-300 underline-offset-4 hover:decoration-current active:text-brand-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-500">Meet the management team</a>
+      </div>
+      <ul class="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-x-8">
+        {leaders.map(([n, r, img]) => (
+          <li>
+            {img
+              ? <img src={img} alt={`${n}, ${r}`} width="600" height="750" loading="lazy" class="aspect-[4/5] w-full rounded-lg bg-slate-100 object-cover object-top" />
+              : <div class="flex aspect-[4/5] w-full items-center justify-center rounded-lg bg-slate-100 font-display text-5xl font-bold text-navy-900/70" role="img" aria-label={`${n}, ${r}`}>{initials(n)}</div>}
+            <h3 class="mt-4 font-display text-lg font-semibold text-navy-900">{n}</h3>
+            <p class="text-[15px] text-slate-600">{r}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Who buys from E&C -->
+  <section class="border-t border-slate-200 bg-slate-50 py-16 lg:py-20" aria-labelledby="h-cust">
+    <div class="container">
+      <h2 id="h-cust" class="font-display text-2xl font-bold tracking-[-0.01em] text-navy-900 lg:text-[1.75rem]">Banks, PSUs and defence organisations run on E&amp;C</h2>
+      <ul class="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 sm:grid-cols-7" aria-label="Customers">
+        {customers.map(([f, n]) => <li class="flex h-20 items-center justify-center bg-white p-3"><img src={`/image/${f}`} alt={n} width="95" height="65" loading="lazy" class="max-h-11 w-auto object-contain mix-blend-multiply" /></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Close -->
+  <section class="bg-navy-900 py-16 text-white lg:py-20" aria-labelledby="h-visit">
+    <div class="container grid items-center gap-8 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <h2 id="h-visit" class="font-display text-[2rem] font-bold leading-tight tracking-[-0.015em] text-white lg:text-[2.5rem]">Talk to the team that builds it</h2>
+        <p class="mt-4 max-w-[52ch] text-lg leading-relaxed text-slate-300">Tell us the load and backup time. An E&amp;C engineer sizes the system and sends a quotation.</p>
+      </div>
+      <div class="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
+        <a href="/get-a-quote" class="btn-solid h-12 whitespace-nowrap px-6 active:bg-brand-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-500">Get a quote<Icon name="arrow" class="size-4" /></a>
+        <a href={`tel:${SALES_PHONE.tel}`} class="btn-ghost h-12 whitespace-nowrap px-6 active:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-500"><Icon name="phone" class="size-4" />Sales {SALES_PHONE.label}</a>
+      </div>
+    </div>
+  </section>
+</Base>

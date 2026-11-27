@@ -1,13 +1,15 @@
 ---
 // Company, contact and keyword pages written in Markdown (src/content/pages/<slug>.md). Frontmatter carries the head
 // exactly as published: title, description, h1, robots, Open Graph image and the full JSON-LD set (`schema`).
-// Extras: `form` ("contact" or "catalog") adds an enquiry form, `map` the Google map of the Peenya plant.
+// Pages with their own src/pages/<slug>.astro are skipped here. Extras: `form` ("contact" or "catalog") adds an enquiry form, `map` the Google map of the Peenya plant.
 import Page from '../layouts/Page.astro';
 import EnquiryForm from '../components/site/EnquiryForm.astro';
 
 export function getStaticPaths() {
   const files = import.meta.glob('../content/pages/*.md', { eager: true });
-  return Object.entries(files).map(([file, mod]) => ({
+  // A page with its own route (src/pages/<slug>.astro, e.g. about-us) only lends its frontmatter.
+  const own = import.meta.glob('./*.astro');
+  return Object.entries(files).filter(([file]) => !own[`./${file.split('/').pop().replace(/\.md$/, '')}.astro`]).map(([file, mod]) => ({
     params: { slug: file.split('/').pop().replace(/\.md$/, '') },
     props: { fm: mod.frontmatter, Content: mod.Content },
   }));

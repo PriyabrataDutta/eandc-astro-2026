@@ -1,9 +1,9 @@
 /* India hub, state, city and industrial pages: extends pd.css. */
-.hb-hero { background-color:#0b2546; background-image:radial-gradient(60% 70% at 78% 40%, rgb(31 127 240 / .35), transparent 70%), linear-gradient(rgb(255 255 255 / .05) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / .05) 1px, transparent 1px); background-size:auto, 48px 48px, 48px 48px; color:#fff; padding:28px 0 32px; }
+.hb-hero { background-color:#0b2546; background-image:linear-gradient(rgb(255 255 255 / .05) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / .05) 1px, transparent 1px); background-size:48px 48px, 48px 48px; color:#fff; padding:28px 0 32px; }
 .hb-hero .pd-wrap { grid-template-columns:1fr; align-items:center; }
 .hb-hero .pd-eyebrow { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.15); color:#d9e8ff; }
 .hb-hero h1 { color:#fff; font-size:30px; font-weight:700; line-height:1.15; letter-spacing:-.015em; margin:0 0 12px; text-wrap:balance; }
-.hb-lead { color:#cbd5e1; font-size:15.5px; line-height:1.6; margin:0 0 16px; }
+.hb-lead { max-width:58ch; color:#cbd5e1; font-size:15.5px; line-height:1.6; margin:0 0 16px; }
 .hb-hero .pd-chips li { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.2); color:#fff; }
 .hb-hero .pd-chips .ic { color:#33c6f4; }
 .hb-hero .pd-btn-line { background:transparent; border-color:rgba(255,255,255,.3); color:#fff !important; }
@@ -17,7 +17,7 @@
 .hb-stats strong { display:block; font-size:24px; font-weight:700; color:var(--navy); line-height:1.2; }
 .hb-stats span { font-size:12.5px; color:var(--muted); }
 
-.hb-p { color:#3d4b5a; line-height:1.7; margin:0 0 12px; font-size:15px; max-width:820px; }
+.hb-p { color:#3d4b5a; line-height:1.7; margin:0 0 12px; font-size:15px; max-width:66ch; }
 .hb-sub { color:var(--muted); margin:-6px 0 16px; font-size:14.5px; }
 
 /* Map + cards side by side from 992px */
@@ -75,7 +75,7 @@ a.hb-card:hover { border-color:#8ec1ff; box-shadow:0 12px 24px -8px rgba(11,99,2
 .hb-faq summary::-webkit-details-marker { display:none; }
 .hb-faq summary::after { content:'+'; position:absolute; right:16px; top:9px; font-size:22px; color:var(--blue); font-weight:400; }
 .hb-faq details[open] summary::after { content:'\2212'; }
-.hb-faq details p { padding:0 16px 14px; margin:0; color:#3d4b5a; line-height:1.65; font-size:14.5px; }
+.hb-faq details p { max-width:70ch; padding:0 16px 14px; margin:0; color:#3d4b5a; line-height:1.65; font-size:14.5px; }
 
 .hb-why { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
 .hb-why li { margin:0; display:flex; gap:12px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; font-size:14px; line-height:1.55; color:#3d4b5a; }
